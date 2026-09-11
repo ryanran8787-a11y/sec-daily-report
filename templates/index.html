@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>網安每日報 {{ report.date }}</title>
+<style>
+:root{--bg:#0b0f17;--card:#151c2b;--line:#243044;--txt:#e8eef7;--mut:#8fa0b8;--red:#f0524f;--org:#ff9f1c;--grn:#2fd180;--blu:#4aa8ff}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--txt);font-family:"Noto Sans TC",system-ui,-apple-system,"Microsoft JhengHei",sans-serif}
+.wrap{max-width:1080px;margin:0 auto;padding:24px 16px 64px}
+header{display:flex;flex-wrap:wrap;gap:12px;align-items:end;justify-content:space-between;border-bottom:1px solid var(--line);padding-bottom:16px}
+h1{margin:0;font-size:28px}h1 span{color:var(--org)}.sub{color:var(--mut);font-size:14px;margin-top:6px}
+.meta{display:flex;gap:8px;flex-wrap:wrap}.pill{border:1px solid var(--line);border-radius:999px;padding:4px 12px;font-size:13px;color:var(--mut)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:14px;margin-top:20px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:10px}
+.card h2{font-size:17px;margin:0;line-height:1.4}.badges{display:flex;gap:6px;flex-wrap:wrap}
+.b{font-size:12px;font-weight:700;border-radius:6px;padding:2px 8px}
+.cvss{background:var(--red);color:#fff}.kev{background:var(--org);color:#111}.type{background:#22314d;color:var(--blu);border:1px solid #2f4a7a}
+.epss{background:#1d2b22;color:var(--grn);border:1px solid #2a4a3a}
+.sum{font-size:14px;color:#cdd8e8;line-height:1.6}.cve{font-size:12px;color:var(--mut)}.cve a{color:var(--blu);text-decoration:none}
+.fix{font-size:13px;background:#101827;border:1px dashed #2c3d5a;border-radius:8px;padding:8px 10px}
+.hist{margin-top:36px}select{background:var(--card);color:var(--txt);border:1px solid var(--line);border-radius:8px;padding:8px 12px;font-size:14px}
+footer{margin-top:40px;color:var(--mut);font-size:12px;border-top:1px solid var(--line);padding-top:12px}
+.toolbar{display:flex;gap:8px;align-items:center;margin-top:16px;flex-wrap:wrap}
+.toolbar input{background:var(--card);border:1px solid var(--line);border-radius:8px;color:var(--txt);padding:8px 12px;font-size:14px;min-width:220px}
+.empty{background:var(--card);border:1px dashed var(--line);border-radius:14px;padding:32px;text-align:center;color:var(--mut);margin-top:20px}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div>
+    <h1>🛡️ 網安<span>每日報</span></h1>
+    <div class="sub">最新一期 {{ report.date }} ・ 共 {{ report.count }} 則高危（CVSS ≥ 9.0 或在野利用）・ 引擎 {{ report.engine }}</div>
+  </div>
+  <div class="meta">
+    <div class="pill">來源 NVD + CISA KEV + EPSS</div>
+    <div class="pill">每天 08:00 (台北) 自動更新</div>
+  </div>
+</header>
+
+<div class="toolbar">
+  <input id="q" placeholder="搜尋 CVE / 廠商 / 類型…" oninput="filterCards()">
+  <label><input type="checkbox" id="wild" onchange="filterCards()"> 只看在野利用</label>
+</div>
+
+{% if report["items"] %}
+<div class="grid" id="grid">
+{% for it in report["items"] %}
+  <div class="card" data-wild="{{ '1' if it.in_wild else '0' }}">
+    <div class="badges">
+      {% if it.cvss %}<span class="b cvss">CVSS {{ it.cvss }}</span>{% endif %}
+      {% if it.in_wild %}<span class="b kev">🔥 在野利用</span>{% endif %}
+      <span class="b type">{{ it.type }}</span>
+      {% if it.epss %}<span class="b epss">EPSS {{ '%.2f'|format(it.epss) }}</span>{% endif %}
+    </div>
+    <h2>{{ it.title_zh }}</h2>
+    <div class="sum">{{ it.summary_zh }}</div>
+    <div class="cve">{{ it.cve }} ・ 影響：{{ it.affected }}
+      {% if it.refs %}・ <a href="{{ it.refs[0] }}" target="_blank">參考連結</a>{% endif %}
+    </div>
+    <div class="fix">🛠 {{ it.fix_hint }}</div>
+  </div>
+{% endfor %}
+</div>
+{% else %}
+<div class="empty">今日無 CVSS ≥ 9.0 或在野利用項目，好日子 🎉</div>
+{% endif %}
+
+<div class="hist">
+  <h3>📅 歷史存檔</h3>
+  <select onchange="if(this.value)location.href=this.value">
+    {% for h in history %}
+    <option value="data/{{ h.date }}.json" {% if h.date==report.date %}selected{% endif %}>{{ h.date }}（{{ h.count }} 則）</option>
+    {% endfor %}
+  </select>
+  <span style="color:var(--mut);font-size:13px">歷史 JSON 在 docs/data/，可直接當 API 用</span>
+</div>
+
+<footer>資料：NVD / CISA KEV / FIRST EPSS ・ AI 提煉僅供參考，請以官方 Advisory 為準 ・ 由 GitHub Actions 每日自動產生</footer>
+</div>
+<script>
+function filterCards(){
+  const q=(document.getElementById('q').value||'').toLowerCase();
+  const w=document.getElementById('wild').checked;
+  document.querySelectorAll('#grid .card').forEach(c=>{
+    const t=c.innerText.toLowerCase();
+    const okQ=!q||t.includes(q);
+    const okW=!w||c.dataset.wild==='1';
+    c.style.display=(okQ&&okW)?'':'none';
+  });
+}
+</script>
+</body>
+</html>

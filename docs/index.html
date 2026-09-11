@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>網安每日報 2026-09-11</title>
+<style>
+:root{--bg:#0b0f17;--card:#151c2b;--line:#243044;--txt:#e8eef7;--mut:#8fa0b8;--red:#f0524f;--org:#ff9f1c;--grn:#2fd180;--blu:#4aa8ff}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--txt);font-family:"Noto Sans TC",system-ui,-apple-system,"Microsoft JhengHei",sans-serif}
+.wrap{max-width:1080px;margin:0 auto;padding:24px 16px 64px}
+header{display:flex;flex-wrap:wrap;gap:12px;align-items:end;justify-content:space-between;border-bottom:1px solid var(--line);padding-bottom:16px}
+h1{margin:0;font-size:28px}h1 span{color:var(--org)}.sub{color:var(--mut);font-size:14px;margin-top:6px}
+.meta{display:flex;gap:8px;flex-wrap:wrap}.pill{border:1px solid var(--line);border-radius:999px;padding:4px 12px;font-size:13px;color:var(--mut)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:14px;margin-top:20px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:10px}
+.card h2{font-size:17px;margin:0;line-height:1.4}.badges{display:flex;gap:6px;flex-wrap:wrap}
+.b{font-size:12px;font-weight:700;border-radius:6px;padding:2px 8px}
+.cvss{background:var(--red);color:#fff}.kev{background:var(--org);color:#111}.type{background:#22314d;color:var(--blu);border:1px solid #2f4a7a}
+.epss{background:#1d2b22;color:var(--grn);border:1px solid #2a4a3a}
+.sum{font-size:14px;color:#cdd8e8;line-height:1.6}.cve{font-size:12px;color:var(--mut)}.cve a{color:var(--blu);text-decoration:none}
+.fix{font-size:13px;background:#101827;border:1px dashed #2c3d5a;border-radius:8px;padding:8px 10px}
+.hist{margin-top:36px}select{background:var(--card);color:var(--txt);border:1px solid var(--line);border-radius:8px;padding:8px 12px;font-size:14px}
+footer{margin-top:40px;color:var(--mut);font-size:12px;border-top:1px solid var(--line);padding-top:12px}
+.toolbar{display:flex;gap:8px;align-items:center;margin-top:16px;flex-wrap:wrap}
+.toolbar input{background:var(--card);border:1px solid var(--line);border-radius:8px;color:var(--txt);padding:8px 12px;font-size:14px;min-width:220px}
+.empty{background:var(--card);border:1px dashed var(--line);border-radius:14px;padding:32px;text-align:center;color:var(--mut);margin-top:20px}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div>
+    <h1>🛡️ 網安<span>每日報</span></h1>
+    <div class="sub">最新一期 2026-09-11 ・ 共 57 則高危（CVSS ≥ 9.0 或在野利用）・ 引擎 fallback</div>
+  </div>
+  <div class="meta">
+    <div class="pill">來源 NVD + CISA KEV + EPSS</div>
+    <div class="pill">每天 08:00 (台北) 自動更新</div>
+  </div>
+</header>
+
+<div class="toolbar">
+  <input id="q" placeholder="搜尋 CVE / 廠商 / 類型…" oninput="filterCards()">
+  <label><input type="checkbox" id="wild" onchange="filterCards()"> 只看在野利用</label>
+</div>
+
+
+<div class="grid" id="grid">
+
+  <div class="card" data-wild="0">
+    <div class="badges">
+      <span class="b cvss">CVSS 10.0</span>
+      
+      <span class="b type">RCE</span>
+      
+    </div>
+    <h2>teddy-bear-customize-addon RCE CVE-2026-14560 10.0</h2>
+    <div class="sum">The teddy-bear-customize-addon WordPress plugin through 1.0.5 does not properly validate uploaded files, relying on a cl…</div>
+    <div class="cve">CVE-2026-14560 ・ 影響：teddy-bear-customize-addon
+      ・ <a href="https://wpscan.com/vulnerability/aba51906-91dc-4e75-ad44-373fe128deee/" target="_blank">參考連結</a>
+    </div>
+    <div class="fix">🛠 更新至官方修補版本</div>
+  </div>
+
+  <div class="card" data-wild="0">
+    <div class="badges">
+      <span class="b cvss">CVSS 10.0</span>
+      
+      <span class="b type">未授權存取</span>
+      
+    </div>
+    <h2>待確認產品 未授權存取 CVE-2026-80462 10.0</h2>
+    <div class="sum">A vulnerability in the Chef Automate API gateway and identity validation path may allow an unauthenticated actor to gain…</div>
+    <div class="cve">CVE-2026-80462 ・ 影響：待確認產品
+      ・ <a href="https://community.progress.com/s/article/Critical-Security-Bulletin---August-2026---Chef-Automate-Security-Vulnerability" target="_blank">參考連結</a>
+    </div>
+    <div class="fix">🛠 更新至官方修補版本</div>
+  </div>
+
+  <div class="card" data-wild="0">
+    <div class="badges">
+      <span class="b cvss">CVSS 9.9</span>
+      
+      <span class="b type">目錄遍歷</span>
+      
+    </div>
+    <h2>待確認產品 目錄遍歷 CVE-2026-68487 9.9</h2>
+    <div class="sum">Path traversal in Plesk&#39;s Backup Manager causes arbitrary file write as root by an authenticated customer.…</div>
+    <div class="cve">CVE-2026-68487 ・ 影響：待確認產品
+      ・ <a href="https://support.plesk.com/hc/en-us/articles/43248841638551-Vulnerability-in-Plesk-s-Backup-Manager-unsigned-backup-header-allows-path-traversal" target="_blank">參考連結</a>
+    </div>
+    <div class="fix">🛠 更新至官方修補版本</div>
+  </div>
+
+  <div class="card" data-wild="0">
+    <div class="badges">
+      <span class="b cvss">CVSS 9.9</span>
+      
+      <span class="b type">權限提升</span>
+      
+    </div>
+    <h2>待確認產品 權限提升 CVE-2026-68488 9.9</h2>
+    <div class="sum">A Time-of-check Time-of-use (TOCTOU) race condition leading to insecure symlink following in Plesk causes local privileg…</div>
+    <div class="cve">CVE-2026-68488 ・ 影響：待確認產品
+      ・ <a href="https://support.plesk.com/hc/en-us/articles/43248932867351-Vulnerability-in-Plesk-s-Backup-Manager-symlink-race-during-restore-allows-root-privilege-escalation" target="_blank">參考連結</a>
+    </div>
+    <div class="fix">🛠 更新至官方修補版本</div>
+  </div>
+
+  <div class="card" data-wild="0">
+    <div class="badges">
+      <span class="b cvss">CVSS 9.9</span>
+      
+      <span class="b type">SSRF</span>
+      
+    </div>
+    <h2>待確認產品 SSRF CVE-2026-89049 9.9</h2>
+    <div class="sum">A server-side request forgery issue due to improper validation of equivalent address representations in the port forward…</div>
+    <div class="cve">CVE-2026-89049 ・ 影響：待確認產品
+      ・ <a href="https://aws.amazon.com/security/security-bulletins/2026-107-aws/" target="_blank">參考連結</a>
+    </div>
+    <div class="fix">🛠 更新至官方修補版本</div>
+  </div>
+
+  <div class="card" data-wild="0">
+    <div class="badges">
+      <span class="b cvss">CVSS 9.9</span>
+      
+      <span class="b type">RCE</span>
+      
+    </div>
+    <h2>Forgejo RCE CVE-2026-89094 9.9</h2>
+    <div class="sum">Forgejo before 16.0.4 allows remote code execution via a crafted template repository because template expansion on files…</div>
+    <div class="cve">CVE-2026-89094 ・ 影響：Forgejo
+      ・ <a href="https://codeberg.org/forgejo/forgejo/milestone/139655" target="_blank">參考連結</a>
+    </div>
+    <div class="fix">🛠 更新至官方修補版本</div>
+  </div>
+
+  <div class="card" data-wild="0">
+    <div class="badges">
+      <span class="b cvss">CVSS 9.8</span>
+      
+      <span class="b type">越權/接管</span>
+      
+    </div>
+    <h2>待確認產品 越權/接管 CVE-2026-88877 9.8</h2>
+    <div class="sum">Traefik is a HTTP reverse proxy and load balancer. In versions &gt;= v3.7.0 and &lt;= v3.7.11, the Kubernetes ingress-nginx pr…</div>
+    <div class="cve">CVE-2026-88877 ・ 影響：待確認產品
+      ・ <a href="https://github.com/traefik/traefik/security/advisories/GHSA-cjr6-pf59-jq29" target="_blank">參考連結</a>
+    </div>
+    <div class="fix">🛠 更新至官方修補版本</div>
+  </div>
+
+  <div class="card" data-wild="0">
+    <div class="badges">
+      <span class="b cvss">CVSS 9.8</span>
+      
+      <span class="b type">RCE</span>
+      
+    </div>
+    <h2>Dell ThinOS 10, versions RCE CVE-2026-81467 9.8</h2>
+    <div class="sum">Dell ThinOS 10, versions prior to 2605_10. 2616, contains an Improper Neutralization of Special Elements used in an OS C…</div>
+    <div class="cve">CVE-2026-81467 ・ 影響：Dell ThinOS 10, versions
+      ・ <a href="https://www.dell.com/support/kbdoc/en-us/000502746/dsa-2026-389-security-update-for-dell-thinos-10-for-multiple-vulnerabilities" target="_blank">參考連結</a>
+    </div>
+    <div class="fix">🛠 更新至官方修補版本</div>
+  </div>
+
+  <div class="card" data-wild="0">
+    <div class="badges">
+      <span class="b cvss">CVSS 9.8</span>
+      
+      <span class="b type">身份繞過/接管</span>
+      
+    </div>
+    <h2>待確認產品 身份繞過/接管 CVE-2026-88018 9.8</h2>
+    <div class="sum">rclone is a command-line program to sync files and directories to and from different cloud storage providers. Prior to 1…</div>
+    <div class="cve">CVE-2026-88018 ・ 影響：待確認產品
+      ・ <a href="https://github.com/rclone/rclone/commit/90595f34f27f569be6b27c57fe5ab65057d323bd" target="_blank">參考連結</a>
+    </div>
+    <div class="fix">🛠 更新至官方修補版本</div>
+  </div>
+
+  <div class="card" data-wild="0">
+    <div class="badges">
+      <span class="b cvss">CVSS 9.8</span>
+      
+      <span class="b type">其他高危</span>
+      
+    </div>
+    <h2>knowns versions 其他高危 CVE-2026-88899 9.8</h2>
+    <div class="sum">knowns versions before 0.31.0 fail to properly validate the x-opencode-directory request header in the /api/opencode pro…</div>
+    <div class="cve">CVE-2026-88899 ・ 影響：knowns versions
+      ・ <a href="https://github.com/knowns-dev/knowns/blob/v0.30.0/internal/server/server.go#L1283-L1296" target="_blank">參考連結</a>
+    </div>
+    <div class="fix">🛠 更新至官方修補版本</div>
+  </div>
+
+  <div class="card" data-wild="0">
+    <div class="badges">
+      <span class="b cvss">CVSS 9.8</span>
+      
+      <span class="b type">RCE</span>
+      
+    </div>
+    <h2>An issue in Flowise 3.1.2 RCE CVE-2026-52098 9.8</h2>
+    <div class="sum">An issue in Flowise 3.1.2 allows a remote attacker to execute arbitrary code via the /api/v1/prediction/&lt;flowId&gt; endpoin…</div>
+    <div class="cve">CVE-2026-52098 ・ 影響：An issue in Flowise 3.1.2
+      ・ <a href="https://github.com/FlowiseAI/Flowise" target="_blank">參考連結</a>
+    </div>
+    <div class="fix">🛠 更新至官方修補版本</div>
+  </div>
+
+  <div class="card" data-wild="0">
+    <div class="badges">
+      <span class="b cvss">CVSS 9.8</span>
+      
+      <span class="b type">RCE</span>
+      
+    </div>
+    <h2>IBM Langflow OSS 1.0.0 RCE CVE-2026-85025 9.8</h2>
+    <div class="sum">IBM Langflow OSS 1.0.0 through 1.11.5 Langflow could allow an unauthenticated attacker to execute arbitrary code and acc…</div>
+    <div class="cve">CVE-2026-85025 ・ 影響：IBM Langflow OSS 1.0.0
+      ・ <a href="https://www.ibm.com/support/pages/node/7286666" target="_blank">參考連結</a>
+    </div>
+    <div class="fix">🛠 更新至官方修補版本</div>
+  </div>
+
+  <div class="card" data-wild="0">
+    <div class="badges">
+      <span class="b cvss">CVSS 9.8</span>
+      
+      <span class="b type">其他高危</span>
+      
+    </div>
+    <h2>IBM ContextForge MCP Gateway 1.0.0 其他高危 CVE-2026-78573 9.8</h2>
+    <div class="sum">IBM ContextForge MCP Gateway 1.0.0 through 1.0.7 could allow a remote attacker to gain administrative access due to the …</div>
+    <div class="cve">CVE-2026-78573 ・ 影響：IBM ContextForge MCP Gateway 1.0.0
+      ・ <a href="https://www.ibm.com/support/pages/node/7286834" target="_blank">參考連結</a>
+    </div>
+    <div class="fix">🛠 更新至官方修補版本</div>
+  </div>
+
+  <div class="card" data-wild="0">
+    <div class="badges">
+      <span class="b cvss">CVSS 9.8</span>
+      
+      <span class="b type">RCE</span>
+      
+    </div>
+    <h2>IBM Langflow OSS 1.0.0 RCE CVE-2026-79724 9.8</h2>
+    <div class="sum">IBM Langflow OSS 1.0.0 through 1.11.5 could allow a remote attacker to execute arbitrary OS commands due to improper neu…</div>
+    <div class="cve">CVE-2026-79724 ・ 影響：IBM Langflow OSS 1.0.0
+      ・ <a href="https://www.ibm.com/support/pages/node/7286666" target="_blank">參考連結</a>
+    </div>
+    <div class="fix">🛠 更新至官方修補版本</div>
+  </div>
+
+  <div class="card" data-wild="0">
+    <div class="badges">
+      <span class="b cvss">CVSS 9.8</span>
+      
+      <span class="b type">RCE</span>
+      
+    </div>
+    <h2>IBM Langflow OSS 1.0.0 RCE CVE-2026-81204 9.8</h2>
+    <div class="sum">IBM Langflow OSS 1.0.0 through 1.11.5 could allow a remote attacker to execute arbitrary code due to code injection duri…</div>
+    <div class="cve">CVE-2026-81204 ・ 影響：IBM Langflow OSS 1.0.0
+      ・ <a href="https://www.ibm.com/support/pages/node/7286666" target="_blank">參考連結</a>
+    </div>
+    <div class="fix">🛠 更新至官方修補版本</div>
+  </div>
+
+  <div class="card" data-wild="0">
+    <div class="badges">
+      <span class="b cvss">CVSS 9.8</span>
+      
+      <span class="b type">RCE</span>
+      
+    </div>
+    <h2>MIPL Grouped Checkout Fields for WooComm RCE CVE-2026-8778 9.8</h2>
+    <div class="sum">The MIPL Grouped Checkout Fields for WooCommerce – Customize &amp; Organize Checkout Fields. plugin for WordPress is vulnera…</div>
+    <div class="cve">CVE-2026-8778 ・ 影響：MIPL Grouped Checkout Fields for WooComm
+      ・ <a href="https://plugins.trac.wordpress.org/browser/mipl-wc-checkout-fields/tags/1.2.1/include/class-mipl-wc-cf-checkout-block.php#L415" target="_blank">參考連結</a>
+    </div>
+    <div class="fix">🛠 更新至官方修補版本</div>
+  </div>
+
+  <div class="card" data-wild="0">
+    <div class="badges">
+      <span class="b cvss">CVSS 9.8</span>
+      
+      <span class="b type">身份繞過/接管</span>
+      
+    </div>
+    <h2>teddy-bear-customize-addon 身份繞過/接管 CVE-2026-14559 9.8</h2>
+    <div class="sum">The teddy-bear-customize-addon WordPress plugin through 1.0.5 does not verify a user&#39;s password before authenticating th…</div>
+    <div class="cve">CVE-2026-14559 ・ 影響：teddy-bear-customize-addon
+      ・ <a href="https://wpscan.com/vulnerability/90cbbed5-9662-4405-88b8-bd55854dccdf/" target="_blank">參考連結</a>
+    </div>
+    <div class="fix">🛠 更新至官方修補版本</div>
+  </div>
+
+  <div class="card" data-wild="0">
+    <div class="badges">
+      <span class="b cvss">CVSS 9.8</span>
+      
+      <span class="b type">身份繞過/接管</span>
+      
+    </div>
+    <h2>advanced-customized-prompts 身份繞過/接管 CVE-2026-14563 9.8</h2>
+    <div class="sum">The advanced-customized-prompts WordPress plugin through 1.0.1 does not verify the password before issuing an authentica…</div>
+    <div class="cve">CVE-2026-14563 ・ 影響：advanced-customized-prompts
+      ・ <a href="https://wpscan.com/vulnerability/7c7ad196-dff3-485f-9a50-8705bd796fb3/" target="_blank">參考連結</a>
+    </div>
+    <div class="fix">🛠 更新至官方修補版本</div>
+  </div>
+
+  <div class="card" data-wild="0">
+    <div class="badges">
+      <span class="b cvss">CVSS 9.8</span>
+      
+      <span class="b type">其他高危</span>
+      
+    </div>
+    <h2>待確認產品 其他高危 CVE-2026-89259 9.8</h2>
+    <div class="sum">Hugo is a static site generator. From v0.161.0, Hugo executes Node tools under Node&#39;s permission model, but TailwindCSS …</div>
+    <div class="cve">CVE-2026-89259 ・ 影響：待確認產品
+      ・ <a href="https://github.com/gohugoio/hugo/security/advisories/GHSA-vrm6-x8vp-mv2r" target="_blank">參考連結</a>
+    </div>
+    <div class="fix">🛠 更新至官方修補版本</div>
+  </div>
+
+  <div class="card" data-wild="0">
+    <div class="badges">
+      <span class="b cvss">CVSS 9.8</span>
+      
+      <span class="b type">其他高危</span>
+      
+    </div>
+    <h2>待確認產品 其他高危 CVE-2026-84390 9.8</h2>
+    <div class="sum">A inclusion of sensitive information in source code vulnerability in Fortinet FortiMonitorOnSight 7.2.4 through 7.2.7, F…</div>
+    <div class="cve">CVE-2026-84390 ・ 影響：待確認產品
+      ・ <a href="https://fortiguard.fortinet.com/psirt/FG-IR-26-170" target="_blank">參考連結</a>
+    </div>
+    <div class="fix">🛠 更新至官方修補版本</div>
+  </div>
+
+  <div class="card" data-wild="0">
+    <div class="badges">
+      <span class="b cvss">CVSS 9.6</span>
+      
+      <span class="b type">RCE</span>
+      
+    </div>
+    <h2>Dell ThinOS 10, versions RCE CVE-2026-81048 9.6</h2>
+    <div class="sum">Dell ThinOS 10, versions prior to 2605_10.2616, contain an Improper Neutralization of Special Elements used in a Command…</div>
+    <div class="cve">CVE-2026-81048 ・ 影響：Dell ThinOS 10, versions
+      ・ <a href="https://www.dell.com/support/kbdoc/en-us/000502746/dsa-2026-389-security-update-for-dell-thinos-10-for-multiple-vulnerabilities" target="_blank">參考連結</a>
+    </div>
+    <div class="fix">🛠 更新至官方修補版本</div>
+  </div>
+
+  <div class="card" data-wild="0">
+    <div class="badges">
+      <span class="b cvss">CVSS 9.6</span>
+      
+      <span class="b type">目錄遍歷</span>
+      
+    </div>
+    <h2>待確認產品 目錄遍歷 CVE-2026-82100 9.6</h2>
+    <div class="sum">IBM DataStage on Cloud Pak for Data 5.4.0.0 could allow a remote authenticated attacker to cause a denial of service due…</div>
+    <div class="cve">CVE-2026-82100 ・ 影響：待確認產品
+      ・ <a href="https://www.ibm.com/support/pages/node/7286562" target="_blank">參考連結</a>
+    </div>
+    <div class="fix">🛠 更新至官方修補版本</div>
+  </div>
+
+  <div class="card" data-wild="0">
+    <div class="badges">
+      <span class="b cvss">CVSS 9.6</span>
+      
+      <span class="b type">身份繞過/接管</span>
+      
+    </div>
+    <h2>待確認產品 身份繞過/接管 CVE-2026-82107 9.6</h2>
+    <div class="sum">IBM DataStage on Cloud Pak for Data 5.4.0.0 could allow a remote authenticated attacker to obtain sensitive information …</div>
+    <div class="cve">CVE-2026-82107 ・ 影響：待確認產品
+      ・ <a href="https://www.ibm.com/support/pages/node/7286562" target="_blank">參考連結</a>
+    </div>
+    <div class="fix">🛠 更新至官方修補版本</div>
+  </div>
+
+  <div class="card" data-wild="0">
+    <div class="badges">
+      <span class="b cvss">CVSS 9.5</span>
+      
+      <span class="b type">RCE</span>
+      
+    </div>
+    <h2>待確認產品 RCE CVE-2026-65639 9.5</h2>
+    <div class="sum">OS command injection in the advanced-rule parser of ConfigServer Security &amp; Firewall allows a remote attacker who contro…</div>
+    <div class="cve">CVE-2026-65639 ・ 影響：待確認產品
+      ・ <a href="https://support.cpanel.net/hc/en-us/articles/43387923160343-Security-CVE-2026-65639-CSF-Security-Release" target="_blank">參考連結</a>
+    </div>
+    <div class="fix">🛠 更新至官方修補版本</div>
+  </div>
+
+  <div class="card" data-wild="0">
+    <div class="badges">
+      <span class="b cvss">CVSS 9.5</span>
+      
+      <span class="b type">RCE</span>
+      
+    </div>
+    <h2>待確認產品 RCE CVE-2026-88062 9.5</h2>
+    <div class="sum">OmniRoute is an open-source AI gateway providing a single endpoint for multiple model providers. In 3.8.49 and earlier, …</div>
+    <div class="cve">CVE-2026-88062 ・ 影響：待確認產品
+      ・ <a href="https://github.com/diegosouzapw/OmniRoute/commit/60829241fd64d0317aa6a0dd8cd7a445a5287fed" target="_blank">參考連結</a>
+    </div>
+    <div class="fix">🛠 更新至官方修補版本</div>
+  </div>
+
+  <div class="card" data-wild="0">
+    <div class="badges">
+      <span class="b cvss">CVSS 9.4</span>
+      
+      <span class="b type">RCE</span>
+      
+    </div>
+    <h2>Dell ThinOS 10, versions RCE CVE-2026-81046 9.4</h2>
+    <div class="sum">Dell ThinOS 10, versions prior to 2605_10.2616, contain a Protection Mechanism Failure vulnerability. An unauthenticated…</div>
+    <div class="cve">CVE-2026-81046 ・ 影響：Dell ThinOS 10, versions
+      ・ <a href="https://www.dell.com/support/kbdoc/en-us/000502746/dsa-2026-389-security-update-for-dell-thinos-10-for-multiple-vulnerabilities" target="_blank">參考連結</a>
+    </div>
+    <div class="fix">🛠 更新至官方修補版本</div>
+  </div>
+
+  <div class="card" data-wild="0">
+    <div class="badges">
+      <span class="b cvss">CVSS 9.3</span>
+      
+      <span class="b type">越權</span>
+      
+    </div>
+    <h2>待確認產品 越權 CVE-2026-88860 9.3</h2>
+    <div class="sum">Capgo fails to clean up channel permission overrides when a user&#39;s last organization role binding is deleted, leaving st…</div>
+    <div class="cve">CVE-2026-88860 ・ 影響：待確認產品
+      ・ <a href="https://github.com/Cap-go/capgo.app/security/advisories/GHSA-qfxq-2ch8-hjg9" target="_blank">參考連結</a>
+    </div>
+    <div class="fix">🛠 更新至官方修補版本</div>
+  </div>
+
+  <div class="card" data-wild="0">
+    <div class="badges">
+      <span class="b cvss">CVSS 9.3</span>
+      
+      <span class="b type">其他高危</span>
+      
+    </div>
+    <h2>待確認產品 其他高危 CVE-2026-88864 9.3</h2>
+    <div class="sum">Capgo (capgo.app) fails to restrict direct write access to the public.sso_providers table exposed through Supabase Postg…</div>
+    <div class="cve">CVE-2026-88864 ・ 影響：待確認產品
+      ・ <a href="https://github.com/Cap-go/capgo.app/security/advisories/GHSA-xg7v-83qv-qfff" target="_blank">參考連結</a>
+    </div>
+    <div class="fix">🛠 更新至官方修補版本</div>
+  </div>
+
+  <div class="card" data-wild="0">
+    <div class="badges">
+      <span class="b cvss">CVSS 9.3</span>
+      
+      <span class="b type">XSS</span>
+      
+    </div>
+    <h2>WWBN AVideo XSS CVE-2026-88866 9.3</h2>
+    <div class="sum">WWBN AVideo through commit c3edcc274c389816d434acadac07ee78eaf330c1 contains a stored cross-site scripting vulnerability…</div>
+    <div class="cve">CVE-2026-88866 ・ 影響：WWBN AVideo
+      ・ <a href="https://github.com/WWBN/AVideo/security/advisories/GHSA-wg67-62q3-2m33" target="_blank">參考連結</a>
+    </div>
+    <div class="fix">🛠 更新至官方修補版本</div>
+  </div>
+
+  <div class="card" data-wild="0">
+    <div class="badges">
+      <span class="b cvss">CVSS 9.3</span>
+      
+      <span class="b type">XSS</span>
+      
+    </div>
+    <h2>待確認產品 XSS CVE-2026-88867 9.3</h2>
+    <div class="sum">WWBN AVideo, in versions up to and including commit c3edcc274c389816d434acadac07ee78eaf330c1, contains a stored cross-si…</div>
+    <div class="cve">CVE-2026-88867 ・ 影響：待確認產品
+      ・ <a href="https://github.com/WWBN/AVideo/security/advisories/GHSA-283q-fq8j-mhv8" target="_blank">參考連結</a>
+    </div>
+    <div class="fix">🛠 更新至官方修補版本</div>
+  </div>
+
+  <div class="card" data-wild="0">
+    <div class="badges">
+      <span class="b cvss">CVSS 9.3</span>
+      
+      <span class="b type">XSS</span>
+      
+    </div>
+    <h2>AVideo XSS CVE-2026-88868 9.3</h2>
+    <div class="sum">AVideo through commit c3edcc274c389816d434acadac07ee78eaf330c1 contains a stored cross-site scripting vulnerability in t…</div>
+    <div class="cve">CVE-2026-88868 ・ 影響：AVideo
+      ・ <a href="https://github.com/WWBN/AVideo/security/advisories/GHSA-jwmw-j657-28fq" target="_blank">參考連結</a>
+    </div>
+    <div class="fix">🛠 更新至官方修補版本</div>
+  </div>
+
+  <div class="card" data-wild="0">
+    <div class="badges">
+      <span class="b cvss">CVSS 9.3</span>
+      
+      <span class="b type">XSS</span>
+      
+    </div>
+    <h2>AVideo XSS CVE-2026-88869 9.3</h2>
+    <div class="sum">AVideo through commit c3edcc274c389816d434acadac07ee78eaf330c1 contains a stored cross-site scripting vulnerability in t…</div>
+    <div class="cve">CVE-2026-88869 ・ 影響：AVideo
+      ・ <a href="https://github.com/WWBN/AVideo/security/advisories/GHSA-h68w-3r38-wmm8" target="_blank">參考連結</a>
+    </div>
+    <div class="fix">🛠 更新至官方修補版本</div>
+  </div>
+
+  <div class="card" data-wild="0">
+    <div class="badges">
+      <span class="b cvss">CVSS 9.3</span>
+      
+      <span class="b type">SQL注入</span>
+      
+    </div>
+    <h2>待確認產品 SQL注入 CVE-2026-81800 9.3</h2>
+    <div class="sum">Unauthenticated SQL Injection in Verified Reviews (Avis Vérifiés) &lt;= 2.4.6 versions.…</div>
+    <div class="cve">CVE-2026-81800 ・ 影響：待確認產品
+      ・ <a href="https://patchstack.com/database/wordpress/plugin/netreviews/vulnerability/wordpress-verified-reviews-avis-verifies-plugin-2-4-6-sql-injection-vulnerability?_s_id=cve" target="_blank">參考連結</a>
+    </div>
+    <div class="fix">🛠 更新至官方修補版本</div>
+  </div>
+
+  <div class="card" data-wild="0">
+    <div class="badges">
+      <span class="b cvss">CVSS 9.3</span>
+      
+      <span class="b type">其他高危</span>
+      
+    </div>
+    <h2>passport-saml-encrypted 其他高危 CVE-2026-89042 9.3</h2>
+    <div class="sum">passport-saml-encrypted through 0.1.13 makes SAML signature verification conditional on an optional cert option, allowin…</div>
+    <div class="cve">CVE-2026-89042 ・ 影響：passport-saml-encrypted
+      ・ <a href="https://github.com/krakenjs/passport-saml-encrypted" target="_blank">參考連結</a>
+    </div>
+    <div class="fix">🛠 更新至官方修補版本</div>
+  </div>
+
+  <div class="card" data-wild="0">
+    <div class="badges">
+      <span class="b cvss">CVSS 9.3</span>
+      
+      <span class="b type">硬編碼憑證</span>
+      
+    </div>
+    <h2>待確認產品 硬編碼憑證 CVE-2026-75940 9.3</h2>
+    <div class="sum">A vulnerability was reported in Lenovo Health Android Application, distributed exclusively in the Chinese market, that c…</div>
+    <div class="cve">CVE-2026-75940 ・ 影響：待確認產品
+      ・ <a href="https://iknow.lenovo.com.cn/detail/442248" target="_blank">參考連結</a>
+    </div>
+    <div class="fix">🛠 更新至官方修補版本</div>
+  </div>
+
+  <div class="card" data-wild="0">
+    <div class="badges">
+      <span class="b cvss">CVSS 9.3</span>
+      
+      <span class="b type">XSS</span>
+      
+    </div>
+    <h2>AVideo XSS CVE-2026-89249 9.3</h2>
+    <div class="sum">AVideo through commit c3edcc274c389816d434acadac07ee78eaf330c1 contains a stored cross-site scripting vulnerability in t…</div>
+    <div class="cve">CVE-2026-89249 ・ 影響：AVideo
+      ・ <a href="https://github.com/WWBN/AVideo/security/advisories/GHSA-fvp5-q9jp-29mx" target="_blank">參考連結</a>
+    </div>
+    <div class="fix">🛠 更新至官方修補版本</div>
+  </div>
+
+  <div class="card" data-wild="0">
+    <div class="badges">
+      <span class="b cvss">CVSS 9.3</span>
+      
+      <span class="b type">XSS</span>
+      
+    </div>
+    <h2>WWBN AVideo XSS CVE-2026-89253 9.3</h2>
+    <div class="sum">WWBN AVideo through commit c3edcc274c389816d434acadac07ee78eaf330c1 contains a stored cross-site scripting vulnerability…</div>
+    <div class="cve">CVE-2026-89253 ・ 影響：WWBN AVideo
+      ・ <a href="https://github.com/WWBN/AVideo/security/advisories/GHSA-34jx-r3p9-7pp2" target="_blank">參考連結</a>
+    </div>
+    <div class="fix">🛠 更新至官方修補版本</div>
+  </div>
+
+  <div class="card" data-wild="0">
+    <div class="badges">
+      <span class="b cvss">CVSS 9.3</span>
+      
+      <span class="b type">XSS</span>
+      
+    </div>
+    <h2>AVideo XSS CVE-2026-89254 9.3</h2>
+    <div class="sum">AVideo through commit c3edcc274c389816d434acadac07ee78eaf330c1 contains a stored cross-site scripting vulnerability in t…</div>
+    <div class="cve">CVE-2026-89254 ・ 影響：AVideo
+      ・ <a href="https://github.com/WWBN/AVideo/security/advisories/GHSA-7hj4-f9x4-gg7p" target="_blank">參考連結</a>
+    </div>
+    <div class="fix">🛠 更新至官方修補版本</div>
+  </div>
+
+  <div class="card" data-wild="0">
+    <div class="badges">
+      <span class="b cvss">CVSS 9.3</span>
+      
+      <span class="b type">XSS</span>
+      
+    </div>
+    <h2>AVideo XSS CVE-2026-89255 9.3</h2>
+    <div class="sum">AVideo through commit c3edcc274c389816d434acadac07ee78eaf330c1 contains a stored cross-site scripting vulnerability in t…</div>
+    <div class="cve">CVE-2026-89255 ・ 影響：AVideo
+      ・ <a href="https://github.com/WWBN/AVideo/security/advisories/GHSA-gq4h-vw2w-9rx3" target="_blank">參考連結</a>
+    </div>
+    <div class="fix">🛠 更新至官方修補版本</div>
+  </div>
+
+  <div class="card" data-wild="0">
+    <div class="badges">
+      <span class="b cvss">CVSS 9.3</span>
+      
+      <span class="b type">XSS</span>
+      
+    </div>
+    <h2>AVideo XSS CVE-2026-89256 9.3</h2>
+    <div class="sum">AVideo through commit c3edcc274c389816d434acadac07ee78eaf330c1 contains a stored cross-site scripting vulnerability in t…</div>
+    <div class="cve">CVE-2026-89256 ・ 影響：AVideo
+      ・ <a href="https://github.com/WWBN/AVideo/security/advisories/GHSA-jggq-mm5m-r5wv" target="_blank">參考連結</a>
+    </div>
+    <div class="fix">🛠 更新至官方修補版本</div>
+  </div>
+
+  <div class="card" data-wild="0">
+    <div class="badges">
+      <span class="b cvss">CVSS 9.3</span>
+      
+      <span class="b type">其他高危</span>
+      
+    </div>
+    <h2>待確認產品 其他高危 CVE-2026-89258 9.3</h2>
+    <div class="sum">Hugo is a static site generator. In versions after v0.123.0 and before v0.165.0, symlinks in parent directories were not…</div>
+    <div class="cve">CVE-2026-89258 ・ 影響：待確認產品
+      ・ <a href="https://github.com/gohugoio/hugo/security/advisories/GHSA-vrv5-r5rf-6v4j" target="_blank">參考連結</a>
+    </div>
+    <div class="fix">🛠 更新至官方修補版本</div>
+  </div>
+
+  <div class="card" data-wild="0">
+    <div class="badges">
+      <span class="b cvss">CVSS 9.2</span>
+      
+      <span class="b type">開放重導向</span>
+      
+    </div>
+    <h2>Renovate 開放重導向 CVE-2026-88880 9.2</h2>
+    <div class="sum">Renovate before 44.11.3 fails to validate Link header destinations when following GitLab server pagination, allowing mal…</div>
+    <div class="cve">CVE-2026-88880 ・ 影響：Renovate
+      ・ <a href="https://github.com/renovatebot/renovate/security/advisories/GHSA-9hmg-9h89-jhmx" target="_blank">參考連結</a>
+    </div>
+    <div class="fix">🛠 更新至官方修補版本</div>
+  </div>
+
+  <div class="card" data-wild="0">
+    <div class="badges">
+      <span class="b cvss">CVSS 9.2</span>
+      
+      <span class="b type">開放重導向</span>
+      
+    </div>
+    <h2>待確認產品 開放重導向 CVE-2026-88881 9.2</h2>
+    <div class="sum">Renovate, a dependency update tool, follows pagination links supplied by the GitHub server in the HTTP `Link` header whe…</div>
+    <div class="cve">CVE-2026-88881 ・ 影響：待確認產品
+      ・ <a href="https://github.com/renovatebot/renovate/security/advisories/GHSA-w57v-h33h-835c" target="_blank">參考連結</a>
+    </div>
+    <div class="fix">🛠 更新至官方修補版本</div>
+  </div>
+
+  <div class="card" data-wild="0">
+    <div class="badges">
+      <span class="b cvss">CVSS 9.2</span>
+      
+      <span class="b type">開放重導向</span>
+      
+    </div>
+    <h2>待確認產品 開放重導向 CVE-2026-88882 9.2</h2>
+    <div class="sum">Renovate is a dependency update automation tool. In versions before 44.11.2 (and Mend Renovate CE/EE images and charts b…</div>
+    <div class="cve">CVE-2026-88882 ・ 影響：待確認產品
+      ・ <a href="https://github.com/renovatebot/renovate/security/advisories/GHSA-rh7w-ccch-gh49" target="_blank">參考連結</a>
+    </div>
+    <div class="fix">🛠 更新至官方修補版本</div>
+  </div>
+
+  <div class="card" data-wild="0">
+    <div class="badges">
+      <span class="b cvss">CVSS 9.2</span>
+      
+      <span class="b type">開放重導向</span>
+      
+    </div>
+    <h2>待確認產品 開放重導向 CVE-2026-88887 9.2</h2>
+    <div class="sum">Renovate is a dependency update automation tool. When listing tags/digests for a container image, Renovate follows pagin…</div>
+    <div class="cve">CVE-2026-88887 ・ 影響：待確認產品
+      ・ <a href="https://github.com/renovatebot/renovate/security/advisories/GHSA-v73q-hvqx-hxwx" target="_blank">參考連結</a>
+    </div>
+    <div class="fix">🛠 更新至官方修補版本</div>
+  </div>
+
+  <div class="card" data-wild="0">
+    <div class="badges">
+      <span class="b cvss">CVSS 9.2</span>
+      
+      <span class="b type">RCE</span>
+      
+    </div>
+    <h2>待確認產品 RCE CVE-2026-65638 9.2</h2>
+    <div class="sum">Improper escaping of a request URL in  ConfigServer Security &amp; Firewall allows an unauthenticated remote attacker to exe…</div>
+    <div class="cve">CVE-2026-65638 ・ 影響：待確認產品
+      ・ <a href="https://support.cpanel.net/hc/en-us/articles/43387915588375-Security-CVE-2026-65638-CSF-Security-Release" target="_blank">參考連結</a>
+    </div>
+    <div class="fix">🛠 更新至官方修補版本</div>
+  </div>
+
+  <div class="card" data-wild="0">
+    <div class="badges">
+      <span class="b cvss">CVSS 9.2</span>
+      
+      <span class="b type">其他高危</span>
+      
+    </div>
+    <h2>A vulnerability 其他高危 CVE-2026-47839 9.2</h2>
+    <div class="sum">A vulnerability allows users authenticating through a federated OIDC provider to obtain the uaa.admin scope despite oper…</div>
+    <div class="cve">CVE-2026-47839 ・ 影響：A vulnerability
+      ・ <a href="https://www.cloudfoundry.org/blog/cve-2026-47839-federated-oidc-users-can-bypass-externalgroupswhitelist-to-gain-uaa-admin/" target="_blank">參考連結</a>
+    </div>
+    <div class="fix">🛠 更新至官方修補版本</div>
+  </div>
+
+  <div class="card" data-wild="0">
+    <div class="badges">
+      <span class="b cvss">CVSS 9.2</span>
+      
+      <span class="b type">XSS</span>
+      
+    </div>
+    <h2>WWBN AVideo XSS CVE-2026-89243 9.2</h2>
+    <div class="sum">WWBN AVideo through commit c3edcc274c389816d434acadac07ee78eaf330c1 contains a stored cross-site scripting vulnerability…</div>
+    <div class="cve">CVE-2026-89243 ・ 影響：WWBN AVideo
+      ・ <a href="https://github.com/WWBN/AVideo/security/advisories/GHSA-qm3h-2jrx-xmg6" target="_blank">參考連結</a>
+    </div>
+    <div class="fix">🛠 更新至官方修補版本</div>
+  </div>
+
+  <div class="card" data-wild="0">
+    <div class="badges">
+      <span class="b cvss">CVSS 9.1</span>
+      
+      <span class="b type">身份繞過/接管</span>
+      
+    </div>
+    <h2>待確認產品 身份繞過/接管 CVE-2026-88007 9.1</h2>
+    <div class="sum">Traefik is an open source HTTP reverse proxy and load balancer. From 2.11.0 until 2.11.57 and 3.7.13, the HTTP/3 entrypo…</div>
+    <div class="cve">CVE-2026-88007 ・ 影響：待確認產品
+      ・ <a href="https://github.com/traefik/traefik/commit/ff39c47d7459dec9cd8de63c1a4e7aa7315bdc1c" target="_blank">參考連結</a>
+    </div>
+    <div class="fix">🛠 更新至官方修補版本</div>
+  </div>
+
+  <div class="card" data-wild="0">
+    <div class="badges">
+      <span class="b cvss">CVSS 9.1</span>
+      
+      <span class="b type">RCE</span>
+      
+    </div>
+    <h2>Dell ThinOS 10, versions RCE CVE-2026-81468 9.1</h2>
+    <div class="sum">Dell ThinOS 10, versions prior to 2605_10. 2616, contains an Improper Neutralization of Special Elements used in an OS C…</div>
+    <div class="cve">CVE-2026-81468 ・ 影響：Dell ThinOS 10, versions
+      ・ <a href="https://www.dell.com/support/kbdoc/en-us/000502746/dsa-2026-389-security-update-for-dell-thinos-10-for-multiple-vulnerabilities" target="_blank">參考連結</a>
+    </div>
+    <div class="fix">🛠 更新至官方修補版本</div>
+  </div>
+
+  <div class="card" data-wild="0">
+    <div class="badges">
+      <span class="b cvss">CVSS 9.1</span>
+      
+      <span class="b type">DoS</span>
+      
+    </div>
+    <h2>待確認產品 DoS CVE-2026-85228 9.1</h2>
+    <div class="sum">An integer overflow in the tensor buffer validation component in Amazon Deep Java Library (DJL) from 0.13.0 through 0.36…</div>
+    <div class="cve">CVE-2026-85228 ・ 影響：待確認產品
+      ・ <a href="https://aws.amazon.com/security/security-bulletins/2026-106-aws/" target="_blank">參考連結</a>
+    </div>
+    <div class="fix">🛠 更新至官方修補版本</div>
+  </div>
+
+  <div class="card" data-wild="0">
+    <div class="badges">
+      <span class="b cvss">CVSS 9.1</span>
+      
+      <span class="b type">越權</span>
+      
+    </div>
+    <h2>待確認產品 越權 CVE-2026-88044 9.1</h2>
+    <div class="sum">rclone is a command-line program to sync files and directories to and from different cloud storage providers. From 1.70.…</div>
+    <div class="cve">CVE-2026-88044 ・ 影響：待確認產品
+      ・ <a href="https://github.com/rclone/rclone/commit/739403963abf6f58003c2becd5f7c4ad0d644153" target="_blank">參考連結</a>
+    </div>
+    <div class="fix">🛠 更新至官方修補版本</div>
+  </div>
+
+  <div class="card" data-wild="0">
+    <div class="badges">
+      <span class="b cvss">CVSS 9.1</span>
+      
+      <span class="b type">其他高危</span>
+      
+    </div>
+    <h2>passport-saml-encrypted 其他高危 CVE-2026-89043 9.1</h2>
+    <div class="sum">passport-saml-encrypted through 0.1.13 contains an XML signature wrapping vulnerability where signature verification and…</div>
+    <div class="cve">CVE-2026-89043 ・ 影響：passport-saml-encrypted
+      ・ <a href="https://github.com/krakenjs/passport-saml-encrypted" target="_blank">參考連結</a>
+    </div>
+    <div class="fix">🛠 更新至官方修補版本</div>
+  </div>
+
+  <div class="card" data-wild="0">
+    <div class="badges">
+      <span class="b cvss">CVSS 9.1</span>
+      
+      <span class="b type">其他高危</span>
+      
+    </div>
+    <h2>In the jose package 其他高危 CVE-2026-89086 9.1</h2>
+    <div class="sum">In the jose package before 0.11.0 for OCaml, library calls to validate an RSA signature only confirm that PKCS #1 decodi…</div>
+    <div class="cve">CVE-2026-89086 ・ 影響：In the jose package
+      ・ <a href="https://github.com/ulrikstrid/ocaml-jose/commit/cf17d991ec6a0d1997956b6c7799890f9c28879e" target="_blank">參考連結</a>
+    </div>
+    <div class="fix">🛠 更新至官方修補版本</div>
+  </div>
+
+  <div class="card" data-wild="0">
+    <div class="badges">
+      <span class="b cvss">CVSS 9.1</span>
+      
+      <span class="b type">其他高危</span>
+      
+    </div>
+    <h2>待確認產品 其他高危 CVE-2026-19646 9.1</h2>
+    <div class="sum">IBM Common Licensing Agent 9.0, Agent 9.0.0.1, Agent 9.0.0.2, ART 9.0, ART 9.0.0.1, and ART 9.0.0.2 could allow a remote…</div>
+    <div class="cve">CVE-2026-19646 ・ 影響：待確認產品
+      ・ <a href="https://www.ibm.com/support/pages/node/7286490" target="_blank">參考連結</a>
+    </div>
+    <div class="fix">🛠 更新至官方修補版本</div>
+  </div>
+
+  <div class="card" data-wild="0">
+    <div class="badges">
+      <span class="b cvss">CVSS 9.1</span>
+      
+      <span class="b type">DoS</span>
+      
+    </div>
+    <h2>待確認產品 DoS CVE-2026-45764 9.1</h2>
+    <div class="sum">Suricata is a network Intrusion Detection System, Intrusion Prevention System and Network Security Monitoring engine. Pr…</div>
+    <div class="cve">CVE-2026-45764 ・ 影響：待確認產品
+      ・ <a href="https://forum.suricata.io/t/suricata-8-0-5-and-7-0-16-released/6315" target="_blank">參考連結</a>
+    </div>
+    <div class="fix">🛠 更新至官方修補版本</div>
+  </div>
+
+  <div class="card" data-wild="0">
+    <div class="badges">
+      <span class="b cvss">CVSS 9.1</span>
+      
+      <span class="b type">目錄遍歷</span>
+      
+    </div>
+    <h2>待確認產品 目錄遍歷 CVE-2026-80424 9.1</h2>
+    <div class="sum">IBM DataStage on Cloud Pak for Data 5.4.0.0 could allow a remote authenticated attacker to create arbitrary files due to…</div>
+    <div class="cve">CVE-2026-80424 ・ 影響：待確認產品
+      ・ <a href="https://www.ibm.com/support/pages/node/7286562" target="_blank">參考連結</a>
+    </div>
+    <div class="fix">🛠 更新至官方修補版本</div>
+  </div>
+
+</div>
+
+
+<div class="hist">
+  <h3>📅 歷史存檔</h3>
+  <select onchange="if(this.value)location.href=this.value">
+    
+    <option value="data/2026-09-11.json" selected>2026-09-11（57 則）</option>
+    
+  </select>
+  <span style="color:var(--mut);font-size:13px">歷史 JSON 在 docs/data/，可直接當 API 用</span>
+</div>
+
+<footer>資料：NVD / CISA KEV / FIRST EPSS ・ AI 提煉僅供參考，請以官方 Advisory 為準 ・ 由 GitHub Actions 每日自動產生</footer>
+</div>
+<script>
+function filterCards(){
+  const q=(document.getElementById('q').value||'').toLowerCase();
+  const w=document.getElementById('wild').checked;
+  document.querySelectorAll('#grid .card').forEach(c=>{
+    const t=c.innerText.toLowerCase();
+    const okQ=!q||t.includes(q);
+    const okW=!w||c.dataset.wild==='1';
+    c.style.display=(okQ&&okW)?'':'none';
+  });
+}
+</script>
+</body>
+</html>
