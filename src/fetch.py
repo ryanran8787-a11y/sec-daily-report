@@ -20,23 +20,48 @@ UA = {"User-Agent": "daily-sec-report/0.1 (+github-pages-mvp)"}
 
 
 def fetch_nvd(pub_start: str, pub_end: str, api_key: str | None) -> list[dict]:
-    """pub_start/end: ISO8601 UTC 如 2026-09-10T00:00:00.000Z"""
-    headers = dict(UA)
+    """pub_start/end: ISO8601 UTC 如 2026-09-10T00:00:00.000Z。
+    強健版：Key 無效(401/403/404)自動降級匿名重試；429/5xx 指數退避重試 3 次。"""
+    api_key = (api_key or "").strip() or None
+    session = requests.Session()
+    session.headers.update(UA)
     if api_key:
-        headers["apiKey"] = api_key
+        session.headers["apiKey"] = api_key
     out, start, per = [], 0, 2000
+    anonymous_fallback_done = not api_key
+    retries = 0
     while True:
         q = urlencode({"pubStartDate": pub_start, "pubEndDate": pub_end,
                         "resultsPerPage": per, "startIndex": start})
-        r = requests.get(f"{NVD_URL}?{q}", headers=headers, timeout=60)
-        r.raise_for_status()
+        try:
+            r = session.get(f"{NVD_URL}?{q}", timeout=60)
+            r.raise_for_status()
+        except requests.HTTPError as e:
+            code = e.response.status_code if e.response is not None else 0
+            if code in (401, 403, 404) and not anonymous_fallback_done:
+                print("[warn] NVD Key 疑似無效/未啟用，改用匿名模式重試（匿名限 5 req/30s）…")
+                session.headers.pop("apiKey", None)
+                anonymous_fallback_done = True
+                retries = 0
+                time.sleep(5)
+                continue
+            retries += 1
+            if retries > 3:
+                print("[error] NVD 多次重試仍失敗。檢查：1) NVD_API_KEY 是否已點驗證信啟用 "
+                      "2) https://nvd.nist.gov 是否正常 3) 明天排程會自動重試")
+                raise
+            wait = 10 * retries
+            print(f"[warn] NVD HTTP {code}，{wait}s 後重試 ({retries}/3)…")
+            time.sleep(wait)
+            continue
+        retries = 0  # 成功就重置
         j = r.json()
         out.extend(j.get("vulnerabilities", []))
         total = j.get("totalResults", 0)
         start += per
         if start >= total or not j.get("vulnerabilities"):
             break
-        time.sleep(0.6 if api_key else 6)  # 沒 key 限 5 req/30s
+        time.sleep(0.6 if session.headers.get("apiKey") else 6)  # 沒 key 限 5 req/30s
     return out
 
 
