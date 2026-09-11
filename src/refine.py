@@ -57,15 +57,23 @@ def call_gemini(items: list[dict]) -> list[dict] | None:
     key = os.getenv("GEMINI_API_KEY")
     if not key:
         return None
-    model = os.getenv("GEMINI_MODEL", "gemini-2.0-flash")
-    url = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent?key={key}"
-    r = requests.post(url, json={"systemInstruction": {"parts": [{"text": SYSTEM}]},
-                                 "contents": [{"parts": [{"text": json.dumps(items, ensure_ascii=False)[:60000]}]}],
-                                 "generationConfig": {"temperature": 0.2, "responseMimeType": "application/json"}},
-                      timeout=120)
-    r.raise_for_status()
-    txt = r.json()["candidates"][0]["content"]["parts"][0]["text"]
-    return json.loads(txt) if isinstance(json.loads(txt), list) else json.loads(txt).get("items")
+    primary = os.getenv("GEMINI_MODEL", "gemini-2.5-flash")
+    last_err = None
+    for model in dict.fromkeys([primary, "gemini-2.5-flash", "gemini-2.0-flash"]):
+        url = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent?key={key}"
+        try:
+            r = requests.post(url, json={"systemInstruction": {"parts": [{"text": SYSTEM}]},
+                                     "contents": [{"parts": [{"text": json.dumps(items, ensure_ascii=False)[:60000]}]}],
+                                     "generationConfig": {"temperature": 0.2, "responseMimeType": "application/json"}},
+                              timeout=120)
+            r.raise_for_status()
+            txt = r.json()["candidates"][0]["content"]["parts"][0]["text"]
+            parsed = json.loads(txt)
+            return parsed if isinstance(parsed, list) else parsed.get("items")
+        except Exception as e:
+            last_err = e
+            print(f"[warn] gemini 模型 {model} 失敗: {e}")
+    raise last_err
 
 
 def _guess_product(desc: str) -> str:
