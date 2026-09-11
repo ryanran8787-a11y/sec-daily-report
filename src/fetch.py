@@ -36,8 +36,9 @@ def fetch_nvd(pub_start: str, pub_end: str, api_key: str | None) -> list[dict]:
         try:
             r = session.get(f"{NVD_URL}?{q}", timeout=60)
             r.raise_for_status()
-        except requests.HTTPError as e:
-            code = e.response.status_code if e.response is not None else 0
+        except requests.RequestException as e:
+            resp = getattr(e, "response", None)
+            code = resp.status_code if resp is not None else 0
             if code in (401, 403, 404) and not anonymous_fallback_done:
                 print("[warn] NVD Key 疑似無效/未啟用，改用匿名模式重試（匿名限 5 req/30s）…")
                 session.headers.pop("apiKey", None)
@@ -97,12 +98,12 @@ def main():
     args = ap.parse_args()
 
     target = args.date or taipei_today_str()  # 以台北日為檔名
-    # 抓「台北今天 00:00 ~ 明天 00:00」對應的 UTC 區間
-    day = datetime.strptime(target, "%Y-%m-%d").replace(tzinfo=timezone.utc)
-    # 簡化：抓過去 --days 天的 published（含時區漂移，靠 cve 去重）
+    # 抓過去 --days 天的 published（排程每天 08:00 台北跑，窗口恰好銜接，不重不漏）
     pub_end = datetime.now(timezone.utc)
     pub_start = pub_end - timedelta(days=args.days)
-    fmt = lambda d: d.strftime("%Y-%m-%dT%H:%M:%S.000Z")
+
+    def fmt(d: datetime) -> str:
+        return d.strftime("%Y-%m-%dT%H:%M:%S.000Z")
 
     print(f"[fetch] NVD {fmt(pub_start)} -> {fmt(pub_end)}")
     vulns = fetch_nvd(fmt(pub_start), fmt(pub_end), os.getenv("NVD_API_KEY") or None)
@@ -132,9 +133,12 @@ def main():
 
     epss = fetch_epss([x["cve"] for x in items])
     for x in items:
-        e = epss.get(x["cve"])
-        x["epss"] = float(e["epss"]) if e else None
-        x["epss_pct"] = float(e["percentile"]) if e else None
+        e = epss.get(x["cve"]) or {}
+        try:
+            x["epss"] = float(e["epss"]) if e.get("epss") not in (None, "") else None
+            x["epss_pct"] = float(e["percentile"]) if e.get("percentile") not in (None, "") else None
+        except (TypeError, ValueError):
+            x["epss"], x["epss_pct"] = None, None
 
     # 硬過濾：CVSS>=9.0 或 在野
     kept = [x for x in items if (x["cvss"] is not None and x["cvss"] >= 9.0) or x["in_kev"]]

@@ -12,14 +12,21 @@ header{display:flex;flex-wrap:wrap;gap:12px;align-items:end;justify-content:spac
 h1{margin:0;font-size:28px}h1 span{color:var(--org)}.sub{color:var(--mut);font-size:14px;margin-top:6px}
 .meta{display:flex;gap:8px;flex-wrap:wrap}.pill{border:1px solid var(--line);border-radius:999px;padding:4px 12px;font-size:13px;color:var(--mut)}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:14px;margin-top:20px}
-.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:10px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:10px;cursor:pointer}
+.card:hover{border-color:#3a557f}
 .card h2{font-size:17px;margin:0;line-height:1.4}.badges{display:flex;gap:6px;flex-wrap:wrap}
+.detail{display:none;flex-direction:column;gap:8px;border-top:1px dashed #2c3d5a;padding-top:10px}
+.card.open .detail{display:flex}
+.en{font-size:13px;color:var(--mut);line-height:1.6}
+.refs{font-size:13px}.refs a{color:var(--blu)}
+.hint{font-size:12px;color:var(--mut);text-align:center}
 .b{font-size:12px;font-weight:700;border-radius:6px;padding:2px 8px}
 .cvss{background:var(--red);color:#fff}.kev{background:var(--org);color:#111}.type{background:#22314d;color:var(--blu);border:1px solid #2f4a7a}
 .epss{background:#1d2b22;color:var(--grn);border:1px solid #2a4a3a}
 .sum{font-size:14px;color:#cdd8e8;line-height:1.6}.cve{font-size:12px;color:var(--mut)}.cve a{color:var(--blu);text-decoration:none}
 .fix{font-size:13px;background:#101827;border:1px dashed #2c3d5a;border-radius:8px;padding:8px 10px}
-.hist{margin-top:36px}select{background:var(--card);color:var(--txt);border:1px solid var(--line);border-radius:8px;padding:8px 12px;font-size:14px}
+.hist{margin-top:36px}.hlink{display:inline-block;background:var(--card);border:1px solid var(--line);border-radius:8px;padding:8px 12px;font-size:14px;color:var(--blu);text-decoration:none}
+.hlink:hover{border-color:var(--blu)}
 footer{margin-top:40px;color:var(--mut);font-size:12px;border-top:1px solid var(--line);padding-top:12px}
 .toolbar{display:flex;gap:8px;align-items:center;margin-top:16px;flex-wrap:wrap}
 .toolbar input{background:var(--card);border:1px solid var(--line);border-radius:8px;color:var(--txt);padding:8px 12px;font-size:14px;min-width:220px}
@@ -31,7 +38,7 @@ footer{margin-top:40px;color:var(--mut);font-size:12px;border-top:1px solid var(
 <header>
   <div>
     <h1>🛡️ 網安<span>每日報</span></h1>
-    <div class="sub">最新一期 {{ report.date }} ・ 共 {{ report.count }} 則高危（CVSS ≥ 9.0 或在野利用）・ 引擎 {{ report.engine }}</div>
+    <div class="sub">{% if report.date == latest_date %}最新一期{% else %}存檔回顧{% endif %} {{ report.date }} ・ 共 {{ report.count }} 則高危（CVSS ≥ 9.0 或在野利用）・ 引擎 {{ report.engine }}</div>
   </div>
   <div class="meta">
     <div class="pill">來源 NVD + CISA KEV + EPSS</div>
@@ -47,7 +54,7 @@ footer{margin-top:40px;color:var(--mut);font-size:12px;border-top:1px solid var(
 {% if report["items"] %}
 <div class="grid" id="grid">
 {% for it in report["items"] %}
-  <div class="card" data-wild="{{ '1' if it.in_wild else '0' }}">
+  <div class="card" data-wild="{{ '1' if it.in_wild else '0' }}" onclick="if(event.target.tagName!=='A')this.classList.toggle('open')">
     <div class="badges">
       {% if it.cvss %}<span class="b cvss">CVSS {{ it.cvss }}</span>{% endif %}
       {% if it.in_wild %}<span class="b kev">🔥 在野利用</span>{% endif %}
@@ -60,6 +67,11 @@ footer{margin-top:40px;color:var(--mut);font-size:12px;border-top:1px solid var(
       {% if it.refs %}・ <a href="{{ it.refs[0] }}" target="_blank">參考連結</a>{% endif %}
     </div>
     <div class="fix">🛠 {{ it.fix_hint }}</div>
+    <div class="detail">
+      {% if it.desc_en %}<div class="en">{{ it.desc_en }}</div>{% endif %}
+      {% if it.refs and it.refs|length > 1 %}<div class="refs">🔗 更多參考：{% for u in it.refs[1:] %}<a href="{{ u }}" target="_blank">[{{ loop.index + 1 }}]</a> {% endfor %}</div>{% endif %}
+      <div class="hint">▲ 再點卡片收起</div>
+    </div>
   </div>
 {% endfor %}
 </div>
@@ -69,12 +81,12 @@ footer{margin-top:40px;color:var(--mut);font-size:12px;border-top:1px solid var(
 
 <div class="hist">
   <h3>📅 歷史存檔</h3>
-  <select onchange="if(this.value)location.href=this.value">
+  <div style="display:flex;gap:8px;flex-wrap:wrap">
     {% for h in history %}
-    <option value="data/{{ h.date }}.json" {% if h.date==report.date %}selected{% endif %}>{{ h.date }}（{{ h.count }} 則）</option>
+    <a class="hlink" href="{{ h.url }}">{{ h.date }}（{{ h.count }} 則）</a>
     {% endfor %}
-  </select>
-  <span style="color:var(--mut);font-size:13px">歷史 JSON 在 docs/data/，可直接當 API 用</span>
+  </div>
+  <div style="color:var(--mut);font-size:13px;margin-top:8px">歷史 JSON 在 docs/data/，可直接當 API 用</div>
 </div>
 
 <footer>資料：NVD / CISA KEV / FIRST EPSS ・ AI 提煉僅供參考，請以官方 Advisory 為準 ・ 由 GitHub Actions 每日自動產生</footer>

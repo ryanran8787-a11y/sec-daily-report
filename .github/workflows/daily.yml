@@ -12,6 +12,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # 完整歷史，rebase 才不會撞 shallow 地雷
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
@@ -28,5 +30,5 @@ jobs:
           git config user.email "secbot@users.noreply.github.com"
           git add data/ docs/
           git diff --cached --quiet || git commit -m "daily report $(date +%F)"
-          git pull --rebase origin main || git pull --rebase --strategy-option=theirs origin main
+          git pull --rebase --autostash --strategy-option=theirs origin main
           git push

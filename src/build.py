@@ -27,12 +27,17 @@ def main():
         print("[build] data/ 無日報，先跑 fetch+refine");
         return
     latest, history = reps[0], [{"date": r["date"], "count": r["count"],
-                                 "engine": r.get("engine", "")} for r in reps]
+                                 "engine": r.get("engine", ""),
+                                 "url": f"{r['date']}.html"} for r in reps]
     env = Environment(loader=FileSystemLoader(str(TEMPLATE_DIR)), autoescape=True)
-    html = env.get_template("index.html").render(report=latest, history=history)
+    tpl = env.get_template("index.html")
 
     DOCS_DIR.mkdir(exist_ok=True)
-    (DOCS_DIR / "index.html").write_text(html, encoding="utf-8")
+    for r in reps:  # 每天一頁存檔，歷史連結點了真的會開
+        (DOCS_DIR / f"{r['date']}.html").write_text(
+            tpl.render(report=r, history=history, latest_date=reps[0]["date"]), encoding="utf-8")
+    (DOCS_DIR / "index.html").write_text(
+        tpl.render(report=latest, history=history, latest_date=reps[0]["date"]), encoding="utf-8")
     dd = DOCS_DIR / "data"
     dd.mkdir(exist_ok=True)
     for r in reps:

@@ -20,6 +20,9 @@ SYSTEM = (
     "4.in_wild 只能照輸入的 in_kev 5.不要編造 CVSS，照輸入抄"
 )
 
+TOP_N = int(os.getenv("DAILY_TOP_N", "5"))  # 日報只取 Top N：在野優先，其次 CVSS
+SKIP_MODEL_KW = ("image", "tts", "audio", "embed", "aqa")  # 非文字模型不試，省 quota
+
 
 def call_openai(items: list[dict]) -> list[dict] | None:
     key = os.getenv("OPENAI_API_KEY")
@@ -62,7 +65,10 @@ def _gemini_models(key: str) -> list[str]:
         names = []
         for m in r.json().get("models", []):
             if "generateContent" in (m.get("supportedGenerationMethods") or []):
-                names.append(m["name"].split("/")[-1])
+                short = m["name"].split("/")[-1]
+                if any(k in short.lower() for k in SKIP_MODEL_KW):
+                    continue
+                names.append(short)
         # flash 便宜又快，優先
         names.sort(key=lambda n: (0 if "flash" in n else 1, n))
         return names
@@ -126,6 +132,7 @@ def fallback(items: list[dict]) -> list[dict]:
             "summary_zh": (x.get("desc_en", "")[:120] + "…") if x.get("desc_en") else "",
             "affected": vendor, "fix_hint": "更新至官方修補版本",
             "epss": x.get("epss"), "refs": x.get("refs", []),
+            "desc_en": (x.get("desc_en", "") or "")[:600],
         })
     return out
 
@@ -141,6 +148,10 @@ def main():
         return
     raw = json.loads(raw_p.read_text(encoding="utf-8"))
     items = raw["items"]
+    # 只取 Top N（在野優先，其次 CVSS）：LLM 一天只打一次，省 quota 又精簡
+    items = sorted(items, key=lambda x: (x.get("in_kev"), x.get("cvss") or 0,
+                                         x.get("epss") or 0), reverse=True)[:TOP_N]
+    print(f"[refine] raw={len(raw['items'])} -> top{len(items)}")
     # LLM 輸入瘦身，避免 token 爆炸
     slim = [{"cve": x["cve"], "cvss": x["cvss"], "type_guess": x["type_guess"],
              "in_kev": x["in_kev"], "epss": x.get("epss"),
@@ -171,6 +182,7 @@ def main():
             r["cve"], r["cvss"], r["in_wild"] = cid, src["cvss"], src["in_kev"]
             r.setdefault("epss", src.get("epss"));
             r.setdefault("refs", src.get("refs", []))
+            r.setdefault("desc_en", (src.get("desc_en", "") or "")[:600])
             clean.append(r)
         result = clean or fallback(items)
         if not clean:
