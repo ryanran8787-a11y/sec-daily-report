@@ -53,13 +53,35 @@ def call_anthropic(items: list[dict]) -> list[dict] | None:
     return json.loads(m.group(0) if m else txt)
 
 
+def _gemini_models(key: str) -> list[str]:
+    """問 ListModels 拿可用模型，名字再怎麼改都跟得上。失敗回空。"""
+    try:
+        r = requests.get("https://generativelanguage.googleapis.com/v1beta/models",
+                         params={"key": key}, timeout=30)
+        r.raise_for_status()
+        names = []
+        for m in r.json().get("models", []):
+            if "generateContent" in (m.get("supportedGenerationMethods") or []):
+                names.append(m["name"].split("/")[-1])
+        # flash 便宜又快，優先
+        names.sort(key=lambda n: (0 if "flash" in n else 1, n))
+        return names
+    except Exception as e:
+        print(f"[warn] gemini ListModels 失敗: {e}")
+        return []
+
+
 def call_gemini(items: list[dict]) -> list[dict] | None:
     key = os.getenv("GEMINI_API_KEY")
     if not key:
         return None
-    primary = os.getenv("GEMINI_MODEL", "gemini-2.5-flash")
+    primary = os.getenv("GEMINI_MODEL", "")
+    discovered = _gemini_models(key)
+    cands = dict.fromkeys([m for m in [primary, *discovered,
+                                       "gemini-2.5-flash", "gemini-2.0-flash"] if m])
+    print(f"[refine] gemini 可用模型: {list(cands)[:5]}")
     last_err = None
-    for model in dict.fromkeys([primary, "gemini-2.5-flash", "gemini-2.0-flash"]):
+    for model in cands:
         url = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent?key={key}"
         try:
             r = requests.post(url, json={"systemInstruction": {"parts": [{"text": SYSTEM}]},
