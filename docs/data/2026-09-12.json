@@ -1,0 +1,84 @@
+{
+  "date": "2026-09-12",
+  "generated_at": "2026-09-12T03:38:42.746371+00:00",
+  "engine": "gemini",
+  "count": 5,
+  "items": [
+    {
+      "cve": "CVE-2026-85706",
+      "title_zh": "GitLab 檔案讀取在野利用",
+      "cvss": 10.0,
+      "type": "資訊洩漏",
+      "in_wild": true,
+      "summary_zh": "未經身分驗證讀取伺服器任意檔案",
+      "affected": "GitLab CE/EE 18.7 至 19.3.2 之間版本",
+      "fix_hint": "更新至 19.1.8, 19.2.6, 19.3.2 或更高版本",
+      "epss": null,
+      "refs": [
+        "https://gitlab.com/gitlab-org/gitlab/-/work_items/627748",
+        "https://hackerone.com/reports/3909881"
+      ],
+      "desc_en": "GitLab has remediated an issue in GitLab CE/EE affecting all versions from 18.7 before 19.1.8, 19.2 before 19.2.6, and 19.3 before 19.3.2 that, under certain conditions, an unauthenticated user could have read arbitrary files from the GitLab server due to improper path confinement and missing authentication enforcement in the repository commits API."
+    },
+    {
+      "cve": "CVE-2026-14560",
+      "title_zh": "WP Teddy Bear 插件 RCE",
+      "cvss": 10.0,
+      "type": "RCE",
+      "in_wild": false,
+      "summary_zh": "上傳惡意 PHP 檔案執行遠端代碼",
+      "affected": "teddy-bear-customize-addon <= 1.0.5",
+      "fix_hint": "停用插件或更新至最新安全版本",
+      "epss": 0.00228,
+      "refs": [
+        "https://wpscan.com/vulnerability/aba51906-91dc-4e75-ad44-373fe128deee/"
+      ],
+      "desc_en": "The teddy-bear-customize-addon WordPress plugin through 1.0.5 does not properly validate uploaded files, relying on a client-supplied content type and preserving the original filename, allowing unauthenticated attackers to upload arbitrary PHP files and execute code on the server."
+    },
+    {
+      "cve": "CVE-2026-80462",
+      "title_zh": "Chef Automate 權限提升",
+      "cvss": 10.0,
+      "type": "未授權存取",
+      "in_wild": false,
+      "summary_zh": "未經授權獲取受保護功能之存取權限",
+      "affected": "Chef Automate API gateway",
+      "fix_hint": "參考官方安全公告並更新 API 閘道組件",
+      "epss": null,
+      "refs": [
+        "https://community.progress.com/s/article/Critical-Security-Bulletin---August-2026---Chef-Automate-Security-Vulnerability"
+      ],
+      "desc_en": "A vulnerability in the Chef Automate API gateway and identity validation path may allow an unauthenticated actor to gain elevated access to protected Chef Automate functionality under specific conditions."
+    },
+    {
+      "cve": "CVE-2026-87985",
+      "title_zh": "Mistral Vibe 指令繞過 RCE",
+      "cvss": 10.0,
+      "type": "RCE",
+      "in_wild": false,
+      "summary_zh": "利用 ANSI-C 引號繞過權限執行代碼",
+      "affected": "Mistral Vibe",
+      "fix_hint": "更新 Mistral Vibe 至最新安全版本",
+      "epss": null,
+      "refs": [
+        "https://www.hiddenlayer.com/sai-security-advisory/2026-09-mistral-vibe3"
+      ],
+      "desc_en": "An arbitrary code execution vulnerability in Mistral Vibe allows an attacker to bypass command permission checks using ANSI-C quoted arguments. These arguments are not properly inspected, enabling a crafted allowlisted command to execute arbitrary code on the user's system without approval."
+    },
+    {
+      "cve": "CVE-2026-87986",
+      "title_zh": "Mistral Vibe 解析繞過 RCE",
+      "cvss": 10.0,
+      "type": "RCE",
+      "in_wild": false,
+      "summary_zh": "利用 Shell 構造繞過權限執行代碼",
+      "affected": "Mistral Vibe",
+      "fix_hint": "更新 Mistral Vibe 至最新安全版本",
+      "epss": null,
+      "refs": [
+        "https://www.hiddenlayer.com/sai-security-advisory/2026-09-mistral-vibe4"
+      ],
+      "desc_en": "An arbitrary code execution vulnerability in Mistral Vibe allows an attacker to bypass command permission checks using shell constructs it's parser cannot interpret. Unparsed portions are omitted from inspection, enabling embedded commands to execute on the user's system without approval."
+    }
+  ]
+}
