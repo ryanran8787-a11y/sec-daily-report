@@ -1,0 +1,99 @@
+{
+  "date": "2026-09-14",
+  "generated_at": "2026-09-14T03:53:48.881180+00:00",
+  "engine": "gemini",
+  "count": 5,
+  "items": [
+    {
+      "cve": "CVE-2026-81648",
+      "title_zh": "WP CryptoPayment 未授權存取",
+      "cvss": 10.0,
+      "type": "未授權存取",
+      "in_wild": false,
+      "summary_zh": "缺乏授權檢查，允許遠端刪除檔案或竊取憑據。",
+      "affected": "CryptoPayment Gateway 1.2.1-1.2.2",
+      "fix_hint": "升級至最新版本或停用該外掛。",
+      "epss": null,
+      "refs": [
+        "https://wpscan.com/vulnerability/9b1490a0-1381-4d22-8086-f75aade4e898/"
+      ],
+      "desc_en": "The CryptoPayment Gateway WordPress plugin from 1.2.1 to 1.2.2 does not apply an authorization check on one of its AJAX endpoints, allowing unauthenticated users to invoke administrative operations, including deleting arbitrary files on the server, overwriting the payment gateway configuration and recovering stored wallet credentials in cleartext."
+    },
+    {
+      "cve": "CVE-2026-90605",
+      "title_zh": "Totolink A3002MU 緩衝區溢位",
+      "cvss": 9.9,
+      "type": "其他高危",
+      "in_wild": false,
+      "summary_zh": "formFilter 函式處理 IPv6 地址時存在溢位漏洞。",
+      "affected": "Totolink A3002MU Hh-B20211125.1046",
+      "fix_hint": "更新韌體或限制遠端存取管理介面。",
+      "epss": null,
+      "refs": [
+        "https://github.com/SunnyYANGyaya/cuicuishark-sheep-fishIOT/blob/main/ToTolink/A3002MU/bof-formFilter.md",
+        "https://vuldb.com/cve/CVE-2026-90605",
+        "https://vuldb.com/submit/914009",
+        "https://vuldb.com/vuln/403187",
+        "https://vuldb.com/vuln/403187/cti"
+      ],
+      "desc_en": "A weakness has been identified in Totolink A3002MU Hh-B20211125.1046. This vulnerability affects the function formFilter of the file /boafrm/formFilter of the component boa. Executing a manipulation of the argument ip6addr can lead to buffer overflow. The attack can be executed remotely. The exploit has been made available to the public and could be used for attacks."
+    },
+    {
+      "cve": "CVE-2026-90606",
+      "title_zh": "Totolink A3002MU 緩衝區溢位",
+      "cvss": 9.9,
+      "type": "其他高危",
+      "in_wild": false,
+      "summary_zh": "formIpv6Setup 函式處理靜態 IPv6 時存在溢位。",
+      "affected": "Totolink A3002MU Hh-B20211125.1046",
+      "fix_hint": "更新韌體或限制遠端存取管理介面。",
+      "epss": null,
+      "refs": [
+        "https://github.com/SunnyYANGyaya/cuicuishark-sheep-fishIOT/blob/main/ToTolink/A3002MU/bof-formIpv6Setup.md",
+        "https://vuldb.com/cve/CVE-2026-90606",
+        "https://vuldb.com/submit/914010",
+        "https://vuldb.com/vuln/403188",
+        "https://vuldb.com/vuln/403188/cti"
+      ],
+      "desc_en": "A security vulnerability has been detected in Totolink A3002MU Hh-B20211125.1046. This issue affects the function formIpv6Setup of the file /boafrm/formIpv6Setup of the component boa. The manipulation of the argument static_ipv6 leads to buffer overflow. The attack is possible to be carried out remotely. The exploit has been disclosed publicly and may be used."
+    },
+    {
+      "cve": "CVE-2026-90607",
+      "title_zh": "Totolink A3002MU 緩衝區溢位",
+      "cvss": 9.9,
+      "type": "其他高危",
+      "in_wild": false,
+      "summary_zh": "formNewSchedule 函式處理提交 URL 時存在溢位。",
+      "affected": "Totolink A3002MU Hh-B20211125.1046",
+      "fix_hint": "更新韌體或限制遠端存取管理介面。",
+      "epss": null,
+      "refs": [
+        "https://github.com/SunnyYANGyaya/cuicuishark-sheep-fishIOT/blob/main/ToTolink/A3002MU/bof-formNewSchedule.md",
+        "https://vuldb.com/cve/CVE-2026-90607",
+        "https://vuldb.com/submit/914015",
+        "https://vuldb.com/vuln/403189",
+        "https://vuldb.com/vuln/403189/cti"
+      ],
+      "desc_en": "A vulnerability was detected in Totolink A3002MU Hh-B20211125.1046. Impacted is the function formNewSchedule of the file /boafrm/formNewSchedule of the component boa. The manipulation of the argument submit-url results in buffer overflow. The attack may be performed from remote. The exploit is now public and may be used."
+    },
+    {
+      "cve": "CVE-2026-90608",
+      "title_zh": "Totolink A3002MU 緩衝區溢位",
+      "cvss": 9.9,
+      "type": "其他高危",
+      "in_wild": false,
+      "summary_zh": "formPortFw 函式處理服務類型時存在溢位。",
+      "affected": "Totolink A3002MU Hh-B20211125.1046",
+      "fix_hint": "更新韌體或限制遠端存取管理介面。",
+      "epss": null,
+      "refs": [
+        "https://github.com/SunnyYANGyaya/cuicuishark-sheep-fishIOT/blob/main/ToTolink/A3002MU/bof-formPortFw.md",
+        "https://vuldb.com/cve/CVE-2026-90608",
+        "https://vuldb.com/submit/914016",
+        "https://vuldb.com/vuln/403190",
+        "https://vuldb.com/vuln/403190/cti"
+      ],
+      "desc_en": "A flaw has been found in Totolink A3002MU Hh-B20211125.1046. The affected element is the function formPortFw of the file /boafrm/formPortFw of the component boa. This manipulation of the argument service_type causes buffer overflow. It is possible to initiate the attack remotely. The exploit has been published and may be used."
+    }
+  ]
+}
