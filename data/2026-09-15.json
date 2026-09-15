@@ -1,0 +1,98 @@
+{
+  "date": "2026-09-15",
+  "generated_at": "2026-09-15T03:53:39.928130+00:00",
+  "engine": "gemini",
+  "count": 5,
+  "items": [
+    {
+      "cve": "CVE-2026-76461",
+      "title_zh": "Cisco Secure Email RCE 在野利用",
+      "cvss": 9.8,
+      "type": "RCE",
+      "in_wild": true,
+      "summary_zh": "郵件解析邏輯漏洞，攻擊者可透過惡意郵件執行系統指令。",
+      "affected": "Cisco AsyncOS Software for Cisco Secure Email Gateway",
+      "fix_hint": "請參閱 Cisco 安全公告更新至修補版本。",
+      "epss": null,
+      "refs": [
+        "https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-esa-inj-2bLVGmhX",
+        "https://www.cisa.gov/known-exploited-vulnerabilities-catalog?field_cve=CVE-2026-76461"
+      ],
+      "desc_en": "A vulnerability in the email parsing of Cisco AsyncOS Software for Cisco Secure Email Gateway could allow an unauthenticated, remote attacker to execute arbitrary commands with root privileges on the underlying operating system.\r\n\r\nThis vulnerability is due to insufficient validation in the email parsing logic. An attacker could exploit this vulnerability by sending a crafted email message that contains malicious SQL statements through an affected device. A successful exploit could allow the attacker to execute arbitrary SQL statements, leading to command execution with root privileges on the "
+    },
+    {
+      "cve": "CVE-2026-82434",
+      "title_zh": "Apache Storm 資訊洩漏",
+      "cvss": 10.0,
+      "type": "資訊洩漏",
+      "in_wild": false,
+      "summary_zh": "Nimbus 錯誤地向唯讀權限用戶洩漏 ZooKeeper 憑證。",
+      "affected": "Apache Storm",
+      "fix_hint": "請參閱 Apache 官方公告進行版本更新。",
+      "epss": null,
+      "refs": [
+        "https://lists.apache.org/thread/1t7hggrz59rdq792qm1pnkqj0ogm2szq",
+        "http://www.openwall.com/lists/oss-security/2026/09/13/14",
+        "http://www.openwall.com/lists/oss-security/2026/09/13/23"
+      ],
+      "desc_en": "Description\n\nWhen ZooKeeper authentication is configured, Storm deliberately retains\n`storm.zookeeper.topology.auth.payload` in the topology configuration, because workers need it. Nimbus then\nserved that configuration verbatim to any caller holding read-only topology permissions, so a user whose\nonly grant was the ability to view a topology received its ZooKeeper credential.\n\nThat credential is not read-only. The cluster state implementation uses write-capable ACLs for worker\nheartbeats, backpressure and error state, so a recipient can forge or remove that state for the topology\nconcerned. It"
+    },
+    {
+      "cve": "CVE-2026-90699",
+      "title_zh": "D-Link DWR-M920 指令注入",
+      "cvss": 9.9,
+      "type": "RCE",
+      "in_wild": false,
+      "summary_zh": "PIN 管理功能參數驗證不足，導致遠端指令注入。",
+      "affected": "D-Link DWR-M920 1.1.7",
+      "fix_hint": "目前無官方修補程式，建議限制存取或更換設備。",
+      "epss": 0.01593,
+      "refs": [
+        "https://github.com/H3rmesk1t/vulnerability-paper/issues/9",
+        "https://vuldb.com/cve/CVE-2026-90699",
+        "https://vuldb.com/submit/916259",
+        "https://vuldb.com/vuln/403232",
+        "https://vuldb.com/vuln/403232/cti"
+      ],
+      "desc_en": "A weakness has been identified in D-Link DWR-M920 1.1.7. This issue affects the function sub_41E60C of the file /boafrm/formPinManageSetup. This manipulation of the argument newPin causes os command injection. The attack can be initiated remotely. The exploit has been made available to the public and could be used for attacks."
+    },
+    {
+      "cve": "CVE-2026-90680",
+      "title_zh": "D-Link DIR-823G 緩衝區溢位",
+      "cvss": 9.9,
+      "type": "其他高危",
+      "in_wild": false,
+      "summary_zh": "HNAP1 靜態路由設定參數處理不當，導致堆疊緩衝區溢位。",
+      "affected": "D-Link DIR-823G 1.0.2B05_20181207",
+      "fix_hint": "目前無官方修補程式，建議限制存取或更換設備。",
+      "epss": 0.00511,
+      "refs": [
+        "https://github.com/Amalll-Sec/router-vulnerability-research/blob/main/advisories/d-link/dir-823g/SetStaticRouteSettings/README.md",
+        "https://vuldb.com/cve/CVE-2026-90680",
+        "https://vuldb.com/submit/914902",
+        "https://vuldb.com/vuln/403213",
+        "https://vuldb.com/vuln/403213/cti"
+      ],
+      "desc_en": "A security flaw has been discovered in D-Link DIR-823G 1.0.2B05_20181207. The impacted element is the function strcpy of the file /HNAP1/SetStaticRouteSettings of the component HNAP1. The manipulation of the argument PAddress/SubnetMask/Gateway results in stack-based buffer overflow. The attack can be launched remotely."
+    },
+    {
+      "cve": "CVE-2026-90692",
+      "title_zh": "D-Link DIR-878 緩衝區溢位",
+      "cvss": 9.9,
+      "type": "其他高危",
+      "in_wild": false,
+      "summary_zh": "動態 DNS 設定參數處理不當，導致遠端堆疊緩衝區溢位。",
+      "affected": "D-Link DIR-878 120B05",
+      "fix_hint": "目前無官方修補程式，建議限制存取或更換設備。",
+      "epss": 0.00473,
+      "refs": [
+        "https://github.com/Amalll-Sec/router-vulnerability-research/blob/main/advisories/d-link/dir-878/SetDynamicDNSIPv6Settings/README.md",
+        "https://vuldb.com/cve/CVE-2026-90692",
+        "https://vuldb.com/submit/915572",
+        "https://vuldb.com/vuln/403225",
+        "https://vuldb.com/vuln/403225/cti"
+      ],
+      "desc_en": "A vulnerability was detected in D-Link DIR-878 120B05. This affects the function SetDynamicDNSIPv6Settings of the component Dynamic DNS IPv6 Settings. The manipulation of the argument IPv6Address/Hostname results in stack-based buffer overflow. The attack may be launched remotely."
+    }
+  ]
+}
