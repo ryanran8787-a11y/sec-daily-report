@@ -1,0 +1,87 @@
+{
+  "date": "2026-09-19",
+  "generated_at": "2026-09-19T03:39:47.486199+00:00",
+  "engine": "gemini",
+  "count": 5,
+  "items": [
+    {
+      "cve": "CVE-2026-93603",
+      "title_zh": "vm2 沙箱逃逸漏洞",
+      "cvss": 10.0,
+      "type": "逃逸",
+      "in_wild": false,
+      "summary_zh": "vm2 處理函數接收器不當，導致沙箱逃逸並執行任意代碼。",
+      "affected": "vm2 <= 3.12.0",
+      "fix_hint": "升級至 3.12.1 或更高版本。",
+      "epss": null,
+      "refs": [
+        "https://github.com/patriksimek/vm2/security/advisories/GHSA-j89j-5m6r-cr2q",
+        "https://www.vulncheck.com/advisories/vm2-before-3.12.1-sandbox-escape-rce-via-non-strict-host-function"
+      ],
+      "desc_en": "vm2 through 3.12.0 (fixed in 3.12.1) does not correctly handle a nullish `this` receiver in the apply trap of its bridge (lib/bridge.js): when sandboxed code calls a host-provided non-strict (sloppy-mode) function without a receiver — e.g. `fn()`, a detached method, `fn.call()`, `fn.apply(undefined)`, `Reflect.apply(fn, undefined, [])`, or `fn.bind()()` — the undefined receiver is passed straight through to the host call, and V8 substitutes the host realm's global object for `this`. vm2 then wraps and returns that object to the sandbox, giving sandboxed script a live proxy of the host global. "
+    },
+    {
+      "cve": "CVE-2026-93605",
+      "title_zh": "vm2 沙箱逃逸漏洞",
+      "cvss": 10.0,
+      "type": "逃逸",
+      "in_wild": false,
+      "summary_zh": "NodeVM 黑名單遺漏 child_process，導致沙箱逃逸執行指令。",
+      "affected": "vm2 NodeVM < 3.12.1",
+      "fix_hint": "升級至 3.12.1 或更高版本。",
+      "epss": null,
+      "refs": [
+        "https://github.com/patriksimek/vm2/security/advisories/GHSA-pq68-rvw4-xp4r",
+        "https://www.vulncheck.com/advisories/vm2-nodevm-before-3.12.1-remote-code-execution-via-child-process"
+      ],
+      "desc_en": "vm2 NodeVM versions before 3.12.1 contain a sandbox escape vulnerability where the DANGEROUS_BUILTINS denylist omits child_process despite blocking other host-spawning modules. Attackers can require child_process and execute arbitrary commands on the host system when NodeVM is configured with builtin:['*'] or explicit child_process allowance."
+    },
+    {
+      "cve": "CVE-2026-93606",
+      "title_zh": "vm2 沙箱逃逸漏洞",
+      "cvss": 10.0,
+      "type": "逃逸",
+      "in_wild": false,
+      "summary_zh": "Promise 處理機制缺陷，導致沙箱逃逸並執行任意代碼。",
+      "affected": "vm2 <= 3.12.0",
+      "fix_hint": "升級至 3.12.1 或更高版本。",
+      "epss": null,
+      "refs": [
+        "https://github.com/patriksimek/vm2/security/advisories/GHSA-6454-5x88-m6jw",
+        "https://www.vulncheck.com/advisories/vm2-before-3.12.1-sandbox-escape-via-promise-symbol-species",
+        "https://github.com/patriksimek/vm2/security/advisories/GHSA-6454-5x88-m6jw"
+      ],
+      "desc_en": "vm2 (npm) versions 3.12.0 and earlier contain a sandbox escape in `VM` and `NodeVM`. When an embedder exposes a host API that returns a host-realm Promise, the bridge's rejection sanitizer (hostPromiseSanitizeReject / makeSanitizedPromiseCallback / normalizeHostPromiseCallbacks in lib/bridge.js) only wraps `then`/`catch` rejection slots that hold a function, and the sandbox-side `Symbol.species`/`.then` neutralization is installed only on the sandbox intrinsic `Promise.prototype`, so it never applies to a host Promise. Code running inside the sandbox can overwrite `p.constructor[Symbol.species"
+    },
+    {
+      "cve": "CVE-2025-15399",
+      "title_zh": "IBM Licensing CSRF 漏洞",
+      "cvss": 10.0,
+      "type": "其他高危",
+      "in_wild": false,
+      "summary_zh": "IBM Common Licensing 存在 CSRF 漏洞，可執行未授權操作。",
+      "affected": "IBM Common Licensing Agent/ART 9.0.x",
+      "fix_hint": "請參閱 IBM 官方公告進行更新。",
+      "epss": null,
+      "refs": [
+        "https://www.ibm.com/support/pages/node/7286490"
+      ],
+      "desc_en": "IBM Common Licensing Agent 9.0, Agent 9.0.0.1, Agent 9.0.0.2, ART 9.0, ART 9.0.0.1, and ART 9.0.0.2 is vulnerable to cross-site request forgery which could allow an attacker to execute malicious and unauthorized actions transmitted from a user that the website trusts."
+    },
+    {
+      "cve": "CVE-2026-10747",
+      "title_zh": "IBM MQ 堆疊緩衝區溢位",
+      "cvss": 10.0,
+      "type": "RCE",
+      "in_wild": false,
+      "summary_zh": "MQ Appliance 協議處理存在堆疊溢位，可導致 RCE 或 DoS。",
+      "affected": "IBM MQ Appliance",
+      "fix_hint": "請參閱 IBM 官方公告進行更新。",
+      "epss": null,
+      "refs": [
+        "https://www.ibm.com/support/pages/node/7284690"
+      ],
+      "desc_en": "IBM MQ Appliance could allow a remote attacker to cause a denial of service or potentially execute arbitrary code due to a heap buffer overflow in protocol message processing before authentication."
+    }
+  ]
+}
