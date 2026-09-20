@@ -1,0 +1,95 @@
+{
+  "date": "2026-09-20",
+  "generated_at": "2026-09-20T03:55:31.283670+00:00",
+  "engine": "gemini",
+  "count": 5,
+  "items": [
+    {
+      "cve": "CVE-2026-93741",
+      "title_zh": "Totolink A3002MU 緩衝區溢位",
+      "cvss": 10.0,
+      "type": "其他高危",
+      "in_wild": false,
+      "summary_zh": "Totolink A3002MU 設備存在緩衝區溢位漏洞，可遠端觸發。",
+      "affected": "Totolink A3002MU Hh-B20211125.1046",
+      "fix_hint": "建議聯繫廠商更新韌體或限制設備存取權限。",
+      "epss": 0.00644,
+      "refs": [
+        "https://github.com/SunnyYANGyaya/cuicuishark-sheep-fishIOT/blob/main/ToTolink/A3002MU/bof-formWlWds.md",
+        "https://vuldb.com/cve/CVE-2026-93741",
+        "https://vuldb.com/submit/914020",
+        "https://vuldb.com/vuln/407551",
+        "https://vuldb.com/vuln/407551/cti"
+      ],
+      "desc_en": "A security flaw has been discovered in Totolink A3002MU Hh-B20211125.1046. Affected by this vulnerability is the function formWlWds of the file /boafrm/formWlWds. The manipulation of the argument submit-url results in buffer overflow. It is possible to launch the attack remotely. The exploit has been released to the public and may be used for attacks."
+    },
+    {
+      "cve": "CVE-2026-93742",
+      "title_zh": "Totolink A3002MU RCE 漏洞",
+      "cvss": 9.9,
+      "type": "RCE",
+      "in_wild": false,
+      "summary_zh": "Totolink A3002MU 處理參數不當，導致遠端指令注入。",
+      "affected": "Totolink A3002MU Hh-B20211125.1046",
+      "fix_hint": "建議聯繫廠商更新韌體或限制設備存取權限。",
+      "epss": 0.0188,
+      "refs": [
+        "https://github.com/SunnyYANGyaya/cuicuishark-sheep-fishIOT/blob/main/ToTolink/A3002MU/rce-formWsc.md",
+        "https://vuldb.com/cve/CVE-2026-93742",
+        "https://vuldb.com/submit/914021",
+        "https://vuldb.com/vuln/407552",
+        "https://vuldb.com/vuln/407552/cti"
+      ],
+      "desc_en": "A weakness has been identified in Totolink A3002MU Hh-B20211125.1046. Affected by this issue is the function formWsc of the file /boafrm/formWsc. This manipulation of the argument localPin causes command injection. The attack can be initiated remotely. The exploit has been made available to the public and could be used for attacks."
+    },
+    {
+      "cve": "CVE-2026-93985",
+      "title_zh": "OpenPanel 沙箱逃逸漏洞",
+      "cvss": 9.9,
+      "type": "逃逸",
+      "in_wild": false,
+      "summary_zh": "OpenPanel 驗證器未阻擋建構子鏈，導致沙箱逃逸與 RCE。",
+      "affected": "OpenPanel js-runtime (commit bad75bdd 之前)",
+      "fix_hint": "更新至最新版本並檢查 webhook 模板配置。",
+      "epss": null,
+      "refs": [
+        "https://github.com/Openpanel-dev/openpanel/security/advisories/GHSA-6f7h-cvp6-w9w5",
+        "https://www.vulncheck.com/advisories/openpanel-js-runtime-javascript-template-sandbox-escape-rce"
+      ],
+      "desc_en": "OpenPanel js-runtime through commit bad75bdd contains a sandbox escape vulnerability in the JavaScript webhook template validator that fails to block computed member access to constructor chains. Attackers with project write access can create webhook templates using computed property notation to access Function constructor and execute arbitrary code in the worker process."
+    },
+    {
+      "cve": "CVE-2026-86591",
+      "title_zh": "Botiga Pro 外掛權限提升",
+      "cvss": 9.8,
+      "type": "權限提升",
+      "in_wild": false,
+      "summary_zh": "Botiga Pro 外掛缺乏授權檢查，導致未授權修改設定與接管。",
+      "affected": "Botiga Pro WordPress plugin 1.6.5 之前",
+      "fix_hint": "更新至 1.6.5 或更高版本。",
+      "epss": 0.00184,
+      "refs": [
+        "https://wpscan.com/vulnerability/e2389a60-16c2-4750-b85e-a82b91390b30/"
+      ],
+      "desc_en": "The Botiga Pro WordPress plugin before 1.6.5 does not perform any authorisation checks on one of its REST routes, allowing unauthenticated users to update arbitrary WordPress options with arbitrary values, which could lead to privilege escalation and a full site takeover.\nThe same route also allows unauthenticated users to store arbitrary web scripts which are then executed on every page of the site's front end, as well as to move arbitrary posts to the trash."
+    },
+    {
+      "cve": "CVE-2026-78030",
+      "title_zh": "Perl DBI 模組載入漏洞",
+      "cvss": 9.8,
+      "type": "其他高危",
+      "in_wild": false,
+      "summary_zh": "Perl DBI 未驗證屬性，導致可載入任意模組執行程式碼。",
+      "affected": "Perl DBI 1.653 之前",
+      "fix_hint": "更新至 1.653 或更高版本。",
+      "epss": null,
+      "refs": [
+        "https://github.com/perl5-dbi/dbi/commit/315c6ce703b8b3cbe9188062d9ec80730293554a.patch",
+        "https://github.com/perl5-dbi/dbi/security/advisories/GHSA-wqmw-wqwx-3fr7",
+        "https://metacpan.org/release/HMBRAND/DBI-1.653/changes",
+        "http://www.openwall.com/lists/oss-security/2026/09/19/4"
+      ],
+      "desc_en": "DBI versions before 1.653 for Perl load arbitrary modules via unvalidated dbm_type and dbm_mldbm attributes in DBD::DBM.\n\nDBD::DBM passes the dbm_type and dbm_mldbm connect attributes to require without checking that the value names a module. require treats a path-shaped string as a literal filename and does not consult @INC, so the attribute chooses the file that Perl loads and runs.\n\nThe MLDBM::Serializer:: prefix that DBD::DBM prepends to dbm_mldbm is not a boundary: only the :: separators are rewritten to /, so a value containing / traverses out of the serializer directory. The value is al"
+    }
+  ]
+}
