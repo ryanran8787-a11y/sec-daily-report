@@ -1,0 +1,93 @@
+{
+  "date": "2026-09-22",
+  "generated_at": "2026-09-22T03:50:05.004044+00:00",
+  "engine": "gemini",
+  "count": 5,
+  "items": [
+    {
+      "cve": "CVE-2026-77521",
+      "title_zh": "MaxKB AI 助手 RCE",
+      "cvss": 10.0,
+      "type": "RCE",
+      "in_wild": false,
+      "summary_zh": "沙箱後端漏洞導致未經授權執行系統指令。",
+      "affected": "MaxKB < 2.10.5-lts",
+      "fix_hint": "升級至 2.10.5-lts 或更高版本。",
+      "epss": null,
+      "refs": [
+        "https://github.com/1Panel-dev/MaxKB/commit/594f50f2ea80a502d1c955371ba0438b277c30ea",
+        "https://github.com/1Panel-dev/MaxKB/releases/tag/v2.10.5-lts",
+        "https://github.com/1Panel-dev/MaxKB/security/advisories/GHSA-f36j-f34j-h3rx"
+      ],
+      "desc_en": "MaxKB is an open-source AI assistant for enterprise. Prior to version 2.10.5-lts, assistants with a tool, MCP tool, skill, or sub-application use SandboxShellBackend, which exposes an execute shell tool without excluding it and omits execute from interrupt_on, so human approval is not required. Untrusted chat or ingested content can therefore cause command execution; source deployments with MAXKB_SANDBOX disabled run commands directly as the application user, while the official root container's string-based gosu wrapper allowed shell metacharacters to execute outside the intended sandbox. This"
+    },
+    {
+      "cve": "CVE-2026-94493",
+      "title_zh": "Gigatech 設備未授權存取",
+      "cvss": 10.0,
+      "type": "未授權存取",
+      "in_wild": false,
+      "summary_zh": "WebSocket 服務缺乏身份驗證，允許遠端存取。",
+      "affected": "Gigatech PDV5701 1.0.31_240305_112640",
+      "fix_hint": "目前無官方補丁，建議限制網路存取權限。",
+      "epss": null,
+      "refs": [
+        "https://github.com/CSDVi/cve/issues/2",
+        "https://vuldb.com/cve/CVE-2026-94493",
+        "https://vuldb.com/submit/895425",
+        "https://vuldb.com/vuln/408193",
+        "https://vuldb.com/vuln/408193/cti"
+      ],
+      "desc_en": "A vulnerability was detected in Gigatech PDV5701 1.0.31_240305_112640. This issue affects some unknown processing of the file /index.html of the component WebSocket Service. The manipulation results in missing authentication. The attack can be launched remotely. The exploit is now public and may be used. The vendor was contacted early about this disclosure but did not respond in any way."
+    },
+    {
+      "cve": "CVE-2026-79920",
+      "title_zh": "Ajenti 管理面板權限提升",
+      "cvss": 9.9,
+      "type": "權限提升",
+      "in_wild": false,
+      "summary_zh": "低權限用戶可透過插件管理 API 獲取 root 權限。",
+      "affected": "Ajenti < 2.2.16",
+      "fix_hint": "升級至 2.2.16 或更高版本。",
+      "epss": null,
+      "refs": [
+        "https://github.com/ajenti/ajenti/commit/3a8cbee32df4c5033796f19af4210011163a6f6e",
+        "https://github.com/ajenti/ajenti/commit/f07f02e0cdeeb3e528c1d5af28e27fd11623c49c",
+        "https://github.com/ajenti/ajenti/releases/tag/v2.2.16",
+        "https://github.com/ajenti/ajenti/security/advisories/GHSA-j8xf-5fw2-f99q"
+      ],
+      "desc_en": "Ajenti is a Linux & BSD modular server admin panel. Prior to version 2.2.16, any authenticated user can call /api/core/tasks/start to enqueue InstallPlugin, UnInstallPlugin, or UpgradeAll from plugins/plugins/tasks.py without plugin-management authorization. InstallPlugin and UnInstallPlugin construct a pip package specification from unvalidated name and version fields, and the task worker invokes pip while running as root. A low-privileged user can therefore select or manipulate a package installed with root privileges and can install, remove, or upgrade plugins without administrative permiss"
+    },
+    {
+      "cve": "CVE-2026-82187",
+      "title_zh": "WP 插件任意檔案上傳 RCE",
+      "cvss": 9.8,
+      "type": "RCE",
+      "in_wild": false,
+      "summary_zh": "未經身份驗證即可上傳惡意 PHP 檔案並執行。",
+      "affected": "Web to Print Online Designer < 2.15.0",
+      "fix_hint": "升級至 2.15.0 或更高版本。",
+      "epss": 0.00145,
+      "refs": [
+        "https://wpscan.com/vulnerability/d3e49486-6c08-41d5-86c9-3aaff670fc63/"
+      ],
+      "desc_en": "The Web to Print Online Designer WordPress plugin before 2.15.0 does not validate the type or extension of uploaded files, and hands the token protecting those uploads to any visitor who asks for it, allowing unauthenticated attackers to upload arbitrary files, including PHP ones, and run code on the server."
+    },
+    {
+      "cve": "CVE-2026-94301",
+      "title_zh": "Apache MINA 反序列化 RCE",
+      "cvss": 9.8,
+      "type": "反序列化RCE",
+      "in_wild": false,
+      "summary_zh": "修補程式不完整導致白名單過濾可被繞過。",
+      "affected": "Apache MINA 2.0.x/2.1.x (至 2.0.30, 2.1.14)",
+      "fix_hint": "遷移至已修復的 2.2.x 分支版本。",
+      "epss": null,
+      "refs": [
+        "https://lists.apache.org/thread/rzos6zds5x7obl8trkvznt1djw4f996p",
+        "https://lists.apache.org/thread/x4667tn5ozbvkc3wz87lhzogbfl0dczj"
+      ],
+      "desc_en": "The fix for CVE-2026-47065/ZDRES-232 (\"resolveProxyClass Not Overridden - acceptMatchers Filter Bypass via java.lang.reflect.Proxy\"), released on 2026-06-02 and announced as \"Fully addressed\" in MINA 2.2.8, 2.1.13 and 2.0.29, was committed to the\n 2.2.X branch only. The 2.0.X and 2.1.X maintenance branches never received the resolveProxyClass() override, so the 2.0.29 and 2.1.13 artifacts listed as fixed -- and every later release on those lines, up to and including the current 2.0.30 and 2.1.14 -- remain vulnerable to the exact allow-list bypass that CVE-2026-47065 was meant to close."
+    }
+  ]
+}
