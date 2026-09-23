@@ -1,0 +1,91 @@
+{
+  "date": "2026-09-23",
+  "generated_at": "2026-09-23T03:48:49.219139+00:00",
+  "engine": "gemini",
+  "count": 5,
+  "items": [
+    {
+      "cve": "CVE-2026-93952",
+      "title_zh": "VeloCloud VCO 權限接管",
+      "cvss": 10.0,
+      "type": "接管",
+      "in_wild": true,
+      "summary_zh": "遠端攻擊者可存取內部功能並接管編排器。",
+      "affected": "VeloCloud Orchestrator (VCO) 地端版本",
+      "fix_hint": "更新至已修復版本，託管版本已由廠商完成修補。",
+      "epss": 0.00424,
+      "refs": [
+        "https://www.arista.com/en/support/advisories-notices/security-advisory/24765-security-advisory-0183",
+        "https://www.cisa.gov/known-exploited-vulnerabilities-catalog?field_cve=CVE-2026-93952"
+      ],
+      "desc_en": "VeloCloud Orchestrator (VCO) on-prem has a security issue where this issue may allow a remote attacker to access privileged internal functionality and impact the VCO host. Successful exploitation may compromise the confidentiality, integrity, and availability of the orchestrator and data managed by the orchestrator.\n\nHosted, including Dedicated, versions of VCO were impacted and have already been patched."
+    },
+    {
+      "cve": "CVE-2026-93616",
+      "title_zh": "Check Point 管理伺服器 RCE",
+      "cvss": 9.8,
+      "type": "RCE",
+      "in_wild": true,
+      "summary_zh": "透過目錄遍歷與檔案上傳漏洞執行惡意腳本。",
+      "affected": "Check Point Management Server",
+      "fix_hint": "參考官方公告 sk1000171 進行安全更新。",
+      "epss": null,
+      "refs": [
+        "https://support.checkpoint.com/results/sk/sk1000171",
+        "https://blog.checkpoint.com/security/security-advisory-action-required-active-exploitation-of-cve-2026-85102-and-a-management-pre-authentication-vulnerability-cve-2026-93616/",
+        "https://www.cisa.gov/known-exploited-vulnerabilities-catalog?field_cve=CVE-2026-93616"
+      ],
+      "desc_en": "A directory traversal and file upload vulnerability allows an unauthenticated attacker to upload and execute arbitrary scripts on Check Point Management Server."
+    },
+    {
+      "cve": "CVE-2026-94127",
+      "title_zh": "F5 BIG-IP APM 遠端代碼執行",
+      "cvss": 9.8,
+      "type": "RCE",
+      "in_wild": true,
+      "summary_zh": "惡意流量可觸發 OAuth 授權伺服器 RCE。",
+      "affected": "配置 OAuth 授權伺服器模式的 BIG-IP APM",
+      "fix_hint": "升級至官方發布的最新安全版本。",
+      "epss": null,
+      "refs": [
+        "https://my.f5.com/manage/s/article/K000162605",
+        "https://www.cisa.gov/known-exploited-vulnerabilities-catalog?field_cve=CVE-2026-94127"
+      ],
+      "desc_en": "When a BIG-IP APM access policy and an OAuth profile are configured on a virtual server, specific malicious traffic can lead to remote code execution (RCE). This vulnerability is only present when BIG-IP APM is configured as an OAuth Authorization Server. Deployments using APM strictly as an OAuth Client / Resource Server (without OAuth authorization server profiles configured) are not affected by this vulnerability.\n\nImpact:\nThis vulnerability allows an unauthenticated attacker to perform remote code execution. The BIG-IP system in Appliance mode is also vulnerable. This is a data plane issue"
+    },
+    {
+      "cve": "CVE-2026-80155",
+      "title_zh": "Lantronix 設備驗證繞過 RCE",
+      "cvss": 10.0,
+      "type": "RCE",
+      "in_wild": false,
+      "summary_zh": "透過 Cookie 路徑截斷繞過驗證並執行代碼。",
+      "affected": "SLC8000, EMG8500/7500, SLB882 等設備",
+      "fix_hint": "更新韌體至 v9.7.0.5 或 v9.7.0.1 以上版本。",
+      "epss": null,
+      "refs": [
+        "https://revrb.net/2026/09/21/revrb-lantern.html",
+        "https://ts.lantronix.com/ftp/emg/EMG_7500/9.7.0.1R2/",
+        "https://ts.lantronix.com/ftp/emg/EMG_8500/9.7.0.1R2/",
+        "https://ts.lantronix.com/ftp/slc8000/9.7.0.5R2/",
+        "https://www.vulncheck.com/advisories/lantronix-autonomous-out-of-band-devices-unauthenticated-authentication-bypass-via-snprintf-path-truncation"
+      ],
+      "desc_en": "Lantronix SLC8000 before firmware v9.7.0.5, EMG8500/EMG7500 before firmware v9.7.0.1, and all firmware versions of SLB882/SLCx-03/SLCx-02 contain an authentication bypass vulnerability in the web management portal upload endpoint that allows unauthenticated attackers to read sensitive configuration files and upload files to arbitrary filesystem locations, leading to remote code execution. The web configuration server constructs the session cookie file path using snprintf with a fixed-size buffer; by supplying a cookie value of a specific length an attacker causes the path to truncate at the re"
+    },
+    {
+      "cve": "CVE-2026-73369",
+      "title_zh": "Adobe Campaign Classic RCE",
+      "cvss": 10.0,
+      "type": "RCE",
+      "in_wild": false,
+      "summary_zh": "代碼注入漏洞允許攻擊者執行任意指令。",
+      "affected": "Adobe Campaign Classic (ACC)",
+      "fix_hint": "參考 APSB26-142 公告更新至最新版本。",
+      "epss": null,
+      "refs": [
+        "https://helpx.adobe.com/security/products/campaign/apsb26-142.html"
+      ],
+      "desc_en": "Adobe Campaign Classic (ACC) is affected by an Improper Control of Generation of Code ('Code Injection') vulnerability that could result in arbitrary code execution in the context of the current user. An attacker could exploit this vulnerability to execute arbitrary code. Exploitation of this issue does not require user interaction. Scope is changed."
+    }
+  ]
+}
