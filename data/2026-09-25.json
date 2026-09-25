@@ -1,0 +1,90 @@
+{
+  "date": "2026-09-25",
+  "generated_at": "2026-09-25T03:56:42.154640+00:00",
+  "engine": "gemini",
+  "count": 5,
+  "items": [
+    {
+      "cve": "CVE-2026-97359",
+      "title_zh": "HFS2 模板注入 RCE",
+      "cvss": 10.0,
+      "type": "RCE",
+      "in_wild": false,
+      "summary_zh": "HFS2 上傳處理器存在模板注入，未授權攻擊者可執行任意指令。",
+      "affected": "HFS2 2.4.0 及更早版本",
+      "fix_hint": "更新至最新版本",
+      "epss": null,
+      "refs": [
+        "https://github.com/wgetnz/hfs2/blob/master/advisories/hfs2-upload-filename-template-injection/README.md",
+        "https://www.vulncheck.com/advisories/hfs2-rce-via-multipart-upload-filename-template-injection"
+      ],
+      "desc_en": "HFS2 version 2.4.0 and earlier contains a template injection vulnerability in the multipart upload handler that allows unauthenticated attackers to achieve remote code execution by embedding malicious template syntax in a filename. Attackers can craft a filename containing a closing template quoting sequence followed by an exec macro, which bypasses the authorization check in the dispatcher to execute arbitrary commands on the underlying host system."
+    },
+    {
+      "cve": "CVE-2026-97360",
+      "title_zh": "HFS2 未授權檔案存取",
+      "cvss": 10.0,
+      "type": "未授權存取",
+      "in_wild": false,
+      "summary_zh": "HFS2 缺乏授權機制，未授權攻擊者可任意讀寫或刪除系統檔案。",
+      "affected": "HFS2 2.4.0 及更早版本",
+      "fix_hint": "更新至最新版本",
+      "epss": null,
+      "refs": [
+        "https://github.com/wgetnz/hfs2/blob/master/advisories/hfs2-template-macro-missing-authorization/README.md",
+        "https://www.vulncheck.com/advisories/hfs2-unauthenticated-arbitrary-file-read-write-via-template-engine"
+      ],
+      "desc_en": "HFS2 version 2.4.0 and earlier contains an unauthenticated arbitrary file access vulnerability that allows unauthenticated attackers to read, write, append, and delete files anywhere the HFS service account has filesystem access outside the shared folder. Attackers can exploit the macro dispatcher's lack of authorization model combined with the path resolver's failure to confine absolute paths to manipulate the template engine and compromise the confidentiality, integrity, and availability of the host."
+    },
+    {
+      "cve": "CVE-2026-61732",
+      "title_zh": "Decepticon LLM 提示注入",
+      "cvss": 10.0,
+      "type": "其他高危",
+      "in_wild": false,
+      "summary_zh": "未過濾特殊標記，攻擊者可透過網頁內容偽造指令繞過防護。",
+      "affected": "Decepticon 1.1.17 之前版本",
+      "fix_hint": "更新至 1.1.17 或更高版本",
+      "epss": null,
+      "refs": [
+        "https://github.com/BitterSecurity/Decepticon/commit/79ee2aaf22f4c36a5b1968f6ca3f8086b6e35b67",
+        "https://github.com/BitterSecurity/Decepticon/security/advisories/GHSA-g5f9-3xfg-p9mf",
+        "https://github.com/BitterSecurity/Decepticon/security/advisories/GHSA-g5f9-3xfg-p9mf"
+      ],
+      "desc_en": "Decepticon is an autonomous hacking agent for red teams. Versions prior to 1.1.17 wrap web crawl results — the output of agent reconnaissance against target services — into LLM messages without neutralizing ChatML special-token literals. Under the BYOK (Bring Your Own Key) deployment model, users configure their own LLM credentials to any OpenAI-compatible endpoint. Most open-source and self-deployed model providers (vLLM, SGLang, Ollama, LM Studio, text-generation-webui, etc.) do not filter special-token literals from user content in their default configurations. Those literals are parsed int"
+    },
+    {
+      "cve": "CVE-2026-19072",
+      "title_zh": "Velociraptor 權限提升",
+      "cvss": 9.9,
+      "type": "權限提升",
+      "in_wild": false,
+      "summary_zh": "API 參數驗證不足，調查員角色可執行管理員權限的 VQL 指令。",
+      "affected": "Velociraptor 受影響版本",
+      "fix_hint": "請參考官方公告更新",
+      "epss": null,
+      "refs": [
+        "https://docs.velociraptor.app/announcements/advisories/cve-2026-19072/"
+      ],
+      "desc_en": "Velociraptor stores the compiled VQL in the hunt object internally to avoid having to recompile the artifacts for each endpoint in the hunt. Although the field \"compiled_collector_args\" is an internal field, Velociraptor allowed the field to be set from a user API call. This allows another user who can schedule a hunt (minimal role of \"investigator\" ) to set the compiled VQL statements for the hunt bypassing any ACL checks that would normally be applied.\n\n\n\n\nThis flaw can then be escalated to allow the \"investigator\" user to run arbitrary VQL statements as an administrator user on the Velocira"
+    },
+    {
+      "cve": "CVE-2026-93425",
+      "title_zh": "Dokploy 指令注入 RCE",
+      "cvss": 9.9,
+      "type": "RCE",
+      "in_wild": false,
+      "summary_zh": "路徑參數未正確過濾，授權使用者可於容器內以 root 執行指令。",
+      "affected": "Dokploy 0.29.13 之前版本",
+      "fix_hint": "更新至 0.29.13 或更高版本",
+      "epss": null,
+      "refs": [
+        "https://github.com/Dokploy/dokploy/commit/16b5b7293f9883327a89c69fcb6e5718767b064a",
+        "https://github.com/Dokploy/dokploy/releases/tag/v0.29.13",
+        "https://github.com/Dokploy/dokploy/security/advisories/GHSA-56g6-wjr4-5q7p",
+        "https://github.com/Dokploy/dokploy/security/advisories/GHSA-56g6-wjr4-5q7p"
+      ],
+      "desc_en": "Dokploy is a free, self-hostable Platform as a Service (PaaS). Prior to 0.29.13, the patch.readRepoDirectories tRPC procedure passes the user-controlled repoPath value from apps/dokploy/server/api/routers/patch.ts into a shell command in packages/server/src/services/patch-repo.ts without safe argument quoting. An authenticated organization member with service:read permission can inject shell metacharacters into repoPath and execute arbitrary commands through child_process.exec as root in the Dokploy container. The supplied service identifier is used only to resolve the server and does not cons"
+    }
+  ]
+}
