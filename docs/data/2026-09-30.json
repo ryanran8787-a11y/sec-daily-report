@@ -1,0 +1,92 @@
+{
+  "date": "2026-09-30",
+  "generated_at": "2026-09-30T04:33:02.205084+00:00",
+  "engine": "gemini",
+  "count": 5,
+  "items": [
+    {
+      "cve": "CVE-2026-53988",
+      "title_zh": "Dockhand 容器逃逸漏洞",
+      "cvss": 10.0,
+      "type": "逃逸",
+      "in_wild": false,
+      "summary_zh": "繞過 Webhook 驗證以觸發部署並逃逸至主機。",
+      "affected": "Dockhand 1.0.40 之前版本",
+      "fix_hint": "升級至 1.0.40 或更高版本。",
+      "epss": null,
+      "refs": [
+        "https://github.com/Finsys/dockhand/releases/tag/v1.0.40",
+        "https://www.vulncheck.com/advisories/dockhand-unauthenticated-webhook-trigger-via-git-webhook-endpoints"
+      ],
+      "desc_en": "Dockhand before 1.0.40 contains an authentication bypass vulnerability in its git webhook endpoints that allows unauthenticated remote attackers to trigger arbitrary stack redeployments by exploiting a null webhook secret guard condition. Attackers can enumerate sequential stack IDs and send unsigned webhook requests to force git clone and docker compose operations, enabling denial of service or, when combined with write access to the tracked git branch, container escape and full host compromise via attacker-controlled docker-compose.yml with privileged bind mounts."
+    },
+    {
+      "cve": "CVE-2026-96587",
+      "title_zh": "Viidure 硬編碼憑證漏洞",
+      "cvss": 10.0,
+      "type": "其他高危",
+      "in_wild": false,
+      "summary_zh": "程式碼內嵌雲端憑證，導致平台資料遭全面存取。",
+      "affected": "Viidure Android 應用程式",
+      "fix_hint": "移除硬編碼憑證並更新應用程式。",
+      "epss": null,
+      "refs": [
+        "https://github.com/cisagov/CSAF/blob/develop/csaf_files/OT/white/2026/icsa-26-272-07.json",
+        "https://viidure.app/",
+        "https://www.cisa.gov/news-events/ics-advisories/icsa-26-272-07"
+      ],
+      "desc_en": "The Viidure Android application embeds permanent, plaintext cloud storage credentials within its compiled code. These credentials provide full access to critical platform storage, including the ability to read, modify, or delete operational files such as firmware and application binaries."
+    },
+    {
+      "cve": "CVE-2026-71379",
+      "title_zh": "資料庫匯出未授權存取",
+      "cvss": 10.0,
+      "type": "未授權存取",
+      "in_wild": false,
+      "summary_zh": "攻擊者可未經授權匯出任意資料庫表格。",
+      "affected": "相關產品之檔案匯出端點",
+      "fix_hint": "參考 CISA ICSA-26-272-02 建議進行修補。",
+      "epss": null,
+      "refs": [
+        "https://github.com/cisagov/CSAF/blob/develop/csaf_files/OT/white/2026/icsa-26-272-02.json",
+        "https://www.cisa.gov/news-events/ics-advisories/icsa-26-272-02",
+        "https://www.toptech.com/blog/tms7-version-7-8-strengthens-security"
+      ],
+      "desc_en": "The file export endpoint allows any unauthenticated attacker to export arbitrary database tables by sending a crafted POST request."
+    },
+    {
+      "cve": "CVE-2026-84154",
+      "title_zh": "GEOVIA GDM 遠端代碼執行",
+      "cvss": 9.9,
+      "type": "RCE",
+      "in_wild": false,
+      "summary_zh": "代碼注入漏洞允許攻擊者在伺服器執行指令。",
+      "affected": "3DEXPERIENCE R2024x 至 R2026x",
+      "fix_hint": "升級至官方最新安全版本。",
+      "epss": 0.00355,
+      "refs": [
+        "https://www.3ds.com/trust-center/security/security-advisories/cve-2026-84154"
+      ],
+      "desc_en": "A Code Injection vulnerability affecting GEOVIA Geospatial Data Manager from Release 3DEXPERIENCE R2024x through Release 3DEXPERIENCE R2026x could allow an attacker to execute arbitrary code on the server."
+    },
+    {
+      "cve": "CVE-2026-102911",
+      "title_zh": "pi-llm-wiki 遠端代碼執行",
+      "cvss": 9.9,
+      "type": "RCE",
+      "in_wild": false,
+      "summary_zh": "操控 URL 參數導致指令注入，可遠端執行。",
+      "affected": "pi-llm-wiki 0.11.7 及之前版本",
+      "fix_hint": "升級至 0.11.8 或套用修補程式。",
+      "epss": null,
+      "refs": [
+        "https://github.com/zosmaai/pi-llm-wiki/",
+        "https://github.com/zosmaai/pi-llm-wiki/commit/360867034e79175b45c8e04a98e4ca712bbaca35",
+        "https://github.com/zosmaai/pi-llm-wiki/issues/185",
+        "https://github.com/zosmaai/pi-llm-wiki/pull/186",
+        "https://github.com/zosmaai/pi-llm-wiki/releases/tag/v0.11.8"
+      ],
+      "desc_en": "A flaw has been found in zosmaai pi-llm-wiki up to 0.11.7. Affected is an unknown function of the file mcp/index.ts of the component wiki_capture_source MCP tool. Executing a manipulation of the argument url can lead to os command injection. The attack can be executed remotely. The exploit has been published and may be used. Upgrading to version 0.11.8 is able to address this issue. This patch is called 360867034e79175b45c8e04a98e4ca712bbaca35. Upgrading the affected component is advised."
+    }
+  ]
+}
