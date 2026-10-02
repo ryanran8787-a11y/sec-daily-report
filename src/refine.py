@@ -28,6 +28,7 @@ BRIEF_SYSTEM = (
 )
 
 TOP_N = int(os.getenv("DAILY_TOP_N", "5"))  # 日報只取 Top N：在野優先，其次 CVSS
+LAST_GOOD_MODEL = ""  # call_gemini 成功時記下，總評優先復用（ListModels 常列出不可用的名字）
 SKIP_MODEL_KW = ("image", "tts", "audio", "embed", "aqa")  # 非文字模型不試，省 quota
 
 
@@ -104,6 +105,8 @@ def call_gemini(items: list[dict]) -> list[dict] | None:
             r.raise_for_status()
             txt = r.json()["candidates"][0]["content"]["parts"][0]["text"]
             parsed = json.loads(txt)
+            global LAST_GOOD_MODEL
+            LAST_GOOD_MODEL = model
             return parsed if isinstance(parsed, list) else parsed.get("items")
         except Exception as e:
             last_err = e
@@ -179,19 +182,32 @@ def make_brief(items: list[dict], engine: str) -> str:
         return fallback_brief(items)
     try:
         key = os.getenv("GEMINI_API_KEY")
-        models = _gemini_models(key) or ["gemini-2.5-flash"]
-        model = os.getenv("GEMINI_MODEL", "") or models[0]
         titles = [{"cve": x["cve"], "title_zh": x.get("title_zh", ""),
                    "type": x.get("type", ""), "in_wild": x.get("in_wild")} for x in items]
-        url = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent?key={key}"
-        r = requests.post(url, json={"systemInstruction": {"parts": [{"text": BRIEF_SYSTEM}]},
-                                     "contents": [{"parts": [{"text": json.dumps(titles, ensure_ascii=False)}]}],
-                                     "generationConfig": {"temperature": 0.3, "responseMimeType": "application/json"}},
-                          timeout=60)
-        r.raise_for_status()
-        txt = r.json()["candidates"][0]["content"]["parts"][0]["text"]
-        b = (json.loads(txt) or {}).get("brief_zh", "")
-        return b.strip()[:200] if b else fallback_brief(items)
+        models = _gemini_models(key) or ["gemini-2.5-flash"]
+        ordered = [m for m in [LAST_GOOD_MODEL, os.getenv("GEMINI_MODEL", ""), *models] if m]
+        seen, uniq = set(), []
+        for m in ordered:
+            if m not in seen:
+                seen.add(m)
+                uniq.append(m)
+        last_err = None
+        for model in uniq[:4]:  # 最多試 4 個，省 quota
+            try:
+                url = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent?key={key}"
+                r = requests.post(url, json={"systemInstruction": {"parts": [{"text": BRIEF_SYSTEM}]},
+                                             "contents": [{"parts": [{"text": json.dumps(titles, ensure_ascii=False)}]}],
+                                             "generationConfig": {"temperature": 0.3, "responseMimeType": "application/json"}},
+                                  timeout=60)
+                r.raise_for_status()
+                txt = r.json()["candidates"][0]["content"]["parts"][0]["text"]
+                b = (json.loads(txt) or {}).get("brief_zh", "")
+                if b:
+                    return b.strip()[:200]
+            except Exception as e:
+                last_err = e
+        print(f"[warn] 總評失敗，用規則版: {last_err}")
+        return fallback_brief(items)
     except Exception as e:
         print(f"[warn] 總評失敗，用規則版: {e}")
         return fallback_brief(items)
