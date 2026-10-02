@@ -22,7 +22,7 @@ def build_feed(reps: list[dict]) -> str:
 <rss version="2.0"><channel>
 <title>網安每日報 SecDaily</title>
 <link>{SITE_URL}/</link>
-<description>CVSS ≥ 9.0 或在野利用的高危漏洞日報</description>
+<description>CVSS&gt;=9.0 或在野利用的高危漏洞日報</description>
 <language>zh-tw</language>
 <lastBuildDate>{now}</lastBuildDate>"""]
     for r in reps[:30]:
@@ -64,17 +64,23 @@ def main():
     tpl = env.get_template("index.html")
 
     DOCS_DIR.mkdir(exist_ok=True)
-    for r in reps:  # 每天一頁存檔，歷史連結點了真的會開
-        (DOCS_DIR / f"{r['date']}.html").write_text(
-            tpl.render(report=r, history=history, latest_date=reps[0]["date"]), encoding="utf-8")
-    (DOCS_DIR / "index.html").write_text(
-        tpl.render(report=latest, history=history, latest_date=reps[0]["date"]), encoding="utf-8")
     dd = DOCS_DIR / "data"
     dd.mkdir(exist_ok=True)
     for r in reps:
         shutil.copy(DATA_DIR / f"{r['date']}.json", dd / f"{r['date']}.json")
     (DOCS_DIR / ".nojekyll").write_text("", encoding="utf-8")
     (DOCS_DIR / "feed.xml").write_text(build_feed(reps), encoding="utf-8")
+    trend = [{"date": r["date"], "count": r["count"],
+              "wild": sum(1 for it in r.get("items", []) if it.get("in_wild"))}
+             for r in sorted(reps, key=lambda r: r["date"])[-30:]]
+    (DOCS_DIR / "data" / "trend.json").write_text(
+        json.dumps(trend, ensure_ascii=False), encoding="utf-8")
+    ctx = dict(history=history, latest_date=reps[0]["date"], trend=trend)
+    for r in reps:  # 每天一頁存檔，歷史連結點了真的會開
+        (DOCS_DIR / f"{r['date']}.html").write_text(
+            tpl.render(report=r, **ctx), encoding="utf-8")
+    (DOCS_DIR / "index.html").write_text(
+        tpl.render(report=latest, **ctx), encoding="utf-8")
     print(f"[build] latest={latest['date']} count={latest['count']} -> docs/index.html + feed.xml")
 
 

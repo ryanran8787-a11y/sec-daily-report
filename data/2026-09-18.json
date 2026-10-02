@@ -20,7 +20,8 @@
       "desc_en": "Local privilege escalation due to insecure file permissions. The following products are affected: Acronis Backup plugin for cPanel & WHM (Linux) before build 1.9.3.1021, Acronis Backup extension for Plesk (Linux) before build 1.8.11.638, Acronis Backup plugin for DirectAdmin (Linux) before build 1.2.3.238.",
       "affected_versions": "",
       "patch_url": "https://security-advisory.acronis.com/advisories/SEC-10986",
-      "epss_warn": false
+      "epss_warn": false,
+      "source": "nvd"
     },
     {
       "cve": "CVE-2026-62104",
@@ -38,7 +39,8 @@
       "desc_en": "Unauthenticated Remote Code Execution (RCE) in Migratico Lite <= 2.6.8 versions.",
       "affected_versions": "<= 2.6.8 之前",
       "patch_url": "https://patchstack.com/database/wordpress/plugin/migratico-lite/vulnerability/wordpress-migratico-lite-plugin-2-6-8-remote-code-execution-rce-vulnerability?_s_id=cve",
-      "epss_warn": false
+      "epss_warn": false,
+      "source": "nvd"
     },
     {
       "cve": "CVE-2026-92937",
@@ -57,7 +59,13 @@
       "desc_en": "vm2 3.11.6 is vulnerable to a sandbox escape leading to remote code execution in the host Node.js process. The fix for GHSA-m283-3h24-438v is incomplete: the bridge gate at lib/bridge.js:1624 identity-checks only the direct call target when deciding whether to rebuild/sanitise a rejected host Promise value. Registering the rejection handler through Function.prototype.call or .apply indirection (e.g., p.then.call(p, undefined, cb)) makes the intercepted target host Function.prototype.call, so the sanitiser never runs and the raw host error reaches sandbox code with its own properties intact. If",
       "affected_versions": "",
       "patch_url": "https://github.com/patriksimek/vm2/security/advisories/GHSA-647f-g98j-qq25",
-      "epss_warn": false
+      "epss_warn": false,
+      "source": "nvd",
+      "osv_packages": [],
+      "osv_fixed": [],
+      "osv_alias": [
+        "GHSA-647f-g98j-qq25"
+      ]
     },
     {
       "cve": "CVE-2026-92940",
@@ -76,7 +84,13 @@
       "desc_en": "vm2 versions 3.11.3 through 3.11.6 expose the host process's real https.globalAgent to sandboxed code when a NodeVM is explicitly configured to allow require('https'). The builtin loader wraps host modules in a read-only proxy, but method calls such as Agent.prototype.on() are forwarded to the underlying host object, so sandbox code can register a listener for the agent's 'free' event. When an unrelated host HTTPS request releases a pooled connection, the listener receives the live host request options and the host TLSSocket, allowing sandboxed code to read the host's Authorization header and ",
       "affected_versions": "3.11.6 及更早",
       "patch_url": "https://github.com/patriksimek/vm2/security/advisories/GHSA-h85j-hv3c-qfgq",
-      "epss_warn": false
+      "epss_warn": false,
+      "source": "nvd",
+      "osv_packages": [],
+      "osv_fixed": [],
+      "osv_alias": [
+        "GHSA-h85j-hv3c-qfgq"
+      ]
     },
     {
       "cve": "CVE-2026-92941",
@@ -96,7 +110,13 @@
       "desc_en": "vm2 versions from 3.11.3 before 3.11.7 expose the host tls module to NodeVM sandbox code, allowing attackers to call tls.setDefaultCACertificates() and replace process-wide certificate authorities. Attackers with access to allowed tls and url builtins can use URLSearchParams to create host-realm arrays and manipulate the TLS trust store, enabling subsequent host HTTPS clients to accept attacker-controlled certificates.",
       "affected_versions": "3.11.7 之前",
       "patch_url": "https://github.com/patriksimek/vm2/security/advisories/GHSA-98xx-8mx4-x7cm",
-      "epss_warn": false
+      "epss_warn": false,
+      "source": "nvd",
+      "osv_packages": [],
+      "osv_fixed": [],
+      "osv_alias": [
+        "GHSA-98xx-8mx4-x7cm"
+      ]
     }
   ],
   "brief_zh": "今日共5則高危（權限提升2則、RCE1則），無在野利用，優先看 Migratico Lite RCE。"

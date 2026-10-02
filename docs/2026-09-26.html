@@ -82,6 +82,10 @@ h1 .grad{background:linear-gradient(180deg,var(--grad-from),var(--grad-to));-web
 .badge.wild{background:transparent;border-color:var(--amber);color:var(--amber)}
 .badge.epss{background:transparent}
 .hist{margin-top:48px}
+.trend{margin-top:48px;border:1px solid var(--border);border-radius:var(--radius);background:var(--bg-2);padding:16px 20px}
+.trend h3{font-size:13px;font-weight:600;color:var(--gray-900);text-transform:uppercase;letter-spacing:.08em;margin:0 0 4px}
+.trend .sub2{font-size:12px;color:var(--gray-900);margin-bottom:8px}
+.trend svg{width:100%;height:90px;display:block}
 .hist h3{font-size:13px;font-weight:600;color:var(--gray-900);text-transform:uppercase;letter-spacing:.08em;margin:0 0 12px}
 .hist-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px}
 .hcard{border:1px solid var(--border);border-radius:var(--radius-sm);padding:12px 14px;background:var(--bg-2);color:var(--gray-1000)}
@@ -138,6 +142,7 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
       <h2>Mediawiki 擴充 RCE</h2>
       <span class="badge crit">CVSS 10.0</span>
       
+      
       <span class="badge">RCE</span>
       
       <span class="chev">▾</span>
@@ -151,6 +156,7 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
 
 This issue affects Mediawiki - ExternalData Extension: from * before 3.7.</div>
       <div>修補建議：升級至 3.7 或更新版本</div>
+      
       <div style="margin-top:6px">更多參考：<a href="https://phabricator.wikimedia.org/T434961" target="_blank">[2]</a> </div>
     </div>
   </div>
@@ -159,6 +165,7 @@ This issue affects Mediawiki - ExternalData Extension: from * before 3.7.</div>
     <div class="row-head">
       <h2>WP Automation 外掛權限提升</h2>
       <span class="badge crit">CVSS 9.8</span>
+      
       
       <span class="badge">權限提升</span>
       <span class="badge epss">EPSS 0.01</span>
@@ -171,6 +178,7 @@ This issue affects Mediawiki - ExternalData Extension: from * before 3.7.</div>
     <div class="detail">
       <div class="en">The Automation Web Platform – Notifications and OTP for WooCommerce, Advanced Country Code plugin for WordPress is vulnerable to Privilege Escalation in all versions up to, and including, 4.8.6. This is due to missing permission enforcement on the publicly accessible REST route `POST /wp-json/wawp/v1/signup/&lt;op&gt;` and the absence of a key allowlist in the `finish_registration_logic` function, which copies the attacker-controlled `wawp_custom_fields` parameter directly into `update_user_meta()` — allowing sensitive meta keys such as `wp_capabilities` and `wp_user_level` to be set by the caller. </div>
       <div>修補建議：升級至最新版本</div>
+      
       <div style="margin-top:6px">更多參考：<a href="https://plugins.trac.wordpress.org/browser/automation-web-platform/tags/4.8.6/includes/api/class-wawp-rest-settings-api.php#L574" target="_blank">[2]</a> <a href="https://plugins.trac.wordpress.org/browser/automation-web-platform/tags/4.8.6/includes/auth-services/class-wawp-otp-service.php#L477" target="_blank">[3]</a> <a href="https://plugins.trac.wordpress.org/browser/automation-web-platform/tags/4.8.6/includes/auth-services/class-wawp-otp-service.php#L787" target="_blank">[4]</a> <a href="https://plugins.trac.wordpress.org/browser/automation-web-platform/tags/4.8.6/includes/auth-services/class-wawp-signup.php#L1002" target="_blank">[5]</a> </div>
     </div>
   </div>
@@ -179,6 +187,7 @@ This issue affects Mediawiki - ExternalData Extension: from * before 3.7.</div>
     <div class="row-head">
       <h2>Apache Qpid 會話固定漏洞</h2>
       <span class="badge crit">CVSS 9.8</span>
+      
       
       <span class="badge">其他高危</span>
       <span class="badge epss">EPSS 0.00</span>
@@ -195,6 +204,7 @@ This issue affects Apache Qpid Broker-J: through 10.1.0.
 
 Users are recommended to upgrade to version 10.1.1, which fixes the issue.</div>
       <div>修補建議：升級至 10.1.1 或更新版本</div>
+      
       <div style="margin-top:6px">更多參考：<a href="http://www.openwall.com/lists/oss-security/2026/09/24/17" target="_blank">[2]</a> </div>
     </div>
   </div>
@@ -203,6 +213,7 @@ Users are recommended to upgrade to version 10.1.1, which fixes the issue.</div>
     <div class="row-head">
       <h2>Linux 核心 RDMA 漏洞</h2>
       <span class="badge crit">CVSS 9.8</span>
+      
       
       <span class="badge">其他高危</span>
       
@@ -226,6 +237,7 @@ can then subtract the wrong number of send queue credits.
 Reset the counters and clear rw_ctxs after freeing the heap
 allocation before returning an error.</div>
       <div>修補建議：更新 Linux 核心至最新修補版本</div>
+      <div style="margin-top:6px">影響生態包：Linux:Kernel・已修復於 5.10.270, 5.15.221</div>
       <div style="margin-top:6px">更多參考：<a href="https://git.kernel.org/stable/c/af00051dbc9f467d4840ec709680660a3f8990fa" target="_blank">[2]</a> <a href="https://git.kernel.org/stable/c/af073bd245180393bcb15d33d3990a6bdc32593a" target="_blank">[3]</a> <a href="https://git.kernel.org/stable/c/b38f98e176050850f41bb6415f3a71400056623e" target="_blank">[4]</a> <a href="https://git.kernel.org/stable/c/bd02d644bd19a2795c018635d273d91e45d2bb95" target="_blank">[5]</a> </div>
     </div>
   </div>
@@ -234,6 +246,7 @@ allocation before returning an error.</div>
     <div class="row-head">
       <h2>Zimbra 協作平台 RCE</h2>
       <span class="badge crit">CVSS 9.8</span>
+      
       
       <span class="badge">RCE</span>
       
@@ -246,6 +259,7 @@ allocation before returning an error.</div>
     <div class="detail">
       <div class="en">When OnlyOffice/Document Editing is available, an unauthenticated remote attacker with access to an existing supported public Briefcase document can abuse unsigned save fields to perform path-traversal writes and execute commands as zimbra.</div>
       <div>修補建議：參考 Zimbra 安全公告並安裝更新</div>
+      
       
     </div>
   </div>
@@ -306,6 +320,21 @@ allocation before returning an error.</div>
     
   </div>
 </div>
+
+
+<div class="trend">
+  <h3>Trend / 近22日高危數</h3>
+  <div class="sub2">在野利用以琥珀圓點標示當日數量</div>
+  
+  
+  <svg viewBox="0 0 300 90" preserveAspectRatio="none">
+    <polyline fill="none" stroke="#0070f3" stroke-width="1.5"
+      points="8.0,12.0 21.5,12.0 35.0,12.0 48.6,12.0 62.1,12.0 75.6,12.0 89.1,12.0 102.7,12.0 116.2,12.0 129.7,12.0 143.2,12.0 156.8,12.0 170.3,12.0 183.8,12.0 197.3,12.0 210.9,12.0 224.4,12.0 237.9,12.0 251.4,12.0 265.0,12.0 278.5,12.0 292.0,12.0 "/>
+    <circle cx="21.5" cy="12.0" r="3" fill="#f5a524"/><circle cx="62.1" cy="12.0" r="3" fill="#f5a524"/><circle cx="89.1" cy="12.0" r="3" fill="#f5a524"/><circle cx="102.7" cy="12.0" r="3" fill="#f5a524"/><circle cx="170.3" cy="12.0" r="3" fill="#f5a524"/><circle cx="237.9" cy="12.0" r="3" fill="#f5a524"/><circle cx="278.5" cy="12.0" r="3" fill="#f5a524"/><circle cx="292.0" cy="12.0" r="3" fill="#f5a524"/>
+    <text x="8" y="12" font-size="9" fill="#8f8f8f">max 5/日</text>
+  </svg>
+</div>
+
 
 <footer><span>資料：NVD / CISA KEV / FIRST EPSS ・ AI 提煉僅供參考，請以官方 Advisory 為準</span><span>由 GitHub Actions 每日自動產生</span></footer>
 </div>

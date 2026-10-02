@@ -154,15 +154,21 @@ def fallback(items: list[dict]) -> list[dict]:
         t = x.get("type_guess", "其他高危")
         wild = "在野利用" if x.get("in_kev") else ("利用預警" if x.get("epss_warn") else f"{x['cvss']}" if x.get("cvss") else "")
         refs = x.get("refs", []) or []
+        pkgs = x.get("osv_packages") or []
+        aff = vendor + (f"（{pkgs[0]}等）" if pkgs else "")
+        fixed = x.get("osv_fixed") or []
         out.append({
             "cve": x["cve"], "title_zh": f"{vendor} {t} {x['cve']} {wild}".strip(),
             "cvss": x.get("cvss"), "type": t, "in_wild": bool(x.get("in_kev")),
             "epss_warn": bool(x.get("epss_warn")),
             "summary_zh": (x.get("desc_en", "")[:120] + "…") if x.get("desc_en") else "",
-            "affected": vendor, "affected_versions": _guess_versions(x.get("desc_en", "")),
-            "fix_hint": "更新至官方修補版本", "patch_url": refs[0] if refs else "",
+            "affected": aff, "affected_versions": _guess_versions(x.get("desc_en", "")),
+            "fix_hint": ("升至 " + "、".join(fixed[:2]) + " 或官方修補版本") if fixed else "更新至官方修補版本",
+            "patch_url": refs[0] if refs else "",
             "epss": x.get("epss"), "refs": refs,
             "desc_en": (x.get("desc_en", "") or "")[:600],
+            "source": x.get("source", "nvd"),
+            "osv_packages": pkgs, "osv_fixed": fixed,
         })
     return out
 
@@ -225,6 +231,8 @@ def main():
     # LLM 輸入瘦身，避免 token 爆炸
     slim = [{"cve": x["cve"], "cvss": x["cvss"], "type_guess": x["type_guess"],
              "in_kev": x["in_kev"], "epss": x.get("epss"), "epss_warn": x.get("epss_warn"),
+             "source": x.get("source", "nvd"),
+             "osv_packages": x.get("osv_packages"), "osv_fixed": x.get("osv_fixed"),
              "desc_en": x.get("desc_en", "")[:800], "refs": x.get("refs", [])[:2]} for x in items]
 
     result, used = None, "fallback"
@@ -256,6 +264,9 @@ def main():
             r.setdefault("desc_en", (src.get("desc_en", "") or "")[:600])
             r.setdefault("affected_versions", _guess_versions(src.get("desc_en", "")))
             r.setdefault("patch_url", (src.get("refs", []) or [""])[0])
+            r.setdefault("source", src.get("source", "nvd"))
+            r.setdefault("osv_packages", src.get("osv_packages") or [])
+            r.setdefault("osv_fixed", src.get("osv_fixed") or [])
             clean.append(r)
         result = clean or fallback(items)
         if not clean:

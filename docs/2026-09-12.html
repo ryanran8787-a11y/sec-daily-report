@@ -82,6 +82,10 @@ h1 .grad{background:linear-gradient(180deg,var(--grad-from),var(--grad-to));-web
 .badge.wild{background:transparent;border-color:var(--amber);color:var(--amber)}
 .badge.epss{background:transparent}
 .hist{margin-top:48px}
+.trend{margin-top:48px;border:1px solid var(--border);border-radius:var(--radius);background:var(--bg-2);padding:16px 20px}
+.trend h3{font-size:13px;font-weight:600;color:var(--gray-900);text-transform:uppercase;letter-spacing:.08em;margin:0 0 4px}
+.trend .sub2{font-size:12px;color:var(--gray-900);margin-bottom:8px}
+.trend svg{width:100%;height:90px;display:block}
 .hist h3{font-size:13px;font-weight:600;color:var(--gray-900);text-transform:uppercase;letter-spacing:.08em;margin:0 0 12px}
 .hist-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px}
 .hcard{border:1px solid var(--border);border-radius:var(--radius-sm);padding:12px 14px;background:var(--bg-2);color:var(--gray-1000)}
@@ -137,6 +141,7 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
       <h2>GitLab 檔案讀取在野利用</h2>
       <span class="badge crit">CVSS 10.0</span>
       <span class="badge wild">● 在野利用</span>
+      
       <span class="badge">資訊洩漏</span>
       
       <span class="chev">▾</span>
@@ -148,6 +153,7 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
     <div class="detail">
       <div class="en">GitLab has remediated an issue in GitLab CE/EE affecting all versions from 18.7 before 19.1.8, 19.2 before 19.2.6, and 19.3 before 19.3.2 that, under certain conditions, an unauthenticated user could have read arbitrary files from the GitLab server due to improper path confinement and missing authentication enforcement in the repository commits API.</div>
       <div>修補建議：更新至 19.1.8, 19.2.6, 19.3.2 或更高版本</div>
+      
       <div style="margin-top:6px">更多參考：<a href="https://hackerone.com/reports/3909881" target="_blank">[2]</a> </div>
     </div>
   </div>
@@ -162,6 +168,7 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
       <h2>WP Teddy Bear 插件 RCE</h2>
       <span class="badge crit">CVSS 10.0</span>
       
+      
       <span class="badge">RCE</span>
       <span class="badge epss">EPSS 0.00</span>
       <span class="chev">▾</span>
@@ -174,6 +181,7 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
       <div class="en">The teddy-bear-customize-addon WordPress plugin through 1.0.5 does not properly validate uploaded files, relying on a client-supplied content type and preserving the original filename, allowing unauthenticated attackers to upload arbitrary PHP files and execute code on the server.</div>
       <div>修補建議：停用插件或更新至最新安全版本</div>
       
+      
     </div>
   </div>
 
@@ -181,6 +189,7 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
     <div class="row-head">
       <h2>Chef Automate 權限提升</h2>
       <span class="badge crit">CVSS 10.0</span>
+      
       
       <span class="badge">未授權存取</span>
       
@@ -194,6 +203,7 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
       <div class="en">A vulnerability in the Chef Automate API gateway and identity validation path may allow an unauthenticated actor to gain elevated access to protected Chef Automate functionality under specific conditions.</div>
       <div>修補建議：參考官方安全公告並更新 API 閘道組件</div>
       
+      
     </div>
   </div>
 
@@ -201,6 +211,7 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
     <div class="row-head">
       <h2>Mistral Vibe 指令繞過 RCE</h2>
       <span class="badge crit">CVSS 10.0</span>
+      
       
       <span class="badge">RCE</span>
       
@@ -214,6 +225,7 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
       <div class="en">An arbitrary code execution vulnerability in Mistral Vibe allows an attacker to bypass command permission checks using ANSI-C quoted arguments. These arguments are not properly inspected, enabling a crafted allowlisted command to execute arbitrary code on the user&#39;s system without approval.</div>
       <div>修補建議：更新 Mistral Vibe 至最新安全版本</div>
       
+      
     </div>
   </div>
 
@@ -221,6 +233,7 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
     <div class="row-head">
       <h2>Mistral Vibe 解析繞過 RCE</h2>
       <span class="badge crit">CVSS 10.0</span>
+      
       
       <span class="badge">RCE</span>
       
@@ -233,6 +246,7 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
     <div class="detail">
       <div class="en">An arbitrary code execution vulnerability in Mistral Vibe allows an attacker to bypass command permission checks using shell constructs it&#39;s parser cannot interpret. Unparsed portions are omitted from inspection, enabling embedded commands to execute on the user&#39;s system without approval.</div>
       <div>修補建議：更新 Mistral Vibe 至最新安全版本</div>
+      
       
     </div>
   </div>
@@ -293,6 +307,21 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
     
   </div>
 </div>
+
+
+<div class="trend">
+  <h3>Trend / 近22日高危數</h3>
+  <div class="sub2">在野利用以琥珀圓點標示當日數量</div>
+  
+  
+  <svg viewBox="0 0 300 90" preserveAspectRatio="none">
+    <polyline fill="none" stroke="#0070f3" stroke-width="1.5"
+      points="8.0,12.0 21.5,12.0 35.0,12.0 48.6,12.0 62.1,12.0 75.6,12.0 89.1,12.0 102.7,12.0 116.2,12.0 129.7,12.0 143.2,12.0 156.8,12.0 170.3,12.0 183.8,12.0 197.3,12.0 210.9,12.0 224.4,12.0 237.9,12.0 251.4,12.0 265.0,12.0 278.5,12.0 292.0,12.0 "/>
+    <circle cx="21.5" cy="12.0" r="3" fill="#f5a524"/><circle cx="62.1" cy="12.0" r="3" fill="#f5a524"/><circle cx="89.1" cy="12.0" r="3" fill="#f5a524"/><circle cx="102.7" cy="12.0" r="3" fill="#f5a524"/><circle cx="170.3" cy="12.0" r="3" fill="#f5a524"/><circle cx="237.9" cy="12.0" r="3" fill="#f5a524"/><circle cx="278.5" cy="12.0" r="3" fill="#f5a524"/><circle cx="292.0" cy="12.0" r="3" fill="#f5a524"/>
+    <text x="8" y="12" font-size="9" fill="#8f8f8f">max 5/日</text>
+  </svg>
+</div>
+
 
 <footer><span>資料：NVD / CISA KEV / FIRST EPSS ・ AI 提煉僅供參考，請以官方 Advisory 為準</span><span>由 GitHub Actions 每日自動產生</span></footer>
 </div>

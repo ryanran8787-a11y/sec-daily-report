@@ -82,6 +82,10 @@ h1 .grad{background:linear-gradient(180deg,var(--grad-from),var(--grad-to));-web
 .badge.wild{background:transparent;border-color:var(--amber);color:var(--amber)}
 .badge.epss{background:transparent}
 .hist{margin-top:48px}
+.trend{margin-top:48px;border:1px solid var(--border);border-radius:var(--radius);background:var(--bg-2);padding:16px 20px}
+.trend h3{font-size:13px;font-weight:600;color:var(--gray-900);text-transform:uppercase;letter-spacing:.08em;margin:0 0 4px}
+.trend .sub2{font-size:12px;color:var(--gray-900);margin-bottom:8px}
+.trend svg{width:100%;height:90px;display:block}
 .hist h3{font-size:13px;font-weight:600;color:var(--gray-900);text-transform:uppercase;letter-spacing:.08em;margin:0 0 12px}
 .hist-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px}
 .hcard{border:1px solid var(--border);border-radius:var(--radius-sm);padding:12px 14px;background:var(--bg-2);color:var(--gray-1000)}
@@ -138,6 +142,7 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
       <h2>WP CryptoPayment 未授權存取</h2>
       <span class="badge crit">CVSS 10.0</span>
       
+      
       <span class="badge">未授權存取</span>
       
       <span class="chev">▾</span>
@@ -150,6 +155,7 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
       <div class="en">The CryptoPayment Gateway WordPress plugin from 1.2.1 to 1.2.2 does not apply an authorization check on one of its AJAX endpoints, allowing unauthenticated users to invoke administrative operations, including deleting arbitrary files on the server, overwriting the payment gateway configuration and recovering stored wallet credentials in cleartext.</div>
       <div>修補建議：升級至最新版本或停用該外掛。</div>
       
+      
     </div>
   </div>
 
@@ -157,6 +163,7 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
     <div class="row-head">
       <h2>Totolink A3002MU 緩衝區溢位</h2>
       <span class="badge crit">CVSS 9.9</span>
+      
       
       <span class="badge">其他高危</span>
       
@@ -169,6 +176,7 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
     <div class="detail">
       <div class="en">A weakness has been identified in Totolink A3002MU Hh-B20211125.1046. This vulnerability affects the function formFilter of the file /boafrm/formFilter of the component boa. Executing a manipulation of the argument ip6addr can lead to buffer overflow. The attack can be executed remotely. The exploit has been made available to the public and could be used for attacks.</div>
       <div>修補建議：更新韌體或限制遠端存取管理介面。</div>
+      
       <div style="margin-top:6px">更多參考：<a href="https://vuldb.com/cve/CVE-2026-90605" target="_blank">[2]</a> <a href="https://vuldb.com/submit/914009" target="_blank">[3]</a> <a href="https://vuldb.com/vuln/403187" target="_blank">[4]</a> <a href="https://vuldb.com/vuln/403187/cti" target="_blank">[5]</a> </div>
     </div>
   </div>
@@ -177,6 +185,7 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
     <div class="row-head">
       <h2>Totolink A3002MU 緩衝區溢位</h2>
       <span class="badge crit">CVSS 9.9</span>
+      
       
       <span class="badge">其他高危</span>
       
@@ -189,6 +198,7 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
     <div class="detail">
       <div class="en">A security vulnerability has been detected in Totolink A3002MU Hh-B20211125.1046. This issue affects the function formIpv6Setup of the file /boafrm/formIpv6Setup of the component boa. The manipulation of the argument static_ipv6 leads to buffer overflow. The attack is possible to be carried out remotely. The exploit has been disclosed publicly and may be used.</div>
       <div>修補建議：更新韌體或限制遠端存取管理介面。</div>
+      
       <div style="margin-top:6px">更多參考：<a href="https://vuldb.com/cve/CVE-2026-90606" target="_blank">[2]</a> <a href="https://vuldb.com/submit/914010" target="_blank">[3]</a> <a href="https://vuldb.com/vuln/403188" target="_blank">[4]</a> <a href="https://vuldb.com/vuln/403188/cti" target="_blank">[5]</a> </div>
     </div>
   </div>
@@ -197,6 +207,7 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
     <div class="row-head">
       <h2>Totolink A3002MU 緩衝區溢位</h2>
       <span class="badge crit">CVSS 9.9</span>
+      
       
       <span class="badge">其他高危</span>
       
@@ -209,6 +220,7 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
     <div class="detail">
       <div class="en">A vulnerability was detected in Totolink A3002MU Hh-B20211125.1046. Impacted is the function formNewSchedule of the file /boafrm/formNewSchedule of the component boa. The manipulation of the argument submit-url results in buffer overflow. The attack may be performed from remote. The exploit is now public and may be used.</div>
       <div>修補建議：更新韌體或限制遠端存取管理介面。</div>
+      
       <div style="margin-top:6px">更多參考：<a href="https://vuldb.com/cve/CVE-2026-90607" target="_blank">[2]</a> <a href="https://vuldb.com/submit/914015" target="_blank">[3]</a> <a href="https://vuldb.com/vuln/403189" target="_blank">[4]</a> <a href="https://vuldb.com/vuln/403189/cti" target="_blank">[5]</a> </div>
     </div>
   </div>
@@ -217,6 +229,7 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
     <div class="row-head">
       <h2>Totolink A3002MU 緩衝區溢位</h2>
       <span class="badge crit">CVSS 9.9</span>
+      
       
       <span class="badge">其他高危</span>
       
@@ -229,6 +242,7 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
     <div class="detail">
       <div class="en">A flaw has been found in Totolink A3002MU Hh-B20211125.1046. The affected element is the function formPortFw of the file /boafrm/formPortFw of the component boa. This manipulation of the argument service_type causes buffer overflow. It is possible to initiate the attack remotely. The exploit has been published and may be used.</div>
       <div>修補建議：更新韌體或限制遠端存取管理介面。</div>
+      
       <div style="margin-top:6px">更多參考：<a href="https://vuldb.com/cve/CVE-2026-90608" target="_blank">[2]</a> <a href="https://vuldb.com/submit/914016" target="_blank">[3]</a> <a href="https://vuldb.com/vuln/403190" target="_blank">[4]</a> <a href="https://vuldb.com/vuln/403190/cti" target="_blank">[5]</a> </div>
     </div>
   </div>
@@ -289,6 +303,21 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
     
   </div>
 </div>
+
+
+<div class="trend">
+  <h3>Trend / 近22日高危數</h3>
+  <div class="sub2">在野利用以琥珀圓點標示當日數量</div>
+  
+  
+  <svg viewBox="0 0 300 90" preserveAspectRatio="none">
+    <polyline fill="none" stroke="#0070f3" stroke-width="1.5"
+      points="8.0,12.0 21.5,12.0 35.0,12.0 48.6,12.0 62.1,12.0 75.6,12.0 89.1,12.0 102.7,12.0 116.2,12.0 129.7,12.0 143.2,12.0 156.8,12.0 170.3,12.0 183.8,12.0 197.3,12.0 210.9,12.0 224.4,12.0 237.9,12.0 251.4,12.0 265.0,12.0 278.5,12.0 292.0,12.0 "/>
+    <circle cx="21.5" cy="12.0" r="3" fill="#f5a524"/><circle cx="62.1" cy="12.0" r="3" fill="#f5a524"/><circle cx="89.1" cy="12.0" r="3" fill="#f5a524"/><circle cx="102.7" cy="12.0" r="3" fill="#f5a524"/><circle cx="170.3" cy="12.0" r="3" fill="#f5a524"/><circle cx="237.9" cy="12.0" r="3" fill="#f5a524"/><circle cx="278.5" cy="12.0" r="3" fill="#f5a524"/><circle cx="292.0" cy="12.0" r="3" fill="#f5a524"/>
+    <text x="8" y="12" font-size="9" fill="#8f8f8f">max 5/日</text>
+  </svg>
+</div>
+
 
 <footer><span>資料：NVD / CISA KEV / FIRST EPSS ・ AI 提煉僅供參考，請以官方 Advisory 為準</span><span>由 GitHub Actions 每日自動產生</span></footer>
 </div>

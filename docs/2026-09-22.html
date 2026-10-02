@@ -82,6 +82,10 @@ h1 .grad{background:linear-gradient(180deg,var(--grad-from),var(--grad-to));-web
 .badge.wild{background:transparent;border-color:var(--amber);color:var(--amber)}
 .badge.epss{background:transparent}
 .hist{margin-top:48px}
+.trend{margin-top:48px;border:1px solid var(--border);border-radius:var(--radius);background:var(--bg-2);padding:16px 20px}
+.trend h3{font-size:13px;font-weight:600;color:var(--gray-900);text-transform:uppercase;letter-spacing:.08em;margin:0 0 4px}
+.trend .sub2{font-size:12px;color:var(--gray-900);margin-bottom:8px}
+.trend svg{width:100%;height:90px;display:block}
 .hist h3{font-size:13px;font-weight:600;color:var(--gray-900);text-transform:uppercase;letter-spacing:.08em;margin:0 0 12px}
 .hist-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px}
 .hcard{border:1px solid var(--border);border-radius:var(--radius-sm);padding:12px 14px;background:var(--bg-2);color:var(--gray-1000)}
@@ -138,6 +142,7 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
       <h2>MaxKB AI 助手 RCE</h2>
       <span class="badge crit">CVSS 10.0</span>
       
+      
       <span class="badge">RCE</span>
       
       <span class="chev">▾</span>
@@ -149,6 +154,7 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
     <div class="detail">
       <div class="en">MaxKB is an open-source AI assistant for enterprise. Prior to version 2.10.5-lts, assistants with a tool, MCP tool, skill, or sub-application use SandboxShellBackend, which exposes an execute shell tool without excluding it and omits execute from interrupt_on, so human approval is not required. Untrusted chat or ingested content can therefore cause command execution; source deployments with MAXKB_SANDBOX disabled run commands directly as the application user, while the official root container&#39;s string-based gosu wrapper allowed shell metacharacters to execute outside the intended sandbox. This</div>
       <div>修補建議：升級至 2.10.5-lts 或更高版本。</div>
+      
       <div style="margin-top:6px">更多參考：<a href="https://github.com/1Panel-dev/MaxKB/releases/tag/v2.10.5-lts" target="_blank">[2]</a> <a href="https://github.com/1Panel-dev/MaxKB/security/advisories/GHSA-f36j-f34j-h3rx" target="_blank">[3]</a> </div>
     </div>
   </div>
@@ -157,6 +163,7 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
     <div class="row-head">
       <h2>Gigatech 設備未授權存取</h2>
       <span class="badge crit">CVSS 10.0</span>
+      
       
       <span class="badge">未授權存取</span>
       
@@ -169,6 +176,7 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
     <div class="detail">
       <div class="en">A vulnerability was detected in Gigatech PDV5701 1.0.31_240305_112640. This issue affects some unknown processing of the file /index.html of the component WebSocket Service. The manipulation results in missing authentication. The attack can be launched remotely. The exploit is now public and may be used. The vendor was contacted early about this disclosure but did not respond in any way.</div>
       <div>修補建議：目前無官方補丁，建議限制網路存取權限。</div>
+      
       <div style="margin-top:6px">更多參考：<a href="https://vuldb.com/cve/CVE-2026-94493" target="_blank">[2]</a> <a href="https://vuldb.com/submit/895425" target="_blank">[3]</a> <a href="https://vuldb.com/vuln/408193" target="_blank">[4]</a> <a href="https://vuldb.com/vuln/408193/cti" target="_blank">[5]</a> </div>
     </div>
   </div>
@@ -177,6 +185,7 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
     <div class="row-head">
       <h2>Ajenti 管理面板權限提升</h2>
       <span class="badge crit">CVSS 9.9</span>
+      
       
       <span class="badge">權限提升</span>
       
@@ -189,6 +198,7 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
     <div class="detail">
       <div class="en">Ajenti is a Linux &amp; BSD modular server admin panel. Prior to version 2.2.16, any authenticated user can call /api/core/tasks/start to enqueue InstallPlugin, UnInstallPlugin, or UpgradeAll from plugins/plugins/tasks.py without plugin-management authorization. InstallPlugin and UnInstallPlugin construct a pip package specification from unvalidated name and version fields, and the task worker invokes pip while running as root. A low-privileged user can therefore select or manipulate a package installed with root privileges and can install, remove, or upgrade plugins without administrative permiss</div>
       <div>修補建議：升級至 2.2.16 或更高版本。</div>
+      
       <div style="margin-top:6px">更多參考：<a href="https://github.com/ajenti/ajenti/commit/f07f02e0cdeeb3e528c1d5af28e27fd11623c49c" target="_blank">[2]</a> <a href="https://github.com/ajenti/ajenti/releases/tag/v2.2.16" target="_blank">[3]</a> <a href="https://github.com/ajenti/ajenti/security/advisories/GHSA-j8xf-5fw2-f99q" target="_blank">[4]</a> </div>
     </div>
   </div>
@@ -197,6 +207,7 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
     <div class="row-head">
       <h2>WP 插件任意檔案上傳 RCE</h2>
       <span class="badge crit">CVSS 9.8</span>
+      
       
       <span class="badge">RCE</span>
       <span class="badge epss">EPSS 0.00</span>
@@ -210,6 +221,7 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
       <div class="en">The Web to Print Online Designer WordPress plugin before 2.15.0 does not validate the type or extension of uploaded files, and hands the token protecting those uploads to any visitor who asks for it, allowing unauthenticated attackers to upload arbitrary files, including PHP ones, and run code on the server.</div>
       <div>修補建議：升級至 2.15.0 或更高版本。</div>
       
+      
     </div>
   </div>
 
@@ -217,6 +229,7 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
     <div class="row-head">
       <h2>Apache MINA 反序列化 RCE</h2>
       <span class="badge crit">CVSS 9.8</span>
+      
       
       <span class="badge">反序列化RCE</span>
       
@@ -230,6 +243,7 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
       <div class="en">The fix for CVE-2026-47065/ZDRES-232 (&#34;resolveProxyClass Not Overridden - acceptMatchers Filter Bypass via java.lang.reflect.Proxy&#34;), released on 2026-06-02 and announced as &#34;Fully addressed&#34; in MINA 2.2.8, 2.1.13 and 2.0.29, was committed to the
  2.2.X branch only. The 2.0.X and 2.1.X maintenance branches never received the resolveProxyClass() override, so the 2.0.29 and 2.1.13 artifacts listed as fixed -- and every later release on those lines, up to and including the current 2.0.30 and 2.1.14 -- remain vulnerable to the exact allow-list bypass that CVE-2026-47065 was meant to close.</div>
       <div>修補建議：遷移至已修復的 2.2.x 分支版本。</div>
+      
       <div style="margin-top:6px">更多參考：<a href="https://lists.apache.org/thread/x4667tn5ozbvkc3wz87lhzogbfl0dczj" target="_blank">[2]</a> </div>
     </div>
   </div>
@@ -290,6 +304,21 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
     
   </div>
 </div>
+
+
+<div class="trend">
+  <h3>Trend / 近22日高危數</h3>
+  <div class="sub2">在野利用以琥珀圓點標示當日數量</div>
+  
+  
+  <svg viewBox="0 0 300 90" preserveAspectRatio="none">
+    <polyline fill="none" stroke="#0070f3" stroke-width="1.5"
+      points="8.0,12.0 21.5,12.0 35.0,12.0 48.6,12.0 62.1,12.0 75.6,12.0 89.1,12.0 102.7,12.0 116.2,12.0 129.7,12.0 143.2,12.0 156.8,12.0 170.3,12.0 183.8,12.0 197.3,12.0 210.9,12.0 224.4,12.0 237.9,12.0 251.4,12.0 265.0,12.0 278.5,12.0 292.0,12.0 "/>
+    <circle cx="21.5" cy="12.0" r="3" fill="#f5a524"/><circle cx="62.1" cy="12.0" r="3" fill="#f5a524"/><circle cx="89.1" cy="12.0" r="3" fill="#f5a524"/><circle cx="102.7" cy="12.0" r="3" fill="#f5a524"/><circle cx="170.3" cy="12.0" r="3" fill="#f5a524"/><circle cx="237.9" cy="12.0" r="3" fill="#f5a524"/><circle cx="278.5" cy="12.0" r="3" fill="#f5a524"/><circle cx="292.0" cy="12.0" r="3" fill="#f5a524"/>
+    <text x="8" y="12" font-size="9" fill="#8f8f8f">max 5/日</text>
+  </svg>
+</div>
+
 
 <footer><span>資料：NVD / CISA KEV / FIRST EPSS ・ AI 提煉僅供參考，請以官方 Advisory 為準</span><span>由 GitHub Actions 每日自動產生</span></footer>
 </div>

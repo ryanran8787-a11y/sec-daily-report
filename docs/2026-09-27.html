@@ -82,6 +82,10 @@ h1 .grad{background:linear-gradient(180deg,var(--grad-from),var(--grad-to));-web
 .badge.wild{background:transparent;border-color:var(--amber);color:var(--amber)}
 .badge.epss{background:transparent}
 .hist{margin-top:48px}
+.trend{margin-top:48px;border:1px solid var(--border);border-radius:var(--radius);background:var(--bg-2);padding:16px 20px}
+.trend h3{font-size:13px;font-weight:600;color:var(--gray-900);text-transform:uppercase;letter-spacing:.08em;margin:0 0 4px}
+.trend .sub2{font-size:12px;color:var(--gray-900);margin-bottom:8px}
+.trend svg{width:100%;height:90px;display:block}
 .hist h3{font-size:13px;font-weight:600;color:var(--gray-900);text-transform:uppercase;letter-spacing:.08em;margin:0 0 12px}
 .hist-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px}
 .hcard{border:1px solid var(--border);border-radius:var(--radius-sm);padding:12px 14px;background:var(--bg-2);color:var(--gray-1000)}
@@ -138,6 +142,7 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
       <h2>Joomla UP 插件 RCE</h2>
       <span class="badge crit">CVSS 10.0</span>
       
+      
       <span class="badge">RCE</span>
       
       <span class="chev">▾</span>
@@ -150,6 +155,7 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
       <div class="en">Joomla Extension - lomart.fr - Unauthenticated remote code installation in UP plugin extension 5.0.0-5.2.0, 6.0.0-6.0.29</div>
       <div>修補建議：升級至最新版本或停用該插件。</div>
       
+      
     </div>
   </div>
 
@@ -157,6 +163,7 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
     <div class="row-head">
       <h2>Kyverno 權限提升漏洞</h2>
       <span class="badge crit">CVSS 9.9</span>
+      
       
       <span class="badge">權限提升</span>
       
@@ -169,6 +176,7 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
     <div class="detail">
       <div class="en">kyverno before 1.19.1 fails to properly validate URL-encoded path segments in Policy apiCall urlPath, allowing namespace tenants to bypass the per-namespace clamp and create objects in other namespaces as the admission-controller ServiceAccount. Attackers can exploit this by using percent-encoded directory traversal sequences to create MutatingWebhookConfiguration objects cluster-wide or PolicyException objects in the kyverno namespace, enabling privilege escalation to cluster admin.</div>
       <div>修補建議：升級至 Kyverno 1.19.1 或更高版本。</div>
+      
       <div style="margin-top:6px">更多參考：<a href="https://www.vulncheck.com/advisories/kyverno-before-1.19.1-privilege-escalation-via-policy-apicall-urlpath" target="_blank">[2]</a> </div>
     </div>
   </div>
@@ -177,6 +185,7 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
     <div class="row-head">
       <h2>Froxlor 權限提升漏洞</h2>
       <span class="badge crit">CVSS 9.9</span>
+      
       
       <span class="badge">權限提升</span>
       
@@ -189,6 +198,7 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
     <div class="detail">
       <div class="en">Froxlor is a server administration panel. In versions 2.3.10 and earlier, the customer data-export (DataDump) cron fails to validate intermediate path components of the export destination: Froxlor\FileDir::makeCorrectDir() contains an off-by-one in its path-component walk that skips the first segment below the customer home directory, and the guard in ExportCron.php checks only the final component with is_link(). An authenticated customer whose account has the export feature enabled can schedule an export into a genuine subdirectory of their own webspace, then replace an intermediate path comp</div>
       <div>修補建議：升級至 Froxlor 2.3.12 或更高版本。</div>
+      
       <div style="margin-top:6px">更多參考：<a href="https://www.vulncheck.com/advisories/froxlor-before-2.3.12-privilege-escalation-via-symlink" target="_blank">[2]</a> </div>
     </div>
   </div>
@@ -197,6 +207,7 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
     <div class="row-head">
       <h2>Froxlor 配置注入漏洞</h2>
       <span class="badge crit">CVSS 9.9</span>
+      
       
       <span class="badge">其他高危</span>
       
@@ -209,6 +220,7 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
     <div class="detail">
       <div class="en">froxlor is a server administration panel. In versions 2.3.10 and earlier, Validate::validateUrl rejects carriage return and line feed characters only in the path, query and fragment components returned by parse_url, and never inspects the userinfo (user:pass@) components. This is an incomplete fix for GHSA-c3p2. An authenticated low-privilege customer with subdomain-create rights (no admin or change_serversettings privilege required) can supply a subdomain redirect URL that carries a CR/LF payload in the userinfo portion (e.g. http://user%0areturn 200 &#34;pwned&#34;;%0a@evil.com/). The value passes v</div>
       <div>修補建議：升級至 Froxlor 2.3.12 或更高版本。</div>
+      
       <div style="margin-top:6px">更多參考：<a href="https://www.vulncheck.com/advisories/froxlor-before-2.3.12-crlf-injection-via-validateurl-userinfo" target="_blank">[2]</a> </div>
     </div>
   </div>
@@ -217,6 +229,7 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
     <div class="row-head">
       <h2>D-Link DIR-895L RCE</h2>
       <span class="badge crit">CVSS 9.9</span>
+      
       
       <span class="badge">RCE</span>
       
@@ -229,6 +242,7 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
     <div class="detail">
       <div class="en">A vulnerability was detected in D-Link DIR-895L A1_102b07. Impacted is the function tunnel_set_params of the file tunnel.c of the component L2TP Control Channel Parser. Performing a manipulation results in out-of-bounds write. The attack may be initiated remotely. The exploit is now public and may be used.</div>
       <div>修補建議：更新韌體或限制 L2TP 服務存取。</div>
+      
       <div style="margin-top:6px">更多參考：<a href="https://vuldb.com/cve/CVE-2026-100740" target="_blank">[2]</a> <a href="https://vuldb.com/submit/906303" target="_blank">[3]</a> <a href="https://vuldb.com/vuln/410614" target="_blank">[4]</a> <a href="https://vuldb.com/vuln/410614/cti" target="_blank">[5]</a> </div>
     </div>
   </div>
@@ -289,6 +303,21 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
     
   </div>
 </div>
+
+
+<div class="trend">
+  <h3>Trend / 近22日高危數</h3>
+  <div class="sub2">在野利用以琥珀圓點標示當日數量</div>
+  
+  
+  <svg viewBox="0 0 300 90" preserveAspectRatio="none">
+    <polyline fill="none" stroke="#0070f3" stroke-width="1.5"
+      points="8.0,12.0 21.5,12.0 35.0,12.0 48.6,12.0 62.1,12.0 75.6,12.0 89.1,12.0 102.7,12.0 116.2,12.0 129.7,12.0 143.2,12.0 156.8,12.0 170.3,12.0 183.8,12.0 197.3,12.0 210.9,12.0 224.4,12.0 237.9,12.0 251.4,12.0 265.0,12.0 278.5,12.0 292.0,12.0 "/>
+    <circle cx="21.5" cy="12.0" r="3" fill="#f5a524"/><circle cx="62.1" cy="12.0" r="3" fill="#f5a524"/><circle cx="89.1" cy="12.0" r="3" fill="#f5a524"/><circle cx="102.7" cy="12.0" r="3" fill="#f5a524"/><circle cx="170.3" cy="12.0" r="3" fill="#f5a524"/><circle cx="237.9" cy="12.0" r="3" fill="#f5a524"/><circle cx="278.5" cy="12.0" r="3" fill="#f5a524"/><circle cx="292.0" cy="12.0" r="3" fill="#f5a524"/>
+    <text x="8" y="12" font-size="9" fill="#8f8f8f">max 5/日</text>
+  </svg>
+</div>
+
 
 <footer><span>資料：NVD / CISA KEV / FIRST EPSS ・ AI 提煉僅供參考，請以官方 Advisory 為準</span><span>由 GitHub Actions 每日自動產生</span></footer>
 </div>

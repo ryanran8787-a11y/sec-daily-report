@@ -24,7 +24,8 @@
       "desc_en": "A security flaw has been discovered in Totolink A3002MU Hh-B20211125.1046. Affected by this vulnerability is the function formWlWds of the file /boafrm/formWlWds. The manipulation of the argument submit-url results in buffer overflow. It is possible to launch the attack remotely. The exploit has been released to the public and may be used for attacks.",
       "affected_versions": "",
       "patch_url": "https://github.com/SunnyYANGyaya/cuicuishark-sheep-fishIOT/blob/main/ToTolink/A3002MU/bof-formWlWds.md",
-      "epss_warn": false
+      "epss_warn": false,
+      "source": "nvd"
     },
     {
       "cve": "CVE-2026-93742",
@@ -46,7 +47,8 @@
       "desc_en": "A weakness has been identified in Totolink A3002MU Hh-B20211125.1046. Affected by this issue is the function formWsc of the file /boafrm/formWsc. This manipulation of the argument localPin causes command injection. The attack can be initiated remotely. The exploit has been made available to the public and could be used for attacks.",
       "affected_versions": "",
       "patch_url": "https://github.com/SunnyYANGyaya/cuicuishark-sheep-fishIOT/blob/main/ToTolink/A3002MU/rce-formWsc.md",
-      "epss_warn": false
+      "epss_warn": false,
+      "source": "nvd"
     },
     {
       "cve": "CVE-2026-93985",
@@ -65,7 +67,8 @@
       "desc_en": "OpenPanel js-runtime through commit bad75bdd contains a sandbox escape vulnerability in the JavaScript webhook template validator that fails to block computed member access to constructor chains. Attackers with project write access can create webhook templates using computed property notation to access Function constructor and execute arbitrary code in the worker process.",
       "affected_versions": "",
       "patch_url": "https://github.com/Openpanel-dev/openpanel/security/advisories/GHSA-6f7h-cvp6-w9w5",
-      "epss_warn": false
+      "epss_warn": false,
+      "source": "nvd"
     },
     {
       "cve": "CVE-2026-86591",
@@ -83,7 +86,8 @@
       "desc_en": "The Botiga Pro WordPress plugin before 1.6.5 does not perform any authorisation checks on one of its REST routes, allowing unauthenticated users to update arbitrary WordPress options with arbitrary values, which could lead to privilege escalation and a full site takeover.\nThe same route also allows unauthenticated users to store arbitrary web scripts which are then executed on every page of the site's front end, as well as to move arbitrary posts to the trash.",
       "affected_versions": "1.6.5 之前",
       "patch_url": "https://wpscan.com/vulnerability/e2389a60-16c2-4750-b85e-a82b91390b30/",
-      "epss_warn": false
+      "epss_warn": false,
+      "source": "nvd"
     },
     {
       "cve": "CVE-2026-78030",
@@ -104,7 +108,13 @@
       "desc_en": "DBI versions before 1.653 for Perl load arbitrary modules via unvalidated dbm_type and dbm_mldbm attributes in DBD::DBM.\n\nDBD::DBM passes the dbm_type and dbm_mldbm connect attributes to require without checking that the value names a module. require treats a path-shaped string as a literal filename and does not consult @INC, so the attribute chooses the file that Perl loads and runs.\n\nThe MLDBM::Serializer:: prefix that DBD::DBM prepends to dbm_mldbm is not a boundary: only the :: separators are rewritten to /, so a value containing / traverses out of the serializer directory. The value is al",
       "affected_versions": "1.653 之前",
       "patch_url": "https://github.com/perl5-dbi/dbi/commit/315c6ce703b8b3cbe9188062d9ec80730293554a.patch",
-      "epss_warn": false
+      "epss_warn": false,
+      "source": "nvd",
+      "osv_packages": [],
+      "osv_fixed": [],
+      "osv_alias": [
+        "GHSA-wqmw-wqwx-3fr7"
+      ]
     }
   ],
   "brief_zh": "今日共5則高危（其他高危2則、RCE1則），無在野利用，優先看 Totolink A3002MU 緩衝區溢位。"

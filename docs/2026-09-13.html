@@ -82,6 +82,10 @@ h1 .grad{background:linear-gradient(180deg,var(--grad-from),var(--grad-to));-web
 .badge.wild{background:transparent;border-color:var(--amber);color:var(--amber)}
 .badge.epss{background:transparent}
 .hist{margin-top:48px}
+.trend{margin-top:48px;border:1px solid var(--border);border-radius:var(--radius);background:var(--bg-2);padding:16px 20px}
+.trend h3{font-size:13px;font-weight:600;color:var(--gray-900);text-transform:uppercase;letter-spacing:.08em;margin:0 0 4px}
+.trend .sub2{font-size:12px;color:var(--gray-900);margin-bottom:8px}
+.trend svg{width:100%;height:90px;display:block}
 .hist h3{font-size:13px;font-weight:600;color:var(--gray-900);text-transform:uppercase;letter-spacing:.08em;margin:0 0 12px}
 .hist-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px}
 .hcard{border:1px solid var(--border);border-radius:var(--radius-sm);padding:12px 14px;background:var(--bg-2);color:var(--gray-1000)}
@@ -138,6 +142,7 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
       <h2>Masteriyo LMS 反序列化 RCE</h2>
       <span class="badge crit">CVSS 9.9</span>
       
+      
       <span class="badge">反序列化RCE</span>
       <span class="badge epss">EPSS 0.00</span>
       <span class="chev">▾</span>
@@ -150,6 +155,7 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
       <div class="en">The Masteriyo LMS  WordPress plugin before 3.4.1 does not prevent user-supplied values held as metadata from being deserialized when they are read back, allowing users with a minimal account to inject arbitrary PHP objects and, by way of a class shipped in a library bundled with the Masteriyo LMS  WordPress plugin before 3.4.1, write and execute arbitrary code on the server. A weaker form of the same issue is reachable without an account and yields an arbitrary file write rather than code execution.</div>
       <div>修補建議：更新至 3.4.1 或更高版本。</div>
       
+      
     </div>
   </div>
 
@@ -157,6 +163,7 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
     <div class="row-head">
       <h2>The Events Calendar RCE</h2>
       <span class="badge crit">CVSS 9.8</span>
+      
       
       <span class="badge">RCE</span>
       <span class="badge epss">EPSS 0.01</span>
@@ -169,6 +176,7 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
     <div class="detail">
       <div class="en">The The Events Calendar plugin for WordPress is vulnerable to Remote Code Execution in all versions up to, and including, 6.17.4 via the is_safe_widget_instance function. This is due to insufficient protection in is_safe_widget_instance, which can be bypassed because PHP fires magic methods during its pre-parse, combined with enable_rendering_widget_copied() forging a valid wp_hash integrity attribute before unserialize() is reached. This makes it possible for unauthenticated attackers to execute code on the server. This is exploitable without authentication or approval because the plugin&#39;s V2</div>
       <div>修補建議：更新至最新版本。</div>
+      
       <div style="margin-top:6px">更多參考：<a href="https://plugins.trac.wordpress.org/browser/the-events-calendar/tags/6.17.3/src/Tribe/Collections/Lazy_Post_Collection.php#L82" target="_blank">[2]</a> <a href="https://plugins.trac.wordpress.org/browser/the-events-calendar/tags/6.17.3/src/Tribe/Views/V2/Template_Bootstrap.php#L213" target="_blank">[3]</a> <a href="https://plugins.trac.wordpress.org/browser/the-events-calendar/tags/6.17.3/src/Tribe/Views/V2/Widgets/Service_Provider.php#L255" target="_blank">[4]</a> <a href="https://plugins.trac.wordpress.org/browser/the-events-calendar/tags/6.17.3/src/Tribe/Views/V2/Widgets/Service_Provider.php#L295" target="_blank">[5]</a> </div>
     </div>
   </div>
@@ -177,6 +185,7 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
     <div class="row-head">
       <h2>The Events Calendar RCE</h2>
       <span class="badge crit">CVSS 9.8</span>
+      
       
       <span class="badge">RCE</span>
       <span class="badge epss">EPSS 0.01</span>
@@ -189,6 +198,7 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
     <div class="detail">
       <div class="en">The The Events Calendar plugin for WordPress is vulnerable to Remote Code Execution in all versions up to, and including, 6.17.3 via the parse_array function. This is due to insufficient validation of the widget &#39;classes&#39; map, allowing a plain-array payload to bypass the is_safe_widget_instance() object check and reach the callable-invocation sink in Element_Classes::parse_array(). This makes it possible for unauthenticated attackers to execute code on the server. Exploitation requires that the targeted site has comments enabled on tribe_events posts and that at least one comment containing a </div>
       <div>修補建議：更新至最新版本。</div>
+      
       <div style="margin-top:6px">更多參考：<a href="https://plugins.trac.wordpress.org/browser/the-events-calendar/tags/6.17.3/src/Tribe/Views/V2/Template_Bootstrap.php#L214" target="_blank">[2]</a> <a href="https://plugins.trac.wordpress.org/browser/the-events-calendar/tags/6.17.3/src/Tribe/Views/V2/Widgets/Service_Provider.php#L279" target="_blank">[3]</a> <a href="https://plugins.trac.wordpress.org/browser/the-events-calendar/tags/6.17.3/src/views/v2/components/messages.php#L30" target="_blank">[4]</a> <a href="https://plugins.trac.wordpress.org/changeset?reponame=&amp;old=3667866%40the-events-calendar&amp;new=3667866%40the-events-calendar" target="_blank">[5]</a> </div>
     </div>
   </div>
@@ -197,6 +207,7 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
     <div class="row-head">
       <h2>DS Ad Rotator 任意檔案上傳 RCE</h2>
       <span class="badge crit">CVSS 9.8</span>
+      
       
       <span class="badge">RCE</span>
       <span class="badge epss">EPSS 0.00</span>
@@ -210,6 +221,7 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
       <div class="en">The DS Ad Rotator WordPress plugin through 0.8 does not perform any capability check, nonce verification, or file-type validation on its image upload handler, allowing unauthenticated attackers to upload arbitrary files, including PHP, to a web-accessible directory, which can lead to remote code execution.</div>
       <div>修補建議：建議移除或尋找替代方案，目前無修復更新。</div>
       
+      
     </div>
   </div>
 
@@ -217,6 +229,7 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
     <div class="row-head">
       <h2>Frontegg SAML SSO 帳號接管</h2>
       <span class="badge crit">CVSS 9.8</span>
+      
       
       <span class="badge">接管</span>
       <span class="badge epss">EPSS 0.00</span>
@@ -229,6 +242,7 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
     <div class="detail">
       <div class="en">The Frontegg SAML SSO WordPress plugin through 1.0.1 does not verify the signature or issuer of SAML authentication responses before establishing a session, allowing unauthenticated attackers to log in as any user, including administrators, as well as to create arbitrary accounts.</div>
       <div>修補建議：建議停用該外掛並檢查是否有更新。</div>
+      
       
     </div>
   </div>
@@ -289,6 +303,21 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
     
   </div>
 </div>
+
+
+<div class="trend">
+  <h3>Trend / 近22日高危數</h3>
+  <div class="sub2">在野利用以琥珀圓點標示當日數量</div>
+  
+  
+  <svg viewBox="0 0 300 90" preserveAspectRatio="none">
+    <polyline fill="none" stroke="#0070f3" stroke-width="1.5"
+      points="8.0,12.0 21.5,12.0 35.0,12.0 48.6,12.0 62.1,12.0 75.6,12.0 89.1,12.0 102.7,12.0 116.2,12.0 129.7,12.0 143.2,12.0 156.8,12.0 170.3,12.0 183.8,12.0 197.3,12.0 210.9,12.0 224.4,12.0 237.9,12.0 251.4,12.0 265.0,12.0 278.5,12.0 292.0,12.0 "/>
+    <circle cx="21.5" cy="12.0" r="3" fill="#f5a524"/><circle cx="62.1" cy="12.0" r="3" fill="#f5a524"/><circle cx="89.1" cy="12.0" r="3" fill="#f5a524"/><circle cx="102.7" cy="12.0" r="3" fill="#f5a524"/><circle cx="170.3" cy="12.0" r="3" fill="#f5a524"/><circle cx="237.9" cy="12.0" r="3" fill="#f5a524"/><circle cx="278.5" cy="12.0" r="3" fill="#f5a524"/><circle cx="292.0" cy="12.0" r="3" fill="#f5a524"/>
+    <text x="8" y="12" font-size="9" fill="#8f8f8f">max 5/日</text>
+  </svg>
+</div>
+
 
 <footer><span>資料：NVD / CISA KEV / FIRST EPSS ・ AI 提煉僅供參考，請以官方 Advisory 為準</span><span>由 GitHub Actions 每日自動產生</span></footer>
 </div>

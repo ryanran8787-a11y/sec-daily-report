@@ -21,7 +21,11 @@
       "desc_en": "Dockhand before 1.0.40 contains an authentication bypass vulnerability in its git webhook endpoints that allows unauthenticated remote attackers to trigger arbitrary stack redeployments by exploiting a null webhook secret guard condition. Attackers can enumerate sequential stack IDs and send unsigned webhook requests to force git clone and docker compose operations, enabling denial of service or, when combined with write access to the tracked git branch, container escape and full host compromise via attacker-controlled docker-compose.yml with privileged bind mounts.",
       "affected_versions": "1.0.40 之前",
       "patch_url": "https://github.com/Finsys/dockhand/releases/tag/v1.0.40",
-      "epss_warn": false
+      "epss_warn": false,
+      "source": "nvd",
+      "osv_packages": [],
+      "osv_fixed": [],
+      "osv_alias": []
     },
     {
       "cve": "CVE-2026-96587",
@@ -41,7 +45,8 @@
       "desc_en": "The Viidure Android application embeds permanent, plaintext cloud storage credentials within its compiled code. These credentials provide full access to critical platform storage, including the ability to read, modify, or delete operational files such as firmware and application binaries.",
       "affected_versions": "",
       "patch_url": "https://github.com/cisagov/CSAF/blob/develop/csaf_files/OT/white/2026/icsa-26-272-07.json",
-      "epss_warn": false
+      "epss_warn": false,
+      "source": "nvd"
     },
     {
       "cve": "CVE-2026-71379",
@@ -61,7 +66,8 @@
       "desc_en": "The file export endpoint allows any unauthenticated attacker to export arbitrary database tables by sending a crafted POST request.",
       "affected_versions": "",
       "patch_url": "https://github.com/cisagov/CSAF/blob/develop/csaf_files/OT/white/2026/icsa-26-272-02.json",
-      "epss_warn": false
+      "epss_warn": false,
+      "source": "nvd"
     },
     {
       "cve": "CVE-2026-84154",
@@ -79,7 +85,8 @@
       "desc_en": "A Code Injection vulnerability affecting GEOVIA Geospatial Data Manager from Release 3DEXPERIENCE R2024x through Release 3DEXPERIENCE R2026x could allow an attacker to execute arbitrary code on the server.",
       "affected_versions": "",
       "patch_url": "https://www.3ds.com/trust-center/security/security-advisories/cve-2026-84154",
-      "epss_warn": false
+      "epss_warn": false,
+      "source": "nvd"
     },
     {
       "cve": "CVE-2026-102911",
@@ -101,7 +108,11 @@
       "desc_en": "A flaw has been found in zosmaai pi-llm-wiki up to 0.11.7. Affected is an unknown function of the file mcp/index.ts of the component wiki_capture_source MCP tool. Executing a manipulation of the argument url can lead to os command injection. The attack can be executed remotely. The exploit has been published and may be used. Upgrading to version 0.11.8 is able to address this issue. This patch is called 360867034e79175b45c8e04a98e4ca712bbaca35. Upgrading the affected component is advised.",
       "affected_versions": "",
       "patch_url": "https://github.com/zosmaai/pi-llm-wiki/",
-      "epss_warn": false
+      "epss_warn": false,
+      "source": "nvd",
+      "osv_packages": [],
+      "osv_fixed": [],
+      "osv_alias": []
     }
   ],
   "brief_zh": "今日共5則高危（RCE2則、逃逸1則），無在野利用，優先看 Dockhand 容器逃逸漏洞。"

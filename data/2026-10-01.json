@@ -21,7 +21,8 @@
       "desc_en": "A vulnerability in the API session-based authentication management of Cisco Catalyst SD-WAN Manager could allow an unauthenticated, remote attacker to access an affected system with privileges of the admin user.\r\n\r\nThis vulnerability is due to improper handling of URI encoding in an HTTP request, which allows the request to bypass an authentication rule that is intended to restrict access to a specific API endpoint. An attacker could exploit this vulnerability by sending a crafted HTTP request to the API of the affected system. A successful exploit could allow the attacker to bypass authentica",
       "affected_versions": "",
       "patch_url": "https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-sdwan-webauth-xr8beuuU",
-      "epss_warn": false
+      "epss_warn": false,
+      "source": "nvd"
     },
     {
       "cve": "CVE-2026-96349",
@@ -39,7 +40,8 @@
       "desc_en": "Unauthenticated Remote Code Execution (RCE) in SiteSkite <= 2.1.8 versions.",
       "affected_versions": "<= 2.1.8 之前",
       "patch_url": "https://patchstack.com/database/wordpress/plugin/siteskite/vulnerability/wordpress-siteskite-plugin-2-1-8-remote-code-execution-rce-vulnerability?_s_id=cve",
-      "epss_warn": false
+      "epss_warn": false,
+      "source": "nvd"
     },
     {
       "cve": "CVE-2026-76570",
@@ -58,7 +60,8 @@
       "desc_en": "Joomla Extension - joomcode.com - Unauthenticated SQL injection in read and write queries in JCTables  1.21.1 - The front-end CRUD API controller performs no Joomla token validation and no authentication check on any task. Table names, column names, and values are taken directly from request parameters and concatenated into SQL queries, allowing SQLi for reading and writing queries.",
       "affected_versions": "",
       "patch_url": "https://www.joomcode.com/",
-      "epss_warn": false
+      "epss_warn": false,
+      "source": "nvd"
     },
     {
       "cve": "CVE-2026-102427",
@@ -76,7 +79,8 @@
       "desc_en": "Joomla Extension - ordasoft.com - Unauthenticated Remote Code Execution in OrdaSoft Joomla CCK < 8.3.16 - site/uploader.php is reached through the component’s normal frontend routing (task=getContent), a task with no authentication or ACL check anywhere in the dispatch chain. The handler validates the uploaded file’s content with a real magic-byte MIME check, but the extension allow-list that would otherwise restrict the saved file’s extension was present in the source and commented out. The saved file’s extension was taken directly from the attacker-supplied filename with no validation, and t",
       "affected_versions": "< 8.3.16 之前",
       "patch_url": "https://www.ordasoft.com/",
-      "epss_warn": false
+      "epss_warn": false,
+      "source": "nvd"
     },
     {
       "cve": "CVE-2026-55107",
@@ -97,7 +101,13 @@
       "desc_en": "Kobako is a Ruby gem that embeds a Wasm-isolated mruby interpreter inside applications, allowing execution of untrusted Ruby scripts (LLM-generated code, user formulas, student submissions, third-party plugins) in-process without giving them access to host memory, files, network, or credentials. From version 0.1.0 to before version 0.9.1, a guest mruby script running inside the Kobako sandbox can execute arbitrary Ruby in the host process, fully escaping the sandbox. This issue has been patched in version 0.9.1.",
       "affected_versions": "",
       "patch_url": "https://github.com/elct9620/kobako/commit/64f84700c81f44902bed9211318d5362f44987b3",
-      "epss_warn": false
+      "epss_warn": false,
+      "source": "nvd",
+      "osv_packages": [],
+      "osv_fixed": [],
+      "osv_alias": [
+        "GHSA-7pwq-q9jf-539h"
+      ]
     }
   ],
   "brief_zh": "今日共5則高危（RCE2則、未授權存取1則），無在野利用，優先看 SiteSkite RCE 漏洞。"

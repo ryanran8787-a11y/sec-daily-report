@@ -82,6 +82,10 @@ h1 .grad{background:linear-gradient(180deg,var(--grad-from),var(--grad-to));-web
 .badge.wild{background:transparent;border-color:var(--amber);color:var(--amber)}
 .badge.epss{background:transparent}
 .hist{margin-top:48px}
+.trend{margin-top:48px;border:1px solid var(--border);border-radius:var(--radius);background:var(--bg-2);padding:16px 20px}
+.trend h3{font-size:13px;font-weight:600;color:var(--gray-900);text-transform:uppercase;letter-spacing:.08em;margin:0 0 4px}
+.trend .sub2{font-size:12px;color:var(--gray-900);margin-bottom:8px}
+.trend svg{width:100%;height:90px;display:block}
 .hist h3{font-size:13px;font-weight:600;color:var(--gray-900);text-transform:uppercase;letter-spacing:.08em;margin:0 0 12px}
 .hist-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px}
 .hcard{border:1px solid var(--border);border-radius:var(--radius-sm);padding:12px 14px;background:var(--bg-2);color:var(--gray-1000)}
@@ -130,6 +134,7 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
       <h2>{{ it.title_zh }}</h2>
       {% if it.cvss %}<span class="badge {% if it.cvss>=9.5 %}crit{% endif %}">CVSS {{ it.cvss }}</span>{% endif %}
       {% if it.in_wild %}<span class="badge wild">● 在野利用</span>{% elif it.epss_warn %}<span class="badge wild">▲ 利用預警</span>{% endif %}
+      {% if it.source and it.source != "nvd" %}<span class="badge epss">via {{ it.source }}</span>{% endif %}
       <span class="badge">{{ it.type }}</span>
       {% if it.epss %}<span class="badge epss">EPSS {{ '%.2f'|format(it.epss) }}</span>{% endif %}
       <span class="chev">▾</span>
@@ -141,6 +146,7 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
     <div class="detail">
       {% if it.desc_en %}<div class="en">{{ it.desc_en }}</div>{% endif %}
       <div>修補建議：{{ it.fix_hint }}</div>
+      {% if it.osv_packages %}<div style="margin-top:6px">影響生態包：{{ it.osv_packages|join(", ") }}{% if it.osv_fixed %}・已修復於 {{ it.osv_fixed|join(", ") }}{% endif %}</div>{% endif %}
       {% if it.refs and it.refs|length > 1 %}<div style="margin-top:6px">更多參考：{% for u in it.refs[1:] %}<a href="{{ u }}" target="_blank">[{{ loop.index + 1 }}]</a> {% endfor %}</div>{% endif %}
     </div>
   </div>
@@ -169,6 +175,21 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
     {% endfor %}
   </div>
 </div>
+
+{% if trend and trend|length > 1 %}
+<div class="trend">
+  <h3>Trend / 近{{ trend|length }}日高危數</h3>
+  <div class="sub2">在野利用以琥珀圓點標示當日數量</div>
+  {% set mx = trend|map(attribute="count")|max %}
+  {% set n = trend|length %}
+  <svg viewBox="0 0 300 90" preserveAspectRatio="none">
+    <polyline fill="none" stroke="#0070f3" stroke-width="1.5"
+      points="{% for t in trend %}{{ '%.1f'|format(8 + loop.index0 * 284 / (n - 1)) }},{{ '%.1f'|format(80 - (t.count / mx) * 68) }} {% endfor %}"/>
+    {% for t in trend %}{% if t.wild %}<circle cx="{{ '%.1f'|format(8 + loop.index0 * 284 / (n - 1)) }}" cy="{{ '%.1f'|format(80 - (t.count / mx) * 68) }}" r="3" fill="#f5a524"/>{% endif %}{% endfor %}
+    <text x="8" y="12" font-size="9" fill="#8f8f8f">max {{ mx }}/日</text>
+  </svg>
+</div>
+{% endif %}
 
 <footer><span>資料：NVD / CISA KEV / FIRST EPSS ・ AI 提煉僅供參考，請以官方 Advisory 為準</span><span>由 GitHub Actions 每日自動產生</span></footer>
 </div>

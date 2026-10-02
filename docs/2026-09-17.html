@@ -82,6 +82,10 @@ h1 .grad{background:linear-gradient(180deg,var(--grad-from),var(--grad-to));-web
 .badge.wild{background:transparent;border-color:var(--amber);color:var(--amber)}
 .badge.epss{background:transparent}
 .hist{margin-top:48px}
+.trend{margin-top:48px;border:1px solid var(--border);border-radius:var(--radius);background:var(--bg-2);padding:16px 20px}
+.trend h3{font-size:13px;font-weight:600;color:var(--gray-900);text-transform:uppercase;letter-spacing:.08em;margin:0 0 4px}
+.trend .sub2{font-size:12px;color:var(--gray-900);margin-bottom:8px}
+.trend svg{width:100%;height:90px;display:block}
 .hist h3{font-size:13px;font-weight:600;color:var(--gray-900);text-transform:uppercase;letter-spacing:.08em;margin:0 0 12px}
 .hist-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px}
 .hcard{border:1px solid var(--border);border-radius:var(--radius-sm);padding:12px 14px;background:var(--bg-2);color:var(--gray-1000)}
@@ -137,6 +141,7 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
       <h2>Cisco ISE 驗證繞過</h2>
       <span class="badge crit">CVSS 10.0</span>
       <span class="badge wild">● 在野利用</span>
+      
       <span class="badge">未授權存取</span>
       
       <span class="chev">▾</span>
@@ -150,6 +155,7 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
 
 This vulnerability is due to insufficient authentication control on an API endpoint. An attacker could exploit this vulnerability by sending a crafted request to an affected API endpoint. A successful exploit could allow the attacker to gain unauthorized access to the affected device by bypassing the web-based management interface.</div>
       <div>修補建議：升級至官方發布的修復版本。</div>
+      
       <div style="margin-top:6px">更多參考：<a href="https://www.cisa.gov/known-exploited-vulnerabilities-catalog?field_cve=CVE-2026-76460" target="_blank">[2]</a> </div>
     </div>
   </div>
@@ -163,6 +169,7 @@ This vulnerability is due to insufficient authentication control on an API endpo
     <div class="row-head">
       <h2>Arista EOS RCE 漏洞</h2>
       <span class="badge crit">CVSS 10.0</span>
+      
       
       <span class="badge">RCE</span>
       <span class="badge epss">EPSS 0.01</span>
@@ -178,6 +185,7 @@ This vulnerability is due to insufficient authentication control on an API endpo
 This issue was discovered internally by Arista, and the company is not aware of any malicious exploitation of this vulnerability in customer networks.</div>
       <div>修補建議：升級 EOS 版本或禁用 P4Runtime 功能。</div>
       
+      
     </div>
   </div>
 
@@ -185,6 +193,7 @@ This issue was discovered internally by Arista, and the company is not aware of 
     <div class="row-head">
       <h2>Dell ObjectScale RCE</h2>
       <span class="badge crit">CVSS 10.0</span>
+      
       
       <span class="badge">反序列化RCE</span>
       
@@ -198,6 +207,7 @@ This issue was discovered internally by Arista, and the company is not aware of 
       <div class="en">Dell ObjectScale, versions prior to 4.4.0.0, contains a Deserialization of Untrusted Data vulnerability. An unauthenticated attacker with remote access could potentially exploit this vulnerability, leading to Remote execution.</div>
       <div>修補建議：升級至 Dell ObjectScale 4.4.0.0 或更新版本。</div>
       
+      
     </div>
   </div>
 
@@ -205,6 +215,7 @@ This issue was discovered internally by Arista, and the company is not aware of 
     <div class="row-head">
       <h2>Arista EOS gNPSI RCE</h2>
       <span class="badge crit">CVSS 10.0</span>
+      
       
       <span class="badge">RCE</span>
       
@@ -218,6 +229,7 @@ This issue was discovered internally by Arista, and the company is not aware of 
       <div class="en">Under certain circumstances on affected platforms running Arista EOS with gRPC Network Packet Sampling Interface (gNPSI) enabled, an unauthenticated gNPSI client can craft a malicious request to allow arbitrary code execution, granting an attacker full administrative control over the compromised switch.</div>
       <div>修補建議：升級 EOS 版本或禁用 gNPSI 功能。</div>
       
+      
     </div>
   </div>
 
@@ -225,6 +237,7 @@ This issue was discovered internally by Arista, and the company is not aware of 
     <div class="row-head">
       <h2>Cisco ISE 多項高危漏洞</h2>
       <span class="badge crit">CVSS 10.0</span>
+      
       
       <span class="badge">其他高危</span>
       
@@ -239,6 +252,7 @@ This issue was discovered internally by Arista, and the company is not aware of 
 
 The vulnerabilities tracked by CVE-2026-20130 are related to improper neutralization of special elements issues that are grouped under the Common Weakness Enumeration (CWE) Pillar CWE-74.</div>
       <div>修補建議：安裝 Cisco 提供的軟體強化更新版本。</div>
+      
       
     </div>
   </div>
@@ -299,6 +313,21 @@ The vulnerabilities tracked by CVE-2026-20130 are related to improper neutraliza
     
   </div>
 </div>
+
+
+<div class="trend">
+  <h3>Trend / 近22日高危數</h3>
+  <div class="sub2">在野利用以琥珀圓點標示當日數量</div>
+  
+  
+  <svg viewBox="0 0 300 90" preserveAspectRatio="none">
+    <polyline fill="none" stroke="#0070f3" stroke-width="1.5"
+      points="8.0,12.0 21.5,12.0 35.0,12.0 48.6,12.0 62.1,12.0 75.6,12.0 89.1,12.0 102.7,12.0 116.2,12.0 129.7,12.0 143.2,12.0 156.8,12.0 170.3,12.0 183.8,12.0 197.3,12.0 210.9,12.0 224.4,12.0 237.9,12.0 251.4,12.0 265.0,12.0 278.5,12.0 292.0,12.0 "/>
+    <circle cx="21.5" cy="12.0" r="3" fill="#f5a524"/><circle cx="62.1" cy="12.0" r="3" fill="#f5a524"/><circle cx="89.1" cy="12.0" r="3" fill="#f5a524"/><circle cx="102.7" cy="12.0" r="3" fill="#f5a524"/><circle cx="170.3" cy="12.0" r="3" fill="#f5a524"/><circle cx="237.9" cy="12.0" r="3" fill="#f5a524"/><circle cx="278.5" cy="12.0" r="3" fill="#f5a524"/><circle cx="292.0" cy="12.0" r="3" fill="#f5a524"/>
+    <text x="8" y="12" font-size="9" fill="#8f8f8f">max 5/日</text>
+  </svg>
+</div>
+
 
 <footer><span>資料：NVD / CISA KEV / FIRST EPSS ・ AI 提煉僅供參考，請以官方 Advisory 為準</span><span>由 GitHub Actions 每日自動產生</span></footer>
 </div>

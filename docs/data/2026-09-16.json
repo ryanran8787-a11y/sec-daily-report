@@ -23,7 +23,13 @@
       "desc_en": "MySQL MCP Server is a Model Context Protocol server that enables secure interaction with MySQL databases. Prior to 0.4.2, setting MCP_TRANSPORT=sse causes src/mysql_mcp_server/server.py to construct SseServerTransport without security_settings or enable_dns_rebinding_protection, while the Starlette routes /, /sse, and /messages/ have no authentication and the service binds to 0.0.0.0 by default. A network attacker can directly reach execute_sql, or can use DNS rebinding to make a victim's browser relay same-origin requests to a locally bound service, and supply a query that reaches cursor.exec",
       "affected_versions": "0.4.2 之前",
       "patch_url": "https://github.com/designcomputer/mysql_mcp_server/commit/a96549f4a4d65443fd6e9c7f2324fba9a5c80a82",
-      "epss_warn": false
+      "epss_warn": false,
+      "source": "nvd",
+      "osv_packages": [],
+      "osv_fixed": [],
+      "osv_alias": [
+        "GHSA-rqfv-2mw9-78g2"
+      ]
     },
     {
       "cve": "CVE-2026-53710",
@@ -43,7 +49,13 @@
       "desc_en": "MCP Context Forge is an AI gateway, registry, and proxy for MCP, A2A, REST, and gRPC APIs. Prior to 1.0.2, the python_sandbox_server in mcp-servers/python/python_sandbox_server/src/python_sandbox_server/server_fastmcp.py exposes raw getattr through safe_builtins, omits a required _getattr_ guard, and relies on validate_code checks for literal dangerous dunder strings. An attacker can construct dunder names at runtime, traverse the Python class hierarchy, reach subprocess.Popen, and execute OS commands with the server process privileges through the execute_code MCP tool. The HTTP/SSE transport ",
       "affected_versions": "1.0.2 之前",
       "patch_url": "https://github.com/IBM/mcp-context-forge/commit/63a2900e6301b9c8a483a38d3737a1beb3a7ce89",
-      "epss_warn": false
+      "epss_warn": false,
+      "source": "nvd",
+      "osv_packages": [],
+      "osv_fixed": [],
+      "osv_alias": [
+        "GHSA-xm98-3vcf-fph7"
+      ]
     },
     {
       "cve": "CVE-2026-71133",
@@ -61,7 +73,8 @@
       "desc_en": "Vulnerability in the Oracle Access Manager product of Oracle Fusion Middleware (component: Authentication Engine).  Supported versions that are affected are 12.2.1.4.0 and  14.1.2.1.0. Easily exploitable vulnerability allows unauthenticated attacker with network access via HTTP to compromise Oracle Access Manager.  While the vulnerability is in Oracle Access Manager, attacks may significantly impact additional products (scope change).  Successful attacks of this vulnerability can result in takeover of Oracle Access Manager. CVSS 3.1 Base Score 10.0 (Confidentiality, Integrity and Availability ",
       "affected_versions": "",
       "patch_url": "https://www.oracle.com/security-alerts/cspusep2026.html",
-      "epss_warn": false
+      "epss_warn": false,
+      "source": "nvd"
     },
     {
       "cve": "CVE-2026-83020",
@@ -79,7 +92,8 @@
       "desc_en": "Vulnerability in the Oracle Platform Security for Java product of Oracle Fusion Middleware (component: Centralized Thirdparty Jars).  Supported versions that are affected are 12.2.1.4.0 and  14.1.2.0.0. Easily exploitable vulnerability allows unauthenticated attacker with network access via HTTP to compromise Oracle Platform Security for Java.  While the vulnerability is in Oracle Platform Security for Java, attacks may significantly impact additional products (scope change).  Successful attacks of this vulnerability can result in takeover of Oracle Platform Security for Java. CVSS 3.1 Base Sc",
       "affected_versions": "",
       "patch_url": "https://www.oracle.com/security-alerts/cspusep2026.html",
-      "epss_warn": false
+      "epss_warn": false,
+      "source": "nvd"
     },
     {
       "cve": "CVE-2026-83021",
@@ -97,7 +111,8 @@
       "desc_en": "Vulnerability in the Oracle WebLogic Server product of Oracle Fusion Middleware (component: Web Container).  Supported versions that are affected are 12.2.1.4.0, 14.1.1.0.0 and  14.1.2.0.0. Easily exploitable vulnerability allows unauthenticated attacker with network access via HTTP to compromise Oracle WebLogic Server.  While the vulnerability is in Oracle WebLogic Server, attacks may significantly impact additional products (scope change).  Successful attacks of this vulnerability can result in takeover of Oracle WebLogic Server. CVSS 3.1 Base Score 10.0 (Confidentiality, Integrity and Avail",
       "affected_versions": "",
       "patch_url": "https://www.oracle.com/security-alerts/cspusep2026.html",
-      "epss_warn": false
+      "epss_warn": false,
+      "source": "nvd"
     }
   ],
   "brief_zh": "今日共5則高危（接管3則、未授權存取1則），無在野利用，優先看 MySQL MCP 未授權存取。"

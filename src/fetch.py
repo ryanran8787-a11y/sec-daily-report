@@ -17,6 +17,7 @@ NVD_URL = "https://services.nvd.nist.gov/rest/json/cves/2.0"
 KEV_URL = "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json"
 EPSS_URL = "https://api.first.org/data/v1/epss"
 UA = {"User-Agent": "daily-sec-report/0.1 (+github-pages-mvp)"}
+EPSS_WARN = float(os.getenv("EPSS_WARN", "0.7"))  # 即將被利用預警線
 
 
 def fetch_nvd(pub_start: str, pub_end: str, api_key: str | None) -> list[dict]:
@@ -129,11 +130,30 @@ def main():
             "refs": [r.get("url", "") for r in c.get("references", [])][:5],
             "in_kev": cid in kev,
             "kev": {k: kev[cid].get(k, "") for k in ("vendorProject", "product", "dateAdded", "shortDescription")} if cid in kev else None,
+            "source": "nvd",
         })
 
-EPSS_WARN = float(os.getenv("EPSS_WARN", "0.7"))  # 即將被利用預警線
+    # 補充源：GitHub Advisory + Cisco RSS（NVD 沒有的才補）
+    try:
+        from extra_sources import fetch_github_advisories, fetch_cisco_rss, enrich_osv
+        seen = {x["cve"] for x in items}
+        extras = fetch_github_advisories(days=max(args.days, 7)) + fetch_cisco_rss(days=max(args.days, 7))
+        n_new = 0
+        for x in extras:
+            if x["cve"] in seen:
+                continue
+            if x["cve"] in kev:
+                x["in_kev"] = True
+                x["kev"] = {k: kev[x["cve"]].get(k, "") for k in ("vendorProject", "product", "dateAdded", "shortDescription")}
+            seen.add(x["cve"])
+            items.append(x)
+            n_new += 1
+        print(f"[fetch] 補充源新增: {n_new}")
+    except Exception as e:
+        print(f"[warn] 補充源略過: {e}")
+        enrich_osv = None
 
-    epss = fetch_epss([x["cve"] for x in items])
+    epss = fetch_epss([x["cve"] for x in items if not x["cve"].startswith("CISCO-")])
     for x in items:
         e = epss.get(x["cve"]) or {}
         try:
@@ -143,9 +163,16 @@ EPSS_WARN = float(os.getenv("EPSS_WARN", "0.7"))  # 即將被利用預警線
             x["epss"], x["epss_pct"] = None, None
         x["epss_warn"] = bool(x["epss"] is not None and x["epss"] >= EPSS_WARN and not x["in_kev"])
 
-    # 硬過濾：CVSS>=9.0 或 在野 或 EPSS 預警
+    # 硬過濾：CVSS>=9.0 或 在野 或 EPSS 預警（補充源無分數靠在野/關鍵詞已先收斂）
     kept = [x for x in items if (x["cvss"] is not None and x["cvss"] >= 9.0) or x["in_kev"] or x["epss_warn"]]
     kept.sort(key=lambda x: (x["in_kev"], x["epss_warn"], x["cvss"] or 0, x["epss"] or 0), reverse=True)
+
+    # OSV 反查 enrichment（只對 kept 做，每天約 50 次小請求）
+    try:
+        if enrich_osv:
+            enrich_osv(kept)
+    except Exception as e:
+        print(f"[warn] OSV enrichment 略過: {e}")
 
     raw_path = RAW_DIR / f"{target}_raw.json"
     save_json(raw_path, {"date": target, "fetched_at": datetime.now(timezone.utc).isoformat(),

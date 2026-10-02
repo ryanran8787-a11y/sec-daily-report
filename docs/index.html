@@ -82,6 +82,10 @@ h1 .grad{background:linear-gradient(180deg,var(--grad-from),var(--grad-to));-web
 .badge.wild{background:transparent;border-color:var(--amber);color:var(--amber)}
 .badge.epss{background:transparent}
 .hist{margin-top:48px}
+.trend{margin-top:48px;border:1px solid var(--border);border-radius:var(--radius);background:var(--bg-2);padding:16px 20px}
+.trend h3{font-size:13px;font-weight:600;color:var(--gray-900);text-transform:uppercase;letter-spacing:.08em;margin:0 0 4px}
+.trend .sub2{font-size:12px;color:var(--gray-900);margin-bottom:8px}
+.trend svg{width:100%;height:90px;display:block}
 .hist h3{font-size:13px;font-weight:600;color:var(--gray-900);text-transform:uppercase;letter-spacing:.08em;margin:0 0 12px}
 .hist-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px}
 .hcard{border:1px solid var(--border);border-radius:var(--radius-sm);padding:12px 14px;background:var(--bg-2);color:var(--gray-1000)}
@@ -137,6 +141,7 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
       <h2>Fortinet FortiMail 任意檔案寫入</h2>
       <span class="badge crit">CVSS 9.8</span>
       <span class="badge wild">● 在野利用</span>
+      
       <span class="badge">其他高危</span>
       
       <span class="chev">▾</span>
@@ -148,6 +153,7 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
     <div class="detail">
       <div class="en">An improper limitation of a pathname to a restricted directory (&#39;path traversal&#39;) vulnerability in Fortinet FortiMail 8.0.0 through 8.0.1, FortiMail 7.6.0 through 7.6.6, FortiMail 7.4.0 through 7.4.8, FortiMail 7.2.0 through 7.2.9 may allow an unauthenticated attacker to write arbitrary files on the underlying system via crafted HTTP or HTTPS requests.</div>
       <div>修補建議：升級至 Fortinet 官方發布的最新安全版本。</div>
+      
       <div style="margin-top:6px">更多參考：<a href="https://www.cisa.gov/known-exploited-vulnerabilities-catalog?field_cve=CVE-2026-104286" target="_blank">[2]</a> </div>
     </div>
   </div>
@@ -161,6 +167,7 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
     <div class="row-head">
       <h2>BackupSheep 插件接管漏洞</h2>
       <span class="badge crit">CVSS 10.0</span>
+      
       
       <span class="badge">接管</span>
       
@@ -176,6 +183,7 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
 The BackupSheep WordPress Backup Plugin WordPress plugin through 1.8 has been closed on WordPress.org since July 2024 and no fixed version is available. Remove it from any site where it is installed.</div>
       <div>修補建議：該外掛已關閉且無修復版，建議立即從網站移除。</div>
       
+      
     </div>
   </div>
 
@@ -183,6 +191,7 @@ The BackupSheep WordPress Backup Plugin WordPress plugin through 1.8 has been cl
     <div class="row-head">
       <h2>Teledyne FLIR 資訊洩漏漏洞</h2>
       <span class="badge crit">CVSS 10.0</span>
+      
       
       <span class="badge">資訊洩漏</span>
       
@@ -196,6 +205,7 @@ The BackupSheep WordPress Backup Plugin WordPress plugin through 1.8 has been cl
       <div class="en">Unvalidated pathnames in the web interface in Teledyne FLIR Aware2 versions through 6.9.0.2 (PackBot) and 1.7.9 (FirstLook) allows remote unauthenticated attackers to read configuration and security parameters on Teledyne FLIR PackBot and FirstLook robots running this software via path traversal.</div>
       <div>修補建議：聯繫廠商獲取更新，並限制管理介面的網路存取。</div>
       
+      
     </div>
   </div>
 
@@ -203,6 +213,7 @@ The BackupSheep WordPress Backup Plugin WordPress plugin through 1.8 has been cl
     <div class="row-head">
       <h2>Fortra BoKS 密碼預測漏洞</h2>
       <span class="badge crit">CVSS 9.9</span>
+      
       
       <span class="badge">其他高危</span>
       
@@ -216,6 +227,7 @@ The BackupSheep WordPress Backup Plugin WordPress plugin through 1.8 has been cl
       <div class="en">In deployments using BoKS keytab management, affected versions of boks_keytabmd generate Active Directory service-account passwords from a predictable pseudo-random sequence seeded with the current Unix timestamp. An attacker who knows the service principal and can estimate the password-change time can reproduce a limited candidate set and verify candidates offline.</div>
       <div>修補建議：參考 Fortra 安全公告 FI-2026-012 進行修補。</div>
       
+      
     </div>
   </div>
 
@@ -223,6 +235,7 @@ The BackupSheep WordPress Backup Plugin WordPress plugin through 1.8 has been cl
     <div class="row-head">
       <h2>Foreman 模板引擎 RCE 漏洞</h2>
       <span class="badge crit">CVSS 9.9</span>
+      
       
       <span class="badge">RCE</span>
       
@@ -235,6 +248,7 @@ The BackupSheep WordPress Backup Plugin WordPress plugin through 1.8 has been cl
     <div class="detail">
       <div class="en">A flaw was found in Foreman. An authenticated attacker with low-level permissions can achieve remote code execution (RCE) by bypassing the safemode sandbox within the templating engine. Due to improper handling of delegated methods, an attacker can append unauthorized functions to the allowed execution list, enabling them to run arbitrary commands on the hosting server.</div>
       <div>修補建議：升級至 Red Hat 提供的最新安全修復版本。</div>
+      
       <div style="margin-top:6px">更多參考：<a href="https://access.redhat.com/errata/RHSA-2026:74504" target="_blank">[2]</a> <a href="https://access.redhat.com/errata/RHSA-2026:74506" target="_blank">[3]</a> <a href="https://access.redhat.com/security/cve/CVE-2026-96658" target="_blank">[4]</a> <a href="https://bugzilla.redhat.com/show_bug.cgi?id=2534185" target="_blank">[5]</a> </div>
     </div>
   </div>
@@ -295,6 +309,21 @@ The BackupSheep WordPress Backup Plugin WordPress plugin through 1.8 has been cl
     
   </div>
 </div>
+
+
+<div class="trend">
+  <h3>Trend / 近22日高危數</h3>
+  <div class="sub2">在野利用以琥珀圓點標示當日數量</div>
+  
+  
+  <svg viewBox="0 0 300 90" preserveAspectRatio="none">
+    <polyline fill="none" stroke="#0070f3" stroke-width="1.5"
+      points="8.0,12.0 21.5,12.0 35.0,12.0 48.6,12.0 62.1,12.0 75.6,12.0 89.1,12.0 102.7,12.0 116.2,12.0 129.7,12.0 143.2,12.0 156.8,12.0 170.3,12.0 183.8,12.0 197.3,12.0 210.9,12.0 224.4,12.0 237.9,12.0 251.4,12.0 265.0,12.0 278.5,12.0 292.0,12.0 "/>
+    <circle cx="21.5" cy="12.0" r="3" fill="#f5a524"/><circle cx="62.1" cy="12.0" r="3" fill="#f5a524"/><circle cx="89.1" cy="12.0" r="3" fill="#f5a524"/><circle cx="102.7" cy="12.0" r="3" fill="#f5a524"/><circle cx="170.3" cy="12.0" r="3" fill="#f5a524"/><circle cx="237.9" cy="12.0" r="3" fill="#f5a524"/><circle cx="278.5" cy="12.0" r="3" fill="#f5a524"/><circle cx="292.0" cy="12.0" r="3" fill="#f5a524"/>
+    <text x="8" y="12" font-size="9" fill="#8f8f8f">max 5/日</text>
+  </svg>
+</div>
+
 
 <footer><span>資料：NVD / CISA KEV / FIRST EPSS ・ AI 提煉僅供參考，請以官方 Advisory 為準</span><span>由 GitHub Actions 每日自動產生</span></footer>
 </div>

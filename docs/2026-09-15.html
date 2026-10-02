@@ -82,6 +82,10 @@ h1 .grad{background:linear-gradient(180deg,var(--grad-from),var(--grad-to));-web
 .badge.wild{background:transparent;border-color:var(--amber);color:var(--amber)}
 .badge.epss{background:transparent}
 .hist{margin-top:48px}
+.trend{margin-top:48px;border:1px solid var(--border);border-radius:var(--radius);background:var(--bg-2);padding:16px 20px}
+.trend h3{font-size:13px;font-weight:600;color:var(--gray-900);text-transform:uppercase;letter-spacing:.08em;margin:0 0 4px}
+.trend .sub2{font-size:12px;color:var(--gray-900);margin-bottom:8px}
+.trend svg{width:100%;height:90px;display:block}
 .hist h3{font-size:13px;font-weight:600;color:var(--gray-900);text-transform:uppercase;letter-spacing:.08em;margin:0 0 12px}
 .hist-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px}
 .hcard{border:1px solid var(--border);border-radius:var(--radius-sm);padding:12px 14px;background:var(--bg-2);color:var(--gray-1000)}
@@ -137,6 +141,7 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
       <h2>Cisco Secure Email RCE 在野利用</h2>
       <span class="badge crit">CVSS 9.8</span>
       <span class="badge wild">● 在野利用</span>
+      
       <span class="badge">RCE</span>
       
       <span class="chev">▾</span>
@@ -150,6 +155,7 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
 
 This vulnerability is due to insufficient validation in the email parsing logic. An attacker could exploit this vulnerability by sending a crafted email message that contains malicious SQL statements through an affected device. A successful exploit could allow the attacker to execute arbitrary SQL statements, leading to command execution with root privileges on the </div>
       <div>修補建議：請參閱 Cisco 安全公告更新至修補版本。</div>
+      
       <div style="margin-top:6px">更多參考：<a href="https://www.cisa.gov/known-exploited-vulnerabilities-catalog?field_cve=CVE-2026-76461" target="_blank">[2]</a> </div>
     </div>
   </div>
@@ -163,6 +169,7 @@ This vulnerability is due to insufficient validation in the email parsing logic.
     <div class="row-head">
       <h2>Apache Storm 資訊洩漏</h2>
       <span class="badge crit">CVSS 10.0</span>
+      
       
       <span class="badge">資訊洩漏</span>
       
@@ -184,6 +191,7 @@ That credential is not read-only. The cluster state implementation uses write-ca
 heartbeats, backpressure and error state, so a recipient can forge or remove that state for the topology
 concerned. It</div>
       <div>修補建議：請參閱 Apache 官方公告進行版本更新。</div>
+      
       <div style="margin-top:6px">更多參考：<a href="http://www.openwall.com/lists/oss-security/2026/09/13/14" target="_blank">[2]</a> <a href="http://www.openwall.com/lists/oss-security/2026/09/13/23" target="_blank">[3]</a> </div>
     </div>
   </div>
@@ -192,6 +200,7 @@ concerned. It</div>
     <div class="row-head">
       <h2>D-Link DWR-M920 指令注入</h2>
       <span class="badge crit">CVSS 9.9</span>
+      
       
       <span class="badge">RCE</span>
       <span class="badge epss">EPSS 0.02</span>
@@ -204,6 +213,7 @@ concerned. It</div>
     <div class="detail">
       <div class="en">A weakness has been identified in D-Link DWR-M920 1.1.7. This issue affects the function sub_41E60C of the file /boafrm/formPinManageSetup. This manipulation of the argument newPin causes os command injection. The attack can be initiated remotely. The exploit has been made available to the public and could be used for attacks.</div>
       <div>修補建議：目前無官方修補程式，建議限制存取或更換設備。</div>
+      
       <div style="margin-top:6px">更多參考：<a href="https://vuldb.com/cve/CVE-2026-90699" target="_blank">[2]</a> <a href="https://vuldb.com/submit/916259" target="_blank">[3]</a> <a href="https://vuldb.com/vuln/403232" target="_blank">[4]</a> <a href="https://vuldb.com/vuln/403232/cti" target="_blank">[5]</a> </div>
     </div>
   </div>
@@ -212,6 +222,7 @@ concerned. It</div>
     <div class="row-head">
       <h2>D-Link DIR-823G 緩衝區溢位</h2>
       <span class="badge crit">CVSS 9.9</span>
+      
       
       <span class="badge">其他高危</span>
       <span class="badge epss">EPSS 0.01</span>
@@ -224,6 +235,7 @@ concerned. It</div>
     <div class="detail">
       <div class="en">A security flaw has been discovered in D-Link DIR-823G 1.0.2B05_20181207. The impacted element is the function strcpy of the file /HNAP1/SetStaticRouteSettings of the component HNAP1. The manipulation of the argument PAddress/SubnetMask/Gateway results in stack-based buffer overflow. The attack can be launched remotely.</div>
       <div>修補建議：目前無官方修補程式，建議限制存取或更換設備。</div>
+      
       <div style="margin-top:6px">更多參考：<a href="https://vuldb.com/cve/CVE-2026-90680" target="_blank">[2]</a> <a href="https://vuldb.com/submit/914902" target="_blank">[3]</a> <a href="https://vuldb.com/vuln/403213" target="_blank">[4]</a> <a href="https://vuldb.com/vuln/403213/cti" target="_blank">[5]</a> </div>
     </div>
   </div>
@@ -232,6 +244,7 @@ concerned. It</div>
     <div class="row-head">
       <h2>D-Link DIR-878 緩衝區溢位</h2>
       <span class="badge crit">CVSS 9.9</span>
+      
       
       <span class="badge">其他高危</span>
       <span class="badge epss">EPSS 0.00</span>
@@ -244,6 +257,7 @@ concerned. It</div>
     <div class="detail">
       <div class="en">A vulnerability was detected in D-Link DIR-878 120B05. This affects the function SetDynamicDNSIPv6Settings of the component Dynamic DNS IPv6 Settings. The manipulation of the argument IPv6Address/Hostname results in stack-based buffer overflow. The attack may be launched remotely.</div>
       <div>修補建議：目前無官方修補程式，建議限制存取或更換設備。</div>
+      
       <div style="margin-top:6px">更多參考：<a href="https://vuldb.com/cve/CVE-2026-90692" target="_blank">[2]</a> <a href="https://vuldb.com/submit/915572" target="_blank">[3]</a> <a href="https://vuldb.com/vuln/403225" target="_blank">[4]</a> <a href="https://vuldb.com/vuln/403225/cti" target="_blank">[5]</a> </div>
     </div>
   </div>
@@ -304,6 +318,21 @@ concerned. It</div>
     
   </div>
 </div>
+
+
+<div class="trend">
+  <h3>Trend / 近22日高危數</h3>
+  <div class="sub2">在野利用以琥珀圓點標示當日數量</div>
+  
+  
+  <svg viewBox="0 0 300 90" preserveAspectRatio="none">
+    <polyline fill="none" stroke="#0070f3" stroke-width="1.5"
+      points="8.0,12.0 21.5,12.0 35.0,12.0 48.6,12.0 62.1,12.0 75.6,12.0 89.1,12.0 102.7,12.0 116.2,12.0 129.7,12.0 143.2,12.0 156.8,12.0 170.3,12.0 183.8,12.0 197.3,12.0 210.9,12.0 224.4,12.0 237.9,12.0 251.4,12.0 265.0,12.0 278.5,12.0 292.0,12.0 "/>
+    <circle cx="21.5" cy="12.0" r="3" fill="#f5a524"/><circle cx="62.1" cy="12.0" r="3" fill="#f5a524"/><circle cx="89.1" cy="12.0" r="3" fill="#f5a524"/><circle cx="102.7" cy="12.0" r="3" fill="#f5a524"/><circle cx="170.3" cy="12.0" r="3" fill="#f5a524"/><circle cx="237.9" cy="12.0" r="3" fill="#f5a524"/><circle cx="278.5" cy="12.0" r="3" fill="#f5a524"/><circle cx="292.0" cy="12.0" r="3" fill="#f5a524"/>
+    <text x="8" y="12" font-size="9" fill="#8f8f8f">max 5/日</text>
+  </svg>
+</div>
+
 
 <footer><span>資料：NVD / CISA KEV / FIRST EPSS ・ AI 提煉僅供參考，請以官方 Advisory 為準</span><span>由 GitHub Actions 每日自動產生</span></footer>
 </div>

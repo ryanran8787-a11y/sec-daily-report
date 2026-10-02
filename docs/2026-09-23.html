@@ -82,6 +82,10 @@ h1 .grad{background:linear-gradient(180deg,var(--grad-from),var(--grad-to));-web
 .badge.wild{background:transparent;border-color:var(--amber);color:var(--amber)}
 .badge.epss{background:transparent}
 .hist{margin-top:48px}
+.trend{margin-top:48px;border:1px solid var(--border);border-radius:var(--radius);background:var(--bg-2);padding:16px 20px}
+.trend h3{font-size:13px;font-weight:600;color:var(--gray-900);text-transform:uppercase;letter-spacing:.08em;margin:0 0 4px}
+.trend .sub2{font-size:12px;color:var(--gray-900);margin-bottom:8px}
+.trend svg{width:100%;height:90px;display:block}
 .hist h3{font-size:13px;font-weight:600;color:var(--gray-900);text-transform:uppercase;letter-spacing:.08em;margin:0 0 12px}
 .hist-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px}
 .hcard{border:1px solid var(--border);border-radius:var(--radius-sm);padding:12px 14px;background:var(--bg-2);color:var(--gray-1000)}
@@ -137,6 +141,7 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
       <h2>VeloCloud VCO 權限接管</h2>
       <span class="badge crit">CVSS 10.0</span>
       <span class="badge wild">● 在野利用</span>
+      
       <span class="badge">接管</span>
       <span class="badge epss">EPSS 0.00</span>
       <span class="chev">▾</span>
@@ -150,6 +155,7 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
 
 Hosted, including Dedicated, versions of VCO were impacted and have already been patched.</div>
       <div>修補建議：更新至已修復版本，託管版本已由廠商完成修補。</div>
+      
       <div style="margin-top:6px">更多參考：<a href="https://www.cisa.gov/known-exploited-vulnerabilities-catalog?field_cve=CVE-2026-93952" target="_blank">[2]</a> </div>
     </div>
   </div>
@@ -159,6 +165,7 @@ Hosted, including Dedicated, versions of VCO were impacted and have already been
       <h2>Check Point 管理伺服器 RCE</h2>
       <span class="badge crit">CVSS 9.8</span>
       <span class="badge wild">● 在野利用</span>
+      
       <span class="badge">RCE</span>
       
       <span class="chev">▾</span>
@@ -170,6 +177,7 @@ Hosted, including Dedicated, versions of VCO were impacted and have already been
     <div class="detail">
       <div class="en">A directory traversal and file upload vulnerability allows an unauthenticated attacker to upload and execute arbitrary scripts on Check Point Management Server.</div>
       <div>修補建議：參考官方公告 sk1000171 進行安全更新。</div>
+      
       <div style="margin-top:6px">更多參考：<a href="https://blog.checkpoint.com/security/security-advisory-action-required-active-exploitation-of-cve-2026-85102-and-a-management-pre-authentication-vulnerability-cve-2026-93616/" target="_blank">[2]</a> <a href="https://www.cisa.gov/known-exploited-vulnerabilities-catalog?field_cve=CVE-2026-93616" target="_blank">[3]</a> </div>
     </div>
   </div>
@@ -179,6 +187,7 @@ Hosted, including Dedicated, versions of VCO were impacted and have already been
       <h2>F5 BIG-IP APM 遠端代碼執行</h2>
       <span class="badge crit">CVSS 9.8</span>
       <span class="badge wild">● 在野利用</span>
+      
       <span class="badge">RCE</span>
       
       <span class="chev">▾</span>
@@ -193,6 +202,7 @@ Hosted, including Dedicated, versions of VCO were impacted and have already been
 Impact:
 This vulnerability allows an unauthenticated attacker to perform remote code execution. The BIG-IP system in Appliance mode is also vulnerable. This is a data plane issue</div>
       <div>修補建議：升級至官方發布的最新安全版本。</div>
+      
       <div style="margin-top:6px">更多參考：<a href="https://www.cisa.gov/known-exploited-vulnerabilities-catalog?field_cve=CVE-2026-94127" target="_blank">[2]</a> </div>
     </div>
   </div>
@@ -207,6 +217,7 @@ This vulnerability allows an unauthenticated attacker to perform remote code exe
       <h2>Lantronix 設備驗證繞過 RCE</h2>
       <span class="badge crit">CVSS 10.0</span>
       
+      
       <span class="badge">RCE</span>
       
       <span class="chev">▾</span>
@@ -218,6 +229,7 @@ This vulnerability allows an unauthenticated attacker to perform remote code exe
     <div class="detail">
       <div class="en">Lantronix SLC8000 before firmware v9.7.0.5, EMG8500/EMG7500 before firmware v9.7.0.1, and all firmware versions of SLB882/SLCx-03/SLCx-02 contain an authentication bypass vulnerability in the web management portal upload endpoint that allows unauthenticated attackers to read sensitive configuration files and upload files to arbitrary filesystem locations, leading to remote code execution. The web configuration server constructs the session cookie file path using snprintf with a fixed-size buffer; by supplying a cookie value of a specific length an attacker causes the path to truncate at the re</div>
       <div>修補建議：更新韌體至 v9.7.0.5 或 v9.7.0.1 以上版本。</div>
+      
       <div style="margin-top:6px">更多參考：<a href="https://ts.lantronix.com/ftp/emg/EMG_7500/9.7.0.1R2/" target="_blank">[2]</a> <a href="https://ts.lantronix.com/ftp/emg/EMG_8500/9.7.0.1R2/" target="_blank">[3]</a> <a href="https://ts.lantronix.com/ftp/slc8000/9.7.0.5R2/" target="_blank">[4]</a> <a href="https://www.vulncheck.com/advisories/lantronix-autonomous-out-of-band-devices-unauthenticated-authentication-bypass-via-snprintf-path-truncation" target="_blank">[5]</a> </div>
     </div>
   </div>
@@ -226,6 +238,7 @@ This vulnerability allows an unauthenticated attacker to perform remote code exe
     <div class="row-head">
       <h2>Adobe Campaign Classic RCE</h2>
       <span class="badge crit">CVSS 10.0</span>
+      
       
       <span class="badge">RCE</span>
       
@@ -238,6 +251,7 @@ This vulnerability allows an unauthenticated attacker to perform remote code exe
     <div class="detail">
       <div class="en">Adobe Campaign Classic (ACC) is affected by an Improper Control of Generation of Code (&#39;Code Injection&#39;) vulnerability that could result in arbitrary code execution in the context of the current user. An attacker could exploit this vulnerability to execute arbitrary code. Exploitation of this issue does not require user interaction. Scope is changed.</div>
       <div>修補建議：參考 APSB26-142 公告更新至最新版本。</div>
+      
       
     </div>
   </div>
@@ -298,6 +312,21 @@ This vulnerability allows an unauthenticated attacker to perform remote code exe
     
   </div>
 </div>
+
+
+<div class="trend">
+  <h3>Trend / 近22日高危數</h3>
+  <div class="sub2">在野利用以琥珀圓點標示當日數量</div>
+  
+  
+  <svg viewBox="0 0 300 90" preserveAspectRatio="none">
+    <polyline fill="none" stroke="#0070f3" stroke-width="1.5"
+      points="8.0,12.0 21.5,12.0 35.0,12.0 48.6,12.0 62.1,12.0 75.6,12.0 89.1,12.0 102.7,12.0 116.2,12.0 129.7,12.0 143.2,12.0 156.8,12.0 170.3,12.0 183.8,12.0 197.3,12.0 210.9,12.0 224.4,12.0 237.9,12.0 251.4,12.0 265.0,12.0 278.5,12.0 292.0,12.0 "/>
+    <circle cx="21.5" cy="12.0" r="3" fill="#f5a524"/><circle cx="62.1" cy="12.0" r="3" fill="#f5a524"/><circle cx="89.1" cy="12.0" r="3" fill="#f5a524"/><circle cx="102.7" cy="12.0" r="3" fill="#f5a524"/><circle cx="170.3" cy="12.0" r="3" fill="#f5a524"/><circle cx="237.9" cy="12.0" r="3" fill="#f5a524"/><circle cx="278.5" cy="12.0" r="3" fill="#f5a524"/><circle cx="292.0" cy="12.0" r="3" fill="#f5a524"/>
+    <text x="8" y="12" font-size="9" fill="#8f8f8f">max 5/日</text>
+  </svg>
+</div>
+
 
 <footer><span>資料：NVD / CISA KEV / FIRST EPSS ・ AI 提煉僅供參考，請以官方 Advisory 為準</span><span>由 GitHub Actions 每日自動產生</span></footer>
 </div>

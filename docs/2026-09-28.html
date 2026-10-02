@@ -82,6 +82,10 @@ h1 .grad{background:linear-gradient(180deg,var(--grad-from),var(--grad-to));-web
 .badge.wild{background:transparent;border-color:var(--amber);color:var(--amber)}
 .badge.epss{background:transparent}
 .hist{margin-top:48px}
+.trend{margin-top:48px;border:1px solid var(--border);border-radius:var(--radius);background:var(--bg-2);padding:16px 20px}
+.trend h3{font-size:13px;font-weight:600;color:var(--gray-900);text-transform:uppercase;letter-spacing:.08em;margin:0 0 4px}
+.trend .sub2{font-size:12px;color:var(--gray-900);margin-bottom:8px}
+.trend svg{width:100%;height:90px;display:block}
 .hist h3{font-size:13px;font-weight:600;color:var(--gray-900);text-transform:uppercase;letter-spacing:.08em;margin:0 0 12px}
 .hist-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px}
 .hcard{border:1px solid var(--border);border-radius:var(--radius-sm);padding:12px 14px;background:var(--bg-2);color:var(--gray-1000)}
@@ -137,6 +141,7 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
       <h2>Citrix NetScaler 未授權指令執行</h2>
       <span class="badge crit">CVSS 9.5</span>
       <span class="badge wild">● 在野利用</span>
+      
       <span class="badge">未授權存取</span>
       
       <span class="chev">▾</span>
@@ -150,6 +155,7 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
 
 This issue affects ADC: before 14.1-73.37, before 13.1-64.23, before 14.1-73.37 FIPS, and before 13.1.37.279 FIPS and NDcPP; Gateway: before 14.1-73.37 and before 13.1-64.23 leading to an unauthenticated attacker to execute arbitrary commands.</div>
       <div>修補建議：更新至官方修復版本</div>
+      
       <div style="margin-top:6px">更多參考：<a href="https://www.cisa.gov/known-exploited-vulnerabilities-catalog?field_cve=CVE-2026-88771" target="_blank">[2]</a> </div>
     </div>
   </div>
@@ -159,6 +165,7 @@ This issue affects ADC: before 14.1-73.37, before 13.1-64.23, before 14.1-73.37 
       <h2>Citrix NetScaler RCE 與 DoS</h2>
       <span class="badge crit">CVSS 9.5</span>
       <span class="badge wild">● 在野利用</span>
+      
       <span class="badge">RCE</span>
       
       <span class="chev">▾</span>
@@ -172,6 +179,7 @@ This issue affects ADC: before 14.1-73.37, before 13.1-64.23, before 14.1-73.37 
 
 This issue affects ADC: before 14.1-73.37, before 13.1-64.23, before 14.1-73.37 FIPS, and before 13.1.37.279 FIPS and NDcPP; Gateway: before 14.1-73.37 and before 13.1-64.23 leading to Remote Code Execution or Denial of Service</div>
       <div>修補建議：更新至官方修復版本</div>
+      
       <div style="margin-top:6px">更多參考：<a href="https://www.cisa.gov/known-exploited-vulnerabilities-catalog?field_cve=CVE-2026-88772" target="_blank">[2]</a> </div>
     </div>
   </div>
@@ -186,6 +194,7 @@ This issue affects ADC: before 14.1-73.37, before 13.1-64.23, before 14.1-73.37 
       <h2>Seetong 設備身份驗證繞過</h2>
       <span class="badge crit">CVSS 10.0</span>
       
+      
       <span class="badge">未授權存取</span>
       
       <span class="chev">▾</span>
@@ -197,6 +206,7 @@ This issue affects ADC: before 14.1-73.37, before 13.1-64.23, before 14.1-73.37 
     <div class="detail">
       <div class="en">A vulnerability was identified in Seetong T8108, T8108P, T8116 and T8232 4.6.1.4-build202604241011. The affected element is an unknown function of the component Debug Service. Such manipulation leads to improper authentication. The attack may be launched remotely. The exploit is publicly available and might be used. The vendor was contacted early about this disclosure but did not respond in any way.</div>
       <div>修補建議：目前無官方修復，建議隔離設備</div>
+      
       <div style="margin-top:6px">更多參考：<a href="https://vuldb.com/cve/CVE-2026-100886" target="_blank">[2]</a> <a href="https://vuldb.com/submit/916434" target="_blank">[3]</a> <a href="https://vuldb.com/vuln/410835" target="_blank">[4]</a> <a href="https://vuldb.com/vuln/410835/cti" target="_blank">[5]</a> </div>
     </div>
   </div>
@@ -205,6 +215,7 @@ This issue affects ADC: before 14.1-73.37, before 13.1-64.23, before 14.1-73.37 
     <div class="row-head">
       <h2>TOTOLINK 路由器指令注入</h2>
       <span class="badge crit">CVSS 9.9</span>
+      
       
       <span class="badge">RCE</span>
       
@@ -217,6 +228,7 @@ This issue affects ADC: before 14.1-73.37, before 13.1-64.23, before 14.1-73.37 
     <div class="detail">
       <div class="en">A weakness has been identified in TOTOLINK N150RT 3.4.0-B20201030. The affected element is the function system of the file /boafrm/formWlSiteSurvey of the component Web Management Interface. This manipulation of the argument wlanif causes os command injection. Remote exploitation of the attack is possible. The exploit has been made available to the public and could be used for attacks.</div>
       <div>修補建議：檢查廠商更新或限制管理介面存取</div>
+      
       <div style="margin-top:6px">更多參考：<a href="https://vuldb.com/cve/CVE-2026-100896" target="_blank">[2]</a> <a href="https://vuldb.com/submit/918574" target="_blank">[3]</a> <a href="https://vuldb.com/vuln/410846" target="_blank">[4]</a> <a href="https://vuldb.com/vuln/410846/cti" target="_blank">[5]</a> </div>
     </div>
   </div>
@@ -225,6 +237,7 @@ This issue affects ADC: before 14.1-73.37, before 13.1-64.23, before 14.1-73.37 
     <div class="row-head">
       <h2>hMailServer JScript 注入</h2>
       <span class="badge crit">CVSS 9.8</span>
+      
       
       <span class="badge">RCE</span>
       <span class="badge epss">EPSS 0.02</span>
@@ -237,6 +250,7 @@ This issue affects ADC: before 14.1-73.37, before 13.1-64.23, before 14.1-73.37 
     <div class="detail">
       <div class="en">Eval injection in the JScript event-script dispatcher in Progressive Robot Ltd&#39;s hMailServer, versions 6.0.0 through 6.3.3 on Windows, allows a remote, unauthenticated attacker to run arbitrary JScript inside the hMailServer service process, with the privileges of the service account, via a password containing a backslash followed by an apostrophe, sent in any logon (SMTP AUTH, POP3, IMAP) that names an existing, active account. Exploitation requires a non-default configuration: event scripting enabled (off by default), the script language set to JScript (the default is VBScript), and an OnCli</div>
       <div>修補建議：更新至 6.3.4 或更高版本</div>
+      
       <div style="margin-top:6px">更多參考：<a href="https://gitlab.com/Progressiverobot/hmailserver/-/releases/v6.3.4" target="_blank">[2]</a> </div>
     </div>
   </div>
@@ -297,6 +311,21 @@ This issue affects ADC: before 14.1-73.37, before 13.1-64.23, before 14.1-73.37 
     
   </div>
 </div>
+
+
+<div class="trend">
+  <h3>Trend / 近22日高危數</h3>
+  <div class="sub2">在野利用以琥珀圓點標示當日數量</div>
+  
+  
+  <svg viewBox="0 0 300 90" preserveAspectRatio="none">
+    <polyline fill="none" stroke="#0070f3" stroke-width="1.5"
+      points="8.0,12.0 21.5,12.0 35.0,12.0 48.6,12.0 62.1,12.0 75.6,12.0 89.1,12.0 102.7,12.0 116.2,12.0 129.7,12.0 143.2,12.0 156.8,12.0 170.3,12.0 183.8,12.0 197.3,12.0 210.9,12.0 224.4,12.0 237.9,12.0 251.4,12.0 265.0,12.0 278.5,12.0 292.0,12.0 "/>
+    <circle cx="21.5" cy="12.0" r="3" fill="#f5a524"/><circle cx="62.1" cy="12.0" r="3" fill="#f5a524"/><circle cx="89.1" cy="12.0" r="3" fill="#f5a524"/><circle cx="102.7" cy="12.0" r="3" fill="#f5a524"/><circle cx="170.3" cy="12.0" r="3" fill="#f5a524"/><circle cx="237.9" cy="12.0" r="3" fill="#f5a524"/><circle cx="278.5" cy="12.0" r="3" fill="#f5a524"/><circle cx="292.0" cy="12.0" r="3" fill="#f5a524"/>
+    <text x="8" y="12" font-size="9" fill="#8f8f8f">max 5/日</text>
+  </svg>
+</div>
+
 
 <footer><span>資料：NVD / CISA KEV / FIRST EPSS ・ AI 提煉僅供參考，請以官方 Advisory 為準</span><span>由 GitHub Actions 每日自動產生</span></footer>
 </div>

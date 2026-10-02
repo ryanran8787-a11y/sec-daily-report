@@ -82,6 +82,10 @@ h1 .grad{background:linear-gradient(180deg,var(--grad-from),var(--grad-to));-web
 .badge.wild{background:transparent;border-color:var(--amber);color:var(--amber)}
 .badge.epss{background:transparent}
 .hist{margin-top:48px}
+.trend{margin-top:48px;border:1px solid var(--border);border-radius:var(--radius);background:var(--bg-2);padding:16px 20px}
+.trend h3{font-size:13px;font-weight:600;color:var(--gray-900);text-transform:uppercase;letter-spacing:.08em;margin:0 0 4px}
+.trend .sub2{font-size:12px;color:var(--gray-900);margin-bottom:8px}
+.trend svg{width:100%;height:90px;display:block}
 .hist h3{font-size:13px;font-weight:600;color:var(--gray-900);text-transform:uppercase;letter-spacing:.08em;margin:0 0 12px}
 .hist-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px}
 .hcard{border:1px solid var(--border);border-radius:var(--radius-sm);padding:12px 14px;background:var(--bg-2);color:var(--gray-1000)}
@@ -138,6 +142,7 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
       <h2>HFS2 模板注入 RCE</h2>
       <span class="badge crit">CVSS 10.0</span>
       
+      
       <span class="badge">RCE</span>
       
       <span class="chev">▾</span>
@@ -149,6 +154,7 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
     <div class="detail">
       <div class="en">HFS2 version 2.4.0 and earlier contains a template injection vulnerability in the multipart upload handler that allows unauthenticated attackers to achieve remote code execution by embedding malicious template syntax in a filename. Attackers can craft a filename containing a closing template quoting sequence followed by an exec macro, which bypasses the authorization check in the dispatcher to execute arbitrary commands on the underlying host system.</div>
       <div>修補建議：更新至最新版本</div>
+      
       <div style="margin-top:6px">更多參考：<a href="https://www.vulncheck.com/advisories/hfs2-rce-via-multipart-upload-filename-template-injection" target="_blank">[2]</a> </div>
     </div>
   </div>
@@ -157,6 +163,7 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
     <div class="row-head">
       <h2>HFS2 未授權檔案存取</h2>
       <span class="badge crit">CVSS 10.0</span>
+      
       
       <span class="badge">未授權存取</span>
       
@@ -169,6 +176,7 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
     <div class="detail">
       <div class="en">HFS2 version 2.4.0 and earlier contains an unauthenticated arbitrary file access vulnerability that allows unauthenticated attackers to read, write, append, and delete files anywhere the HFS service account has filesystem access outside the shared folder. Attackers can exploit the macro dispatcher&#39;s lack of authorization model combined with the path resolver&#39;s failure to confine absolute paths to manipulate the template engine and compromise the confidentiality, integrity, and availability of the host.</div>
       <div>修補建議：更新至最新版本</div>
+      
       <div style="margin-top:6px">更多參考：<a href="https://www.vulncheck.com/advisories/hfs2-unauthenticated-arbitrary-file-read-write-via-template-engine" target="_blank">[2]</a> </div>
     </div>
   </div>
@@ -177,6 +185,7 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
     <div class="row-head">
       <h2>Decepticon LLM 提示注入</h2>
       <span class="badge crit">CVSS 10.0</span>
+      
       
       <span class="badge">其他高危</span>
       
@@ -189,6 +198,7 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
     <div class="detail">
       <div class="en">Decepticon is an autonomous hacking agent for red teams. Versions prior to 1.1.17 wrap web crawl results — the output of agent reconnaissance against target services — into LLM messages without neutralizing ChatML special-token literals. Under the BYOK (Bring Your Own Key) deployment model, users configure their own LLM credentials to any OpenAI-compatible endpoint. Most open-source and self-deployed model providers (vLLM, SGLang, Ollama, LM Studio, text-generation-webui, etc.) do not filter special-token literals from user content in their default configurations. Those literals are parsed int</div>
       <div>修補建議：更新至 1.1.17 或更高版本</div>
+      
       <div style="margin-top:6px">更多參考：<a href="https://github.com/BitterSecurity/Decepticon/security/advisories/GHSA-g5f9-3xfg-p9mf" target="_blank">[2]</a> <a href="https://github.com/BitterSecurity/Decepticon/security/advisories/GHSA-g5f9-3xfg-p9mf" target="_blank">[3]</a> </div>
     </div>
   </div>
@@ -197,6 +207,7 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
     <div class="row-head">
       <h2>Velociraptor 權限提升</h2>
       <span class="badge crit">CVSS 9.9</span>
+      
       
       <span class="badge">權限提升</span>
       
@@ -215,6 +226,7 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
 This flaw can then be escalated to allow the &#34;investigator&#34; user to run arbitrary VQL statements as an administrator user on the Velocira</div>
       <div>修補建議：請參考官方公告更新</div>
       
+      
     </div>
   </div>
 
@@ -222,6 +234,7 @@ This flaw can then be escalated to allow the &#34;investigator&#34; user to run 
     <div class="row-head">
       <h2>Dokploy 指令注入 RCE</h2>
       <span class="badge crit">CVSS 9.9</span>
+      
       
       <span class="badge">RCE</span>
       
@@ -234,6 +247,7 @@ This flaw can then be escalated to allow the &#34;investigator&#34; user to run 
     <div class="detail">
       <div class="en">Dokploy is a free, self-hostable Platform as a Service (PaaS). Prior to 0.29.13, the patch.readRepoDirectories tRPC procedure passes the user-controlled repoPath value from apps/dokploy/server/api/routers/patch.ts into a shell command in packages/server/src/services/patch-repo.ts without safe argument quoting. An authenticated organization member with service:read permission can inject shell metacharacters into repoPath and execute arbitrary commands through child_process.exec as root in the Dokploy container. The supplied service identifier is used only to resolve the server and does not cons</div>
       <div>修補建議：更新至 0.29.13 或更高版本</div>
+      
       <div style="margin-top:6px">更多參考：<a href="https://github.com/Dokploy/dokploy/releases/tag/v0.29.13" target="_blank">[2]</a> <a href="https://github.com/Dokploy/dokploy/security/advisories/GHSA-56g6-wjr4-5q7p" target="_blank">[3]</a> <a href="https://github.com/Dokploy/dokploy/security/advisories/GHSA-56g6-wjr4-5q7p" target="_blank">[4]</a> </div>
     </div>
   </div>
@@ -294,6 +308,21 @@ This flaw can then be escalated to allow the &#34;investigator&#34; user to run 
     
   </div>
 </div>
+
+
+<div class="trend">
+  <h3>Trend / 近22日高危數</h3>
+  <div class="sub2">在野利用以琥珀圓點標示當日數量</div>
+  
+  
+  <svg viewBox="0 0 300 90" preserveAspectRatio="none">
+    <polyline fill="none" stroke="#0070f3" stroke-width="1.5"
+      points="8.0,12.0 21.5,12.0 35.0,12.0 48.6,12.0 62.1,12.0 75.6,12.0 89.1,12.0 102.7,12.0 116.2,12.0 129.7,12.0 143.2,12.0 156.8,12.0 170.3,12.0 183.8,12.0 197.3,12.0 210.9,12.0 224.4,12.0 237.9,12.0 251.4,12.0 265.0,12.0 278.5,12.0 292.0,12.0 "/>
+    <circle cx="21.5" cy="12.0" r="3" fill="#f5a524"/><circle cx="62.1" cy="12.0" r="3" fill="#f5a524"/><circle cx="89.1" cy="12.0" r="3" fill="#f5a524"/><circle cx="102.7" cy="12.0" r="3" fill="#f5a524"/><circle cx="170.3" cy="12.0" r="3" fill="#f5a524"/><circle cx="237.9" cy="12.0" r="3" fill="#f5a524"/><circle cx="278.5" cy="12.0" r="3" fill="#f5a524"/><circle cx="292.0" cy="12.0" r="3" fill="#f5a524"/>
+    <text x="8" y="12" font-size="9" fill="#8f8f8f">max 5/日</text>
+  </svg>
+</div>
+
 
 <footer><span>資料：NVD / CISA KEV / FIRST EPSS ・ AI 提煉僅供參考，請以官方 Advisory 為準</span><span>由 GitHub Actions 每日自動產生</span></footer>
 </div>
