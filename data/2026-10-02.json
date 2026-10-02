@@ -1,0 +1,88 @@
+{
+  "date": "2026-10-02",
+  "generated_at": "2026-10-02T04:36:08.692214+00:00",
+  "engine": "gemini",
+  "count": 5,
+  "items": [
+    {
+      "cve": "CVE-2026-104286",
+      "title_zh": "Fortinet FortiMail 任意檔案寫入",
+      "cvss": 9.8,
+      "type": "其他高危",
+      "in_wild": true,
+      "summary_zh": "攻擊者可利用路徑遍歷漏洞在系統寫入任意檔案。",
+      "affected": "FortiMail 7.2.0 至 8.0.1 多個版本",
+      "fix_hint": "升級至 Fortinet 官方發布的最新安全版本。",
+      "epss": null,
+      "refs": [
+        "https://fortiguard.fortinet.com/psirt/FG-IR-26-175",
+        "https://www.cisa.gov/known-exploited-vulnerabilities-catalog?field_cve=CVE-2026-104286"
+      ],
+      "desc_en": "An improper limitation of a pathname to a restricted directory ('path traversal') vulnerability in Fortinet FortiMail 8.0.0 through 8.0.1, FortiMail 7.6.0 through 7.6.6, FortiMail 7.4.0 through 7.4.8, FortiMail 7.2.0 through 7.2.9 may allow an unauthenticated attacker to write arbitrary files on the underlying system via crafted HTTP or HTTPS requests."
+    },
+    {
+      "cve": "CVE-2026-101148",
+      "title_zh": "BackupSheep 插件接管漏洞",
+      "cvss": 10.0,
+      "type": "接管",
+      "in_wild": false,
+      "summary_zh": "錯誤的金鑰驗證允許攻擊者下載備份並接管網站。",
+      "affected": "BackupSheep WordPress 插件 1.8 及以下",
+      "fix_hint": "該外掛已關閉且無修復版，建議立即從網站移除。",
+      "epss": null,
+      "refs": [
+        "https://wpscan.com/vulnerability/5d6fce13-34e3-4ec6-9b47-a78dd7c94fed/"
+      ],
+      "desc_en": "The BackupSheep WordPress Backup Plugin WordPress plugin through 1.8 does not properly validate its integration key, treating an unset or blank key as valid, which allows unauthenticated attackers to create and download full site backups, including the database with user password hashes, and to delete arbitrary files on the server, leading to sensitive data disclosure and site takeover.\n\nThe BackupSheep WordPress Backup Plugin WordPress plugin through 1.8 has been closed on WordPress.org since July 2024 and no fixed version is available. Remove it from any site where it is installed."
+    },
+    {
+      "cve": "CVE-2026-55393",
+      "title_zh": "Teledyne FLIR 資訊洩漏漏洞",
+      "cvss": 10.0,
+      "type": "資訊洩漏",
+      "in_wild": false,
+      "summary_zh": "攻擊者可透過路徑遍歷讀取機器人敏感配置與參數。",
+      "affected": "Aware2 6.9.0.2 與 1.7.9 及以下版本",
+      "fix_hint": "聯繫廠商獲取更新，並限制管理介面的網路存取。",
+      "epss": null,
+      "refs": [
+        "https://github.com/mandiant/Vulnerability-Disclosures/blob/master/2026/MNDT-2026-0029.md"
+      ],
+      "desc_en": "Unvalidated pathnames in the web interface in Teledyne FLIR Aware2 versions through 6.9.0.2 (PackBot) and 1.7.9 (FirstLook) allows remote unauthenticated attackers to read configuration and security parameters on Teledyne FLIR PackBot and FirstLook robots running this software via path traversal."
+    },
+    {
+      "cve": "CVE-2026-79901",
+      "title_zh": "Fortra BoKS 密碼預測漏洞",
+      "cvss": 9.9,
+      "type": "其他高危",
+      "in_wild": false,
+      "summary_zh": "隨機序列可預測導致 AD 服務帳號密碼遭破解。",
+      "affected": "使用 BoKS keytab 管理的受影響版本",
+      "fix_hint": "參考 Fortra 安全公告 FI-2026-012 進行修補。",
+      "epss": null,
+      "refs": [
+        "https://www.fortra.com/security/advisories/product-security/fi-2026-012"
+      ],
+      "desc_en": "In deployments using BoKS keytab management, affected versions of boks_keytabmd generate Active Directory service-account passwords from a predictable pseudo-random sequence seeded with the current Unix timestamp. An attacker who knows the service principal and can estimate the password-change time can reproduce a limited candidate set and verify candidates offline."
+    },
+    {
+      "cve": "CVE-2026-96658",
+      "title_zh": "Foreman 模板引擎 RCE 漏洞",
+      "cvss": 9.9,
+      "type": "RCE",
+      "in_wild": false,
+      "summary_zh": "低權限用戶可繞過沙箱限制，在伺服器執行指令。",
+      "affected": "Foreman 模板引擎相關組件",
+      "fix_hint": "升級至 Red Hat 提供的最新安全修復版本。",
+      "epss": null,
+      "refs": [
+        "https://access.redhat.com/errata/RHSA-2026:74503",
+        "https://access.redhat.com/errata/RHSA-2026:74504",
+        "https://access.redhat.com/errata/RHSA-2026:74506",
+        "https://access.redhat.com/security/cve/CVE-2026-96658",
+        "https://bugzilla.redhat.com/show_bug.cgi?id=2534185"
+      ],
+      "desc_en": "A flaw was found in Foreman. An authenticated attacker with low-level permissions can achieve remote code execution (RCE) by bypassing the safemode sandbox within the templating engine. Due to improper handling of delegated methods, an attacker can append unauthorized functions to the allowed execution list, enabling them to run arbitrary commands on the hosting server."
+    }
+  ]
+}
