@@ -4,13 +4,13 @@
 <link>https://ryanran8787-a11y.github.io/sec-daily-report/</link>
 <description>CVSS&gt;=9.0 或在野利用的高危漏洞日報</description>
 <language>zh-tw</language>
-<lastBuildDate>Fri, 02 Oct 2026 12:36:49 GMT</lastBuildDate>
+<lastBuildDate>Fri, 02 Oct 2026 12:47:39 GMT</lastBuildDate>
 <item>
 <title>2026-10-02 高危 5 則</title>
 <link>https://ryanran8787-a11y.github.io/sec-daily-report/2026-10-02.html</link>
 <guid>https://ryanran8787-a11y.github.io/sec-daily-report/2026-10-02.html</guid>
-<pubDate>Fri, 02 Oct 2026 04:36:08 GMT</pubDate>
-<description><![CDATA[<ul><li>Fortinet FortiMail 任意檔案寫入 (CVSS 9.8)</li><li>BackupSheep 插件接管漏洞 (CVSS 10.0)</li><li>Teledyne FLIR 資訊洩漏漏洞 (CVSS 10.0)</li><li>Fortra BoKS 密碼預測漏洞 (CVSS 9.9)</li><li>Foreman 模板引擎 RCE 漏洞 (CVSS 9.9)</li></ul>]]></description>
+<pubDate>Fri, 02 Oct 2026 12:47:39 GMT</pubDate>
+<description><![CDATA[<ul><li>Fortinet 檔案寫入在野利用 (CVSS 9.8)</li><li>Cisco SD-WAN 認證繞過在野利用 (CVSS None)</li><li>Teledyne FLIR 路徑遍歷漏洞 (CVSS 10.0)</li><li>Fortra BoKS 密碼預測漏洞 (CVSS 9.9)</li><li>Foreman 沙箱繞過 RCE 漏洞 (CVSS 9.9)</li></ul>]]></description>
 </item>
 <item>
 <title>2026-10-01 高危 5 則</title>

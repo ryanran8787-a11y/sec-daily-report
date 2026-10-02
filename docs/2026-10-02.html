@@ -117,14 +117,14 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
   <div class="eyebrow">NVD + KEV + EPSS + OSV + GitHub + Cisco ・ 每天 08:00（台北）自動更新</div>
   <h1><span class="grad">今日高危漏洞</span></h1>
   <p class="lede">僅收錄 CVSS ≥ 9.0、在野利用或 EPSS 利用預警項目。點擊任一條目展開完整描述與修補建議。</p>
-  <div class="brief"><span>AI 總評</span>今日共5則高危（其他高危2則、接管1則），無在野利用，優先看 BackupSheep 插件接管漏洞。</div>
+  <div class="brief"><span>AI 總評</span>今日共5則高危（其他高危2則、接管1則），無在野利用，優先看 Teledyne FLIR 路徑遍歷漏洞。</div>
 </div>
 
 <div class="stats">
   <div class="stat"><div class="n red">5</div><div class="l">高危項目</div></div>
-  <div class="stat"><div class="n amber">1</div><div class="l">在野利用</div></div>
+  <div class="stat"><div class="n amber">2</div><div class="l">在野利用</div></div>
   <div class="stat"><div class="n amber">0</div><div class="l">利用預警 EPSS≥0.7</div></div>
-  <div class="stat"><div class="n green">5</div><div class="l">CVSS ≥ 9.5</div></div>
+  <div class="stat"><div class="n green">4</div><div class="l">CVSS ≥ 9.5</div></div>
 </div>
 
 <div class="toolbar">
@@ -140,12 +140,12 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
 
 
 <div id="grid">
-<div class="bucket"><h3>● 在野利用 <span class="cnt">1 則・優先處理</span></h3>
+<div class="bucket"><h3>● 在野利用 <span class="cnt">2 則・優先處理</span></h3>
 <div class="list">
 
   <div class="row" data-wild="1" onclick="if(event.target.tagName!=='A')this.classList.toggle('open')">
     <div class="row-head">
-      <h2>Fortinet FortiMail 任意檔案寫入</h2>
+      <h2>Fortinet 檔案寫入在野利用</h2>
       <span class="badge crit">CVSS 9.8</span>
       <span class="badge wild">● 在野利用</span>
       
@@ -153,50 +153,50 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
       
       <span class="chev">▾</span>
     </div>
-    <div class="row-sum">攻擊者可利用路徑遍歷漏洞在系統寫入任意檔案。</div>
-    <div class="row-foot"><span>CVE-2026-104286</span><span>FortiMail 7.2.0 至 8.0.1 多個版本 8.0.1 及更早</span>
+    <div class="row-sum">未授權攻擊者可透過惡意請求寫入任意檔案。</div>
+    <div class="row-foot"><span>CVE-2026-104286</span><span>Fortinet FortiMail 8.0.0至8.0.1、7.6.0至7.6.6、7.4.0至7.4.8、7.2.0至7.2.9</span>
       <a href="https://fortiguard.fortinet.com/psirt/FG-IR-26-175" target="_blank">官方補丁 ↗</a>
     </div>
     <div class="detail">
       <div class="en">An improper limitation of a pathname to a restricted directory (&#39;path traversal&#39;) vulnerability in Fortinet FortiMail 8.0.0 through 8.0.1, FortiMail 7.6.0 through 7.6.6, FortiMail 7.4.0 through 7.4.8, FortiMail 7.2.0 through 7.2.9 may allow an unauthenticated attacker to write arbitrary files on the underlying system via crafted HTTP or HTTPS requests.</div>
-      <div>修補建議：升級至 Fortinet 官方發布的最新安全版本。</div>
+      <div>修補建議：升級至安全版本</div>
       
       <div style="margin-top:6px">更多參考：<a href="https://www.cisa.gov/known-exploited-vulnerabilities-catalog?field_cve=CVE-2026-104286" target="_blank">[2]</a> </div>
     </div>
   </div>
 
-</div>
-</div>
-<div class="bucket"><h3>▲ 高危關注 <span class="cnt">4 則・EPSS 預警或 CVSS ≥ 9.5</span></h3>
-<div class="list">
-
-  <div class="row" data-wild="0" onclick="if(event.target.tagName!=='A')this.classList.toggle('open')">
+  <div class="row" data-wild="1" onclick="if(event.target.tagName!=='A')this.classList.toggle('open')">
     <div class="row-head">
-      <h2>BackupSheep 插件接管漏洞</h2>
-      <span class="badge crit">CVSS 10.0</span>
+      <h2>Cisco SD-WAN 認證繞過在野利用</h2>
       
-      
+      <span class="badge wild">● 在野利用</span>
+      <span class="badge epss">via cisco</span>
       <span class="badge">接管</span>
-      
+      <span class="badge epss">EPSS 0.01</span>
       <span class="chev">▾</span>
     </div>
-    <div class="row-sum">錯誤的金鑰驗證允許攻擊者下載備份並接管網站。</div>
-    <div class="row-foot"><span>CVE-2026-101148</span><span>BackupSheep WordPress 插件 1.8 及以下 1.8 及更早</span>
-      <a href="https://wpscan.com/vulnerability/5d6fce13-34e3-4ec6-9b47-a78dd7c94fed/" target="_blank">官方補丁 ↗</a>
+    <div class="row-sum">攻擊者可繞過 API 認證並取得管理員權限。</div>
+    <div class="row-foot"><span>CVE-2026-76504</span><span>Cisco Catalyst SD-WAN Manager</span>
+      <a href="https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-sdwan-webauth-xr8beuuU?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Catalyst%20SD-WAN%20Manager%20API%20Authentication%20Bypass%20Vulnerability%26vs_k=1" target="_blank">官方補丁 ↗</a>
     </div>
     <div class="detail">
-      <div class="en">The BackupSheep WordPress Backup Plugin WordPress plugin through 1.8 does not properly validate its integration key, treating an unset or blank key as valid, which allows unauthenticated attackers to create and download full site backups, including the database with user password hashes, and to delete arbitrary files on the server, leading to sensitive data disclosure and site takeover.
-
-The BackupSheep WordPress Backup Plugin WordPress plugin through 1.8 has been closed on WordPress.org since July 2024 and no fixed version is available. Remove it from any site where it is installed.</div>
-      <div>修補建議：該外掛已關閉且無修復版，建議立即從網站移除。</div>
+      <div class="en">Cisco Catalyst SD-WAN Manager API Authentication Bypass Vulnerability
+&lt;p&gt;A vulnerability in the API session-based authentication management of Cisco Catalyst SD-WAN Manager could allow an unauthenticated, remote attacker to access an affected system with privileges of the admin user.&lt;/p&gt;
+&lt;p class=&#34;p1&#34;&gt;This vulnerability is due to improper handling of URI encoding in an HTTP request, which allows the request to bypass an authentication rule that is intended to restrict access to a specific API endpoint. An attacker could exploit this vulnerability by sending a crafted HTTP request to the API of</div>
+      <div>修補建議：套用官方安全更新</div>
       
       
     </div>
   </div>
 
+</div>
+</div>
+<div class="bucket"><h3>▲ 高危關注 <span class="cnt">3 則・EPSS 預警或 CVSS ≥ 9.5</span></h3>
+<div class="list">
+
   <div class="row" data-wild="0" onclick="if(event.target.tagName!=='A')this.classList.toggle('open')">
     <div class="row-head">
-      <h2>Teledyne FLIR 資訊洩漏漏洞</h2>
+      <h2>Teledyne FLIR 路徑遍歷漏洞</h2>
       <span class="badge crit">CVSS 10.0</span>
       
       
@@ -204,13 +204,13 @@ The BackupSheep WordPress Backup Plugin WordPress plugin through 1.8 has been cl
       
       <span class="chev">▾</span>
     </div>
-    <div class="row-sum">攻擊者可透過路徑遍歷讀取機器人敏感配置與參數。</div>
-    <div class="row-foot"><span>CVE-2026-55393</span><span>Aware2 6.9.0.2 與 1.7.9 及以下版本 6.9.0.2 及更早</span>
+    <div class="row-sum">攻擊者可透過路徑遍歷讀取機器人配置參數。</div>
+    <div class="row-foot"><span>CVE-2026-55393</span><span>Teledyne FLIR Aware2 (PackBot / FirstLook) 6.9.0.2 及更早 (PackBot)、1.7.9 及更早 (FirstLook)</span>
       <a href="https://github.com/mandiant/Vulnerability-Disclosures/blob/master/2026/MNDT-2026-0029.md" target="_blank">官方補丁 ↗</a>
     </div>
     <div class="detail">
       <div class="en">Unvalidated pathnames in the web interface in Teledyne FLIR Aware2 versions through 6.9.0.2 (PackBot) and 1.7.9 (FirstLook) allows remote unauthenticated attackers to read configuration and security parameters on Teledyne FLIR PackBot and FirstLook robots running this software via path traversal.</div>
-      <div>修補建議：聯繫廠商獲取更新，並限制管理介面的網路存取。</div>
+      <div>修補建議：升級 Aware2 至安全版本</div>
       
       
     </div>
@@ -226,13 +226,13 @@ The BackupSheep WordPress Backup Plugin WordPress plugin through 1.8 has been cl
       
       <span class="chev">▾</span>
     </div>
-    <div class="row-sum">隨機序列可預測導致 AD 服務帳號密碼遭破解。</div>
-    <div class="row-foot"><span>CVE-2026-79901</span><span>使用 BoKS keytab 管理的受影響版本</span>
+    <div class="row-sum">可預測的偽隨機序列導致服務帳號密碼可被破解。</div>
+    <div class="row-foot"><span>CVE-2026-79901</span><span>Fortra BoKS</span>
       <a href="https://www.fortra.com/security/advisories/product-security/fi-2026-012" target="_blank">官方補丁 ↗</a>
     </div>
     <div class="detail">
       <div class="en">In deployments using BoKS keytab management, affected versions of boks_keytabmd generate Active Directory service-account passwords from a predictable pseudo-random sequence seeded with the current Unix timestamp. An attacker who knows the service principal and can estimate the password-change time can reproduce a limited candidate set and verify candidates offline.</div>
-      <div>修補建議：參考 Fortra 安全公告 FI-2026-012 進行修補。</div>
+      <div>修補建議：套用官方修補程式</div>
       
       
     </div>
@@ -240,7 +240,7 @@ The BackupSheep WordPress Backup Plugin WordPress plugin through 1.8 has been cl
 
   <div class="row" data-wild="0" onclick="if(event.target.tagName!=='A')this.classList.toggle('open')">
     <div class="row-head">
-      <h2>Foreman 模板引擎 RCE 漏洞</h2>
+      <h2>Foreman 沙箱繞過 RCE 漏洞</h2>
       <span class="badge crit">CVSS 9.9</span>
       
       
@@ -248,13 +248,13 @@ The BackupSheep WordPress Backup Plugin WordPress plugin through 1.8 has been cl
       
       <span class="chev">▾</span>
     </div>
-    <div class="row-sum">低權限用戶可繞過沙箱限制，在伺服器執行指令。</div>
-    <div class="row-foot"><span>CVE-2026-96658</span><span>Foreman 模板引擎相關組件</span>
+    <div class="row-sum">低權限用戶可繞過沙箱在伺服器執行任意指令。</div>
+    <div class="row-foot"><span>CVE-2026-96658</span><span>Foreman</span>
       <a href="https://access.redhat.com/errata/RHSA-2026:74503" target="_blank">官方補丁 ↗</a>
     </div>
     <div class="detail">
       <div class="en">A flaw was found in Foreman. An authenticated attacker with low-level permissions can achieve remote code execution (RCE) by bypassing the safemode sandbox within the templating engine. Due to improper handling of delegated methods, an attacker can append unauthorized functions to the allowed execution list, enabling them to run arbitrary commands on the hosting server.</div>
-      <div>修補建議：升級至 Red Hat 提供的最新安全修復版本。</div>
+      <div>修補建議：更新 Foreman 及其模板引擎</div>
       
       <div style="margin-top:6px">更多參考：<a href="https://access.redhat.com/errata/RHSA-2026:74504" target="_blank">[2]</a> <a href="https://access.redhat.com/errata/RHSA-2026:74506" target="_blank">[3]</a> <a href="https://access.redhat.com/security/cve/CVE-2026-96658" target="_blank">[4]</a> <a href="https://bugzilla.redhat.com/show_bug.cgi?id=2534185" target="_blank">[5]</a> </div>
     </div>
@@ -323,7 +323,7 @@ The BackupSheep WordPress Backup Plugin WordPress plugin through 1.8 has been cl
   <div class="sub2">琥珀色 = 當日有在野利用，點擊跳轉存檔</div>
   <div class="cal">
   
-    <a class="day" href="2026-09-11.html" title="2026-09-11・高危47則・在野0則">11</a>
+    <a class="day" href="2026-09-11.html" title="2026-09-11・高危5則・在野0則">11</a>
   
     <a class="day has w1" href="2026-09-12.html" title="2026-09-12・高危5則・在野1則">12</a>
   
@@ -365,7 +365,7 @@ The BackupSheep WordPress Backup Plugin WordPress plugin through 1.8 has been cl
   
     <a class="day has w1" href="2026-10-01.html" title="2026-10-01・高危5則・在野1則">10/1</a>
   
-    <a class="day has w1" href="2026-10-02.html" title="2026-10-02・高危5則・在野1則">02</a>
+    <a class="day has w2" href="2026-10-02.html" title="2026-10-02・高危42則・在野2則">02</a>
   
   </div>
   <div class="cal-legend"><span>■ 無在野</span><span style="color:var(--amber)">■ 有在野（顏色越深越多）</span></div>
