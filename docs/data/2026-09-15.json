@@ -18,7 +18,10 @@
         "https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-esa-inj-2bLVGmhX",
         "https://www.cisa.gov/known-exploited-vulnerabilities-catalog?field_cve=CVE-2026-76461"
       ],
-      "desc_en": "A vulnerability in the email parsing of Cisco AsyncOS Software for Cisco Secure Email Gateway could allow an unauthenticated, remote attacker to execute arbitrary commands with root privileges on the underlying operating system.\r\n\r\nThis vulnerability is due to insufficient validation in the email parsing logic. An attacker could exploit this vulnerability by sending a crafted email message that contains malicious SQL statements through an affected device. A successful exploit could allow the attacker to execute arbitrary SQL statements, leading to command execution with root privileges on the "
+      "desc_en": "A vulnerability in the email parsing of Cisco AsyncOS Software for Cisco Secure Email Gateway could allow an unauthenticated, remote attacker to execute arbitrary commands with root privileges on the underlying operating system.\r\n\r\nThis vulnerability is due to insufficient validation in the email parsing logic. An attacker could exploit this vulnerability by sending a crafted email message that contains malicious SQL statements through an affected device. A successful exploit could allow the attacker to execute arbitrary SQL statements, leading to command execution with root privileges on the ",
+      "affected_versions": "",
+      "patch_url": "https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-esa-inj-2bLVGmhX",
+      "epss_warn": false
     },
     {
       "cve": "CVE-2026-82434",
@@ -35,7 +38,10 @@
         "http://www.openwall.com/lists/oss-security/2026/09/13/14",
         "http://www.openwall.com/lists/oss-security/2026/09/13/23"
       ],
-      "desc_en": "Description\n\nWhen ZooKeeper authentication is configured, Storm deliberately retains\n`storm.zookeeper.topology.auth.payload` in the topology configuration, because workers need it. Nimbus then\nserved that configuration verbatim to any caller holding read-only topology permissions, so a user whose\nonly grant was the ability to view a topology received its ZooKeeper credential.\n\nThat credential is not read-only. The cluster state implementation uses write-capable ACLs for worker\nheartbeats, backpressure and error state, so a recipient can forge or remove that state for the topology\nconcerned. It"
+      "desc_en": "Description\n\nWhen ZooKeeper authentication is configured, Storm deliberately retains\n`storm.zookeeper.topology.auth.payload` in the topology configuration, because workers need it. Nimbus then\nserved that configuration verbatim to any caller holding read-only topology permissions, so a user whose\nonly grant was the ability to view a topology received its ZooKeeper credential.\n\nThat credential is not read-only. The cluster state implementation uses write-capable ACLs for worker\nheartbeats, backpressure and error state, so a recipient can forge or remove that state for the topology\nconcerned. It",
+      "affected_versions": "",
+      "patch_url": "https://lists.apache.org/thread/1t7hggrz59rdq792qm1pnkqj0ogm2szq",
+      "epss_warn": false
     },
     {
       "cve": "CVE-2026-90699",
@@ -54,7 +60,10 @@
         "https://vuldb.com/vuln/403232",
         "https://vuldb.com/vuln/403232/cti"
       ],
-      "desc_en": "A weakness has been identified in D-Link DWR-M920 1.1.7. This issue affects the function sub_41E60C of the file /boafrm/formPinManageSetup. This manipulation of the argument newPin causes os command injection. The attack can be initiated remotely. The exploit has been made available to the public and could be used for attacks."
+      "desc_en": "A weakness has been identified in D-Link DWR-M920 1.1.7. This issue affects the function sub_41E60C of the file /boafrm/formPinManageSetup. This manipulation of the argument newPin causes os command injection. The attack can be initiated remotely. The exploit has been made available to the public and could be used for attacks.",
+      "affected_versions": "",
+      "patch_url": "https://github.com/H3rmesk1t/vulnerability-paper/issues/9",
+      "epss_warn": false
     },
     {
       "cve": "CVE-2026-90680",
@@ -73,7 +82,10 @@
         "https://vuldb.com/vuln/403213",
         "https://vuldb.com/vuln/403213/cti"
       ],
-      "desc_en": "A security flaw has been discovered in D-Link DIR-823G 1.0.2B05_20181207. The impacted element is the function strcpy of the file /HNAP1/SetStaticRouteSettings of the component HNAP1. The manipulation of the argument PAddress/SubnetMask/Gateway results in stack-based buffer overflow. The attack can be launched remotely."
+      "desc_en": "A security flaw has been discovered in D-Link DIR-823G 1.0.2B05_20181207. The impacted element is the function strcpy of the file /HNAP1/SetStaticRouteSettings of the component HNAP1. The manipulation of the argument PAddress/SubnetMask/Gateway results in stack-based buffer overflow. The attack can be launched remotely.",
+      "affected_versions": "",
+      "patch_url": "https://github.com/Amalll-Sec/router-vulnerability-research/blob/main/advisories/d-link/dir-823g/SetStaticRouteSettings/README.md",
+      "epss_warn": false
     },
     {
       "cve": "CVE-2026-90692",
@@ -92,7 +104,11 @@
         "https://vuldb.com/vuln/403225",
         "https://vuldb.com/vuln/403225/cti"
       ],
-      "desc_en": "A vulnerability was detected in D-Link DIR-878 120B05. This affects the function SetDynamicDNSIPv6Settings of the component Dynamic DNS IPv6 Settings. The manipulation of the argument IPv6Address/Hostname results in stack-based buffer overflow. The attack may be launched remotely."
+      "desc_en": "A vulnerability was detected in D-Link DIR-878 120B05. This affects the function SetDynamicDNSIPv6Settings of the component Dynamic DNS IPv6 Settings. The manipulation of the argument IPv6Address/Hostname results in stack-based buffer overflow. The attack may be launched remotely.",
+      "affected_versions": "",
+      "patch_url": "https://github.com/Amalll-Sec/router-vulnerability-research/blob/main/advisories/d-link/dir-878/SetDynamicDNSIPv6Settings/README.md",
+      "epss_warn": false
     }
-  ]
+  ],
+  "brief_zh": "今日共5則高危（RCE2則、其他高危2則），無在野利用，優先看 Apache Storm 資訊洩漏。"
 }

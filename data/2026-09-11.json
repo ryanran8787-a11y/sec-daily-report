@@ -1,8 +1,9 @@
 {
   "date": "2026-09-11",
-  "generated_at": "2026-10-02T09:28:45.363868+00:00",
+  "generated_at": "2026-10-02T09:52:35.225097+00:00",
   "engine": "fallback",
   "count": 5,
+  "brief_zh": "今日共5則高危（RCE2則、未授權存取1則），無在野利用，優先看 teddy-bear-customize-addon RCE CVE-2026-14560 10.0。",
   "items": [
     {
       "cve": "CVE-2026-14560",
@@ -13,7 +14,9 @@
       "epss_warn": false,
       "summary_zh": "The teddy-bear-customize-addon WordPress plugin through 1.0.5 does not properly validate uploaded files, relying on a cl…",
       "affected": "teddy-bear-customize-addon",
+      "affected_versions": "1.0.5 及更早",
       "fix_hint": "更新至官方修補版本",
+      "patch_url": "https://wpscan.com/vulnerability/aba51906-91dc-4e75-ad44-373fe128deee/",
       "epss": 0.00228,
       "refs": [
         "https://wpscan.com/vulnerability/aba51906-91dc-4e75-ad44-373fe128deee/"
@@ -29,7 +32,9 @@
       "epss_warn": false,
       "summary_zh": "A vulnerability in the Chef Automate API gateway and identity validation path may allow an unauthenticated actor to gain…",
       "affected": "待確認產品",
+      "affected_versions": "",
       "fix_hint": "更新至官方修補版本",
+      "patch_url": "https://community.progress.com/s/article/Critical-Security-Bulletin---August-2026---Chef-Automate-Security-Vulnerability",
       "epss": null,
       "refs": [
         "https://community.progress.com/s/article/Critical-Security-Bulletin---August-2026---Chef-Automate-Security-Vulnerability"
@@ -45,7 +50,9 @@
       "epss_warn": false,
       "summary_zh": "Forgejo before 16.0.4 allows remote code execution via a crafted template repository because template expansion on files…",
       "affected": "Forgejo",
+      "affected_versions": "16.0.4 之前",
       "fix_hint": "更新至官方修補版本",
+      "patch_url": "https://codeberg.org/forgejo/forgejo/milestone/139655",
       "epss": 0.005,
       "refs": [
         "https://codeberg.org/forgejo/forgejo/milestone/139655",
@@ -62,7 +69,9 @@
       "epss_warn": false,
       "summary_zh": "Path traversal in Plesk's Backup Manager causes arbitrary file write as root by an authenticated customer.…",
       "affected": "待確認產品",
+      "affected_versions": "",
       "fix_hint": "更新至官方修補版本",
+      "patch_url": "https://support.plesk.com/hc/en-us/articles/43248841638551-Vulnerability-in-Plesk-s-Backup-Manager-unsigned-backup-header-allows-path-traversal",
       "epss": 0.00363,
       "refs": [
         "https://support.plesk.com/hc/en-us/articles/43248841638551-Vulnerability-in-Plesk-s-Backup-Manager-unsigned-backup-header-allows-path-traversal"
@@ -78,7 +87,9 @@
       "epss_warn": false,
       "summary_zh": "A server-side request forgery issue due to improper validation of equivalent address representations in the port forward…",
       "affected": "待確認產品",
+      "affected_versions": "3.3.4851.0 之前",
       "fix_hint": "更新至官方修補版本",
+      "patch_url": "https://aws.amazon.com/security/security-bulletins/2026-107-aws/",
       "epss": 0.00358,
       "refs": [
         "https://aws.amazon.com/security/security-bulletins/2026-107-aws/",

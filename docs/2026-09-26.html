@@ -5,134 +5,213 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>網安每日報 2026-09-26</title>
 <style>
-:root{--bg:#0b0f17;--card:#151c2b;--line:#243044;--txt:#e8eef7;--mut:#8fa0b8;--red:#f0524f;--org:#ff9f1c;--grn:#2fd180;--blu:#4aa8ff}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--txt);font-family:"Noto Sans TC",system-ui,-apple-system,"Microsoft JhengHei",sans-serif}
-.wrap{max-width:1080px;margin:0 auto;padding:24px 16px 64px}
-header{display:flex;flex-wrap:wrap;gap:12px;align-items:end;justify-content:space-between;border-bottom:1px solid var(--line);padding-bottom:16px}
-h1{margin:0;font-size:28px}h1 span{color:var(--org)}.sub{color:var(--mut);font-size:14px;margin-top:6px}
-.meta{display:flex;gap:8px;flex-wrap:wrap}.pill{border:1px solid var(--line);border-radius:999px;padding:4px 12px;font-size:13px;color:var(--mut)}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:14px;margin-top:20px}
-.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:10px;cursor:pointer}
-.card:hover{border-color:#3a557f}
-.card h2{font-size:17px;margin:0;line-height:1.4}.badges{display:flex;gap:6px;flex-wrap:wrap}
-.detail{display:none;flex-direction:column;gap:8px;border-top:1px dashed #2c3d5a;padding-top:10px}
-.card.open .detail{display:flex}
-.en{font-size:13px;color:var(--mut);line-height:1.6}
-.refs{font-size:13px}.refs a{color:var(--blu)}
-.hint{font-size:12px;color:var(--mut);text-align:center}
-.b{font-size:12px;font-weight:700;border-radius:6px;padding:2px 8px}
-.cvss{background:var(--red);color:#fff}.kev{background:var(--org);color:#111}.type{background:#22314d;color:var(--blu);border:1px solid #2f4a7a}
-.epss{background:#1d2b22;color:var(--grn);border:1px solid #2a4a3a}
-.sum{font-size:14px;color:#cdd8e8;line-height:1.6}.cve{font-size:12px;color:var(--mut)}.cve a{color:var(--blu);text-decoration:none}
-.fix{font-size:13px;background:#101827;border:1px dashed #2c3d5a;border-radius:8px;padding:8px 10px}
-.hist{margin-top:36px}.hlink{display:inline-block;background:var(--card);border:1px solid var(--line);border-radius:8px;padding:8px 12px;font-size:14px;color:var(--blu);text-decoration:none}
-.hlink:hover{border-color:var(--blu)}
-footer{margin-top:40px;color:var(--mut);font-size:12px;border-top:1px solid var(--line);padding-top:12px}
-.toolbar{display:flex;gap:8px;align-items:center;margin-top:16px;flex-wrap:wrap}
-.toolbar input{background:var(--card);border:1px solid var(--line);border-radius:8px;color:var(--txt);padding:8px 12px;font-size:14px;min-width:220px}
-.empty{background:var(--card);border:1px dashed var(--line);border-radius:14px;padding:32px;text-align:center;color:var(--mut);margin-top:20px}
+/* Geist 設計語言（灰階層次、細邊框、小圓角），logo 與配色為原創 */
+:root{
+  color-scheme:dark;
+  --bg:#000; --bg-2:#0a0a0a; --gray-100:#1a1a1a; --gray-200:#222;
+  --border:#2e2e2e; --border-hover:#444; --gray-900:#8f8f8f; --gray-1000:#ededed;
+  --blue:#0070f3; --red:#e5484d; --amber:#f5a524; --green:#17c964;
+  --radius:8px; --radius-sm:6px;
+  --nav-bg:rgba(0,0,0,.8); --grad-from:#fff; --grad-to:#888; --logo:#fff;
+}
+[data-theme="light"]{
+  color-scheme:light;
+  --bg:#fafafa; --bg-2:#fff; --gray-100:#f0f0f0; --gray-200:#e8e8e8;
+  --border:#e5e5e5; --border-hover:#ccc; --gray-900:#666; --gray-1000:#171717;
+  --blue:#0066e6; --red:#d92d20; --amber:#b54708; --green:#12805c;
+  --nav-bg:rgba(250,250,250,.8); --grad-from:#000; --grad-to:#666; --logo:#000;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--gray-1000);
+  font-family:"Geist Sans","Inter",-apple-system,"Noto Sans TC","Microsoft JhengHei",sans-serif;
+  font-size:14px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:var(--blue);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1024px;margin:0 auto;padding:0 24px 80px}
+.nav{position:sticky;top:0;z-index:10;background:var(--nav-bg);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+.nav-inner{max-width:1024px;margin:0 auto;padding:12px 24px;display:flex;align-items:center;gap:12px}
+.logo{width:22px;height:22px;flex:none;fill:var(--logo)}
+.theme-btn{background:none;border:1px solid var(--border);border-radius:var(--radius-sm);color:var(--gray-900);width:30px;height:30px;font-size:14px;cursor:pointer;line-height:1}
+.theme-btn:hover{border-color:var(--border-hover);color:var(--gray-1000)}
+.rss-link{font-size:11px;border:1px solid var(--border);border-radius:5px;padding:2px 7px;color:var(--gray-900);font-family:"Geist Mono",ui-monospace,monospace}
+.rss-link:hover{color:var(--amber);border-color:var(--amber);text-decoration:none}
+.brand{font-weight:600;font-size:14px;letter-spacing:-.01em}
+.brand span{color:var(--gray-900);font-weight:400}
+.nav-right{margin-left:auto;display:flex;align-items:center;gap:8px;color:var(--gray-900);font-size:12px}
+.dot{width:6px;height:6px;border-radius:50%;background:var(--green);display:inline-block}
+.hero{padding:56px 0 8px}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:12px;color:var(--gray-900);border:1px solid var(--border);border-radius:999px;padding:4px 12px;margin-bottom:20px}
+h1{margin:0;font-size:40px;font-weight:700;letter-spacing:-.04em;line-height:1.1}
+h1 .grad{background:linear-gradient(180deg,var(--grad-from),var(--grad-to));-webkit-background-clip:text;background-clip:text;color:transparent}
+.lede{margin:12px 0 0;color:var(--gray-900);font-size:15px;max-width:640px}
+.brief{margin:20px 0 0;border:1px solid var(--border);border-left:3px solid var(--amber);border-radius:var(--radius-sm);background:var(--bg-2);padding:12px 16px;font-size:13px;color:var(--gray-1000)}
+.brief span{color:var(--gray-900);font-size:11px;display:block;margin-bottom:2px;letter-spacing:.06em}
+.bucket{margin:28px 0 0}
+.bucket>h3{font-size:13px;font-weight:600;margin:0 0 10px;display:flex;align-items:center;gap:8px}
+.bucket>h3 .cnt{font-size:11px;color:var(--gray-900);font-weight:400}
+.stats{display:flex;gap:0;margin:28px 0;border:1px solid var(--border);border-radius:var(--radius);overflow:hidden}
+.stat{flex:1;padding:16px 20px;background:var(--bg-2)}
+.stat+.stat{border-left:1px solid var(--border)}
+.stat .n{font-size:24px;font-weight:700;letter-spacing:-.02em}
+.stat .n.red{color:var(--red)}
+.stat .n.amber{color:var(--amber)}
+.stat .n.green{color:var(--green)}
+.stat .l{font-size:12px;color:var(--gray-900);margin-top:2px}
+.toolbar{display:flex;gap:8px;align-items:center;margin:20px 0;flex-wrap:wrap}
+.search{flex:1;min-width:200px;background:var(--bg-2);border:1px solid var(--border);border-radius:var(--radius-sm);color:var(--gray-1000);padding:8px 12px;font-size:13px;outline:none}
+.search:focus{border-color:var(--blue)}
+.btn{background:var(--gray-100);border:1px solid var(--border);border-radius:var(--radius-sm);color:var(--gray-1000);padding:8px 14px;font-size:13px;cursor:pointer}
+.btn:hover{background:var(--gray-200);border-color:var(--border-hover)}
+.btn.active{background:var(--gray-1000);color:#000;border-color:var(--gray-1000)}
+.list{border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;background:var(--bg-2)}
+.row{padding:18px 20px;cursor:pointer;transition:background .12s}
+.row:hover{background:var(--gray-100)}
+.row+.row{border-top:1px solid var(--border)}
+.row-head{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.row-head h2{margin:0;font-size:15px;font-weight:600;letter-spacing:-.01em;flex:1;min-width:200px}
+.row-sum{color:var(--gray-900);font-size:13px;margin-top:6px}
+.row-foot{display:flex;gap:12px;align-items:center;margin-top:10px;font-size:12px;color:var(--gray-900)}
+.row-foot a{font-size:12px}
+.chev{color:var(--gray-900);font-size:12px;transition:transform .15s;flex:none}
+.row.open .chev{transform:rotate(180deg)}
+.detail{display:none;margin-top:12px;padding-top:12px;border-top:1px dashed var(--border);font-size:13px;color:var(--gray-900)}
+.row.open .detail{display:block}
+.detail .en{margin-bottom:8px}
+.badge{display:inline-flex;align-items:center;font-size:11px;font-weight:500;border-radius:5px;padding:2px 7px;border:1px solid var(--border);background:var(--gray-100);color:var(--gray-900);font-family:"Geist Mono",ui-monospace,SFMono-Regular,Menlo,monospace;white-space:nowrap}
+.badge.crit{background:var(--red);border-color:var(--red);color:#fff}
+.badge.wild{background:transparent;border-color:var(--amber);color:var(--amber)}
+.badge.epss{background:transparent}
+.hist{margin-top:48px}
+.hist h3{font-size:13px;font-weight:600;color:var(--gray-900);text-transform:uppercase;letter-spacing:.08em;margin:0 0 12px}
+.hist-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px}
+.hcard{border:1px solid var(--border);border-radius:var(--radius-sm);padding:12px 14px;background:var(--bg-2);color:var(--gray-1000)}
+.hcard:hover{border-color:var(--border-hover);text-decoration:none}
+.hcard .d{font-size:13px;font-weight:600;font-family:"Geist Mono",ui-monospace,monospace}
+.hcard .c{font-size:12px;color:var(--gray-900)}
+footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color:var(--gray-900);font-size:12px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.empty{border:1px dashed var(--border);border-radius:var(--radius);padding:48px;text-align:center;color:var(--gray-900);margin-top:20px}
+@media(max-width:640px){h1{font-size:30px}.stats{flex-direction:column}.stat+.stat{border-left:none;border-top:1px solid var(--border)}}
 </style>
 </head>
 <body>
+<script>try{if((localStorage.getItem('secdaily-theme')||(matchMedia('(prefers-color-scheme: light)').matches?'light':'dark'))==='light')document.documentElement.dataset.theme='light';}catch(e){}</script>
+<div class="nav"><div class="nav-inner">
+  <svg class="logo" viewBox="0 0 24 24"><path d="M12 1.8 3.5 5v6.1c0 5.1 3.6 9.6 8.5 10.9 4.9-1.3 8.5-5.8 8.5-10.9V5L12 1.8Zm0 2.4 6.5 2.6v4.3c0 4-2.7 7.6-6.5 8.7-3.8-1.1-6.5-4.7-6.5-8.7V6.8L12 4.2Zm-1.4 9.1 4-4 1.4 1.4-5.4 5.4-2.6-2.6 1.4-1.4 1.2 1.2Z"/></svg>
+  <div class="brand">SecDaily <span>/ 網安每日報</span></div>
+  <div class="nav-right"><span class="dot"></span>2026-09-26・gemini<a class="rss-link" href="feed.xml" title="RSS 訂閱">RSS</a><button class="theme-btn" onclick="toggleTheme()" title="切換淺色/深色">◐</button></div>
+</div></div>
+
 <div class="wrap">
-<header>
-  <div>
-    <h1>🛡️ 網安<span>每日報</span></h1>
-    <div class="sub">存檔回顧 2026-09-26 ・ 共 5 則高危（CVSS ≥ 9.0 或在野利用）・ 引擎 gemini</div>
-  </div>
-  <div class="meta">
-    <div class="pill">來源 NVD + CISA KEV + EPSS</div>
-    <div class="pill">每天 08:00 (台北) 自動更新</div>
-  </div>
-</header>
+<div class="hero">
+  <div class="eyebrow">NVD + CISA KEV + EPSS ・ 每天 08:00（台北）自動更新</div>
+  <h1><span class="grad">存檔回顧 2026-09-26</span></h1>
+  <p class="lede">僅收錄 CVSS ≥ 9.0、在野利用或 EPSS 利用預警項目。點擊任一條目展開完整描述與修補建議。</p>
+  <div class="brief"><span>AI 總評</span>今日共5則高危（RCE2則、其他高危2則），無在野利用，優先看 Mediawiki 擴充 RCE。</div>
+</div>
+
+<div class="stats">
+  <div class="stat"><div class="n red">5</div><div class="l">高危項目</div></div>
+  <div class="stat"><div class="n amber">0</div><div class="l">在野利用</div></div>
+  <div class="stat"><div class="n amber">0</div><div class="l">利用預警 EPSS≥0.7</div></div>
+  <div class="stat"><div class="n green">5</div><div class="l">CVSS ≥ 9.5</div></div>
+</div>
 
 <div class="toolbar">
-  <input id="q" placeholder="搜尋 CVE / 廠商 / 類型…" oninput="filterCards()">
-  <label><input type="checkbox" id="wild" onchange="filterCards()"> 只看在野利用</label>
+  <input class="search" id="q" placeholder="搜尋 CVE / 廠商 / 類型…" oninput="filterCards()">
+  <button class="btn" id="wildBtn" onclick="toggleWild(this)">只看在野利用</button>
 </div>
 
 
-<div class="grid" id="grid">
 
-  <div class="card" data-wild="0" onclick="if(event.target.tagName!=='A')this.classList.toggle('open')">
-    <div class="badges">
-      <span class="b cvss">CVSS 10.0</span>
+
+
+
+
+
+<div id="grid">
+
+<div class="bucket"><h3>▲ 高危關注 <span class="cnt">5 則・EPSS 預警或 CVSS ≥ 9.5</span></h3>
+<div class="list">
+
+  <div class="row" data-wild="0" onclick="if(event.target.tagName!=='A')this.classList.toggle('open')">
+    <div class="row-head">
+      <h2>Mediawiki 擴充 RCE</h2>
+      <span class="badge crit">CVSS 10.0</span>
       
-      <span class="b type">RCE</span>
+      <span class="badge">RCE</span>
       
+      <span class="chev">▾</span>
     </div>
-    <h2>Mediawiki 擴充 RCE</h2>
-    <div class="sum">ExternalData 擴充功能存在指令注入漏洞。</div>
-    <div class="cve">CVE-2026-100382 ・ 影響：Mediawiki ExternalData 3.7 以前版本
-      ・ <a href="https://gerrit.wikimedia.org/r/c/mediawiki/extensions/ExternalData/+/1326012" target="_blank">參考連結</a>
+    <div class="row-sum">ExternalData 擴充功能存在指令注入漏洞。</div>
+    <div class="row-foot"><span>CVE-2026-100382</span><span>Mediawiki ExternalData 3.7 以前版本 3.7. 之前</span>
+      <a href="https://gerrit.wikimedia.org/r/c/mediawiki/extensions/ExternalData/+/1326012" target="_blank">官方補丁 ↗</a>
     </div>
-    <div class="fix">🛠 升級至 3.7 或更新版本</div>
     <div class="detail">
       <div class="en">Improper Neutralization of Special Elements used in an OS Command (&#39;OS Command Injection&#39;) vulnerability in Wikimedia Foundation Mediawiki - ExternalData Extension allows OS Command Injection.
 
 This issue affects Mediawiki - ExternalData Extension: from * before 3.7.</div>
-      <div class="refs">🔗 更多參考：<a href="https://phabricator.wikimedia.org/T434961" target="_blank">[2]</a> </div>
-      <div class="hint">▲ 再點卡片收起</div>
+      <div>修補建議：升級至 3.7 或更新版本</div>
+      <div style="margin-top:6px">更多參考：<a href="https://phabricator.wikimedia.org/T434961" target="_blank">[2]</a> </div>
     </div>
   </div>
 
-  <div class="card" data-wild="0" onclick="if(event.target.tagName!=='A')this.classList.toggle('open')">
-    <div class="badges">
-      <span class="b cvss">CVSS 9.8</span>
+  <div class="row" data-wild="0" onclick="if(event.target.tagName!=='A')this.classList.toggle('open')">
+    <div class="row-head">
+      <h2>WP Automation 外掛權限提升</h2>
+      <span class="badge crit">CVSS 9.8</span>
       
-      <span class="b type">權限提升</span>
-      <span class="b epss">EPSS 0.01</span>
+      <span class="badge">權限提升</span>
+      <span class="badge epss">EPSS 0.01</span>
+      <span class="chev">▾</span>
     </div>
-    <h2>WP Automation 外掛權限提升</h2>
-    <div class="sum">攻擊者可註冊管理員帳號並接管 WordPress 網站。</div>
-    <div class="cve">CVE-2026-14281 ・ 影響：Automation Web Platform 4.8.6 以前版本
-      ・ <a href="https://plugins.trac.wordpress.org/browser/automation-web-platform/tags/4.8.6/includes/api/class-wawp-rest-settings-api.php#L342" target="_blank">參考連結</a>
+    <div class="row-sum">攻擊者可註冊管理員帳號並接管 WordPress 網站。</div>
+    <div class="row-foot"><span>CVE-2026-14281</span><span>Automation Web Platform 4.8.6 以前版本</span>
+      <a href="https://plugins.trac.wordpress.org/browser/automation-web-platform/tags/4.8.6/includes/api/class-wawp-rest-settings-api.php#L342" target="_blank">官方補丁 ↗</a>
     </div>
-    <div class="fix">🛠 升級至最新版本</div>
     <div class="detail">
       <div class="en">The Automation Web Platform – Notifications and OTP for WooCommerce, Advanced Country Code plugin for WordPress is vulnerable to Privilege Escalation in all versions up to, and including, 4.8.6. This is due to missing permission enforcement on the publicly accessible REST route `POST /wp-json/wawp/v1/signup/&lt;op&gt;` and the absence of a key allowlist in the `finish_registration_logic` function, which copies the attacker-controlled `wawp_custom_fields` parameter directly into `update_user_meta()` — allowing sensitive meta keys such as `wp_capabilities` and `wp_user_level` to be set by the caller. </div>
-      <div class="refs">🔗 更多參考：<a href="https://plugins.trac.wordpress.org/browser/automation-web-platform/tags/4.8.6/includes/api/class-wawp-rest-settings-api.php#L574" target="_blank">[2]</a> <a href="https://plugins.trac.wordpress.org/browser/automation-web-platform/tags/4.8.6/includes/auth-services/class-wawp-otp-service.php#L477" target="_blank">[3]</a> <a href="https://plugins.trac.wordpress.org/browser/automation-web-platform/tags/4.8.6/includes/auth-services/class-wawp-otp-service.php#L787" target="_blank">[4]</a> <a href="https://plugins.trac.wordpress.org/browser/automation-web-platform/tags/4.8.6/includes/auth-services/class-wawp-signup.php#L1002" target="_blank">[5]</a> </div>
-      <div class="hint">▲ 再點卡片收起</div>
+      <div>修補建議：升級至最新版本</div>
+      <div style="margin-top:6px">更多參考：<a href="https://plugins.trac.wordpress.org/browser/automation-web-platform/tags/4.8.6/includes/api/class-wawp-rest-settings-api.php#L574" target="_blank">[2]</a> <a href="https://plugins.trac.wordpress.org/browser/automation-web-platform/tags/4.8.6/includes/auth-services/class-wawp-otp-service.php#L477" target="_blank">[3]</a> <a href="https://plugins.trac.wordpress.org/browser/automation-web-platform/tags/4.8.6/includes/auth-services/class-wawp-otp-service.php#L787" target="_blank">[4]</a> <a href="https://plugins.trac.wordpress.org/browser/automation-web-platform/tags/4.8.6/includes/auth-services/class-wawp-signup.php#L1002" target="_blank">[5]</a> </div>
     </div>
   </div>
 
-  <div class="card" data-wild="0" onclick="if(event.target.tagName!=='A')this.classList.toggle('open')">
-    <div class="badges">
-      <span class="b cvss">CVSS 9.8</span>
+  <div class="row" data-wild="0" onclick="if(event.target.tagName!=='A')this.classList.toggle('open')">
+    <div class="row-head">
+      <h2>Apache Qpid 會話固定漏洞</h2>
+      <span class="badge crit">CVSS 9.8</span>
       
-      <span class="b type">其他高危</span>
-      <span class="b epss">EPSS 0.00</span>
+      <span class="badge">其他高危</span>
+      <span class="badge epss">EPSS 0.00</span>
+      <span class="chev">▾</span>
     </div>
-    <h2>Apache Qpid 會話固定漏洞</h2>
-    <div class="sum">遠端攻擊者可重用會話識別碼獲取管理權限。</div>
-    <div class="cve">CVE-2026-92609 ・ 影響：Apache Qpid Broker-J 10.1.0 以前版本
-      ・ <a href="https://lists.apache.org/thread/93w83oro48cqokb24k8tkogyvtlqhqw6" target="_blank">參考連結</a>
+    <div class="row-sum">遠端攻擊者可重用會話識別碼獲取管理權限。</div>
+    <div class="row-foot"><span>CVE-2026-92609</span><span>Apache Qpid Broker-J 10.1.0 以前版本 10.1.0. 及更早</span>
+      <a href="https://lists.apache.org/thread/93w83oro48cqokb24k8tkogyvtlqhqw6" target="_blank">官方補丁 ↗</a>
     </div>
-    <div class="fix">🛠 升級至 10.1.1 或更新版本</div>
     <div class="detail">
       <div class="en">Session fixation in HTTP management authentication allows remote attackers to gain unauthorized access to an authenticated management session via reuse of a session identifier retained across successful authentication.
 
 This issue affects Apache Qpid Broker-J: through 10.1.0.
 
 Users are recommended to upgrade to version 10.1.1, which fixes the issue.</div>
-      <div class="refs">🔗 更多參考：<a href="http://www.openwall.com/lists/oss-security/2026/09/24/17" target="_blank">[2]</a> </div>
-      <div class="hint">▲ 再點卡片收起</div>
+      <div>修補建議：升級至 10.1.1 或更新版本</div>
+      <div style="margin-top:6px">更多參考：<a href="http://www.openwall.com/lists/oss-security/2026/09/24/17" target="_blank">[2]</a> </div>
     </div>
   </div>
 
-  <div class="card" data-wild="0" onclick="if(event.target.tagName!=='A')this.classList.toggle('open')">
-    <div class="badges">
-      <span class="b cvss">CVSS 9.8</span>
+  <div class="row" data-wild="0" onclick="if(event.target.tagName!=='A')this.classList.toggle('open')">
+    <div class="row-head">
+      <h2>Linux 核心 RDMA 漏洞</h2>
+      <span class="badge crit">CVSS 9.8</span>
       
-      <span class="b type">其他高危</span>
+      <span class="badge">其他高危</span>
       
+      <span class="chev">▾</span>
     </div>
-    <h2>Linux 核心 RDMA 漏洞</h2>
-    <div class="sum">RDMA 處理失敗時計數器錯誤導致系統不穩定。</div>
-    <div class="cve">CVE-2026-100075 ・ 影響：Linux Kernel 特定版本
-      ・ <a href="https://git.kernel.org/stable/c/717ab4d0614e9446bf8e2de6229464499e4008d6" target="_blank">參考連結</a>
+    <div class="row-sum">RDMA 處理失敗時計數器錯誤導致系統不穩定。</div>
+    <div class="row-foot"><span>CVE-2026-100075</span><span>Linux Kernel 特定版本</span>
+      <a href="https://git.kernel.org/stable/c/717ab4d0614e9446bf8e2de6229464499e4008d6" target="_blank">官方補丁 ↗</a>
     </div>
-    <div class="fix">🛠 更新 Linux 核心至最新修補版本</div>
     <div class="detail">
       <div class="en">In the Linux kernel, the following vulnerability has been resolved:
 
@@ -146,96 +225,101 @@ can then subtract the wrong number of send queue credits.
 
 Reset the counters and clear rw_ctxs after freeing the heap
 allocation before returning an error.</div>
-      <div class="refs">🔗 更多參考：<a href="https://git.kernel.org/stable/c/af00051dbc9f467d4840ec709680660a3f8990fa" target="_blank">[2]</a> <a href="https://git.kernel.org/stable/c/af073bd245180393bcb15d33d3990a6bdc32593a" target="_blank">[3]</a> <a href="https://git.kernel.org/stable/c/b38f98e176050850f41bb6415f3a71400056623e" target="_blank">[4]</a> <a href="https://git.kernel.org/stable/c/bd02d644bd19a2795c018635d273d91e45d2bb95" target="_blank">[5]</a> </div>
-      <div class="hint">▲ 再點卡片收起</div>
+      <div>修補建議：更新 Linux 核心至最新修補版本</div>
+      <div style="margin-top:6px">更多參考：<a href="https://git.kernel.org/stable/c/af00051dbc9f467d4840ec709680660a3f8990fa" target="_blank">[2]</a> <a href="https://git.kernel.org/stable/c/af073bd245180393bcb15d33d3990a6bdc32593a" target="_blank">[3]</a> <a href="https://git.kernel.org/stable/c/b38f98e176050850f41bb6415f3a71400056623e" target="_blank">[4]</a> <a href="https://git.kernel.org/stable/c/bd02d644bd19a2795c018635d273d91e45d2bb95" target="_blank">[5]</a> </div>
     </div>
   </div>
 
-  <div class="card" data-wild="0" onclick="if(event.target.tagName!=='A')this.classList.toggle('open')">
-    <div class="badges">
-      <span class="b cvss">CVSS 9.8</span>
+  <div class="row" data-wild="0" onclick="if(event.target.tagName!=='A')this.classList.toggle('open')">
+    <div class="row-head">
+      <h2>Zimbra 協作平台 RCE</h2>
+      <span class="badge crit">CVSS 9.8</span>
       
-      <span class="b type">RCE</span>
+      <span class="badge">RCE</span>
       
+      <span class="chev">▾</span>
     </div>
-    <h2>Zimbra 協作平台 RCE</h2>
-    <div class="sum">利用路徑遍歷寫入檔案並以系統權限執行指令。</div>
-    <div class="cve">CVE-2026-93643 ・ 影響：啟用 OnlyOffice 的 Zimbra 伺服器
-      ・ <a href="https://wiki.zimbra.com/wiki/Zimbra_Security_Advisories" target="_blank">參考連結</a>
+    <div class="row-sum">利用路徑遍歷寫入檔案並以系統權限執行指令。</div>
+    <div class="row-foot"><span>CVE-2026-93643</span><span>啟用 OnlyOffice 的 Zimbra 伺服器</span>
+      <a href="https://wiki.zimbra.com/wiki/Zimbra_Security_Advisories" target="_blank">官方補丁 ↗</a>
     </div>
-    <div class="fix">🛠 參考 Zimbra 安全公告並安裝更新</div>
     <div class="detail">
       <div class="en">When OnlyOffice/Document Editing is available, an unauthenticated remote attacker with access to an existing supported public Briefcase document can abuse unsigned save fields to perform path-traversal writes and execute commands as zimbra.</div>
+      <div>修補建議：參考 Zimbra 安全公告並安裝更新</div>
       
-      <div class="hint">▲ 再點卡片收起</div>
     </div>
   </div>
+
+</div>
+</div>
 
 </div>
 
 
 <div class="hist">
-  <h3>📅 歷史存檔</h3>
-  <div style="display:flex;gap:8px;flex-wrap:wrap">
+  <h3>Archive / 歷史存檔</h3>
+  <div class="hist-grid">
     
-    <a class="hlink" href="2026-10-02.html">2026-10-02（5 則）</a>
+    <a class="hcard" href="2026-10-02.html"><div class="d">2026-10-02</div><div class="c">5 則・gemini</div></a>
     
-    <a class="hlink" href="2026-10-01.html">2026-10-01（5 則）</a>
+    <a class="hcard" href="2026-10-01.html"><div class="d">2026-10-01</div><div class="c">5 則・gemini</div></a>
     
-    <a class="hlink" href="2026-09-30.html">2026-09-30（5 則）</a>
+    <a class="hcard" href="2026-09-30.html"><div class="d">2026-09-30</div><div class="c">5 則・gemini</div></a>
     
-    <a class="hlink" href="2026-09-29.html">2026-09-29（5 則）</a>
+    <a class="hcard" href="2026-09-29.html"><div class="d">2026-09-29</div><div class="c">5 則・gemini</div></a>
     
-    <a class="hlink" href="2026-09-28.html">2026-09-28（5 則）</a>
+    <a class="hcard" href="2026-09-28.html"><div class="d">2026-09-28</div><div class="c">5 則・gemini</div></a>
     
-    <a class="hlink" href="2026-09-27.html">2026-09-27（5 則）</a>
+    <a class="hcard" href="2026-09-27.html"><div class="d">2026-09-27</div><div class="c">5 則・gemini</div></a>
     
-    <a class="hlink" href="2026-09-26.html">2026-09-26（5 則）</a>
+    <a class="hcard" href="2026-09-26.html"><div class="d">2026-09-26</div><div class="c">5 則・gemini</div></a>
     
-    <a class="hlink" href="2026-09-25.html">2026-09-25（5 則）</a>
+    <a class="hcard" href="2026-09-25.html"><div class="d">2026-09-25</div><div class="c">5 則・gemini</div></a>
     
-    <a class="hlink" href="2026-09-24.html">2026-09-24（5 則）</a>
+    <a class="hcard" href="2026-09-24.html"><div class="d">2026-09-24</div><div class="c">5 則・gemini</div></a>
     
-    <a class="hlink" href="2026-09-23.html">2026-09-23（5 則）</a>
+    <a class="hcard" href="2026-09-23.html"><div class="d">2026-09-23</div><div class="c">5 則・gemini</div></a>
     
-    <a class="hlink" href="2026-09-22.html">2026-09-22（5 則）</a>
+    <a class="hcard" href="2026-09-22.html"><div class="d">2026-09-22</div><div class="c">5 則・gemini</div></a>
     
-    <a class="hlink" href="2026-09-21.html">2026-09-21（5 則）</a>
+    <a class="hcard" href="2026-09-21.html"><div class="d">2026-09-21</div><div class="c">5 則・gemini</div></a>
     
-    <a class="hlink" href="2026-09-20.html">2026-09-20（5 則）</a>
+    <a class="hcard" href="2026-09-20.html"><div class="d">2026-09-20</div><div class="c">5 則・gemini</div></a>
     
-    <a class="hlink" href="2026-09-19.html">2026-09-19（5 則）</a>
+    <a class="hcard" href="2026-09-19.html"><div class="d">2026-09-19</div><div class="c">5 則・gemini</div></a>
     
-    <a class="hlink" href="2026-09-18.html">2026-09-18（5 則）</a>
+    <a class="hcard" href="2026-09-18.html"><div class="d">2026-09-18</div><div class="c">5 則・gemini</div></a>
     
-    <a class="hlink" href="2026-09-17.html">2026-09-17（5 則）</a>
+    <a class="hcard" href="2026-09-17.html"><div class="d">2026-09-17</div><div class="c">5 則・gemini</div></a>
     
-    <a class="hlink" href="2026-09-16.html">2026-09-16（5 則）</a>
+    <a class="hcard" href="2026-09-16.html"><div class="d">2026-09-16</div><div class="c">5 則・gemini</div></a>
     
-    <a class="hlink" href="2026-09-15.html">2026-09-15（5 則）</a>
+    <a class="hcard" href="2026-09-15.html"><div class="d">2026-09-15</div><div class="c">5 則・gemini</div></a>
     
-    <a class="hlink" href="2026-09-14.html">2026-09-14（5 則）</a>
+    <a class="hcard" href="2026-09-14.html"><div class="d">2026-09-14</div><div class="c">5 則・gemini</div></a>
     
-    <a class="hlink" href="2026-09-13.html">2026-09-13（5 則）</a>
+    <a class="hcard" href="2026-09-13.html"><div class="d">2026-09-13</div><div class="c">5 則・gemini</div></a>
     
-    <a class="hlink" href="2026-09-12.html">2026-09-12（5 則）</a>
+    <a class="hcard" href="2026-09-12.html"><div class="d">2026-09-12</div><div class="c">5 則・gemini</div></a>
     
-    <a class="hlink" href="2026-09-11.html">2026-09-11（5 則）</a>
+    <a class="hcard" href="2026-09-11.html"><div class="d">2026-09-11</div><div class="c">5 則・fallback</div></a>
     
   </div>
-  <div style="color:var(--mut);font-size:13px;margin-top:8px">歷史 JSON 在 docs/data/，可直接當 API 用</div>
 </div>
 
-<footer>資料：NVD / CISA KEV / FIRST EPSS ・ AI 提煉僅供參考，請以官方 Advisory 為準 ・ 由 GitHub Actions 每日自動產生</footer>
+<footer><span>資料：NVD / CISA KEV / FIRST EPSS ・ AI 提煉僅供參考，請以官方 Advisory 為準</span><span>由 GitHub Actions 每日自動產生</span></footer>
 </div>
 <script>
+try{if((localStorage.getItem('secdaily-theme')||(matchMedia('(prefers-color-scheme: light)').matches?'light':'dark'))==='light')document.documentElement.dataset.theme='light';}catch(e){}
+function toggleTheme(){const d=document.documentElement;const next=d.dataset.theme==='light'?'dark':'light';if(next==='light')d.dataset.theme='light';else delete d.dataset.theme;try{localStorage.setItem('secdaily-theme',next);}catch(e){}}
+let wildOnly=false;
+function toggleWild(b){wildOnly=!wildOnly;b.classList.toggle('active',wildOnly);filterCards();}
 function filterCards(){
   const q=(document.getElementById('q').value||'').toLowerCase();
-  const w=document.getElementById('wild').checked;
-  document.querySelectorAll('#grid .card').forEach(c=>{
+  document.querySelectorAll('#grid .row').forEach(c=>{
     const t=c.innerText.toLowerCase();
     const okQ=!q||t.includes(q);
-    const okW=!w||c.dataset.wild==='1';
+    const okW=!wildOnly||c.dataset.wild==='1';
     c.style.display=(okQ&&okW)?'':'none';
   });
 }

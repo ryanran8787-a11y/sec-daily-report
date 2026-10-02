@@ -44,6 +44,11 @@ a:hover{text-decoration:underline}
 h1{margin:0;font-size:40px;font-weight:700;letter-spacing:-.04em;line-height:1.1}
 h1 .grad{background:linear-gradient(180deg,var(--grad-from),var(--grad-to));-webkit-background-clip:text;background-clip:text;color:transparent}
 .lede{margin:12px 0 0;color:var(--gray-900);font-size:15px;max-width:640px}
+.brief{margin:20px 0 0;border:1px solid var(--border);border-left:3px solid var(--amber);border-radius:var(--radius-sm);background:var(--bg-2);padding:12px 16px;font-size:13px;color:var(--gray-1000)}
+.brief span{color:var(--gray-900);font-size:11px;display:block;margin-bottom:2px;letter-spacing:.06em}
+.bucket{margin:28px 0 0}
+.bucket>h3{font-size:13px;font-weight:600;margin:0 0 10px;display:flex;align-items:center;gap:8px}
+.bucket>h3 .cnt{font-size:11px;color:var(--gray-900);font-weight:400}
 .stats{display:flex;gap:0;margin:28px 0;border:1px solid var(--border);border-radius:var(--radius);overflow:hidden}
 .stat{flex:1;padding:16px 20px;background:var(--bg-2)}
 .stat+.stat{border-left:1px solid var(--border)}
@@ -100,14 +105,15 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
 <div class="hero">
   <div class="eyebrow">NVD + CISA KEV + EPSS ・ 每天 08:00（台北）自動更新</div>
   <h1><span class="grad">{% if report.date == latest_date %}今日高危漏洞{% else %}存檔回顧 {{ report.date }}{% endif %}</span></h1>
-  <p class="lede">僅收錄 CVSS ≥ 9.0 或在野利用項目。點擊任一條目展開完整描述與修補建議。</p>
+  <p class="lede">僅收錄 CVSS ≥ 9.0、在野利用或 EPSS 利用預警項目。點擊任一條目展開完整描述與修補建議。</p>
+  {% if report.brief_zh %}<div class="brief"><span>AI 總評</span>{{ report.brief_zh }}</div>{% endif %}
 </div>
 
 <div class="stats">
   <div class="stat"><div class="n red">{{ report.count }}</div><div class="l">高危項目</div></div>
   <div class="stat"><div class="n amber">{{ report["items"]|selectattr("in_wild")|list|length }}</div><div class="l">在野利用</div></div>
   <div class="stat"><div class="n amber">{{ report["items"]|selectattr("epss_warn")|list|length }}</div><div class="l">利用預警 EPSS≥0.7</div></div>
-  <div class="stat"><div class="n green">{{ report["items"]|selectattr("cvss","ge",9.5)|list|length }}</div><div class="l">CVSS ≥ 9.5</div></div>
+  <div class="stat"><div class="n green">{{ report["items"]|selectattr("cvss")|selectattr("cvss","ge",9.5)|list|length }}</div><div class="l">CVSS ≥ 9.5</div></div>
 </div>
 
 <div class="toolbar">
@@ -116,8 +122,9 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
 </div>
 
 {% if report["items"] %}
-<div class="list" id="grid">
-{% for it in report["items"] %}
+{% macro rows(xs) %}
+<div class="list">
+{% for it in xs %}
   <div class="row" data-wild="{{ '1' if it.in_wild else '0' }}" onclick="if(event.target.tagName!=='A')this.classList.toggle('open')">
     <div class="row-head">
       <h2>{{ it.title_zh }}</h2>
@@ -128,8 +135,8 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
       <span class="chev">▾</span>
     </div>
     <div class="row-sum">{{ it.summary_zh }}</div>
-    <div class="row-foot"><span>{{ it.cve }}</span><span>{{ it.affected }}</span>
-      {% if it.refs %}<a href="{{ it.refs[0] }}" target="_blank">參考連結 ↗</a>{% endif %}
+    <div class="row-foot"><span>{{ it.cve }}</span><span>{{ it.affected }}{% if it.affected_versions %} {{ it.affected_versions }}{% endif %}</span>
+      {% if it.patch_url %}<a href="{{ it.patch_url }}" target="_blank">官方補丁 ↗</a>{% elif it.refs %}<a href="{{ it.refs[0] }}" target="_blank">參考連結 ↗</a>{% endif %}
     </div>
     <div class="detail">
       {% if it.desc_en %}<div class="en">{{ it.desc_en }}</div>{% endif %}
@@ -138,6 +145,17 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
     </div>
   </div>
 {% endfor %}
+</div>
+{% endmacro %}
+{% set wild = report["items"]|selectattr("in_wild")|list %}
+{% set scored = report["items"]|selectattr("cvss")|list %}
+{% set hot = report["items"]|rejectattr("in_wild")|selectattr("epss_warn")|list + scored|rejectattr("in_wild")|rejectattr("epss_warn")|selectattr("cvss","ge",9.5)|list %}
+{% set _seen = hot|map(attribute="cve")|list + wild|map(attribute="cve")|list %}
+{% set rest = report["items"]|rejectattr("cve","in",_seen)|list %}
+<div id="grid">
+{% if wild %}<div class="bucket"><h3>● 在野利用 <span class="cnt">{{ wild|length }} 則・優先處理</span></h3>{{ rows(wild) }}</div>{% endif %}
+{% if hot %}<div class="bucket"><h3>▲ 高危關注 <span class="cnt">{{ hot|length }} 則・EPSS 預警或 CVSS ≥ 9.5</span></h3>{{ rows(hot) }}</div>{% endif %}
+{% if rest %}<div class="bucket"><h3>其他高危 <span class="cnt">{{ rest|length }} 則</span></h3>{{ rows(rest) }}</div>{% endif %}
 </div>
 {% else %}
 <div class="empty">今日無 CVSS ≥ 9.0 或在野利用項目，好日子</div>

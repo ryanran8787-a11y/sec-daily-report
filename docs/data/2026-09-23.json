@@ -18,7 +18,10 @@
         "https://www.arista.com/en/support/advisories-notices/security-advisory/24765-security-advisory-0183",
         "https://www.cisa.gov/known-exploited-vulnerabilities-catalog?field_cve=CVE-2026-93952"
       ],
-      "desc_en": "VeloCloud Orchestrator (VCO) on-prem has a security issue where this issue may allow a remote attacker to access privileged internal functionality and impact the VCO host. Successful exploitation may compromise the confidentiality, integrity, and availability of the orchestrator and data managed by the orchestrator.\n\nHosted, including Dedicated, versions of VCO were impacted and have already been patched."
+      "desc_en": "VeloCloud Orchestrator (VCO) on-prem has a security issue where this issue may allow a remote attacker to access privileged internal functionality and impact the VCO host. Successful exploitation may compromise the confidentiality, integrity, and availability of the orchestrator and data managed by the orchestrator.\n\nHosted, including Dedicated, versions of VCO were impacted and have already been patched.",
+      "affected_versions": "",
+      "patch_url": "https://www.arista.com/en/support/advisories-notices/security-advisory/24765-security-advisory-0183",
+      "epss_warn": false
     },
     {
       "cve": "CVE-2026-93616",
@@ -35,7 +38,10 @@
         "https://blog.checkpoint.com/security/security-advisory-action-required-active-exploitation-of-cve-2026-85102-and-a-management-pre-authentication-vulnerability-cve-2026-93616/",
         "https://www.cisa.gov/known-exploited-vulnerabilities-catalog?field_cve=CVE-2026-93616"
       ],
-      "desc_en": "A directory traversal and file upload vulnerability allows an unauthenticated attacker to upload and execute arbitrary scripts on Check Point Management Server."
+      "desc_en": "A directory traversal and file upload vulnerability allows an unauthenticated attacker to upload and execute arbitrary scripts on Check Point Management Server.",
+      "affected_versions": "",
+      "patch_url": "https://support.checkpoint.com/results/sk/sk1000171",
+      "epss_warn": false
     },
     {
       "cve": "CVE-2026-94127",
@@ -51,7 +57,10 @@
         "https://my.f5.com/manage/s/article/K000162605",
         "https://www.cisa.gov/known-exploited-vulnerabilities-catalog?field_cve=CVE-2026-94127"
       ],
-      "desc_en": "When a BIG-IP APM access policy and an OAuth profile are configured on a virtual server, specific malicious traffic can lead to remote code execution (RCE). This vulnerability is only present when BIG-IP APM is configured as an OAuth Authorization Server. Deployments using APM strictly as an OAuth Client / Resource Server (without OAuth authorization server profiles configured) are not affected by this vulnerability.\n\nImpact:\nThis vulnerability allows an unauthenticated attacker to perform remote code execution. The BIG-IP system in Appliance mode is also vulnerable. This is a data plane issue"
+      "desc_en": "When a BIG-IP APM access policy and an OAuth profile are configured on a virtual server, specific malicious traffic can lead to remote code execution (RCE). This vulnerability is only present when BIG-IP APM is configured as an OAuth Authorization Server. Deployments using APM strictly as an OAuth Client / Resource Server (without OAuth authorization server profiles configured) are not affected by this vulnerability.\n\nImpact:\nThis vulnerability allows an unauthenticated attacker to perform remote code execution. The BIG-IP system in Appliance mode is also vulnerable. This is a data plane issue",
+      "affected_versions": "",
+      "patch_url": "https://my.f5.com/manage/s/article/K000162605",
+      "epss_warn": false
     },
     {
       "cve": "CVE-2026-80155",
@@ -70,7 +79,10 @@
         "https://ts.lantronix.com/ftp/slc8000/9.7.0.5R2/",
         "https://www.vulncheck.com/advisories/lantronix-autonomous-out-of-band-devices-unauthenticated-authentication-bypass-via-snprintf-path-truncation"
       ],
-      "desc_en": "Lantronix SLC8000 before firmware v9.7.0.5, EMG8500/EMG7500 before firmware v9.7.0.1, and all firmware versions of SLB882/SLCx-03/SLCx-02 contain an authentication bypass vulnerability in the web management portal upload endpoint that allows unauthenticated attackers to read sensitive configuration files and upload files to arbitrary filesystem locations, leading to remote code execution. The web configuration server constructs the session cookie file path using snprintf with a fixed-size buffer; by supplying a cookie value of a specific length an attacker causes the path to truncate at the re"
+      "desc_en": "Lantronix SLC8000 before firmware v9.7.0.5, EMG8500/EMG7500 before firmware v9.7.0.1, and all firmware versions of SLB882/SLCx-03/SLCx-02 contain an authentication bypass vulnerability in the web management portal upload endpoint that allows unauthenticated attackers to read sensitive configuration files and upload files to arbitrary filesystem locations, leading to remote code execution. The web configuration server constructs the session cookie file path using snprintf with a fixed-size buffer; by supplying a cookie value of a specific length an attacker causes the path to truncate at the re",
+      "affected_versions": "",
+      "patch_url": "https://revrb.net/2026/09/21/revrb-lantern.html",
+      "epss_warn": false
     },
     {
       "cve": "CVE-2026-73369",
@@ -85,7 +97,11 @@
       "refs": [
         "https://helpx.adobe.com/security/products/campaign/apsb26-142.html"
       ],
-      "desc_en": "Adobe Campaign Classic (ACC) is affected by an Improper Control of Generation of Code ('Code Injection') vulnerability that could result in arbitrary code execution in the context of the current user. An attacker could exploit this vulnerability to execute arbitrary code. Exploitation of this issue does not require user interaction. Scope is changed."
+      "desc_en": "Adobe Campaign Classic (ACC) is affected by an Improper Control of Generation of Code ('Code Injection') vulnerability that could result in arbitrary code execution in the context of the current user. An attacker could exploit this vulnerability to execute arbitrary code. Exploitation of this issue does not require user interaction. Scope is changed.",
+      "affected_versions": "",
+      "patch_url": "https://helpx.adobe.com/security/products/campaign/apsb26-142.html",
+      "epss_warn": false
     }
-  ]
+  ],
+  "brief_zh": "今日共5則高危（RCE4則、接管1則），無在野利用，優先看 VeloCloud VCO 權限接管。"
 }

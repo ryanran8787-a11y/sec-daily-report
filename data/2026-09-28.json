@@ -18,7 +18,10 @@
         "https://support.citrix.com/support-home/kbsearch/article?articleNumber=CTX697096",
         "https://www.cisa.gov/known-exploited-vulnerabilities-catalog?field_cve=CVE-2026-88771"
       ],
-      "desc_en": "Improper input validation vulnerability in Citrix NetScaler ADC and Citrix NetScaler Gateway.\n\nThis issue affects ADC: before 14.1-73.37, before 13.1-64.23, before 14.1-73.37 FIPS, and before 13.1.37.279 FIPS and NDcPP; Gateway: before 14.1-73.37 and before 13.1-64.23 leading to an unauthenticated attacker to execute arbitrary commands."
+      "desc_en": "Improper input validation vulnerability in Citrix NetScaler ADC and Citrix NetScaler Gateway.\n\nThis issue affects ADC: before 14.1-73.37, before 13.1-64.23, before 14.1-73.37 FIPS, and before 13.1.37.279 FIPS and NDcPP; Gateway: before 14.1-73.37 and before 13.1-64.23 leading to an unauthenticated attacker to execute arbitrary commands.",
+      "affected_versions": "14.1-73.37 之前",
+      "patch_url": "https://support.citrix.com/support-home/kbsearch/article?articleNumber=CTX697096",
+      "epss_warn": false
     },
     {
       "cve": "CVE-2026-88772",
@@ -34,7 +37,10 @@
         "https://support.citrix.com/support-home/kbsearch/article?articleNumber=CTX697096&articleTitle=Citrix_NetScaler_ADC_and_Citrix_NetScaler_Gateway_Security_Bulletin_for_CVE_2026_88771_CVE_2026_88772_CVE_2026_88773_CVE_2026_88774_CVE_2026_88775_CVE_2026_88776_CVE_2026_88777_and_CVE_2026_88778",
         "https://www.cisa.gov/known-exploited-vulnerabilities-catalog?field_cve=CVE-2026-88772"
       ],
-      "desc_en": "Vulnerability in Citrix NetScaler ADC and Citrix NetScaler Gateway.\n\nThis issue affects ADC: before 14.1-73.37, before 13.1-64.23, before 14.1-73.37 FIPS, and before 13.1.37.279 FIPS and NDcPP; Gateway: before 14.1-73.37 and before 13.1-64.23 leading to Remote Code Execution or Denial of Service"
+      "desc_en": "Vulnerability in Citrix NetScaler ADC and Citrix NetScaler Gateway.\n\nThis issue affects ADC: before 14.1-73.37, before 13.1-64.23, before 14.1-73.37 FIPS, and before 13.1.37.279 FIPS and NDcPP; Gateway: before 14.1-73.37 and before 13.1-64.23 leading to Remote Code Execution or Denial of Service",
+      "affected_versions": "14.1-73.37 之前",
+      "patch_url": "https://support.citrix.com/support-home/kbsearch/article?articleNumber=CTX697096&articleTitle=Citrix_NetScaler_ADC_and_Citrix_NetScaler_Gateway_Security_Bulletin_for_CVE_2026_88771_CVE_2026_88772_CVE_2026_88773_CVE_2026_88774_CVE_2026_88775_CVE_2026_88776_CVE_2026_88777_and_CVE_2026_88778",
+      "epss_warn": false
     },
     {
       "cve": "CVE-2026-100886",
@@ -53,7 +59,10 @@
         "https://vuldb.com/vuln/410835",
         "https://vuldb.com/vuln/410835/cti"
       ],
-      "desc_en": "A vulnerability was identified in Seetong T8108, T8108P, T8116 and T8232 4.6.1.4-build202604241011. The affected element is an unknown function of the component Debug Service. Such manipulation leads to improper authentication. The attack may be launched remotely. The exploit is publicly available and might be used. The vendor was contacted early about this disclosure but did not respond in any way."
+      "desc_en": "A vulnerability was identified in Seetong T8108, T8108P, T8116 and T8232 4.6.1.4-build202604241011. The affected element is an unknown function of the component Debug Service. Such manipulation leads to improper authentication. The attack may be launched remotely. The exploit is publicly available and might be used. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "affected_versions": "",
+      "patch_url": "https://github.com/heapframe/seetong-ts81xxd3x-rce",
+      "epss_warn": false
     },
     {
       "cve": "CVE-2026-100896",
@@ -72,7 +81,10 @@
         "https://vuldb.com/vuln/410846",
         "https://vuldb.com/vuln/410846/cti"
       ],
-      "desc_en": "A weakness has been identified in TOTOLINK N150RT 3.4.0-B20201030. The affected element is the function system of the file /boafrm/formWlSiteSurvey of the component Web Management Interface. This manipulation of the argument wlanif causes os command injection. Remote exploitation of the attack is possible. The exploit has been made available to the public and could be used for attacks."
+      "desc_en": "A weakness has been identified in TOTOLINK N150RT 3.4.0-B20201030. The affected element is the function system of the file /boafrm/formWlSiteSurvey of the component Web Management Interface. This manipulation of the argument wlanif causes os command injection. Remote exploitation of the attack is possible. The exploit has been made available to the public and could be used for attacks.",
+      "affected_versions": "",
+      "patch_url": "https://gist.github.com/H3rmesk1t/c071a62375f38b629f67653428a8f25a",
+      "epss_warn": false
     },
     {
       "cve": "CVE-2026-100741",
@@ -88,7 +100,11 @@
         "https://gitlab.com/Progressiverobot/hmailserver/-/commit/5a3de9001d6c5e833662ada8e44ce10d42d76b1a",
         "https://gitlab.com/Progressiverobot/hmailserver/-/releases/v6.3.4"
       ],
-      "desc_en": "Eval injection in the JScript event-script dispatcher in Progressive Robot Ltd's hMailServer, versions 6.0.0 through 6.3.3 on Windows, allows a remote, unauthenticated attacker to run arbitrary JScript inside the hMailServer service process, with the privileges of the service account, via a password containing a backslash followed by an apostrophe, sent in any logon (SMTP AUTH, POP3, IMAP) that names an existing, active account. Exploitation requires a non-default configuration: event scripting enabled (off by default), the script language set to JScript (the default is VBScript), and an OnCli"
+      "desc_en": "Eval injection in the JScript event-script dispatcher in Progressive Robot Ltd's hMailServer, versions 6.0.0 through 6.3.3 on Windows, allows a remote, unauthenticated attacker to run arbitrary JScript inside the hMailServer service process, with the privileges of the service account, via a password containing a backslash followed by an apostrophe, sent in any logon (SMTP AUTH, POP3, IMAP) that names an existing, active account. Exploitation requires a non-default configuration: event scripting enabled (off by default), the script language set to JScript (the default is VBScript), and an OnCli",
+      "affected_versions": "6.3.3 及更早",
+      "patch_url": "https://gitlab.com/Progressiverobot/hmailserver/-/commit/5a3de9001d6c5e833662ada8e44ce10d42d76b1a",
+      "epss_warn": false
     }
-  ]
+  ],
+  "brief_zh": "今日共5則高危（RCE3則、未授權存取2則），無在野利用，優先看 Seetong 設備身份驗證繞過。"
 }

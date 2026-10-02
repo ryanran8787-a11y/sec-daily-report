@@ -44,6 +44,11 @@ a:hover{text-decoration:underline}
 h1{margin:0;font-size:40px;font-weight:700;letter-spacing:-.04em;line-height:1.1}
 h1 .grad{background:linear-gradient(180deg,var(--grad-from),var(--grad-to));-webkit-background-clip:text;background-clip:text;color:transparent}
 .lede{margin:12px 0 0;color:var(--gray-900);font-size:15px;max-width:640px}
+.brief{margin:20px 0 0;border:1px solid var(--border);border-left:3px solid var(--amber);border-radius:var(--radius-sm);background:var(--bg-2);padding:12px 16px;font-size:13px;color:var(--gray-1000)}
+.brief span{color:var(--gray-900);font-size:11px;display:block;margin-bottom:2px;letter-spacing:.06em}
+.bucket{margin:28px 0 0}
+.bucket>h3{font-size:13px;font-weight:600;margin:0 0 10px;display:flex;align-items:center;gap:8px}
+.bucket>h3 .cnt{font-size:11px;color:var(--gray-900);font-weight:400}
 .stats{display:flex;gap:0;margin:28px 0;border:1px solid var(--border);border-radius:var(--radius);overflow:hidden}
 .stat{flex:1;padding:16px 20px;background:var(--bg-2)}
 .stat+.stat{border-left:1px solid var(--border)}
@@ -99,8 +104,9 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
 <div class="wrap">
 <div class="hero">
   <div class="eyebrow">NVD + CISA KEV + EPSS ・ 每天 08:00（台北）自動更新</div>
-  <h1><span class="grad">今日高危漏洞</span></h1>
-  <p class="lede">僅收錄 CVSS ≥ 9.0 或在野利用項目。點擊任一條目展開完整描述與修補建議。</p>
+  <h1><span class="grad">存檔回顧 2026-09-11</span></h1>
+  <p class="lede">僅收錄 CVSS ≥ 9.0、在野利用或 EPSS 利用預警項目。點擊任一條目展開完整描述與修補建議。</p>
+  <div class="brief"><span>AI 總評</span>今日共5則高危（RCE2則、未授權存取1則），無在野利用，優先看 teddy-bear-customize-addon RCE CVE-2026-14560 10.0。</div>
 </div>
 
 <div class="stats">
@@ -116,7 +122,16 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
 </div>
 
 
-<div class="list" id="grid">
+
+
+
+
+
+
+<div id="grid">
+
+<div class="bucket"><h3>▲ 高危關注 <span class="cnt">5 則・EPSS 預警或 CVSS ≥ 9.5</span></h3>
+<div class="list">
 
   <div class="row" data-wild="0" onclick="if(event.target.tagName!=='A')this.classList.toggle('open')">
     <div class="row-head">
@@ -128,8 +143,8 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
       <span class="chev">▾</span>
     </div>
     <div class="row-sum">The teddy-bear-customize-addon WordPress plugin through 1.0.5 does not properly validate uploaded files, relying on a cl…</div>
-    <div class="row-foot"><span>CVE-2026-14560</span><span>teddy-bear-customize-addon</span>
-      <a href="https://wpscan.com/vulnerability/aba51906-91dc-4e75-ad44-373fe128deee/" target="_blank">參考連結 ↗</a>
+    <div class="row-foot"><span>CVE-2026-14560</span><span>teddy-bear-customize-addon 1.0.5 及更早</span>
+      <a href="https://wpscan.com/vulnerability/aba51906-91dc-4e75-ad44-373fe128deee/" target="_blank">官方補丁 ↗</a>
     </div>
     <div class="detail">
       <div class="en">The teddy-bear-customize-addon WordPress plugin through 1.0.5 does not properly validate uploaded files, relying on a client-supplied content type and preserving the original filename, allowing unauthenticated attackers to upload arbitrary PHP files and execute code on the server.</div>
@@ -149,7 +164,7 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
     </div>
     <div class="row-sum">A vulnerability in the Chef Automate API gateway and identity validation path may allow an unauthenticated actor to gain…</div>
     <div class="row-foot"><span>CVE-2026-80462</span><span>待確認產品</span>
-      <a href="https://community.progress.com/s/article/Critical-Security-Bulletin---August-2026---Chef-Automate-Security-Vulnerability" target="_blank">參考連結 ↗</a>
+      <a href="https://community.progress.com/s/article/Critical-Security-Bulletin---August-2026---Chef-Automate-Security-Vulnerability" target="_blank">官方補丁 ↗</a>
     </div>
     <div class="detail">
       <div class="en">A vulnerability in the Chef Automate API gateway and identity validation path may allow an unauthenticated actor to gain elevated access to protected Chef Automate functionality under specific conditions.</div>
@@ -168,8 +183,8 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
       <span class="chev">▾</span>
     </div>
     <div class="row-sum">Forgejo before 16.0.4 allows remote code execution via a crafted template repository because template expansion on files…</div>
-    <div class="row-foot"><span>CVE-2026-89094</span><span>Forgejo</span>
-      <a href="https://codeberg.org/forgejo/forgejo/milestone/139655" target="_blank">參考連結 ↗</a>
+    <div class="row-foot"><span>CVE-2026-89094</span><span>Forgejo 16.0.4 之前</span>
+      <a href="https://codeberg.org/forgejo/forgejo/milestone/139655" target="_blank">官方補丁 ↗</a>
     </div>
     <div class="detail">
       <div class="en">Forgejo before 16.0.4 allows remote code execution via a crafted template repository because template expansion on files in .forgejo/template is mishandled.</div>
@@ -189,7 +204,7 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
     </div>
     <div class="row-sum">Path traversal in Plesk&#39;s Backup Manager causes arbitrary file write as root by an authenticated customer.…</div>
     <div class="row-foot"><span>CVE-2026-68487</span><span>待確認產品</span>
-      <a href="https://support.plesk.com/hc/en-us/articles/43248841638551-Vulnerability-in-Plesk-s-Backup-Manager-unsigned-backup-header-allows-path-traversal" target="_blank">參考連結 ↗</a>
+      <a href="https://support.plesk.com/hc/en-us/articles/43248841638551-Vulnerability-in-Plesk-s-Backup-Manager-unsigned-backup-header-allows-path-traversal" target="_blank">官方補丁 ↗</a>
     </div>
     <div class="detail">
       <div class="en">Path traversal in Plesk&#39;s Backup Manager causes arbitrary file write as root by an authenticated customer.</div>
@@ -208,8 +223,8 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
       <span class="chev">▾</span>
     </div>
     <div class="row-sum">A server-side request forgery issue due to improper validation of equivalent address representations in the port forward…</div>
-    <div class="row-foot"><span>CVE-2026-89049</span><span>待確認產品</span>
-      <a href="https://aws.amazon.com/security/security-bulletins/2026-107-aws/" target="_blank">參考連結 ↗</a>
+    <div class="row-foot"><span>CVE-2026-89049</span><span>待確認產品 3.3.4851.0 之前</span>
+      <a href="https://aws.amazon.com/security/security-bulletins/2026-107-aws/" target="_blank">官方補丁 ↗</a>
     </div>
     <div class="detail">
       <div class="en">A server-side request forgery issue due to improper validation of equivalent address representations in the port forwarding to remote hosts functionality in Amazon AWS Systems Manager Agent (SSM Agent) before 3.3.4851.0 on all platforms might allow an authenticated remote user to bypass the remote destination denylist and reach link-local endpoints, potentially obtaining the temporary IAM role credentials of a managed instance and acting with that role&#39;s permissions from outside the instance, via a crafted destination host value that uses an alternate representation of a denied link-local addr</div>
@@ -219,11 +234,56 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
   </div>
 
 </div>
+</div>
+
+</div>
 
 
 <div class="hist">
   <h3>Archive / 歷史存檔</h3>
   <div class="hist-grid">
+    
+    <a class="hcard" href="2026-10-02.html"><div class="d">2026-10-02</div><div class="c">5 則・gemini</div></a>
+    
+    <a class="hcard" href="2026-10-01.html"><div class="d">2026-10-01</div><div class="c">5 則・gemini</div></a>
+    
+    <a class="hcard" href="2026-09-30.html"><div class="d">2026-09-30</div><div class="c">5 則・gemini</div></a>
+    
+    <a class="hcard" href="2026-09-29.html"><div class="d">2026-09-29</div><div class="c">5 則・gemini</div></a>
+    
+    <a class="hcard" href="2026-09-28.html"><div class="d">2026-09-28</div><div class="c">5 則・gemini</div></a>
+    
+    <a class="hcard" href="2026-09-27.html"><div class="d">2026-09-27</div><div class="c">5 則・gemini</div></a>
+    
+    <a class="hcard" href="2026-09-26.html"><div class="d">2026-09-26</div><div class="c">5 則・gemini</div></a>
+    
+    <a class="hcard" href="2026-09-25.html"><div class="d">2026-09-25</div><div class="c">5 則・gemini</div></a>
+    
+    <a class="hcard" href="2026-09-24.html"><div class="d">2026-09-24</div><div class="c">5 則・gemini</div></a>
+    
+    <a class="hcard" href="2026-09-23.html"><div class="d">2026-09-23</div><div class="c">5 則・gemini</div></a>
+    
+    <a class="hcard" href="2026-09-22.html"><div class="d">2026-09-22</div><div class="c">5 則・gemini</div></a>
+    
+    <a class="hcard" href="2026-09-21.html"><div class="d">2026-09-21</div><div class="c">5 則・gemini</div></a>
+    
+    <a class="hcard" href="2026-09-20.html"><div class="d">2026-09-20</div><div class="c">5 則・gemini</div></a>
+    
+    <a class="hcard" href="2026-09-19.html"><div class="d">2026-09-19</div><div class="c">5 則・gemini</div></a>
+    
+    <a class="hcard" href="2026-09-18.html"><div class="d">2026-09-18</div><div class="c">5 則・gemini</div></a>
+    
+    <a class="hcard" href="2026-09-17.html"><div class="d">2026-09-17</div><div class="c">5 則・gemini</div></a>
+    
+    <a class="hcard" href="2026-09-16.html"><div class="d">2026-09-16</div><div class="c">5 則・gemini</div></a>
+    
+    <a class="hcard" href="2026-09-15.html"><div class="d">2026-09-15</div><div class="c">5 則・gemini</div></a>
+    
+    <a class="hcard" href="2026-09-14.html"><div class="d">2026-09-14</div><div class="c">5 則・gemini</div></a>
+    
+    <a class="hcard" href="2026-09-13.html"><div class="d">2026-09-13</div><div class="c">5 則・gemini</div></a>
+    
+    <a class="hcard" href="2026-09-12.html"><div class="d">2026-09-12</div><div class="c">5 則・gemini</div></a>
     
     <a class="hcard" href="2026-09-11.html"><div class="d">2026-09-11</div><div class="c">5 則・fallback</div></a>
     

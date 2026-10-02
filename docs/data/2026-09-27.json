@@ -17,7 +17,10 @@
       "refs": [
         "https://up.lomart.fr/"
       ],
-      "desc_en": "Joomla Extension - lomart.fr - Unauthenticated remote code installation in UP plugin extension 5.0.0-5.2.0, 6.0.0-6.0.29"
+      "desc_en": "Joomla Extension - lomart.fr - Unauthenticated remote code installation in UP plugin extension 5.0.0-5.2.0, 6.0.0-6.0.29",
+      "affected_versions": "",
+      "patch_url": "https://up.lomart.fr/",
+      "epss_warn": false
     },
     {
       "cve": "CVE-2026-100706",
@@ -33,7 +36,10 @@
         "https://github.com/kyverno/kyverno/security/advisories/GHSA-5qq8-67g6-4h2w",
         "https://www.vulncheck.com/advisories/kyverno-before-1.19.1-privilege-escalation-via-policy-apicall-urlpath"
       ],
-      "desc_en": "kyverno before 1.19.1 fails to properly validate URL-encoded path segments in Policy apiCall urlPath, allowing namespace tenants to bypass the per-namespace clamp and create objects in other namespaces as the admission-controller ServiceAccount. Attackers can exploit this by using percent-encoded directory traversal sequences to create MutatingWebhookConfiguration objects cluster-wide or PolicyException objects in the kyverno namespace, enabling privilege escalation to cluster admin."
+      "desc_en": "kyverno before 1.19.1 fails to properly validate URL-encoded path segments in Policy apiCall urlPath, allowing namespace tenants to bypass the per-namespace clamp and create objects in other namespaces as the admission-controller ServiceAccount. Attackers can exploit this by using percent-encoded directory traversal sequences to create MutatingWebhookConfiguration objects cluster-wide or PolicyException objects in the kyverno namespace, enabling privilege escalation to cluster admin.",
+      "affected_versions": "1.19.1 之前",
+      "patch_url": "https://github.com/kyverno/kyverno/security/advisories/GHSA-5qq8-67g6-4h2w",
+      "epss_warn": false
     },
     {
       "cve": "CVE-2026-100716",
@@ -49,7 +55,10 @@
         "https://github.com/froxlor/froxlor/security/advisories/GHSA-2wjc-6mgx-hq42",
         "https://www.vulncheck.com/advisories/froxlor-before-2.3.12-privilege-escalation-via-symlink"
       ],
-      "desc_en": "Froxlor is a server administration panel. In versions 2.3.10 and earlier, the customer data-export (DataDump) cron fails to validate intermediate path components of the export destination: Froxlor\\FileDir::makeCorrectDir() contains an off-by-one in its path-component walk that skips the first segment below the customer home directory, and the guard in ExportCron.php checks only the final component with is_link(). An authenticated customer whose account has the export feature enabled can schedule an export into a genuine subdirectory of their own webspace, then replace an intermediate path comp"
+      "desc_en": "Froxlor is a server administration panel. In versions 2.3.10 and earlier, the customer data-export (DataDump) cron fails to validate intermediate path components of the export destination: Froxlor\\FileDir::makeCorrectDir() contains an off-by-one in its path-component walk that skips the first segment below the customer home directory, and the guard in ExportCron.php checks only the final component with is_link(). An authenticated customer whose account has the export feature enabled can schedule an export into a genuine subdirectory of their own webspace, then replace an intermediate path comp",
+      "affected_versions": "",
+      "patch_url": "https://github.com/froxlor/froxlor/security/advisories/GHSA-2wjc-6mgx-hq42",
+      "epss_warn": false
     },
     {
       "cve": "CVE-2026-100717",
@@ -65,7 +74,10 @@
         "https://github.com/froxlor/froxlor/security/advisories/GHSA-gxx3-hwjc-h2gp",
         "https://www.vulncheck.com/advisories/froxlor-before-2.3.12-crlf-injection-via-validateurl-userinfo"
       ],
-      "desc_en": "froxlor is a server administration panel. In versions 2.3.10 and earlier, Validate::validateUrl rejects carriage return and line feed characters only in the path, query and fragment components returned by parse_url, and never inspects the userinfo (user:pass@) components. This is an incomplete fix for GHSA-c3p2. An authenticated low-privilege customer with subdomain-create rights (no admin or change_serversettings privilege required) can supply a subdomain redirect URL that carries a CR/LF payload in the userinfo portion (e.g. http://user%0areturn 200 \"pwned\";%0a@evil.com/). The value passes v"
+      "desc_en": "froxlor is a server administration panel. In versions 2.3.10 and earlier, Validate::validateUrl rejects carriage return and line feed characters only in the path, query and fragment components returned by parse_url, and never inspects the userinfo (user:pass@) components. This is an incomplete fix for GHSA-c3p2. An authenticated low-privilege customer with subdomain-create rights (no admin or change_serversettings privilege required) can supply a subdomain redirect URL that carries a CR/LF payload in the userinfo portion (e.g. http://user%0areturn 200 \"pwned\";%0a@evil.com/). The value passes v",
+      "affected_versions": "",
+      "patch_url": "https://github.com/froxlor/froxlor/security/advisories/GHSA-gxx3-hwjc-h2gp",
+      "epss_warn": false
     },
     {
       "cve": "CVE-2026-100740",
@@ -84,7 +96,11 @@
         "https://vuldb.com/vuln/410614",
         "https://vuldb.com/vuln/410614/cti"
       ],
-      "desc_en": "A vulnerability was detected in D-Link DIR-895L A1_102b07. Impacted is the function tunnel_set_params of the file tunnel.c of the component L2TP Control Channel Parser. Performing a manipulation results in out-of-bounds write. The attack may be initiated remotely. The exploit is now public and may be used."
+      "desc_en": "A vulnerability was detected in D-Link DIR-895L A1_102b07. Impacted is the function tunnel_set_params of the file tunnel.c of the component L2TP Control Channel Parser. Performing a manipulation results in out-of-bounds write. The attack may be initiated remotely. The exploit is now public and may be used.",
+      "affected_versions": "",
+      "patch_url": "https://tzh00203.notion.site/D-Link-DIR-895L-L2TP-Host-Name-AVP-Out-of-Bounds-Write-33cb5c52018a8061b139cacc39d58fff",
+      "epss_warn": false
     }
-  ]
+  ],
+  "brief_zh": "今日共5則高危（RCE2則、權限提升2則），無在野利用，優先看 Joomla UP 插件 RCE。"
 }

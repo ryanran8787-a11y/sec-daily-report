@@ -20,7 +20,10 @@
         "https://github.com/JiHong88/suneditor/releases/tag/2.47.11",
         "https://github.com/JiHong88/suneditor/security/advisories/GHSA-6rf4-v2fh-m6p4"
       ],
-      "desc_en": "SunEditor is a lightweight and powerful WYSIWYG editor in vanilla JavaScript with no dependencies. Prior to 2.47.11, the sanitizer in src/lib/core.js does not consistently reject namespaced or custom HTML elements, allowing event-handler attributes to remain on crafted elements. When an application renders attacker-controlled editor content and a user interacts with the element, the retained handler can execute script in the application's browser origin, enabling stored cross-site scripting, data exposure, or unauthorized browser-context actions. This issue is fixed in version 2.47.11."
+      "desc_en": "SunEditor is a lightweight and powerful WYSIWYG editor in vanilla JavaScript with no dependencies. Prior to 2.47.11, the sanitizer in src/lib/core.js does not consistently reject namespaced or custom HTML elements, allowing event-handler attributes to remain on crafted elements. When an application renders attacker-controlled editor content and a user interacts with the element, the retained handler can execute script in the application's browser origin, enabling stored cross-site scripting, data exposure, or unauthorized browser-context actions. This issue is fixed in version 2.47.11.",
+      "affected_versions": "2.47.11 之前",
+      "patch_url": "https://github.com/JiHong88/suneditor/commit/a94ace269c7102bfb6de58a27a6547bc4eb09045",
+      "epss_warn": false
     },
     {
       "cve": "CVE-2026-86708",
@@ -35,7 +38,10 @@
       "refs": [
         "https://www.manageengine.com/products/applications_manager/security-updates/security-updates-cve-2026-86708.html"
       ],
-      "desc_en": "ZohoCorp ManageEngine Applications Manager versions 182200 and below were vulnerable to exposure of a Google Cloud service-account private key in the Applications Manager installer, which could allow an unauthenticated attacker to impersonate the service account and access or modify associated cloud resources."
+      "desc_en": "ZohoCorp ManageEngine Applications Manager versions 182200 and below were vulnerable to exposure of a Google Cloud service-account private key in the Applications Manager installer, which could allow an unauthenticated attacker to impersonate the service account and access or modify associated cloud resources.",
+      "affected_versions": "",
+      "patch_url": "https://www.manageengine.com/products/applications_manager/security-updates/security-updates-cve-2026-86708.html",
+      "epss_warn": false
     },
     {
       "cve": "CVE-2026-96891",
@@ -54,7 +60,10 @@
         "https://vuldb.com/vuln/409134",
         "https://vuldb.com/vuln/409134/cti"
       ],
-      "desc_en": "A vulnerability was identified in D-Link DIR-825 3.00b32. Affected is the function tunnel_set_params of the file tunnel.c of the component rp-l2tp. The manipulation of the argument peer_hostname  leads to out-of-bounds write. The attack may be initiated remotely."
+      "desc_en": "A vulnerability was identified in D-Link DIR-825 3.00b32. Affected is the function tunnel_set_params of the file tunnel.c of the component rp-l2tp. The manipulation of the argument peer_hostname  leads to out-of-bounds write. The attack may be initiated remotely.",
+      "affected_versions": "",
+      "patch_url": "https://tzh00203.notion.site/D-Link-DIR-825-L2TP-Host-Name-AVP-Out-of-Bounds-Write-33cb5c52018a80458ffec58b62096940",
+      "epss_warn": false
     },
     {
       "cve": "CVE-2026-19599",
@@ -69,7 +78,10 @@
       "refs": [
         "https://www.manageengine.com/itom/advisory/cve-2026-19599.html"
       ],
-      "desc_en": "ZohoCorp ManageEngine OpManager MSP versions 12.8.709 and below were vulnerable to a Remote Code Execution vulnerability in the Notification Profile module."
+      "desc_en": "ZohoCorp ManageEngine OpManager MSP versions 12.8.709 and below were vulnerable to a Remote Code Execution vulnerability in the Notification Profile module.",
+      "affected_versions": "",
+      "patch_url": "https://www.manageengine.com/itom/advisory/cve-2026-19599.html",
+      "epss_warn": false
     },
     {
       "cve": "CVE-2026-77602",
@@ -87,7 +99,11 @@
         "https://github.com/OpenC3/cosmos/pull/3488",
         "https://github.com/OpenC3/cosmos/security/advisories/GHSA-jjq7-m736-w977"
       ],
-      "desc_en": "OpenC3 COSMOS provides the functionality needed to send commands to and receive data from one or more embedded systems. From 5.1.0 until 7.3.0, authenticated non-administrator users can write content under targets_modified/ that is later executed by multiple configuration paths below the intended code-execution privilege tier. Table and command or telemetry definitions are processed through ConfigParser, PacketConfig, GENERIC_READ_CONVERSION, or GENERIC_WRITE_CONVERSION, allowing ERB rendering or Ruby and Python evaluation, while openc3-cosmos-script-runner-api/scripts/run_suite_analysis.rb ex"
+      "desc_en": "OpenC3 COSMOS provides the functionality needed to send commands to and receive data from one or more embedded systems. From 5.1.0 until 7.3.0, authenticated non-administrator users can write content under targets_modified/ that is later executed by multiple configuration paths below the intended code-execution privilege tier. Table and command or telemetry definitions are processed through ConfigParser, PacketConfig, GENERIC_READ_CONVERSION, or GENERIC_WRITE_CONVERSION, allowing ERB rendering or Ruby and Python evaluation, while openc3-cosmos-script-runner-api/scripts/run_suite_analysis.rb ex",
+      "affected_versions": "",
+      "patch_url": "https://github.com/OpenC3/cosmos/commit/71943352a28128ef3e7e894319d97a656b5cd4f2",
+      "epss_warn": false
     }
-  ]
+  ],
+  "brief_zh": "今日共5則高危（RCE3則、XSS1則），無在野利用，優先看 SunEditor XSS 漏洞。"
 }

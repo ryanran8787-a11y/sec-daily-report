@@ -4,12 +4,159 @@
 <link>https://ryanran8787-a11y.github.io/sec-daily-report/</link>
 <description>CVSS ≥ 9.0 或在野利用的高危漏洞日報</description>
 <language>zh-tw</language>
-<lastBuildDate>Fri, 02 Oct 2026 09:28:45 GMT</lastBuildDate>
+<lastBuildDate>Fri, 02 Oct 2026 09:54:42 GMT</lastBuildDate>
+<item>
+<title>2026-10-02 高危 5 則</title>
+<link>https://ryanran8787-a11y.github.io/sec-daily-report/2026-10-02.html</link>
+<guid>https://ryanran8787-a11y.github.io/sec-daily-report/2026-10-02.html</guid>
+<pubDate>2026-10-02T04:36:08.692214+00:00</pubDate>
+<description><![CDATA[<ul><li>Fortinet FortiMail 任意檔案寫入 (CVSS 9.8)</li><li>BackupSheep 插件接管漏洞 (CVSS 10.0)</li><li>Teledyne FLIR 資訊洩漏漏洞 (CVSS 10.0)</li><li>Fortra BoKS 密碼預測漏洞 (CVSS 9.9)</li><li>Foreman 模板引擎 RCE 漏洞 (CVSS 9.9)</li></ul>]]></description>
+</item>
+<item>
+<title>2026-10-01 高危 5 則</title>
+<link>https://ryanran8787-a11y.github.io/sec-daily-report/2026-10-01.html</link>
+<guid>https://ryanran8787-a11y.github.io/sec-daily-report/2026-10-01.html</guid>
+<pubDate>2026-10-01T04:44:12.660054+00:00</pubDate>
+<description><![CDATA[<ul><li>Cisco SD-WAN 權限繞過 (CVSS 9.8)</li><li>SiteSkite RCE 漏洞 (CVSS 10.0)</li><li>JCTables SQL 注入漏洞 (CVSS 10.0)</li><li>OrdaSoft CCK RCE 漏洞 (CVSS 10.0)</li><li>Kobako 沙箱逃逸漏洞 (CVSS 10.0)</li></ul>]]></description>
+</item>
+<item>
+<title>2026-09-30 高危 5 則</title>
+<link>https://ryanran8787-a11y.github.io/sec-daily-report/2026-09-30.html</link>
+<guid>https://ryanran8787-a11y.github.io/sec-daily-report/2026-09-30.html</guid>
+<pubDate>2026-09-30T04:33:02.205084+00:00</pubDate>
+<description><![CDATA[<ul><li>Dockhand 容器逃逸漏洞 (CVSS 10.0)</li><li>Viidure 硬編碼憑證漏洞 (CVSS 10.0)</li><li>資料庫匯出未授權存取 (CVSS 10.0)</li><li>GEOVIA GDM 遠端代碼執行 (CVSS 9.9)</li><li>pi-llm-wiki 遠端代碼執行 (CVSS 9.9)</li></ul>]]></description>
+</item>
+<item>
+<title>2026-09-29 高危 5 則</title>
+<link>https://ryanran8787-a11y.github.io/sec-daily-report/2026-09-29.html</link>
+<guid>https://ryanran8787-a11y.github.io/sec-daily-report/2026-09-29.html</guid>
+<pubDate>2026-09-29T04:49:17.248936+00:00</pubDate>
+<description><![CDATA[<ul><li>Netcore NBR100V2 未授權存取 (CVSS 10.0)</li><li>Netcore NBR200V2 RCE 漏洞 (CVSS 10.0)</li><li>FAST FAC1900R 緩衝區溢位 (CVSS 10.0)</li><li>Netcore NR289-GE RCE 漏洞 (CVSS 10.0)</li><li>Netcore NR289-GE 緩衝區溢位 (CVSS 10.0)</li></ul>]]></description>
+</item>
+<item>
+<title>2026-09-28 高危 5 則</title>
+<link>https://ryanran8787-a11y.github.io/sec-daily-report/2026-09-28.html</link>
+<guid>https://ryanran8787-a11y.github.io/sec-daily-report/2026-09-28.html</guid>
+<pubDate>2026-09-28T04:16:06.880826+00:00</pubDate>
+<description><![CDATA[<ul><li>Citrix NetScaler 未授權指令執行 (CVSS 9.5)</li><li>Citrix NetScaler RCE 與 DoS (CVSS 9.5)</li><li>Seetong 設備身份驗證繞過 (CVSS 10.0)</li><li>TOTOLINK 路由器指令注入 (CVSS 9.9)</li><li>hMailServer JScript 注入 (CVSS 9.8)</li></ul>]]></description>
+</item>
+<item>
+<title>2026-09-27 高危 5 則</title>
+<link>https://ryanran8787-a11y.github.io/sec-daily-report/2026-09-27.html</link>
+<guid>https://ryanran8787-a11y.github.io/sec-daily-report/2026-09-27.html</guid>
+<pubDate>2026-09-27T04:14:07.424849+00:00</pubDate>
+<description><![CDATA[<ul><li>Joomla UP 插件 RCE (CVSS 10.0)</li><li>Kyverno 權限提升漏洞 (CVSS 9.9)</li><li>Froxlor 權限提升漏洞 (CVSS 9.9)</li><li>Froxlor 配置注入漏洞 (CVSS 9.9)</li><li>D-Link DIR-895L RCE (CVSS 9.9)</li></ul>]]></description>
+</item>
+<item>
+<title>2026-09-26 高危 5 則</title>
+<link>https://ryanran8787-a11y.github.io/sec-daily-report/2026-09-26.html</link>
+<guid>https://ryanran8787-a11y.github.io/sec-daily-report/2026-09-26.html</guid>
+<pubDate>2026-09-26T04:01:38.283452+00:00</pubDate>
+<description><![CDATA[<ul><li>Mediawiki 擴充 RCE (CVSS 10.0)</li><li>WP Automation 外掛權限提升 (CVSS 9.8)</li><li>Apache Qpid 會話固定漏洞 (CVSS 9.8)</li><li>Linux 核心 RDMA 漏洞 (CVSS 9.8)</li><li>Zimbra 協作平台 RCE (CVSS 9.8)</li></ul>]]></description>
+</item>
+<item>
+<title>2026-09-25 高危 5 則</title>
+<link>https://ryanran8787-a11y.github.io/sec-daily-report/2026-09-25.html</link>
+<guid>https://ryanran8787-a11y.github.io/sec-daily-report/2026-09-25.html</guid>
+<pubDate>2026-09-25T03:56:42.154640+00:00</pubDate>
+<description><![CDATA[<ul><li>HFS2 模板注入 RCE (CVSS 10.0)</li><li>HFS2 未授權檔案存取 (CVSS 10.0)</li><li>Decepticon LLM 提示注入 (CVSS 10.0)</li><li>Velociraptor 權限提升 (CVSS 9.9)</li><li>Dokploy 指令注入 RCE (CVSS 9.9)</li></ul>]]></description>
+</item>
+<item>
+<title>2026-09-24 高危 5 則</title>
+<link>https://ryanran8787-a11y.github.io/sec-daily-report/2026-09-24.html</link>
+<guid>https://ryanran8787-a11y.github.io/sec-daily-report/2026-09-24.html</guid>
+<pubDate>2026-09-24T03:40:30.369955+00:00</pubDate>
+<description><![CDATA[<ul><li>SunEditor XSS 漏洞 (CVSS 10.0)</li><li>ManageEngine 資訊洩漏 (CVSS 10.0)</li><li>D-Link DIR-825 RCE 漏洞 (CVSS 10.0)</li><li>ManageEngine RCE 漏洞 (CVSS 9.9)</li><li>OpenC3 COSMOS RCE 漏洞 (CVSS 9.9)</li></ul>]]></description>
+</item>
+<item>
+<title>2026-09-23 高危 5 則</title>
+<link>https://ryanran8787-a11y.github.io/sec-daily-report/2026-09-23.html</link>
+<guid>https://ryanran8787-a11y.github.io/sec-daily-report/2026-09-23.html</guid>
+<pubDate>2026-09-23T03:48:49.219139+00:00</pubDate>
+<description><![CDATA[<ul><li>VeloCloud VCO 權限接管 (CVSS 10.0)</li><li>Check Point 管理伺服器 RCE (CVSS 9.8)</li><li>F5 BIG-IP APM 遠端代碼執行 (CVSS 9.8)</li><li>Lantronix 設備驗證繞過 RCE (CVSS 10.0)</li><li>Adobe Campaign Classic RCE (CVSS 10.0)</li></ul>]]></description>
+</item>
+<item>
+<title>2026-09-22 高危 5 則</title>
+<link>https://ryanran8787-a11y.github.io/sec-daily-report/2026-09-22.html</link>
+<guid>https://ryanran8787-a11y.github.io/sec-daily-report/2026-09-22.html</guid>
+<pubDate>2026-09-22T03:50:05.004044+00:00</pubDate>
+<description><![CDATA[<ul><li>MaxKB AI 助手 RCE (CVSS 10.0)</li><li>Gigatech 設備未授權存取 (CVSS 10.0)</li><li>Ajenti 管理面板權限提升 (CVSS 9.9)</li><li>WP 插件任意檔案上傳 RCE (CVSS 9.8)</li><li>Apache MINA 反序列化 RCE (CVSS 9.8)</li></ul>]]></description>
+</item>
+<item>
+<title>2026-09-21 高危 5 則</title>
+<link>https://ryanran8787-a11y.github.io/sec-daily-report/2026-09-21.html</link>
+<guid>https://ryanran8787-a11y.github.io/sec-daily-report/2026-09-21.html</guid>
+<pubDate>2026-09-21T03:53:03.101081+00:00</pubDate>
+<description><![CDATA[<ul><li>Comfast 管理介面溢位 (CVSS 10.0)</li><li>D-Link 路由器溢位漏洞 (CVSS 10.0)</li><li>Netcore 診斷端點 RCE (CVSS 10.0)</li><li>Netcore 網路診斷 RCE (CVSS 9.9)</li><li>Netcore IP 配置 RCE (CVSS 9.9)</li></ul>]]></description>
+</item>
+<item>
+<title>2026-09-20 高危 5 則</title>
+<link>https://ryanran8787-a11y.github.io/sec-daily-report/2026-09-20.html</link>
+<guid>https://ryanran8787-a11y.github.io/sec-daily-report/2026-09-20.html</guid>
+<pubDate>2026-09-20T03:55:31.283670+00:00</pubDate>
+<description><![CDATA[<ul><li>Totolink A3002MU 緩衝區溢位 (CVSS 10.0)</li><li>Totolink A3002MU RCE 漏洞 (CVSS 9.9)</li><li>OpenPanel 沙箱逃逸漏洞 (CVSS 9.9)</li><li>Botiga Pro 外掛權限提升 (CVSS 9.8)</li><li>Perl DBI 模組載入漏洞 (CVSS 9.8)</li></ul>]]></description>
+</item>
+<item>
+<title>2026-09-19 高危 5 則</title>
+<link>https://ryanran8787-a11y.github.io/sec-daily-report/2026-09-19.html</link>
+<guid>https://ryanran8787-a11y.github.io/sec-daily-report/2026-09-19.html</guid>
+<pubDate>2026-09-19T03:39:47.486199+00:00</pubDate>
+<description><![CDATA[<ul><li>vm2 沙箱逃逸漏洞 (CVSS 10.0)</li><li>vm2 沙箱逃逸漏洞 (CVSS 10.0)</li><li>vm2 沙箱逃逸漏洞 (CVSS 10.0)</li><li>IBM Licensing CSRF 漏洞 (CVSS 10.0)</li><li>IBM MQ 堆疊緩衝區溢位 (CVSS 10.0)</li></ul>]]></description>
+</item>
+<item>
+<title>2026-09-18 高危 5 則</title>
+<link>https://ryanran8787-a11y.github.io/sec-daily-report/2026-09-18.html</link>
+<guid>https://ryanran8787-a11y.github.io/sec-daily-report/2026-09-18.html</guid>
+<pubDate>2026-09-18T03:43:28.731530+00:00</pubDate>
+<description><![CDATA[<ul><li>Acronis 插件權限提升 (CVSS 7.8)</li><li>Migratico Lite RCE (CVSS 10.0)</li><li>vm2 沙箱逃逸 RCE (CVSS 10.0)</li><li>vm2 憑證洩漏漏洞 (CVSS 10.0)</li><li>vm2 TLS 信任庫竄改 (CVSS 10.0)</li></ul>]]></description>
+</item>
+<item>
+<title>2026-09-17 高危 5 則</title>
+<link>https://ryanran8787-a11y.github.io/sec-daily-report/2026-09-17.html</link>
+<guid>https://ryanran8787-a11y.github.io/sec-daily-report/2026-09-17.html</guid>
+<pubDate>2026-09-17T03:55:55.401900+00:00</pubDate>
+<description><![CDATA[<ul><li>Cisco ISE 驗證繞過 (CVSS 10.0)</li><li>Arista EOS RCE 漏洞 (CVSS 10.0)</li><li>Dell ObjectScale RCE (CVSS 10.0)</li><li>Arista EOS gNPSI RCE (CVSS 10.0)</li><li>Cisco ISE 多項高危漏洞 (CVSS 10.0)</li></ul>]]></description>
+</item>
+<item>
+<title>2026-09-16 高危 5 則</title>
+<link>https://ryanran8787-a11y.github.io/sec-daily-report/2026-09-16.html</link>
+<guid>https://ryanran8787-a11y.github.io/sec-daily-report/2026-09-16.html</guid>
+<pubDate>2026-09-16T03:50:42.995775+00:00</pubDate>
+<description><![CDATA[<ul><li>MySQL MCP 未授權存取 (CVSS 10.0)</li><li>IBM MCP Forge RCE 漏洞 (CVSS 10.0)</li><li>Oracle OAM 身份接管漏洞 (CVSS 10.0)</li><li>Oracle Java 安全平台接管 (CVSS 10.0)</li><li>Oracle WebLogic 接管漏洞 (CVSS 10.0)</li></ul>]]></description>
+</item>
+<item>
+<title>2026-09-15 高危 5 則</title>
+<link>https://ryanran8787-a11y.github.io/sec-daily-report/2026-09-15.html</link>
+<guid>https://ryanran8787-a11y.github.io/sec-daily-report/2026-09-15.html</guid>
+<pubDate>2026-09-15T03:53:39.928130+00:00</pubDate>
+<description><![CDATA[<ul><li>Cisco Secure Email RCE 在野利用 (CVSS 9.8)</li><li>Apache Storm 資訊洩漏 (CVSS 10.0)</li><li>D-Link DWR-M920 指令注入 (CVSS 9.9)</li><li>D-Link DIR-823G 緩衝區溢位 (CVSS 9.9)</li><li>D-Link DIR-878 緩衝區溢位 (CVSS 9.9)</li></ul>]]></description>
+</item>
+<item>
+<title>2026-09-14 高危 5 則</title>
+<link>https://ryanran8787-a11y.github.io/sec-daily-report/2026-09-14.html</link>
+<guid>https://ryanran8787-a11y.github.io/sec-daily-report/2026-09-14.html</guid>
+<pubDate>2026-09-14T03:53:48.881180+00:00</pubDate>
+<description><![CDATA[<ul><li>WP CryptoPayment 未授權存取 (CVSS 10.0)</li><li>Totolink A3002MU 緩衝區溢位 (CVSS 9.9)</li><li>Totolink A3002MU 緩衝區溢位 (CVSS 9.9)</li><li>Totolink A3002MU 緩衝區溢位 (CVSS 9.9)</li><li>Totolink A3002MU 緩衝區溢位 (CVSS 9.9)</li></ul>]]></description>
+</item>
+<item>
+<title>2026-09-13 高危 5 則</title>
+<link>https://ryanran8787-a11y.github.io/sec-daily-report/2026-09-13.html</link>
+<guid>https://ryanran8787-a11y.github.io/sec-daily-report/2026-09-13.html</guid>
+<pubDate>2026-09-13T03:47:28.313460+00:00</pubDate>
+<description><![CDATA[<ul><li>Masteriyo LMS 反序列化 RCE (CVSS 9.9)</li><li>The Events Calendar RCE (CVSS 9.8)</li><li>The Events Calendar RCE (CVSS 9.8)</li><li>DS Ad Rotator 任意檔案上傳 RCE (CVSS 9.8)</li><li>Frontegg SAML SSO 帳號接管 (CVSS 9.8)</li></ul>]]></description>
+</item>
+<item>
+<title>2026-09-12 高危 5 則</title>
+<link>https://ryanran8787-a11y.github.io/sec-daily-report/2026-09-12.html</link>
+<guid>https://ryanran8787-a11y.github.io/sec-daily-report/2026-09-12.html</guid>
+<pubDate>2026-09-12T03:38:42.746371+00:00</pubDate>
+<description><![CDATA[<ul><li>GitLab 檔案讀取在野利用 (CVSS 10.0)</li><li>WP Teddy Bear 插件 RCE (CVSS 10.0)</li><li>Chef Automate 權限提升 (CVSS 10.0)</li><li>Mistral Vibe 指令繞過 RCE (CVSS 10.0)</li><li>Mistral Vibe 解析繞過 RCE (CVSS 10.0)</li></ul>]]></description>
+</item>
 <item>
 <title>2026-09-11 高危 5 則</title>
 <link>https://ryanran8787-a11y.github.io/sec-daily-report/2026-09-11.html</link>
 <guid>https://ryanran8787-a11y.github.io/sec-daily-report/2026-09-11.html</guid>
-<pubDate>2026-10-02T09:28:45.363868+00:00</pubDate>
+<pubDate>2026-10-02T09:52:35.225097+00:00</pubDate>
 <description><![CDATA[<ul><li>teddy-bear-customize-addon RCE CVE-2026-14560 10.0 (CVSS 10.0)</li><li>待確認產品 未授權存取 CVE-2026-80462 10.0 (CVSS 10.0)</li><li>Forgejo RCE CVE-2026-89094 9.9 (CVSS 9.9)</li><li>待確認產品 目錄遍歷 CVE-2026-68487 9.9 (CVSS 9.9)</li><li>待確認產品 SSRF CVE-2026-89049 9.9 (CVSS 9.9)</li></ul>]]></description>
 </item>
 </channel></rss>

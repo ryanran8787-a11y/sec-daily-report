@@ -18,7 +18,10 @@
         "https://gerrit.wikimedia.org/r/c/mediawiki/extensions/ExternalData/+/1326012",
         "https://phabricator.wikimedia.org/T434961"
       ],
-      "desc_en": "Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection') vulnerability in Wikimedia Foundation Mediawiki - ExternalData Extension allows OS Command Injection.\n\nThis issue affects Mediawiki - ExternalData Extension: from * before 3.7."
+      "desc_en": "Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection') vulnerability in Wikimedia Foundation Mediawiki - ExternalData Extension allows OS Command Injection.\n\nThis issue affects Mediawiki - ExternalData Extension: from * before 3.7.",
+      "affected_versions": "3.7. 之前",
+      "patch_url": "https://gerrit.wikimedia.org/r/c/mediawiki/extensions/ExternalData/+/1326012",
+      "epss_warn": false
     },
     {
       "cve": "CVE-2026-14281",
@@ -37,7 +40,10 @@
         "https://plugins.trac.wordpress.org/browser/automation-web-platform/tags/4.8.6/includes/auth-services/class-wawp-otp-service.php#L787",
         "https://plugins.trac.wordpress.org/browser/automation-web-platform/tags/4.8.6/includes/auth-services/class-wawp-signup.php#L1002"
       ],
-      "desc_en": "The Automation Web Platform – Notifications and OTP for WooCommerce, Advanced Country Code plugin for WordPress is vulnerable to Privilege Escalation in all versions up to, and including, 4.8.6. This is due to missing permission enforcement on the publicly accessible REST route `POST /wp-json/wawp/v1/signup/<op>` and the absence of a key allowlist in the `finish_registration_logic` function, which copies the attacker-controlled `wawp_custom_fields` parameter directly into `update_user_meta()` — allowing sensitive meta keys such as `wp_capabilities` and `wp_user_level` to be set by the caller. "
+      "desc_en": "The Automation Web Platform – Notifications and OTP for WooCommerce, Advanced Country Code plugin for WordPress is vulnerable to Privilege Escalation in all versions up to, and including, 4.8.6. This is due to missing permission enforcement on the publicly accessible REST route `POST /wp-json/wawp/v1/signup/<op>` and the absence of a key allowlist in the `finish_registration_logic` function, which copies the attacker-controlled `wawp_custom_fields` parameter directly into `update_user_meta()` — allowing sensitive meta keys such as `wp_capabilities` and `wp_user_level` to be set by the caller. ",
+      "affected_versions": "",
+      "patch_url": "https://plugins.trac.wordpress.org/browser/automation-web-platform/tags/4.8.6/includes/api/class-wawp-rest-settings-api.php#L342",
+      "epss_warn": false
     },
     {
       "cve": "CVE-2026-92609",
@@ -53,7 +59,10 @@
         "https://lists.apache.org/thread/93w83oro48cqokb24k8tkogyvtlqhqw6",
         "http://www.openwall.com/lists/oss-security/2026/09/24/17"
       ],
-      "desc_en": "Session fixation in HTTP management authentication allows remote attackers to gain unauthorized access to an authenticated management session via reuse of a session identifier retained across successful authentication.\n\nThis issue affects Apache Qpid Broker-J: through 10.1.0.\n\nUsers are recommended to upgrade to version 10.1.1, which fixes the issue."
+      "desc_en": "Session fixation in HTTP management authentication allows remote attackers to gain unauthorized access to an authenticated management session via reuse of a session identifier retained across successful authentication.\n\nThis issue affects Apache Qpid Broker-J: through 10.1.0.\n\nUsers are recommended to upgrade to version 10.1.1, which fixes the issue.",
+      "affected_versions": "10.1.0. 及更早",
+      "patch_url": "https://lists.apache.org/thread/93w83oro48cqokb24k8tkogyvtlqhqw6",
+      "epss_warn": false
     },
     {
       "cve": "CVE-2026-100075",
@@ -72,7 +81,10 @@
         "https://git.kernel.org/stable/c/b38f98e176050850f41bb6415f3a71400056623e",
         "https://git.kernel.org/stable/c/bd02d644bd19a2795c018635d273d91e45d2bb95"
       ],
-      "desc_en": "In the Linux kernel, the following vulnerability has been resolved:\n\nRDMA/srpt: Fix srpt_alloc_rw_ctxs() unwind counters\n\nWhen srpt_alloc_rw_ctxs() fails partway through a multi-buffer indirect\ndescriptor, the unwind path destroys RDMA contexts but leaves stale\nn_rw_ctx and n_rdma values (and a dangling rw_ctxs pointer). Later\nsq_wr_avail accounting in srpt_queue_response() or srpt_write_pending()\ncan then subtract the wrong number of send queue credits.\n\nReset the counters and clear rw_ctxs after freeing the heap\nallocation before returning an error."
+      "desc_en": "In the Linux kernel, the following vulnerability has been resolved:\n\nRDMA/srpt: Fix srpt_alloc_rw_ctxs() unwind counters\n\nWhen srpt_alloc_rw_ctxs() fails partway through a multi-buffer indirect\ndescriptor, the unwind path destroys RDMA contexts but leaves stale\nn_rw_ctx and n_rdma values (and a dangling rw_ctxs pointer). Later\nsq_wr_avail accounting in srpt_queue_response() or srpt_write_pending()\ncan then subtract the wrong number of send queue credits.\n\nReset the counters and clear rw_ctxs after freeing the heap\nallocation before returning an error.",
+      "affected_versions": "",
+      "patch_url": "https://git.kernel.org/stable/c/717ab4d0614e9446bf8e2de6229464499e4008d6",
+      "epss_warn": false
     },
     {
       "cve": "CVE-2026-93643",
@@ -87,7 +99,11 @@
       "refs": [
         "https://wiki.zimbra.com/wiki/Zimbra_Security_Advisories"
       ],
-      "desc_en": "When OnlyOffice/Document Editing is available, an unauthenticated remote attacker with access to an existing supported public Briefcase document can abuse unsigned save fields to perform path-traversal writes and execute commands as zimbra."
+      "desc_en": "When OnlyOffice/Document Editing is available, an unauthenticated remote attacker with access to an existing supported public Briefcase document can abuse unsigned save fields to perform path-traversal writes and execute commands as zimbra.",
+      "affected_versions": "",
+      "patch_url": "https://wiki.zimbra.com/wiki/Zimbra_Security_Advisories",
+      "epss_warn": false
     }
-  ]
+  ],
+  "brief_zh": "今日共5則高危（RCE2則、其他高危2則），無在野利用，優先看 Mediawiki 擴充 RCE。"
 }

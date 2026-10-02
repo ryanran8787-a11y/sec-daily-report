@@ -18,7 +18,10 @@
         "https://gitlab.com/gitlab-org/gitlab/-/work_items/627748",
         "https://hackerone.com/reports/3909881"
       ],
-      "desc_en": "GitLab has remediated an issue in GitLab CE/EE affecting all versions from 18.7 before 19.1.8, 19.2 before 19.2.6, and 19.3 before 19.3.2 that, under certain conditions, an unauthenticated user could have read arbitrary files from the GitLab server due to improper path confinement and missing authentication enforcement in the repository commits API."
+      "desc_en": "GitLab has remediated an issue in GitLab CE/EE affecting all versions from 18.7 before 19.1.8, 19.2 before 19.2.6, and 19.3 before 19.3.2 that, under certain conditions, an unauthenticated user could have read arbitrary files from the GitLab server due to improper path confinement and missing authentication enforcement in the repository commits API.",
+      "affected_versions": "19.1.8 之前",
+      "patch_url": "https://gitlab.com/gitlab-org/gitlab/-/work_items/627748",
+      "epss_warn": false
     },
     {
       "cve": "CVE-2026-14560",
@@ -33,7 +36,10 @@
       "refs": [
         "https://wpscan.com/vulnerability/aba51906-91dc-4e75-ad44-373fe128deee/"
       ],
-      "desc_en": "The teddy-bear-customize-addon WordPress plugin through 1.0.5 does not properly validate uploaded files, relying on a client-supplied content type and preserving the original filename, allowing unauthenticated attackers to upload arbitrary PHP files and execute code on the server."
+      "desc_en": "The teddy-bear-customize-addon WordPress plugin through 1.0.5 does not properly validate uploaded files, relying on a client-supplied content type and preserving the original filename, allowing unauthenticated attackers to upload arbitrary PHP files and execute code on the server.",
+      "affected_versions": "1.0.5 及更早",
+      "patch_url": "https://wpscan.com/vulnerability/aba51906-91dc-4e75-ad44-373fe128deee/",
+      "epss_warn": false
     },
     {
       "cve": "CVE-2026-80462",
@@ -48,7 +54,10 @@
       "refs": [
         "https://community.progress.com/s/article/Critical-Security-Bulletin---August-2026---Chef-Automate-Security-Vulnerability"
       ],
-      "desc_en": "A vulnerability in the Chef Automate API gateway and identity validation path may allow an unauthenticated actor to gain elevated access to protected Chef Automate functionality under specific conditions."
+      "desc_en": "A vulnerability in the Chef Automate API gateway and identity validation path may allow an unauthenticated actor to gain elevated access to protected Chef Automate functionality under specific conditions.",
+      "affected_versions": "",
+      "patch_url": "https://community.progress.com/s/article/Critical-Security-Bulletin---August-2026---Chef-Automate-Security-Vulnerability",
+      "epss_warn": false
     },
     {
       "cve": "CVE-2026-87985",
@@ -63,7 +72,10 @@
       "refs": [
         "https://www.hiddenlayer.com/sai-security-advisory/2026-09-mistral-vibe3"
       ],
-      "desc_en": "An arbitrary code execution vulnerability in Mistral Vibe allows an attacker to bypass command permission checks using ANSI-C quoted arguments. These arguments are not properly inspected, enabling a crafted allowlisted command to execute arbitrary code on the user's system without approval."
+      "desc_en": "An arbitrary code execution vulnerability in Mistral Vibe allows an attacker to bypass command permission checks using ANSI-C quoted arguments. These arguments are not properly inspected, enabling a crafted allowlisted command to execute arbitrary code on the user's system without approval.",
+      "affected_versions": "",
+      "patch_url": "https://www.hiddenlayer.com/sai-security-advisory/2026-09-mistral-vibe3",
+      "epss_warn": false
     },
     {
       "cve": "CVE-2026-87986",
@@ -78,7 +90,11 @@
       "refs": [
         "https://www.hiddenlayer.com/sai-security-advisory/2026-09-mistral-vibe4"
       ],
-      "desc_en": "An arbitrary code execution vulnerability in Mistral Vibe allows an attacker to bypass command permission checks using shell constructs it's parser cannot interpret. Unparsed portions are omitted from inspection, enabling embedded commands to execute on the user's system without approval."
+      "desc_en": "An arbitrary code execution vulnerability in Mistral Vibe allows an attacker to bypass command permission checks using shell constructs it's parser cannot interpret. Unparsed portions are omitted from inspection, enabling embedded commands to execute on the user's system without approval.",
+      "affected_versions": "",
+      "patch_url": "https://www.hiddenlayer.com/sai-security-advisory/2026-09-mistral-vibe4",
+      "epss_warn": false
     }
-  ]
+  ],
+  "brief_zh": "今日共5則高危（RCE3則、資訊洩漏1則），無在野利用，優先看 GitLab 檔案讀取在野利用。"
 }

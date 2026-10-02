@@ -18,7 +18,10 @@
         "https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-ISE-ABP-VNSW7Tn5",
         "https://www.cisa.gov/known-exploited-vulnerabilities-catalog?field_cve=CVE-2026-76460"
       ],
-      "desc_en": "A vulnerability in an API of Cisco Identity Services Engine (ISE) could allow an unauthenticated, remote attacker to bypass authentication.\r\n\r\nThis vulnerability is due to insufficient authentication control on an API endpoint. An attacker could exploit this vulnerability by sending a crafted request to an affected API endpoint. A successful exploit could allow the attacker to gain unauthorized access to the affected device by bypassing the web-based management interface."
+      "desc_en": "A vulnerability in an API of Cisco Identity Services Engine (ISE) could allow an unauthenticated, remote attacker to bypass authentication.\r\n\r\nThis vulnerability is due to insufficient authentication control on an API endpoint. An attacker could exploit this vulnerability by sending a crafted request to an affected API endpoint. A successful exploit could allow the attacker to gain unauthorized access to the affected device by bypassing the web-based management interface.",
+      "affected_versions": "",
+      "patch_url": "https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-ISE-ABP-VNSW7Tn5",
+      "epss_warn": false
     },
     {
       "cve": "CVE-2026-73453",
@@ -33,7 +36,10 @@
       "refs": [
         "https://www.arista.com/en/support/advisories-notices/security-advisory/24730-security-advisory-0174"
       ],
-      "desc_en": "An unauthenticated P4Runtime (Programming Protocol-Independent Packet Processors Runtime) client can achieve arbitrary code execution under certain conditions on affected platforms running Arista EOS configured with P4Runtime. P4Runtime is disabled by default in Arista EOS. By crafting a malicious packet during the initiation of a P4Runtime session, an attacker can obtain complete administrative control over the compromised switch.\n\nThis issue was discovered internally by Arista, and the company is not aware of any malicious exploitation of this vulnerability in customer networks."
+      "desc_en": "An unauthenticated P4Runtime (Programming Protocol-Independent Packet Processors Runtime) client can achieve arbitrary code execution under certain conditions on affected platforms running Arista EOS configured with P4Runtime. P4Runtime is disabled by default in Arista EOS. By crafting a malicious packet during the initiation of a P4Runtime session, an attacker can obtain complete administrative control over the compromised switch.\n\nThis issue was discovered internally by Arista, and the company is not aware of any malicious exploitation of this vulnerability in customer networks.",
+      "affected_versions": "",
+      "patch_url": "https://www.arista.com/en/support/advisories-notices/security-advisory/24730-security-advisory-0174",
+      "epss_warn": false
     },
     {
       "cve": "CVE-2026-70416",
@@ -48,7 +54,10 @@
       "refs": [
         "https://www.dell.com/support/kbdoc/en-in/000505935/dsa-2026-393-security-update-for-dell-objectscale-multiple-vulnerabilities"
       ],
-      "desc_en": "Dell ObjectScale, versions prior to 4.4.0.0, contains a Deserialization of Untrusted Data vulnerability. An unauthenticated attacker with remote access could potentially exploit this vulnerability, leading to Remote execution."
+      "desc_en": "Dell ObjectScale, versions prior to 4.4.0.0, contains a Deserialization of Untrusted Data vulnerability. An unauthenticated attacker with remote access could potentially exploit this vulnerability, leading to Remote execution.",
+      "affected_versions": "4.4.0.0 之前",
+      "patch_url": "https://www.dell.com/support/kbdoc/en-in/000505935/dsa-2026-393-security-update-for-dell-objectscale-multiple-vulnerabilities",
+      "epss_warn": false
     },
     {
       "cve": "CVE-2026-73456",
@@ -63,7 +72,10 @@
       "refs": [
         "https://www.arista.com/en/support/advisories-notices/security-advisory/24714-security-advisory-0158"
       ],
-      "desc_en": "Under certain circumstances on affected platforms running Arista EOS with gRPC Network Packet Sampling Interface (gNPSI) enabled, an unauthenticated gNPSI client can craft a malicious request to allow arbitrary code execution, granting an attacker full administrative control over the compromised switch."
+      "desc_en": "Under certain circumstances on affected platforms running Arista EOS with gRPC Network Packet Sampling Interface (gNPSI) enabled, an unauthenticated gNPSI client can craft a malicious request to allow arbitrary code execution, granting an attacker full administrative control over the compromised switch.",
+      "affected_versions": "",
+      "patch_url": "https://www.arista.com/en/support/advisories-notices/security-advisory/24714-security-advisory-0158",
+      "epss_warn": false
     },
     {
       "cve": "CVE-2026-20130",
@@ -78,7 +90,11 @@
       "refs": [
         "https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-hardening-ise-XU5EwX5T"
       ],
-      "desc_en": "As part of Cisco's ongoing commitment to proactive security and product quality, the Cisco Identity Services Engine (ISE) and Cisco ISE Passive Identity Connector (ISE-PIC), engineering teams have conducted a comprehensive internal security review. This review resulted in a software hardening release that addresses multiple internally discovered vulnerabilities.\r\n\r\nThe vulnerabilities tracked by CVE-2026-20130 are related to improper neutralization of special elements issues that are grouped under the Common Weakness Enumeration (CWE) Pillar CWE-74."
+      "desc_en": "As part of Cisco's ongoing commitment to proactive security and product quality, the Cisco Identity Services Engine (ISE) and Cisco ISE Passive Identity Connector (ISE-PIC), engineering teams have conducted a comprehensive internal security review. This review resulted in a software hardening release that addresses multiple internally discovered vulnerabilities.\r\n\r\nThe vulnerabilities tracked by CVE-2026-20130 are related to improper neutralization of special elements issues that are grouped under the Common Weakness Enumeration (CWE) Pillar CWE-74.",
+      "affected_versions": "",
+      "patch_url": "https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-hardening-ise-XU5EwX5T",
+      "epss_warn": false
     }
-  ]
+  ],
+  "brief_zh": "今日共5則高危（RCE2則、未授權存取1則），無在野利用，優先看 Cisco ISE 驗證繞過。"
 }

@@ -18,7 +18,10 @@
         "https://fortiguard.fortinet.com/psirt/FG-IR-26-175",
         "https://www.cisa.gov/known-exploited-vulnerabilities-catalog?field_cve=CVE-2026-104286"
       ],
-      "desc_en": "An improper limitation of a pathname to a restricted directory ('path traversal') vulnerability in Fortinet FortiMail 8.0.0 through 8.0.1, FortiMail 7.6.0 through 7.6.6, FortiMail 7.4.0 through 7.4.8, FortiMail 7.2.0 through 7.2.9 may allow an unauthenticated attacker to write arbitrary files on the underlying system via crafted HTTP or HTTPS requests."
+      "desc_en": "An improper limitation of a pathname to a restricted directory ('path traversal') vulnerability in Fortinet FortiMail 8.0.0 through 8.0.1, FortiMail 7.6.0 through 7.6.6, FortiMail 7.4.0 through 7.4.8, FortiMail 7.2.0 through 7.2.9 may allow an unauthenticated attacker to write arbitrary files on the underlying system via crafted HTTP or HTTPS requests.",
+      "affected_versions": "8.0.1 及更早",
+      "patch_url": "https://fortiguard.fortinet.com/psirt/FG-IR-26-175",
+      "epss_warn": false
     },
     {
       "cve": "CVE-2026-101148",
@@ -33,7 +36,10 @@
       "refs": [
         "https://wpscan.com/vulnerability/5d6fce13-34e3-4ec6-9b47-a78dd7c94fed/"
       ],
-      "desc_en": "The BackupSheep WordPress Backup Plugin WordPress plugin through 1.8 does not properly validate its integration key, treating an unset or blank key as valid, which allows unauthenticated attackers to create and download full site backups, including the database with user password hashes, and to delete arbitrary files on the server, leading to sensitive data disclosure and site takeover.\n\nThe BackupSheep WordPress Backup Plugin WordPress plugin through 1.8 has been closed on WordPress.org since July 2024 and no fixed version is available. Remove it from any site where it is installed."
+      "desc_en": "The BackupSheep WordPress Backup Plugin WordPress plugin through 1.8 does not properly validate its integration key, treating an unset or blank key as valid, which allows unauthenticated attackers to create and download full site backups, including the database with user password hashes, and to delete arbitrary files on the server, leading to sensitive data disclosure and site takeover.\n\nThe BackupSheep WordPress Backup Plugin WordPress plugin through 1.8 has been closed on WordPress.org since July 2024 and no fixed version is available. Remove it from any site where it is installed.",
+      "affected_versions": "1.8 及更早",
+      "patch_url": "https://wpscan.com/vulnerability/5d6fce13-34e3-4ec6-9b47-a78dd7c94fed/",
+      "epss_warn": false
     },
     {
       "cve": "CVE-2026-55393",
@@ -48,7 +54,10 @@
       "refs": [
         "https://github.com/mandiant/Vulnerability-Disclosures/blob/master/2026/MNDT-2026-0029.md"
       ],
-      "desc_en": "Unvalidated pathnames in the web interface in Teledyne FLIR Aware2 versions through 6.9.0.2 (PackBot) and 1.7.9 (FirstLook) allows remote unauthenticated attackers to read configuration and security parameters on Teledyne FLIR PackBot and FirstLook robots running this software via path traversal."
+      "desc_en": "Unvalidated pathnames in the web interface in Teledyne FLIR Aware2 versions through 6.9.0.2 (PackBot) and 1.7.9 (FirstLook) allows remote unauthenticated attackers to read configuration and security parameters on Teledyne FLIR PackBot and FirstLook robots running this software via path traversal.",
+      "affected_versions": "6.9.0.2 及更早",
+      "patch_url": "https://github.com/mandiant/Vulnerability-Disclosures/blob/master/2026/MNDT-2026-0029.md",
+      "epss_warn": false
     },
     {
       "cve": "CVE-2026-79901",
@@ -63,7 +72,10 @@
       "refs": [
         "https://www.fortra.com/security/advisories/product-security/fi-2026-012"
       ],
-      "desc_en": "In deployments using BoKS keytab management, affected versions of boks_keytabmd generate Active Directory service-account passwords from a predictable pseudo-random sequence seeded with the current Unix timestamp. An attacker who knows the service principal and can estimate the password-change time can reproduce a limited candidate set and verify candidates offline."
+      "desc_en": "In deployments using BoKS keytab management, affected versions of boks_keytabmd generate Active Directory service-account passwords from a predictable pseudo-random sequence seeded with the current Unix timestamp. An attacker who knows the service principal and can estimate the password-change time can reproduce a limited candidate set and verify candidates offline.",
+      "affected_versions": "",
+      "patch_url": "https://www.fortra.com/security/advisories/product-security/fi-2026-012",
+      "epss_warn": false
     },
     {
       "cve": "CVE-2026-96658",
@@ -82,7 +94,11 @@
         "https://access.redhat.com/security/cve/CVE-2026-96658",
         "https://bugzilla.redhat.com/show_bug.cgi?id=2534185"
       ],
-      "desc_en": "A flaw was found in Foreman. An authenticated attacker with low-level permissions can achieve remote code execution (RCE) by bypassing the safemode sandbox within the templating engine. Due to improper handling of delegated methods, an attacker can append unauthorized functions to the allowed execution list, enabling them to run arbitrary commands on the hosting server."
+      "desc_en": "A flaw was found in Foreman. An authenticated attacker with low-level permissions can achieve remote code execution (RCE) by bypassing the safemode sandbox within the templating engine. Due to improper handling of delegated methods, an attacker can append unauthorized functions to the allowed execution list, enabling them to run arbitrary commands on the hosting server.",
+      "affected_versions": "",
+      "patch_url": "https://access.redhat.com/errata/RHSA-2026:74503",
+      "epss_warn": false
     }
-  ]
+  ],
+  "brief_zh": "今日共5則高危（其他高危2則、接管1則），無在野利用，優先看 BackupSheep 插件接管漏洞。"
 }

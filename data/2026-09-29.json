@@ -21,7 +21,10 @@
         "https://vuldb.com/vuln/410870",
         "https://vuldb.com/vuln/410870/cti"
       ],
-      "desc_en": "A vulnerability was determined in Netcore NBR100V2 1.3.240614.030928. This affects the function uci.apply of the file /usr/share/rpcd/acl.d/unauthenticated.json of the component ACL Handler. This manipulation of the argument section causes missing authorization. It is possible to initiate the attack remotely. The exploit has been publicly disclosed and may be utilized. The vendor was contacted early about this disclosure but did not respond in any way."
+      "desc_en": "A vulnerability was determined in Netcore NBR100V2 1.3.240614.030928. This affects the function uci.apply of the file /usr/share/rpcd/acl.d/unauthenticated.json of the component ACL Handler. This manipulation of the argument section causes missing authorization. It is possible to initiate the attack remotely. The exploit has been publicly disclosed and may be utilized. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "affected_versions": "",
+      "patch_url": "https://github.com/senxitoyshuyi-ui/HACKALL/blob/main/netcore_NBR100V2_V1.3.240614.030928%20Router/netcore_nbr100v2_uci_config_tamper.md",
+      "epss_warn": false
     },
     {
       "cve": "CVE-2026-101001",
@@ -40,7 +43,10 @@
         "https://vuldb.com/vuln/410871",
         "https://vuldb.com/vuln/410871/cti"
       ],
-      "desc_en": "A vulnerability was identified in Netcore NBR200V2 1.3.241127.071246. This impacts the function eval of the file /www/cgi-bin/network_tools of the component Web Management Interface. Such manipulation of the argument QUERY_STRING leads to os command injection. It is possible to launch the attack remotely. The exploit is publicly available and might be used. The vendor was contacted early about this disclosure but did not respond in any way."
+      "desc_en": "A vulnerability was identified in Netcore NBR200V2 1.3.241127.071246. This impacts the function eval of the file /www/cgi-bin/network_tools of the component Web Management Interface. Such manipulation of the argument QUERY_STRING leads to os command injection. It is possible to launch the attack remotely. The exploit is publicly available and might be used. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "affected_versions": "",
+      "patch_url": "https://github.com/senxitoyshuyi-ui/HACKALL/blob/main/netcore_NBR200V2_V1.3.241127.071246%20Router/Netcore_NBR200V2_network_tools_command_injection.md",
+      "epss_warn": false
     },
     {
       "cve": "CVE-2026-101039",
@@ -59,7 +65,10 @@
         "https://vuldb.com/vuln/410907",
         "https://vuldb.com/vuln/410907/cti"
       ],
-      "desc_en": "A vulnerability was identified in FAST FAC1900R 20190827_2.0.2. Affected by this issue is the function copy_msg_element of the component devdiscover Service. Such manipulation leads to stack-based buffer overflow. The attack can be executed remotely. The exploit is publicly available and might be used. The vendor was contacted early about this disclosure but did not respond in any way."
+      "desc_en": "A vulnerability was identified in FAST FAC1900R 20190827_2.0.2. Affected by this issue is the function copy_msg_element of the component devdiscover Service. Such manipulation leads to stack-based buffer overflow. The attack can be executed remotely. The exploit is publicly available and might be used. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "affected_versions": "",
+      "patch_url": "https://github.com/xiaobor123/vuls-find-VxWorks/tree/main/vul-find-FAST_FAC1900R-copy_msg_element(2)",
+      "epss_warn": false
     },
     {
       "cve": "CVE-2026-101072",
@@ -78,7 +87,10 @@
         "https://vuldb.com/vuln/410943",
         "https://vuldb.com/vuln/410943/cti"
       ],
-      "desc_en": "A vulnerability was identified in Netcore NR289-GE 1.4.5102. This issue affects the function system of the file /ap_ip.cgi of the component CGI Handler. Such manipulation of the argument ip leads to os command injection. The attack can be launched remotely. The exploit is publicly available and might be used. The vendor was contacted early about this disclosure but did not respond in any way."
+      "desc_en": "A vulnerability was identified in Netcore NR289-GE 1.4.5102. This issue affects the function system of the file /ap_ip.cgi of the component CGI Handler. Such manipulation of the argument ip leads to os command injection. The attack can be launched remotely. The exploit is publicly available and might be used. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "affected_versions": "",
+      "patch_url": "https://github.com/senxitoyshuyi-ui/HACKALL/blob/main/netcore_NR289-GE_V1.4.5102%2C2018.06.1418_44%20Router/Netcore_NR289-GE_ap_ip_command_injection.md",
+      "epss_warn": false
     },
     {
       "cve": "CVE-2026-101074",
@@ -97,7 +109,11 @@
         "https://vuldb.com/vuln/410945",
         "https://vuldb.com/vuln/410945/cti"
       ],
-      "desc_en": "A weakness has been identified in Netcore NR289-GE 1.4.5102. The affected element is the function password-check of the file /bin/boa of the component Authentication. Executing a manipulation of the argument Username can lead to stack-based buffer overflow. The attack may be launched remotely. The exploit has been made available to the public and could be used for attacks. The vendor was contacted early about this disclosure but did not respond in any way."
+      "desc_en": "A weakness has been identified in Netcore NR289-GE 1.4.5102. The affected element is the function password-check of the file /bin/boa of the component Authentication. Executing a manipulation of the argument Username can lead to stack-based buffer overflow. The attack may be launched remotely. The exploit has been made available to the public and could be used for attacks. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "affected_versions": "",
+      "patch_url": "https://github.com/senxitoyshuyi-ui/HACKALL/blob/main/netcore_NR289-GE_V1.4.5102%2C2018.06.1418_44%20Router/Netcore_NR289-GE_boa_stack_overflow.md",
+      "epss_warn": false
     }
-  ]
+  ],
+  "brief_zh": "今日共5則高危（RCE2則、其他高危2則），無在野利用，優先看 Netcore NBR100V2 未授權存取。"
 }
