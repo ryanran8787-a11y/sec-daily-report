@@ -1,6 +1,6 @@
 # 網安每日報
 
-定時爬蟲（NVD + CISA KEV + EPSS）→ LLM 提煉繁中標題 → Jinja2 靜態站 → GitHub Pages。
+定時爬蟲（NVD + CISA KEV + EPSS + OSV + GitHub Advisory + Cisco PSIRT）→ LLM 提煉繁中標題 → Jinja2 靜態站 → GitHub Pages。
 
 ## 本機試跑
 
@@ -17,6 +17,14 @@ python src/run.py
 1. 推到 GitHub，Secrets 加 `NVD_API_KEY`（https://nvd.nist.gov/developers/request-an-api-key）+ 任一 LLM Key
 2. Repo Settings → Pages → Deploy from branch → `main` / `docs`
 3. 每天 08:00 台北時間自動更新，也可 Actions 手動 `workflow_dispatch`
+
+## 推送訂閱（可選，不設不影響）
+
+| 通道 | Secrets | 說明 |
+|---|---|---|
+| RSS | 無 | `docs/feed.xml`，Feedly/Inoreader 直接訂 |
+| Telegram | `TELEGRAM_BOT_TOKEN`、`TELEGRAM_CHAT_ID` | BotFather 建 bot；chat id 問 `@userinfobot`；每天 Top 5 + 連結 |
+| Email | `MAIL_USERNAME`、`MAIL_TO`、`MAIL_APP_PASSWORD` | Gmail 開兩步驗證 → 應用程式密碼；每天一封 HTML 日報 |
 
 ## 資料格式
 

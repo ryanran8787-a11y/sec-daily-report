@@ -34,3 +34,16 @@ jobs:
           git diff --cached --quiet || git commit -m "daily report $(date +%F)"
           git pull --rebase --autostash --strategy-option=theirs origin main
           git push
+      - name: email push
+        if: ${{ secrets.MAIL_USERNAME != '' }}
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          server_port: 465
+          secure: true
+          username: ${{ secrets.MAIL_USERNAME }}
+          password: ${{ secrets.MAIL_APP_PASSWORD }}
+          subject: file://docs/email_subject.txt
+          to: ${{ secrets.MAIL_TO }}
+          from: SecDaily <${{ secrets.MAIL_USERNAME }}>
+          html_body: file://docs/email.html

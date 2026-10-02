@@ -14,6 +14,6 @@ def run(mod: str):
 
 
 if __name__ == "__main__":
-    for m in ("fetch", "refine", "build", "notify"):
+    for m in ("fetch", "refine", "build", "email_body", "notify"):
         run(m)
     print("\n[done] pipeline 完成")
