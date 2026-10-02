@@ -5,154 +5,216 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>網安每日報 2026-10-02</title>
 <style>
-:root{--bg:#0b0f17;--card:#151c2b;--line:#243044;--txt:#e8eef7;--mut:#8fa0b8;--red:#f0524f;--org:#ff9f1c;--grn:#2fd180;--blu:#4aa8ff}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--txt);font-family:"Noto Sans TC",system-ui,-apple-system,"Microsoft JhengHei",sans-serif}
-.wrap{max-width:1080px;margin:0 auto;padding:24px 16px 64px}
-header{display:flex;flex-wrap:wrap;gap:12px;align-items:end;justify-content:space-between;border-bottom:1px solid var(--line);padding-bottom:16px}
-h1{margin:0;font-size:28px}h1 span{color:var(--org)}.sub{color:var(--mut);font-size:14px;margin-top:6px}
-.meta{display:flex;gap:8px;flex-wrap:wrap}.pill{border:1px solid var(--line);border-radius:999px;padding:4px 12px;font-size:13px;color:var(--mut)}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:14px;margin-top:20px}
-.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:10px;cursor:pointer}
-.card:hover{border-color:#3a557f}
-.card h2{font-size:17px;margin:0;line-height:1.4}.badges{display:flex;gap:6px;flex-wrap:wrap}
-.detail{display:none;flex-direction:column;gap:8px;border-top:1px dashed #2c3d5a;padding-top:10px}
-.card.open .detail{display:flex}
-.en{font-size:13px;color:var(--mut);line-height:1.6}
-.refs{font-size:13px}.refs a{color:var(--blu)}
-.hint{font-size:12px;color:var(--mut);text-align:center}
-.b{font-size:12px;font-weight:700;border-radius:6px;padding:2px 8px}
-.cvss{background:var(--red);color:#fff}.kev{background:var(--org);color:#111}.type{background:#22314d;color:var(--blu);border:1px solid #2f4a7a}
-.epss{background:#1d2b22;color:var(--grn);border:1px solid #2a4a3a}
-.sum{font-size:14px;color:#cdd8e8;line-height:1.6}.cve{font-size:12px;color:var(--mut)}.cve a{color:var(--blu);text-decoration:none}
-.fix{font-size:13px;background:#101827;border:1px dashed #2c3d5a;border-radius:8px;padding:8px 10px}
-.hist{margin-top:36px}.hlink{display:inline-block;background:var(--card);border:1px solid var(--line);border-radius:8px;padding:8px 12px;font-size:14px;color:var(--blu);text-decoration:none}
-.hlink:hover{border-color:var(--blu)}
-footer{margin-top:40px;color:var(--mut);font-size:12px;border-top:1px solid var(--line);padding-top:12px}
-.toolbar{display:flex;gap:8px;align-items:center;margin-top:16px;flex-wrap:wrap}
-.toolbar input{background:var(--card);border:1px solid var(--line);border-radius:8px;color:var(--txt);padding:8px 12px;font-size:14px;min-width:220px}
-.empty{background:var(--card);border:1px dashed var(--line);border-radius:14px;padding:32px;text-align:center;color:var(--mut);margin-top:20px}
+/* Geist 設計語言（灰階層次、細邊框、小圓角），logo 與配色為原創 */
+:root{
+  color-scheme:dark;
+  --bg:#000; --bg-2:#0a0a0a; --gray-100:#1a1a1a; --gray-200:#222;
+  --border:#2e2e2e; --border-hover:#444; --gray-900:#8f8f8f; --gray-1000:#ededed;
+  --blue:#0070f3; --red:#e5484d; --amber:#f5a524; --green:#17c964;
+  --radius:8px; --radius-sm:6px;
+  --nav-bg:rgba(0,0,0,.8); --grad-from:#fff; --grad-to:#888; --logo:#fff;
+}
+[data-theme="light"]{
+  color-scheme:light;
+  --bg:#fafafa; --bg-2:#fff; --gray-100:#f0f0f0; --gray-200:#e8e8e8;
+  --border:#e5e5e5; --border-hover:#ccc; --gray-900:#666; --gray-1000:#171717;
+  --blue:#0066e6; --red:#d92d20; --amber:#b54708; --green:#12805c;
+  --nav-bg:rgba(250,250,250,.8); --grad-from:#000; --grad-to:#666; --logo:#000;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--gray-1000);
+  font-family:"Geist Sans","Inter",-apple-system,"Noto Sans TC","Microsoft JhengHei",sans-serif;
+  font-size:14px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:var(--blue);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1024px;margin:0 auto;padding:0 24px 80px}
+.nav{position:sticky;top:0;z-index:10;background:var(--nav-bg);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+.nav-inner{max-width:1024px;margin:0 auto;padding:12px 24px;display:flex;align-items:center;gap:12px}
+.logo{width:22px;height:22px;flex:none;fill:var(--logo)}
+.theme-btn{background:none;border:1px solid var(--border);border-radius:var(--radius-sm);color:var(--gray-900);width:30px;height:30px;font-size:14px;cursor:pointer;line-height:1}
+.theme-btn:hover{border-color:var(--border-hover);color:var(--gray-1000)}
+.rss-link{font-size:11px;border:1px solid var(--border);border-radius:5px;padding:2px 7px;color:var(--gray-900);font-family:"Geist Mono",ui-monospace,monospace}
+.rss-link:hover{color:var(--amber);border-color:var(--amber);text-decoration:none}
+.brand{font-weight:600;font-size:14px;letter-spacing:-.01em}
+.brand span{color:var(--gray-900);font-weight:400}
+.nav-right{margin-left:auto;display:flex;align-items:center;gap:8px;color:var(--gray-900);font-size:12px}
+.dot{width:6px;height:6px;border-radius:50%;background:var(--green);display:inline-block}
+.hero{padding:56px 0 8px}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:12px;color:var(--gray-900);border:1px solid var(--border);border-radius:999px;padding:4px 12px;margin-bottom:20px}
+h1{margin:0;font-size:40px;font-weight:700;letter-spacing:-.04em;line-height:1.1}
+h1 .grad{background:linear-gradient(180deg,var(--grad-from),var(--grad-to));-webkit-background-clip:text;background-clip:text;color:transparent}
+.lede{margin:12px 0 0;color:var(--gray-900);font-size:15px;max-width:640px}
+.stats{display:flex;gap:0;margin:28px 0;border:1px solid var(--border);border-radius:var(--radius);overflow:hidden}
+.stat{flex:1;padding:16px 20px;background:var(--bg-2)}
+.stat+.stat{border-left:1px solid var(--border)}
+.stat .n{font-size:24px;font-weight:700;letter-spacing:-.02em}
+.stat .n.red{color:var(--red)}
+.stat .n.amber{color:var(--amber)}
+.stat .n.green{color:var(--green)}
+.stat .l{font-size:12px;color:var(--gray-900);margin-top:2px}
+.toolbar{display:flex;gap:8px;align-items:center;margin:20px 0;flex-wrap:wrap}
+.search{flex:1;min-width:200px;background:var(--bg-2);border:1px solid var(--border);border-radius:var(--radius-sm);color:var(--gray-1000);padding:8px 12px;font-size:13px;outline:none}
+.search:focus{border-color:var(--blue)}
+.btn{background:var(--gray-100);border:1px solid var(--border);border-radius:var(--radius-sm);color:var(--gray-1000);padding:8px 14px;font-size:13px;cursor:pointer}
+.btn:hover{background:var(--gray-200);border-color:var(--border-hover)}
+.btn.active{background:var(--gray-1000);color:#000;border-color:var(--gray-1000)}
+.list{border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;background:var(--bg-2)}
+.row{padding:18px 20px;cursor:pointer;transition:background .12s}
+.row:hover{background:var(--gray-100)}
+.row+.row{border-top:1px solid var(--border)}
+.row-head{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.row-head h2{margin:0;font-size:15px;font-weight:600;letter-spacing:-.01em;flex:1;min-width:200px}
+.row-sum{color:var(--gray-900);font-size:13px;margin-top:6px}
+.row-foot{display:flex;gap:12px;align-items:center;margin-top:10px;font-size:12px;color:var(--gray-900)}
+.row-foot a{font-size:12px}
+.chev{color:var(--gray-900);font-size:12px;transition:transform .15s;flex:none}
+.row.open .chev{transform:rotate(180deg)}
+.detail{display:none;margin-top:12px;padding-top:12px;border-top:1px dashed var(--border);font-size:13px;color:var(--gray-900)}
+.row.open .detail{display:block}
+.detail .en{margin-bottom:8px}
+.badge{display:inline-flex;align-items:center;font-size:11px;font-weight:500;border-radius:5px;padding:2px 7px;border:1px solid var(--border);background:var(--gray-100);color:var(--gray-900);font-family:"Geist Mono",ui-monospace,SFMono-Regular,Menlo,monospace;white-space:nowrap}
+.badge.crit{background:var(--red);border-color:var(--red);color:#fff}
+.badge.wild{background:transparent;border-color:var(--amber);color:var(--amber)}
+.badge.epss{background:transparent}
+.hist{margin-top:48px}
+.hist h3{font-size:13px;font-weight:600;color:var(--gray-900);text-transform:uppercase;letter-spacing:.08em;margin:0 0 12px}
+.hist-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px}
+.hcard{border:1px solid var(--border);border-radius:var(--radius-sm);padding:12px 14px;background:var(--bg-2);color:var(--gray-1000)}
+.hcard:hover{border-color:var(--border-hover);text-decoration:none}
+.hcard .d{font-size:13px;font-weight:600;font-family:"Geist Mono",ui-monospace,monospace}
+.hcard .c{font-size:12px;color:var(--gray-900)}
+footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color:var(--gray-900);font-size:12px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.empty{border:1px dashed var(--border);border-radius:var(--radius);padding:48px;text-align:center;color:var(--gray-900);margin-top:20px}
+@media(max-width:640px){h1{font-size:30px}.stats{flex-direction:column}.stat+.stat{border-left:none;border-top:1px solid var(--border)}}
 </style>
 </head>
 <body>
+<script>try{if((localStorage.getItem('secdaily-theme')||(matchMedia('(prefers-color-scheme: light)').matches?'light':'dark'))==='light')document.documentElement.dataset.theme='light';}catch(e){}</script>
+<div class="nav"><div class="nav-inner">
+  <svg class="logo" viewBox="0 0 24 24"><path d="M12 1.8 3.5 5v6.1c0 5.1 3.6 9.6 8.5 10.9 4.9-1.3 8.5-5.8 8.5-10.9V5L12 1.8Zm0 2.4 6.5 2.6v4.3c0 4-2.7 7.6-6.5 8.7-3.8-1.1-6.5-4.7-6.5-8.7V6.8L12 4.2Zm-1.4 9.1 4-4 1.4 1.4-5.4 5.4-2.6-2.6 1.4-1.4 1.2 1.2Z"/></svg>
+  <div class="brand">SecDaily <span>/ 網安每日報</span></div>
+  <div class="nav-right"><span class="dot"></span>2026-09-11・fallback<a class="rss-link" href="feed.xml" title="RSS 訂閱">RSS</a><button class="theme-btn" onclick="toggleTheme()" title="切換淺色/深色">◐</button></div>
+</div></div>
+
 <div class="wrap">
-<header>
-  <div>
-    <h1>🛡️ 網安<span>每日報</span></h1>
-    <div class="sub">最新一期 2026-10-02 ・ 共 5 則高危（CVSS ≥ 9.0 或在野利用）・ 引擎 gemini</div>
-  </div>
-  <div class="meta">
-    <div class="pill">來源 NVD + CISA KEV + EPSS</div>
-    <div class="pill">每天 08:00 (台北) 自動更新</div>
-  </div>
-</header>
+<div class="hero">
+  <div class="eyebrow">NVD + CISA KEV + EPSS ・ 每天 08:00（台北）自動更新</div>
+  <h1><span class="grad">今日高危漏洞</span></h1>
+  <p class="lede">僅收錄 CVSS ≥ 9.0 或在野利用項目。點擊任一條目展開完整描述與修補建議。</p>
+</div>
+
+<div class="stats">
+  <div class="stat"><div class="n red">5</div><div class="l">高危項目</div></div>
+  <div class="stat"><div class="n amber">0</div><div class="l">在野利用</div></div>
+  <div class="stat"><div class="n amber">0</div><div class="l">利用預警 EPSS≥0.7</div></div>
+  <div class="stat"><div class="n green">5</div><div class="l">CVSS ≥ 9.5</div></div>
+</div>
 
 <div class="toolbar">
-  <input id="q" placeholder="搜尋 CVE / 廠商 / 類型…" oninput="filterCards()">
-  <label><input type="checkbox" id="wild" onchange="filterCards()"> 只看在野利用</label>
+  <input class="search" id="q" placeholder="搜尋 CVE / 廠商 / 類型…" oninput="filterCards()">
+  <button class="btn" id="wildBtn" onclick="toggleWild(this)">只看在野利用</button>
 </div>
 
 
-<div class="grid" id="grid">
+<div class="list" id="grid">
 
-  <div class="card" data-wild="1" onclick="if(event.target.tagName!=='A')this.classList.toggle('open')">
-    <div class="badges">
-      <span class="b cvss">CVSS 9.8</span>
-      <span class="b kev">🔥 在野利用</span>
-      <span class="b type">其他高危</span>
+  <div class="row" data-wild="0" onclick="if(event.target.tagName!=='A')this.classList.toggle('open')">
+    <div class="row-head">
+      <h2>teddy-bear-customize-addon RCE CVE-2026-14560 10.0</h2>
+      <span class="badge crit">CVSS 10.0</span>
       
+      <span class="badge">RCE</span>
+      <span class="badge epss">EPSS 0.00</span>
+      <span class="chev">▾</span>
     </div>
-    <h2>Fortinet FortiMail 任意檔案寫入</h2>
-    <div class="sum">攻擊者可利用路徑遍歷漏洞在系統寫入任意檔案。</div>
-    <div class="cve">CVE-2026-104286 ・ 影響：FortiMail 7.2.0 至 8.0.1 多個版本
-      ・ <a href="https://fortiguard.fortinet.com/psirt/FG-IR-26-175" target="_blank">參考連結</a>
+    <div class="row-sum">The teddy-bear-customize-addon WordPress plugin through 1.0.5 does not properly validate uploaded files, relying on a cl…</div>
+    <div class="row-foot"><span>CVE-2026-14560</span><span>teddy-bear-customize-addon</span>
+      <a href="https://wpscan.com/vulnerability/aba51906-91dc-4e75-ad44-373fe128deee/" target="_blank">參考連結 ↗</a>
     </div>
-    <div class="fix">🛠 升級至 Fortinet 官方發布的最新安全版本。</div>
     <div class="detail">
-      <div class="en">An improper limitation of a pathname to a restricted directory (&#39;path traversal&#39;) vulnerability in Fortinet FortiMail 8.0.0 through 8.0.1, FortiMail 7.6.0 through 7.6.6, FortiMail 7.4.0 through 7.4.8, FortiMail 7.2.0 through 7.2.9 may allow an unauthenticated attacker to write arbitrary files on the underlying system via crafted HTTP or HTTPS requests.</div>
-      <div class="refs">🔗 更多參考：<a href="https://www.cisa.gov/known-exploited-vulnerabilities-catalog?field_cve=CVE-2026-104286" target="_blank">[2]</a> </div>
-      <div class="hint">▲ 再點卡片收起</div>
+      <div class="en">The teddy-bear-customize-addon WordPress plugin through 1.0.5 does not properly validate uploaded files, relying on a client-supplied content type and preserving the original filename, allowing unauthenticated attackers to upload arbitrary PHP files and execute code on the server.</div>
+      <div>修補建議：更新至官方修補版本</div>
+      
     </div>
   </div>
 
-  <div class="card" data-wild="0" onclick="if(event.target.tagName!=='A')this.classList.toggle('open')">
-    <div class="badges">
-      <span class="b cvss">CVSS 10.0</span>
+  <div class="row" data-wild="0" onclick="if(event.target.tagName!=='A')this.classList.toggle('open')">
+    <div class="row-head">
+      <h2>待確認產品 未授權存取 CVE-2026-80462 10.0</h2>
+      <span class="badge crit">CVSS 10.0</span>
       
-      <span class="b type">接管</span>
+      <span class="badge">未授權存取</span>
       
+      <span class="chev">▾</span>
     </div>
-    <h2>BackupSheep 插件接管漏洞</h2>
-    <div class="sum">錯誤的金鑰驗證允許攻擊者下載備份並接管網站。</div>
-    <div class="cve">CVE-2026-101148 ・ 影響：BackupSheep WordPress 插件 1.8 及以下
-      ・ <a href="https://wpscan.com/vulnerability/5d6fce13-34e3-4ec6-9b47-a78dd7c94fed/" target="_blank">參考連結</a>
+    <div class="row-sum">A vulnerability in the Chef Automate API gateway and identity validation path may allow an unauthenticated actor to gain…</div>
+    <div class="row-foot"><span>CVE-2026-80462</span><span>待確認產品</span>
+      <a href="https://community.progress.com/s/article/Critical-Security-Bulletin---August-2026---Chef-Automate-Security-Vulnerability" target="_blank">參考連結 ↗</a>
     </div>
-    <div class="fix">🛠 該外掛已關閉且無修復版，建議立即從網站移除。</div>
     <div class="detail">
-      <div class="en">The BackupSheep WordPress Backup Plugin WordPress plugin through 1.8 does not properly validate its integration key, treating an unset or blank key as valid, which allows unauthenticated attackers to create and download full site backups, including the database with user password hashes, and to delete arbitrary files on the server, leading to sensitive data disclosure and site takeover.
-
-The BackupSheep WordPress Backup Plugin WordPress plugin through 1.8 has been closed on WordPress.org since July 2024 and no fixed version is available. Remove it from any site where it is installed.</div>
+      <div class="en">A vulnerability in the Chef Automate API gateway and identity validation path may allow an unauthenticated actor to gain elevated access to protected Chef Automate functionality under specific conditions.</div>
+      <div>修補建議：更新至官方修補版本</div>
       
-      <div class="hint">▲ 再點卡片收起</div>
     </div>
   </div>
 
-  <div class="card" data-wild="0" onclick="if(event.target.tagName!=='A')this.classList.toggle('open')">
-    <div class="badges">
-      <span class="b cvss">CVSS 10.0</span>
+  <div class="row" data-wild="0" onclick="if(event.target.tagName!=='A')this.classList.toggle('open')">
+    <div class="row-head">
+      <h2>Forgejo RCE CVE-2026-89094 9.9</h2>
+      <span class="badge crit">CVSS 9.9</span>
       
-      <span class="b type">資訊洩漏</span>
-      
+      <span class="badge">RCE</span>
+      <span class="badge epss">EPSS 0.01</span>
+      <span class="chev">▾</span>
     </div>
-    <h2>Teledyne FLIR 資訊洩漏漏洞</h2>
-    <div class="sum">攻擊者可透過路徑遍歷讀取機器人敏感配置與參數。</div>
-    <div class="cve">CVE-2026-55393 ・ 影響：Aware2 6.9.0.2 與 1.7.9 及以下版本
-      ・ <a href="https://github.com/mandiant/Vulnerability-Disclosures/blob/master/2026/MNDT-2026-0029.md" target="_blank">參考連結</a>
+    <div class="row-sum">Forgejo before 16.0.4 allows remote code execution via a crafted template repository because template expansion on files…</div>
+    <div class="row-foot"><span>CVE-2026-89094</span><span>Forgejo</span>
+      <a href="https://codeberg.org/forgejo/forgejo/milestone/139655" target="_blank">參考連結 ↗</a>
     </div>
-    <div class="fix">🛠 聯繫廠商獲取更新，並限制管理介面的網路存取。</div>
     <div class="detail">
-      <div class="en">Unvalidated pathnames in the web interface in Teledyne FLIR Aware2 versions through 6.9.0.2 (PackBot) and 1.7.9 (FirstLook) allows remote unauthenticated attackers to read configuration and security parameters on Teledyne FLIR PackBot and FirstLook robots running this software via path traversal.</div>
-      
-      <div class="hint">▲ 再點卡片收起</div>
+      <div class="en">Forgejo before 16.0.4 allows remote code execution via a crafted template repository because template expansion on files in .forgejo/template is mishandled.</div>
+      <div>修補建議：更新至官方修補版本</div>
+      <div style="margin-top:6px">更多參考：<a href="https://news.ycombinator.com/item?id=49645907" target="_blank">[2]</a> </div>
     </div>
   </div>
 
-  <div class="card" data-wild="0" onclick="if(event.target.tagName!=='A')this.classList.toggle('open')">
-    <div class="badges">
-      <span class="b cvss">CVSS 9.9</span>
+  <div class="row" data-wild="0" onclick="if(event.target.tagName!=='A')this.classList.toggle('open')">
+    <div class="row-head">
+      <h2>待確認產品 目錄遍歷 CVE-2026-68487 9.9</h2>
+      <span class="badge crit">CVSS 9.9</span>
       
-      <span class="b type">其他高危</span>
-      
+      <span class="badge">目錄遍歷</span>
+      <span class="badge epss">EPSS 0.00</span>
+      <span class="chev">▾</span>
     </div>
-    <h2>Fortra BoKS 密碼預測漏洞</h2>
-    <div class="sum">隨機序列可預測導致 AD 服務帳號密碼遭破解。</div>
-    <div class="cve">CVE-2026-79901 ・ 影響：使用 BoKS keytab 管理的受影響版本
-      ・ <a href="https://www.fortra.com/security/advisories/product-security/fi-2026-012" target="_blank">參考連結</a>
+    <div class="row-sum">Path traversal in Plesk&#39;s Backup Manager causes arbitrary file write as root by an authenticated customer.…</div>
+    <div class="row-foot"><span>CVE-2026-68487</span><span>待確認產品</span>
+      <a href="https://support.plesk.com/hc/en-us/articles/43248841638551-Vulnerability-in-Plesk-s-Backup-Manager-unsigned-backup-header-allows-path-traversal" target="_blank">參考連結 ↗</a>
     </div>
-    <div class="fix">🛠 參考 Fortra 安全公告 FI-2026-012 進行修補。</div>
     <div class="detail">
-      <div class="en">In deployments using BoKS keytab management, affected versions of boks_keytabmd generate Active Directory service-account passwords from a predictable pseudo-random sequence seeded with the current Unix timestamp. An attacker who knows the service principal and can estimate the password-change time can reproduce a limited candidate set and verify candidates offline.</div>
+      <div class="en">Path traversal in Plesk&#39;s Backup Manager causes arbitrary file write as root by an authenticated customer.</div>
+      <div>修補建議：更新至官方修補版本</div>
       
-      <div class="hint">▲ 再點卡片收起</div>
     </div>
   </div>
 
-  <div class="card" data-wild="0" onclick="if(event.target.tagName!=='A')this.classList.toggle('open')">
-    <div class="badges">
-      <span class="b cvss">CVSS 9.9</span>
+  <div class="row" data-wild="0" onclick="if(event.target.tagName!=='A')this.classList.toggle('open')">
+    <div class="row-head">
+      <h2>待確認產品 SSRF CVE-2026-89049 9.9</h2>
+      <span class="badge crit">CVSS 9.9</span>
       
-      <span class="b type">RCE</span>
-      
+      <span class="badge">SSRF</span>
+      <span class="badge epss">EPSS 0.00</span>
+      <span class="chev">▾</span>
     </div>
-    <h2>Foreman 模板引擎 RCE 漏洞</h2>
-    <div class="sum">低權限用戶可繞過沙箱限制，在伺服器執行指令。</div>
-    <div class="cve">CVE-2026-96658 ・ 影響：Foreman 模板引擎相關組件
-      ・ <a href="https://access.redhat.com/errata/RHSA-2026:74503" target="_blank">參考連結</a>
+    <div class="row-sum">A server-side request forgery issue due to improper validation of equivalent address representations in the port forward…</div>
+    <div class="row-foot"><span>CVE-2026-89049</span><span>待確認產品</span>
+      <a href="https://aws.amazon.com/security/security-bulletins/2026-107-aws/" target="_blank">參考連結 ↗</a>
     </div>
-    <div class="fix">🛠 升級至 Red Hat 提供的最新安全修復版本。</div>
     <div class="detail">
-      <div class="en">A flaw was found in Foreman. An authenticated attacker with low-level permissions can achieve remote code execution (RCE) by bypassing the safemode sandbox within the templating engine. Due to improper handling of delegated methods, an attacker can append unauthorized functions to the allowed execution list, enabling them to run arbitrary commands on the hosting server.</div>
-      <div class="refs">🔗 更多參考：<a href="https://access.redhat.com/errata/RHSA-2026:74504" target="_blank">[2]</a> <a href="https://access.redhat.com/errata/RHSA-2026:74506" target="_blank">[3]</a> <a href="https://access.redhat.com/security/cve/CVE-2026-96658" target="_blank">[4]</a> <a href="https://bugzilla.redhat.com/show_bug.cgi?id=2534185" target="_blank">[5]</a> </div>
-      <div class="hint">▲ 再點卡片收起</div>
+      <div class="en">A server-side request forgery issue due to improper validation of equivalent address representations in the port forwarding to remote hosts functionality in Amazon AWS Systems Manager Agent (SSM Agent) before 3.3.4851.0 on all platforms might allow an authenticated remote user to bypass the remote destination denylist and reach link-local endpoints, potentially obtaining the temporary IAM role credentials of a managed instance and acting with that role&#39;s permissions from outside the instance, via a crafted destination host value that uses an alternate representation of a denied link-local addr</div>
+      <div>修補建議：更新至官方修補版本</div>
+      <div style="margin-top:6px">更多參考：<a href="https://github.com/aws/amazon-ssm-agent/releases/tag/3.3.4851.0" target="_blank">[2]</a> <a href="https://github.com/aws/amazon-ssm-agent/security/advisories/GHSA-w9jw-h72g-6hxc" target="_blank">[3]</a> </div>
     </div>
   </div>
 
@@ -160,67 +222,27 @@ The BackupSheep WordPress Backup Plugin WordPress plugin through 1.8 has been cl
 
 
 <div class="hist">
-  <h3>📅 歷史存檔</h3>
-  <div style="display:flex;gap:8px;flex-wrap:wrap">
+  <h3>Archive / 歷史存檔</h3>
+  <div class="hist-grid">
     
-    <a class="hlink" href="2026-10-02.html">2026-10-02（5 則）</a>
-    
-    <a class="hlink" href="2026-10-01.html">2026-10-01（5 則）</a>
-    
-    <a class="hlink" href="2026-09-30.html">2026-09-30（5 則）</a>
-    
-    <a class="hlink" href="2026-09-29.html">2026-09-29（5 則）</a>
-    
-    <a class="hlink" href="2026-09-28.html">2026-09-28（5 則）</a>
-    
-    <a class="hlink" href="2026-09-27.html">2026-09-27（5 則）</a>
-    
-    <a class="hlink" href="2026-09-26.html">2026-09-26（5 則）</a>
-    
-    <a class="hlink" href="2026-09-25.html">2026-09-25（5 則）</a>
-    
-    <a class="hlink" href="2026-09-24.html">2026-09-24（5 則）</a>
-    
-    <a class="hlink" href="2026-09-23.html">2026-09-23（5 則）</a>
-    
-    <a class="hlink" href="2026-09-22.html">2026-09-22（5 則）</a>
-    
-    <a class="hlink" href="2026-09-21.html">2026-09-21（5 則）</a>
-    
-    <a class="hlink" href="2026-09-20.html">2026-09-20（5 則）</a>
-    
-    <a class="hlink" href="2026-09-19.html">2026-09-19（5 則）</a>
-    
-    <a class="hlink" href="2026-09-18.html">2026-09-18（5 則）</a>
-    
-    <a class="hlink" href="2026-09-17.html">2026-09-17（5 則）</a>
-    
-    <a class="hlink" href="2026-09-16.html">2026-09-16（5 則）</a>
-    
-    <a class="hlink" href="2026-09-15.html">2026-09-15（5 則）</a>
-    
-    <a class="hlink" href="2026-09-14.html">2026-09-14（5 則）</a>
-    
-    <a class="hlink" href="2026-09-13.html">2026-09-13（5 則）</a>
-    
-    <a class="hlink" href="2026-09-12.html">2026-09-12（5 則）</a>
-    
-    <a class="hlink" href="2026-09-11.html">2026-09-11（5 則）</a>
+    <a class="hcard" href="2026-09-11.html"><div class="d">2026-09-11</div><div class="c">5 則・fallback</div></a>
     
   </div>
-  <div style="color:var(--mut);font-size:13px;margin-top:8px">歷史 JSON 在 docs/data/，可直接當 API 用</div>
 </div>
 
-<footer>資料：NVD / CISA KEV / FIRST EPSS ・ AI 提煉僅供參考，請以官方 Advisory 為準 ・ 由 GitHub Actions 每日自動產生</footer>
+<footer><span>資料：NVD / CISA KEV / FIRST EPSS ・ AI 提煉僅供參考，請以官方 Advisory 為準</span><span>由 GitHub Actions 每日自動產生</span></footer>
 </div>
 <script>
+try{if((localStorage.getItem('secdaily-theme')||(matchMedia('(prefers-color-scheme: light)').matches?'light':'dark'))==='light')document.documentElement.dataset.theme='light';}catch(e){}
+function toggleTheme(){const d=document.documentElement;const next=d.dataset.theme==='light'?'dark':'light';if(next==='light')d.dataset.theme='light';else delete d.dataset.theme;try{localStorage.setItem('secdaily-theme',next);}catch(e){}}
+let wildOnly=false;
+function toggleWild(b){wildOnly=!wildOnly;b.classList.toggle('active',wildOnly);filterCards();}
 function filterCards(){
   const q=(document.getElementById('q').value||'').toLowerCase();
-  const w=document.getElementById('wild').checked;
-  document.querySelectorAll('#grid .card').forEach(c=>{
+  document.querySelectorAll('#grid .row').forEach(c=>{
     const t=c.innerText.toLowerCase();
     const okQ=!q||t.includes(q);
-    const okW=!w||c.dataset.wild==='1';
+    const okW=!wildOnly||c.dataset.wild==='1';
     c.style.display=(okQ&&okW)?'':'none';
   });
 }

@@ -131,6 +131,8 @@ def main():
             "kev": {k: kev[cid].get(k, "") for k in ("vendorProject", "product", "dateAdded", "shortDescription")} if cid in kev else None,
         })
 
+EPSS_WARN = float(os.getenv("EPSS_WARN", "0.7"))  # 即將被利用預警線
+
     epss = fetch_epss([x["cve"] for x in items])
     for x in items:
         e = epss.get(x["cve"]) or {}
@@ -139,10 +141,11 @@ def main():
             x["epss_pct"] = float(e["percentile"]) if e.get("percentile") not in (None, "") else None
         except (TypeError, ValueError):
             x["epss"], x["epss_pct"] = None, None
+        x["epss_warn"] = bool(x["epss"] is not None and x["epss"] >= EPSS_WARN and not x["in_kev"])
 
-    # 硬過濾：CVSS>=9.0 或 在野
-    kept = [x for x in items if (x["cvss"] is not None and x["cvss"] >= 9.0) or x["in_kev"]]
-    kept.sort(key=lambda x: (x["in_kev"], x["cvss"] or 0, x["epss"] or 0), reverse=True)
+    # 硬過濾：CVSS>=9.0 或 在野 或 EPSS 預警
+    kept = [x for x in items if (x["cvss"] is not None and x["cvss"] >= 9.0) or x["in_kev"] or x["epss_warn"]]
+    kept.sort(key=lambda x: (x["in_kev"], x["epss_warn"], x["cvss"] or 0, x["epss"] or 0), reverse=True)
 
     raw_path = RAW_DIR / f"{target}_raw.json"
     save_json(raw_path, {"date": target, "fetched_at": datetime.now(timezone.utc).isoformat(),

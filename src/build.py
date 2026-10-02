@@ -1,14 +1,45 @@
-"""SSG：data/*.json -> docs/index.html + docs/data/*.json"""
+"""SSG：data/*.json -> docs/index.html + docs/data/*.json + docs/feed.xml"""
 from __future__ import annotations
 import json
+import os
 import shutil
+from datetime import datetime, timezone
 from pathlib import Path
+from xml.sax.saxutils import escape as _esc
 
 from jinja2 import Environment, FileSystemLoader
 
 from common import BASE, DATA_DIR, DOCS_DIR
 
 TEMPLATE_DIR = BASE / "templates"
+SITE_URL = os.getenv("SITE_URL", "https://ryanran8787-a11y.github.io/sec-daily-report").rstrip("/")
+
+
+def build_feed(reps: list[dict]) -> str:
+    """RSS 2.0：每天一條 item，內容為當日 Top 條目標題清單。"""
+    now = datetime.now(timezone.utc).strftime("%a, %d %b %Y %H:%M:%S GMT")
+    parts = [f"""<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"><channel>
+<title>網安每日報 SecDaily</title>
+<link>{SITE_URL}/</link>
+<description>CVSS ≥ 9.0 或在野利用的高危漏洞日報</description>
+<language>zh-tw</language>
+<lastBuildDate>{now}</lastBuildDate>"""]
+    for r in reps[:30]:
+        lis = []
+        for it in r.get("items", []):
+            t = _esc(str(it.get("title_zh") or it["cve"]))
+            lis.append(f"<li>{t} (CVSS {it.get('cvss', '?')})</li>")
+        desc = f"<ul>{''.join(lis)}</ul>" if lis else "當日無高危項目"
+        parts.append(f"""<item>
+<title>{_esc(r['date'])} 高危 {r['count']} 則</title>
+<link>{SITE_URL}/{_esc(r['date'])}.html</link>
+<guid>{SITE_URL}/{_esc(r['date'])}.html</guid>
+<pubDate>{_esc(r.get('generated_at', now))}</pubDate>
+<description><![CDATA[{desc}]]></description>
+</item>""")
+    parts.append("</channel></rss>")
+    return "\n".join(parts)
 
 
 def load_reports() -> list[dict]:
@@ -43,7 +74,8 @@ def main():
     for r in reps:
         shutil.copy(DATA_DIR / f"{r['date']}.json", dd / f"{r['date']}.json")
     (DOCS_DIR / ".nojekyll").write_text("", encoding="utf-8")
-    print(f"[build] latest={latest['date']} count={latest['count']} -> docs/index.html")
+    (DOCS_DIR / "feed.xml").write_text(build_feed(reps), encoding="utf-8")
+    print(f"[build] latest={latest['date']} count={latest['count']} -> docs/index.html + feed.xml")
 
 
 if __name__ == "__main__":

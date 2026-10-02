@@ -1,18 +1,19 @@
 {
   "date": "2026-09-11",
-  "generated_at": "2026-09-11T15:13:03.938686+00:00",
+  "generated_at": "2026-10-02T09:28:45.363868+00:00",
   "engine": "fallback",
   "count": 5,
   "items": [
     {
       "cve": "CVE-2026-14560",
-      "title_zh": "WordPress 插件 RCE",
+      "title_zh": "teddy-bear-customize-addon RCE CVE-2026-14560 10.0",
       "cvss": 10.0,
       "type": "RCE",
       "in_wild": false,
-      "summary_zh": "未經授權上傳 PHP 檔案執行代碼。",
-      "affected": "teddy-bear-customize-addon <= 1.0.5",
-      "fix_hint": "更新至最新版本或停用該插件。",
+      "epss_warn": false,
+      "summary_zh": "The teddy-bear-customize-addon WordPress plugin through 1.0.5 does not properly validate uploaded files, relying on a cl…",
+      "affected": "teddy-bear-customize-addon",
+      "fix_hint": "更新至官方修補版本",
       "epss": 0.00228,
       "refs": [
         "https://wpscan.com/vulnerability/aba51906-91dc-4e75-ad44-373fe128deee/"
@@ -21,13 +22,14 @@
     },
     {
       "cve": "CVE-2026-80462",
-      "title_zh": "Chef Automate 未授權存取",
+      "title_zh": "待確認產品 未授權存取 CVE-2026-80462 10.0",
       "cvss": 10.0,
       "type": "未授權存取",
       "in_wild": false,
-      "summary_zh": "繞過身份驗證獲取受保護功能權限。",
-      "affected": "Chef Automate API gateway",
-      "fix_hint": "參考官方安全公告並更新組件。",
+      "epss_warn": false,
+      "summary_zh": "A vulnerability in the Chef Automate API gateway and identity validation path may allow an unauthenticated actor to gain…",
+      "affected": "待確認產品",
+      "fix_hint": "更新至官方修補版本",
       "epss": null,
       "refs": [
         "https://community.progress.com/s/article/Critical-Security-Bulletin---August-2026---Chef-Automate-Security-Vulnerability"
@@ -36,13 +38,14 @@
     },
     {
       "cve": "CVE-2026-89094",
-      "title_zh": "Forgejo 模板 RCE",
+      "title_zh": "Forgejo RCE CVE-2026-89094 9.9",
       "cvss": 9.9,
       "type": "RCE",
       "in_wild": false,
-      "summary_zh": "惡意模板倉庫觸發遠端代碼執行。",
-      "affected": "Forgejo < 16.0.4",
-      "fix_hint": "升級至 16.0.4 或更高版本。",
+      "epss_warn": false,
+      "summary_zh": "Forgejo before 16.0.4 allows remote code execution via a crafted template repository because template expansion on files…",
+      "affected": "Forgejo",
+      "fix_hint": "更新至官方修補版本",
       "epss": 0.005,
       "refs": [
         "https://codeberg.org/forgejo/forgejo/milestone/139655",
@@ -52,13 +55,14 @@
     },
     {
       "cve": "CVE-2026-68487",
-      "title_zh": "Plesk 目錄遍歷",
+      "title_zh": "待確認產品 目錄遍歷 CVE-2026-68487 9.9",
       "cvss": 9.9,
-      "type": "其他高危",
+      "type": "目錄遍歷",
       "in_wild": false,
-      "summary_zh": "備份管理員路徑遍歷導致 root 寫檔。",
-      "affected": "Plesk Backup Manager",
-      "fix_hint": "套用 Plesk 官方發布的安全更新。",
+      "epss_warn": false,
+      "summary_zh": "Path traversal in Plesk's Backup Manager causes arbitrary file write as root by an authenticated customer.…",
+      "affected": "待確認產品",
+      "fix_hint": "更新至官方修補版本",
       "epss": 0.00363,
       "refs": [
         "https://support.plesk.com/hc/en-us/articles/43248841638551-Vulnerability-in-Plesk-s-Backup-Manager-unsigned-backup-header-allows-path-traversal"
@@ -67,13 +71,14 @@
     },
     {
       "cve": "CVE-2026-89049",
-      "title_zh": "AWS SSM SSRF",
+      "title_zh": "待確認產品 SSRF CVE-2026-89049 9.9",
       "cvss": 9.9,
       "type": "SSRF",
       "in_wild": false,
-      "summary_zh": "繞過黑名單獲取 IAM 角色憑證。",
-      "affected": "AWS SSM Agent < 3.3.4851.0",
-      "fix_hint": "升級至 3.3.4851.0 或更高版本。",
+      "epss_warn": false,
+      "summary_zh": "A server-side request forgery issue due to improper validation of equivalent address representations in the port forward…",
+      "affected": "待確認產品",
+      "fix_hint": "更新至官方修補版本",
       "epss": 0.00358,
       "refs": [
         "https://aws.amazon.com/security/security-bulletins/2026-107-aws/",

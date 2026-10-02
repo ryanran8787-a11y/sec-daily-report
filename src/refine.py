@@ -125,10 +125,11 @@ def fallback(items: list[dict]) -> list[dict]:
                   or _guess_product(x.get("desc_en", ""))
                   or "待確認產品")
         t = x.get("type_guess", "其他高危")
-        wild = "在野利用" if x.get("in_kev") else f"{x['cvss']}" if x.get("cvss") else ""
+        wild = "在野利用" if x.get("in_kev") else ("利用預警" if x.get("epss_warn") else f"{x['cvss']}" if x.get("cvss") else "")
         out.append({
             "cve": x["cve"], "title_zh": f"{vendor} {t} {x['cve']} {wild}".strip(),
             "cvss": x.get("cvss"), "type": t, "in_wild": bool(x.get("in_kev")),
+            "epss_warn": bool(x.get("epss_warn")),
             "summary_zh": (x.get("desc_en", "")[:120] + "…") if x.get("desc_en") else "",
             "affected": vendor, "fix_hint": "更新至官方修補版本",
             "epss": x.get("epss"), "refs": x.get("refs", []),
@@ -149,12 +150,13 @@ def main():
     raw = json.loads(raw_p.read_text(encoding="utf-8"))
     items = raw["items"]
     # 只取 Top N（在野優先，其次 CVSS）：LLM 一天只打一次，省 quota 又精簡
-    items = sorted(items, key=lambda x: (x.get("in_kev"), x.get("cvss") or 0,
+    items = sorted(items, key=lambda x: (x.get("in_kev"), x.get("epss_warn"),
+                                         x.get("cvss") or 0,
                                          x.get("epss") or 0), reverse=True)[:TOP_N]
     print(f"[refine] raw={len(raw['items'])} -> top{len(items)}")
     # LLM 輸入瘦身，避免 token 爆炸
     slim = [{"cve": x["cve"], "cvss": x["cvss"], "type_guess": x["type_guess"],
-             "in_kev": x["in_kev"], "epss": x.get("epss"),
+             "in_kev": x["in_kev"], "epss": x.get("epss"), "epss_warn": x.get("epss_warn"),
              "desc_en": x.get("desc_en", "")[:800], "refs": x.get("refs", [])[:2]} for x in items]
 
     result, used = None, "fallback"
@@ -180,6 +182,7 @@ def main():
             cid = m.group(0)
             src = by_raw[cid]
             r["cve"], r["cvss"], r["in_wild"] = cid, src["cvss"], src["in_kev"]
+            r.setdefault("epss_warn", src.get("epss_warn", False))
             r.setdefault("epss", src.get("epss"));
             r.setdefault("refs", src.get("refs", []))
             r.setdefault("desc_en", (src.get("desc_en", "") or "")[:600])
