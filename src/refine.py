@@ -247,15 +247,16 @@ def main():
     if not result:
         result, used = fallback(items), "fallback"
     else:
-        # 校驗：CVE 編號必須存在、cvss 照抄 raw
+        # 校驗：CVE 編號必須存在、cvss 照抄 raw（CISCO- 廠商通告無 CVE 也放行）
         by_raw = {x["cve"]: x for x in items}
         clean = []
         for r in result if isinstance(result, list) else []:
             cid = str(r.get("cve", "")).upper()
             m = CVE_RE.search(cid)
-            if not m or m.group(0) not in by_raw:
+            if m and m.group(0) in by_raw:
+                cid = m.group(0)
+            elif cid not in by_raw:
                 continue
-            cid = m.group(0)
             src = by_raw[cid]
             r["cve"], r["cvss"], r["in_wild"] = cid, src["cvss"], src["in_kev"]
             r.setdefault("epss_warn", src.get("epss_warn", False))

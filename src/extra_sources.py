@@ -44,6 +44,10 @@ def fetch_github_advisories(days: int = 7) -> list[dict]:
         if score is None or score < 9.0:
             continue
         cid = (a.get("cve_id") or "").upper()
+        if not cid:  # 無 CVE 的只留 GHSA 編號，避免空 CVE 污染去重與 EPSS 整批
+            cid = (a.get("ghsa_id") or "").upper()
+            if not cid:
+                continue
         cwes = [(w.get("cwe_id", "")) for w in a.get("cwes", []) if w.get("cwe_id")]
         desc = a.get("description", "") or ""
         vulns = a.get("vulnerabilities", []) or []

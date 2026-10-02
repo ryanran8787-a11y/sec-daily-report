@@ -1,6 +1,7 @@
 """共用工具：時區、CVSS 擷取、CWE->中文類型映射."""
 from __future__ import annotations
 import json
+import os
 import re
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
@@ -10,6 +11,7 @@ BASE = Path(__file__).resolve().parent.parent
 DATA_DIR = BASE / "data"
 RAW_DIR = DATA_DIR / "raw"
 DOCS_DIR = BASE / "docs"
+SITE_URL = os.getenv("SITE_URL", "https://ryanran8787-a11y.github.io/sec-daily-report").rstrip("/")
 
 CVE_RE = re.compile(r"CVE-\d{4}-\d{4,7}", re.I)
 

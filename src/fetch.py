@@ -153,7 +153,7 @@ def main():
         print(f"[warn] 補充源略過: {e}")
         enrich_osv = None
 
-    epss = fetch_epss([x["cve"] for x in items if not x["cve"].startswith("CISCO-")])
+    epss = fetch_epss([x["cve"] for x in items if x["cve"] and not x["cve"].startswith("CISCO-")])
     for x in items:
         e = epss.get(x["cve"]) or {}
         try:

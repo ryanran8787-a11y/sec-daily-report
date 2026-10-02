@@ -62,7 +62,7 @@ h1 .grad{background:linear-gradient(180deg,var(--grad-from),var(--grad-to));-web
 .search:focus{border-color:var(--blue)}
 .btn{background:var(--gray-100);border:1px solid var(--border);border-radius:var(--radius-sm);color:var(--gray-1000);padding:8px 14px;font-size:13px;cursor:pointer}
 .btn:hover{background:var(--gray-200);border-color:var(--border-hover)}
-.btn.active{background:var(--gray-1000);color:#000;border-color:var(--gray-1000)}
+.btn.active{background:#ededed;color:#000;border-color:#ededed}
 .list{border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;background:var(--bg-2)}
 .row{padding:18px 20px;cursor:pointer;transition:background .12s}
 .row:hover{background:var(--gray-100)}
@@ -84,8 +84,15 @@ h1 .grad{background:linear-gradient(180deg,var(--grad-from),var(--grad-to));-web
 .hist{margin-top:48px}
 .trend{margin-top:48px;border:1px solid var(--border);border-radius:var(--radius);background:var(--bg-2);padding:16px 20px}
 .trend h3{font-size:13px;font-weight:600;color:var(--gray-900);text-transform:uppercase;letter-spacing:.08em;margin:0 0 4px}
-.trend .sub2{font-size:12px;color:var(--gray-900);margin-bottom:8px}
-.trend svg{width:100%;height:90px;display:block}
+.trend .sub2{font-size:12px;color:var(--gray-900);margin-bottom:12px}
+.cal{display:flex;gap:5px;flex-wrap:wrap}
+.day{width:26px;height:26px;border-radius:6px;background:var(--gray-100);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:10px;color:var(--gray-900);font-family:"Geist Mono",ui-monospace,monospace;text-decoration:none}
+.day:hover{border-color:var(--border-hover)}
+.day.has{color:#fff;font-weight:700}
+.day.w1{background:rgba(245,165,36,.25);border-color:var(--amber);color:var(--amber)}
+.day.w2{background:rgba(245,165,36,.5);border-color:var(--amber);color:#000}
+.day.w3{background:var(--amber);border-color:var(--amber);color:#000}
+.cal-legend{display:flex;gap:12px;margin-top:10px;font-size:11px;color:var(--gray-900)}
 .hist h3{font-size:13px;font-weight:600;color:var(--gray-900);text-transform:uppercase;letter-spacing:.08em;margin:0 0 12px}
 .hist-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px}
 .hcard{border:1px solid var(--border);border-radius:var(--radius-sm);padding:12px 14px;background:var(--bg-2);color:var(--gray-1000)}
@@ -107,7 +114,7 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
 
 <div class="wrap">
 <div class="hero">
-  <div class="eyebrow">NVD + CISA KEV + EPSS ・ 每天 08:00（台北）自動更新</div>
+  <div class="eyebrow">NVD + KEV + EPSS + OSV + GitHub + Cisco ・ 每天 08:00（台北）自動更新</div>
   <h1><span class="grad">{% if report.date == latest_date %}今日高危漏洞{% else %}存檔回顧 {{ report.date }}{% endif %}</span></h1>
   <p class="lede">僅收錄 CVSS ≥ 9.0、在野利用或 EPSS 利用預警項目。點擊任一條目展開完整描述與修補建議。</p>
   {% if report.brief_zh %}<div class="brief"><span>AI 總評</span>{{ report.brief_zh }}</div>{% endif %}
@@ -178,16 +185,14 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
 
 {% if trend and trend|length > 1 %}
 <div class="trend">
-  <h3>Trend / 近{{ trend|length }}日高危數</h3>
-  <div class="sub2">在野利用以琥珀圓點標示當日數量</div>
-  {% set mx = trend|map(attribute="count")|max %}
-  {% set n = trend|length %}
-  <svg viewBox="0 0 300 90" preserveAspectRatio="none">
-    <polyline fill="none" stroke="#0070f3" stroke-width="1.5"
-      points="{% for t in trend %}{{ '%.1f'|format(8 + loop.index0 * 284 / (n - 1)) }},{{ '%.1f'|format(80 - (t.count / mx) * 68) }} {% endfor %}"/>
-    {% for t in trend %}{% if t.wild %}<circle cx="{{ '%.1f'|format(8 + loop.index0 * 284 / (n - 1)) }}" cy="{{ '%.1f'|format(80 - (t.count / mx) * 68) }}" r="3" fill="#f5a524"/>{% endif %}{% endfor %}
-    <text x="8" y="12" font-size="9" fill="#8f8f8f">max {{ mx }}/日</text>
-  </svg>
+  <h3>Exposure / 近{{ trend|length }}日在野日曆</h3>
+  <div class="sub2">琥珀色 = 當日有在野利用，點擊跳轉存檔</div>
+  <div class="cal">
+  {% for t in trend %}
+    <a class="day{% if t.wild %} has{% if t.wild >= 3 %} w3{% elif t.wild == 2 %} w2{% else %} w1{% endif %}{% endif %}" href="{{ t.date }}.html" title="{{ t.date }}・高危{{ t.count }}則・在野{{ t.wild }}則">{% if t.date[8:] == "01" %}{{ t.date[5:7] }}/1{% else %}{{ t.date[8:] }}{% endif %}</a>
+  {% endfor %}
+  </div>
+  <div class="cal-legend"><span>■ 無在野</span><span style="color:var(--amber)">■ 有在野（顏色越深越多）</span></div>
 </div>
 {% endif %}
 
@@ -205,6 +210,10 @@ function filterCards(){
     const okQ=!q||t.includes(q);
     const okW=!wildOnly||c.dataset.wild==='1';
     c.style.display=(okQ&&okW)?'':'none';
+  });
+  document.querySelectorAll('#grid .bucket').forEach(b=>{
+    const any=[...b.querySelectorAll('.row')].some(r=>r.style.display!=='none');
+    b.style.display=any?'':'none';
   });
 }
 </script>

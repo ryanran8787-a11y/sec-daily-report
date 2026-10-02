@@ -1,7 +1,6 @@
 """SSG：data/*.json -> docs/index.html + docs/data/*.json + docs/feed.xml"""
 from __future__ import annotations
 import json
-import os
 import shutil
 from datetime import datetime, timezone
 from pathlib import Path
@@ -9,10 +8,16 @@ from xml.sax.saxutils import escape as _esc
 
 from jinja2 import Environment, FileSystemLoader
 
-from common import BASE, DATA_DIR, DOCS_DIR
+from common import BASE, DATA_DIR, DOCS_DIR, SITE_URL
 
 TEMPLATE_DIR = BASE / "templates"
-SITE_URL = os.getenv("SITE_URL", "https://ryanran8787-a11y.github.io/sec-daily-report").rstrip("/")
+
+
+def _rfc822(iso: str, fallback: str) -> str:
+    try:
+        return datetime.fromisoformat(iso).strftime("%a, %d %b %Y %H:%M:%S GMT")
+    except Exception:
+        return fallback
 
 
 def build_feed(reps: list[dict]) -> str:
@@ -35,7 +40,7 @@ def build_feed(reps: list[dict]) -> str:
 <title>{_esc(r['date'])} 高危 {r['count']} 則</title>
 <link>{SITE_URL}/{_esc(r['date'])}.html</link>
 <guid>{SITE_URL}/{_esc(r['date'])}.html</guid>
-<pubDate>{_esc(r.get('generated_at', now))}</pubDate>
+<pubDate>{_esc(_rfc822(r.get('generated_at', ''), now))}</pubDate>
 <description><![CDATA[{desc}]]></description>
 </item>""")
     parts.append("</channel></rss>")
@@ -70,9 +75,17 @@ def main():
         shutil.copy(DATA_DIR / f"{r['date']}.json", dd / f"{r['date']}.json")
     (DOCS_DIR / ".nojekyll").write_text("", encoding="utf-8")
     (DOCS_DIR / "feed.xml").write_text(build_feed(reps), encoding="utf-8")
-    trend = [{"date": r["date"], "count": r["count"],
-              "wild": sum(1 for it in r.get("items", []) if it.get("in_wild"))}
-             for r in sorted(reps, key=lambda r: r["date"])[-30:]]
+    trend = []
+    for r in sorted(reps, key=lambda r: r["date"])[-30:]:
+        # 用 raw 的 kept 真實數量（Top5 截斷後的 count 全是 5，畫線沒意義）
+        n, wild = r["count"], sum(1 for it in r.get("items", []) if it.get("in_wild"))
+        try:
+            raw = json.loads((DATA_DIR / "raw" / f"{r['date']}_raw.json").read_text(encoding="utf-8"))
+            n = raw.get("kept", n)
+            wild = sum(1 for it in raw.get("items", []) if it.get("in_kev"))
+        except Exception:
+            pass
+        trend.append({"date": r["date"], "count": n, "wild": wild})
     (DOCS_DIR / "data" / "trend.json").write_text(
         json.dumps(trend, ensure_ascii=False), encoding="utf-8")
     ctx = dict(history=history, latest_date=reps[0]["date"], trend=trend)

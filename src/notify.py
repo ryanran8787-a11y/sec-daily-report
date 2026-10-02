@@ -3,11 +3,10 @@ from __future__ import annotations
 import argparse
 import json
 import os
-from pathlib import Path
 
 import requests
 
-from common import DATA_DIR, taipei_today_str
+from common import DATA_DIR, SITE_URL, taipei_today_str
 
 
 def build_msg(rep: dict, top: int = 5) -> str:
@@ -17,7 +16,7 @@ def build_msg(rep: dict, top: int = 5) -> str:
     for i, it in enumerate(rep.get("items", [])[:top], 1):
         tag = "在野" if it.get("in_wild") else ("預警" if it.get("epss_warn") else f"{it.get('cvss', '?')}")
         L.append(f"{i}. [{tag}] {it.get('title_zh', it['cve'])}")
-    L.append(f"https://ryanran8787-a11y.github.io/sec-daily-report/{rep['date']}.html")
+    L.append(f"{SITE_URL}/{rep['date']}.html")
     msg = "\n".join(L)
     return msg[:3800]  # Bot API 上限 4096，留餘
 

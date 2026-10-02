@@ -1,6 +1,6 @@
 {
   "date": "2026-09-11",
-  "generated_at": "2026-10-02T10:19:28.876938+00:00",
+  "generated_at": "2026-10-02T12:36:49.186572+00:00",
   "engine": "fallback",
   "count": 5,
   "brief_zh": "今日共5則高危（RCE2則、未授權存取1則），無在野利用，優先看 teddy-bear-customize-addon RCE CVE-2026-14560 10.0。",

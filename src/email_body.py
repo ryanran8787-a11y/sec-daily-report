@@ -4,7 +4,7 @@ import argparse
 import html
 import json
 
-from common import DATA_DIR, DOCS_DIR, taipei_today_str
+from common import DATA_DIR, DOCS_DIR, SITE_URL, taipei_today_str
 
 E = html.escape
 
@@ -32,7 +32,7 @@ def main():
             f"<h2>SecDaily {E(rep['date'])}｜高危{E(str(rep['count']))}則</h2>"
             + (f"<p style='background:#fff8e6;border-left:3px solid #f5a524;padding:10px 14px'>{E(rep['brief_zh'])}</p>" if rep.get("brief_zh") else "")
             + f"<table style='border-collapse:collapse;width:100%'>{''.join(rows) or '<tr><td>今日無高危</td></tr>'}</table>"
-            f"<p><a href='https://ryanran8787-a11y.github.io/sec-daily-report/{E(rep['date'])}.html'>在網站查看完整版</a></p>"
+            f"<p><a href='{SITE_URL}/{E(rep['date'])}.html'>在網站查看完整版</a></p>"
             f"<p style='color:#999;font-size:12px'>資料 NVD/KEV/EPSS/OSV/GitHub/Cisco · AI 提煉僅供參考</p></div>")
     out = DOCS_DIR / "email.html"
     out.write_text(body, encoding="utf-8")
