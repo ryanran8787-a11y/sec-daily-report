@@ -35,7 +35,9 @@ jobs:
           git pull --rebase --autostash --strategy-option=theirs origin main
           git push
       - name: email push
-        if: ${{ secrets.MAIL_USERNAME != '' }}
+        if: ${{ env.MAIL_USERNAME != '' }}
+        env:
+          MAIL_USERNAME: ${{ secrets.MAIL_USERNAME }}
         uses: dawidd6/action-send-mail@v3
         with:
           server_address: smtp.gmail.com
