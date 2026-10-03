@@ -1,0 +1,114 @@
+{
+  "date": "2026-10-03",
+  "generated_at": "2026-10-03T04:49:33.852108+00:00",
+  "engine": "gemini",
+  "count": 5,
+  "brief_zh": "今日 5 則漏洞以 RCE 與注入為主，請優先關注已出現攻擊活動的 Cisco SD-WAN 身份繞過。",
+  "items": [
+    {
+      "cve": "CVE-2026-76504",
+      "title_zh": "Cisco SD-WAN 身份繞過",
+      "cvss": null,
+      "type": "接管",
+      "in_wild": true,
+      "summary_zh": "API 認證繞過可讓攻擊者取得管理員權限。",
+      "affected": "Cisco Catalyst SD-WAN Manager",
+      "affected_versions": "",
+      "fix_hint": "更新至官方發布的最新版本。",
+      "patch_url": "https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-sdwan-webauth-xr8beuuU?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Catalyst%20SD-WAN%20Manager%20API%20Authentication%20Bypass%20Vulnerability%26vs_k=1",
+      "epss_warn": false,
+      "epss": 0.01575,
+      "refs": [
+        "https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-sdwan-webauth-xr8beuuU?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Catalyst%20SD-WAN%20Manager%20API%20Authentication%20Bypass%20Vulnerability%26vs_k=1"
+      ],
+      "desc_en": "Cisco Catalyst SD-WAN Manager API Authentication Bypass Vulnerability\n<p>A vulnerability in the API session-based authentication management of Cisco Catalyst SD-WAN Manager could allow an unauthenticated, remote attacker to access an affected system with privileges of the admin user.</p>\n<p class=\"p1\">This vulnerability is due to improper handling of URI encoding in an HTTP request, which allows the request to bypass an authentication rule that is intended to restrict access to a specific API endpoint. An attacker could exploit this vulnerability by sending a crafted HTTP request to the API of",
+      "source": "cisco",
+      "osv_packages": [],
+      "osv_fixed": []
+    },
+    {
+      "cve": "CVE-2026-69085",
+      "title_zh": "SiYuan SQL 注入漏洞",
+      "cvss": 10.0,
+      "type": "SQL注入",
+      "in_wild": false,
+      "summary_zh": "未經授權 SQL 注入可讀寫所有筆記本內容。",
+      "affected": "SiYuan",
+      "affected_versions": "",
+      "fix_hint": "升級至最新版本並啟用認證功能。",
+      "patch_url": "https://github.com/advisories/GHSA-33jq-p8c2-q3q4",
+      "epss_warn": false,
+      "epss": 0.01488,
+      "refs": [
+        "https://github.com/advisories/GHSA-33jq-p8c2-q3q4"
+      ],
+      "desc_en": "SiYuan: Unauthenticated SQL injection in searchDocs via unescaped keyword (publish mode): cross-notebook read/write with statement stacking\n### Summary\n\nThe `/api/filetree/searchDocs` endpoint concatenates the caller-supplied search keyword directly into a SQL statement with no escaping and no parameter binding. The endpoint is gated by `CheckAuth` only reachable by the publish RoleReader token, and by the anonymous account when `Publish.Auth.Enable` is `false`. The resulting statement runs on a read-write SQLite handle through a driver that executes stacked (`;`-separated) statements, against",
+      "source": "github",
+      "osv_packages": [],
+      "osv_fixed": []
+    },
+    {
+      "cve": "CVE-2026-92937",
+      "title_zh": "vm2 沙箱逃逸 RCE",
+      "cvss": 10.0,
+      "type": "RCE",
+      "in_wild": false,
+      "summary_zh": "繞過修補程序導致主機執行任意指令。",
+      "affected": "vm2",
+      "affected_versions": "",
+      "fix_hint": "建議停止使用 vm2 或更新至修復版本。",
+      "patch_url": "https://github.com/advisories/GHSA-647f-g98j-qq25",
+      "epss_warn": false,
+      "epss": 0.01033,
+      "refs": [
+        "https://github.com/advisories/GHSA-647f-g98j-qq25"
+      ],
+      "desc_en": "vm2: GHSA-m283-3h24-438v fix bypass leads to host RCE via call/apply indirection\n## Summary\n\nUntrusted JavaScript run by vm2 can escape the sandbox and execute arbitrary commands in the host Node.js process when an embedder-exposed host Promise rejects. This is an incomplete fix for GHSA-m283-3h24-438v: the advisory's capability-bearing rejection rebuild runs only through this direct Promise-handler path, so call/apply indirection bypasses the protection it introduced. The bridge sanitises host rejection values before sandbox callbacks run, but the gate at `lib/bridge.js:1624` identity-checks ",
+      "source": "github",
+      "osv_packages": [],
+      "osv_fixed": []
+    },
+    {
+      "cve": "CVE-2026-92940",
+      "title_zh": "vm2 憑證與流量洩漏",
+      "cvss": 10.0,
+      "type": "資訊洩漏",
+      "in_wild": false,
+      "summary_zh": "暴露主機 HTTPS 憑證與 TLS 流量內容。",
+      "affected": "vm2",
+      "affected_versions": "3.11.6",
+      "fix_hint": "建議遷移至更安全的沙箱環境。",
+      "patch_url": "https://github.com/advisories/GHSA-h85j-hv3c-qfgq",
+      "epss_warn": false,
+      "epss": 0.00474,
+      "refs": [
+        "https://github.com/advisories/GHSA-h85j-hv3c-qfgq"
+      ],
+      "desc_en": "vm2 exposes host HTTPS credentials and TLS traffic through globalAgent\nSummary\n\nvm2 3.11.6 exposes the host process's real `https.globalAgent` when a `NodeVM` is explicitly allowed to require `https`. The module is wrapped as read-only, but calls to methods on the shared agent still mutate the host object. Sandbox code can register a `free` listener and receive host request options and the host TLS socket whenever an unrelated host HTTPS request releases a pooled connection.\n\nIn a contained test, sandbox code allowed only the `https` builtin:\n\n- read the host request's bearer token from the ag",
+      "source": "github",
+      "osv_packages": [],
+      "osv_fixed": []
+    },
+    {
+      "cve": "CVE-2026-92941",
+      "title_zh": "vm2 竄改主機 TLS 信任庫",
+      "cvss": 10.0,
+      "type": "權限提升",
+      "in_wild": false,
+      "summary_zh": "沙箱代碼可替換主機 TLS 憑證授權中心。",
+      "affected": "vm2",
+      "affected_versions": "3.11.6",
+      "fix_hint": "建議遷移至維護中的沙箱庫。",
+      "patch_url": "https://github.com/advisories/GHSA-98xx-8mx4-x7cm",
+      "epss_warn": false,
+      "epss": 0.00289,
+      "refs": [
+        "https://github.com/advisories/GHSA-98xx-8mx4-x7cm"
+      ],
+      "desc_en": "vm2 NodeVM can replace the host process TLS trust store\nSummary\n\nvm2 3.11.6 exposes the host `tls` module to a `NodeVM` when that builtin is explicitly allowed. Although the module object is wrapped as read-only, its functions still execute against process-wide host state. On Node.js versions that provide `tls.setDefaultCACertificates()`, sandbox code can replace the certificate authorities trusted by subsequent host-realm TLS clients.\n\nThe exploit needs only the narrowly allowed `tls` and `url` builtins. It does not require `fs`, `process`, `module`, `child_process`, an external package, or a",
+      "source": "github",
+      "osv_packages": [],
+      "osv_fixed": []
+    }
+  ]
+}
