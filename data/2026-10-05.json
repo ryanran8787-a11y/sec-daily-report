@@ -1,0 +1,122 @@
+{
+  "date": "2026-10-05",
+  "generated_at": "2026-10-05T05:05:17.163210+00:00",
+  "engine": "gemini",
+  "count": 5,
+  "brief_zh": "本日收錄 5 則漏洞，多屬 RCE 類型；請優先處理已遭野外利用的 Cisco SD-WAN 身份繞過漏洞。",
+  "items": [
+    {
+      "cve": "CVE-2026-76504",
+      "title_zh": "Cisco SD-WAN 身份繞過",
+      "cvss": null,
+      "type": "接管",
+      "in_wild": true,
+      "summary_zh": "URI 編碼處理不當導致 API 身份驗證繞過，可獲管理員權限。",
+      "affected": "Cisco Catalyst SD-WAN Manager",
+      "affected_versions": "",
+      "fix_hint": "更新至官方發布的修復版本。",
+      "patch_url": "https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-sdwan-webauth-xr8beuuU?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Catalyst%20SD-WAN%20Manager%20API%20Authentication%20Bypass%20Vulnerability%26vs_k=1",
+      "epss_warn": false,
+      "epss": 0.01575,
+      "refs": [
+        "https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-sdwan-webauth-xr8beuuU?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Catalyst%20SD-WAN%20Manager%20API%20Authentication%20Bypass%20Vulnerability%26vs_k=1"
+      ],
+      "desc_en": "Cisco Catalyst SD-WAN Manager API Authentication Bypass Vulnerability\n<p>A vulnerability in the API session-based authentication management of Cisco Catalyst SD-WAN Manager could allow an unauthenticated, remote attacker to access an affected system with privileges of the admin user.</p>\n<p class=\"p1\">This vulnerability is due to improper handling of URI encoding in an HTTP request, which allows the request to bypass an authentication rule that is intended to restrict access to a specific API endpoint. An attacker could exploit this vulnerability by sending a crafted HTTP request to the API of",
+      "source": "cisco",
+      "osv_packages": [],
+      "osv_fixed": []
+    },
+    {
+      "cve": "CVE-2026-105134",
+      "title_zh": "Ahsay AhsayCBS RCE",
+      "cvss": 10.0,
+      "type": "RCE",
+      "in_wild": false,
+      "summary_zh": "Replication Receiver 組件參數處理不當，導致遠端指令注入。",
+      "affected": "Ahsay AhsayCBS",
+      "affected_versions": "10.3.2 及更早",
+      "fix_hint": "升級至 10.3.4 或更高版本。",
+      "patch_url": "https://vuldb.com/cve/CVE-2026-105134",
+      "epss_warn": false,
+      "epss": 0.01843,
+      "refs": [
+        "https://vuldb.com/cve/CVE-2026-105134",
+        "https://vuldb.com/submit/942743",
+        "https://vuldb.com/vuln/413351",
+        "https://vuldb.com/vuln/413351/cti",
+        "https://www.ahsay.com/en/support/help-centre/release-notes/cbs/v10.3.4"
+      ],
+      "desc_en": "A flaw has been found in Ahsay AhsayCBS up to 10.3.2. This vulnerability affects unknown code of the file /rps/api/json/UpdateReceivers.do of the component Replication Receiver. Executing a manipulation of the argument random can lead to os command injection. It is possible to launch the attack remotely. The exploit has been published and may be used. Upgrading to version 10.3.4 is able to resolve this issue. Upgrading the affected component is advised.",
+      "source": "nvd",
+      "osv_packages": [],
+      "osv_fixed": []
+    },
+    {
+      "cve": "CVE-2026-69085",
+      "title_zh": "SiYuan SQL 注入漏洞",
+      "cvss": 10.0,
+      "type": "SQL注入",
+      "in_wild": false,
+      "summary_zh": "searchDocs 端點未過濾關鍵字，導致未授權 SQL 注入。",
+      "affected": "SiYuan",
+      "affected_versions": "",
+      "fix_hint": "建議更新至最新版本並限制 API 存取。",
+      "patch_url": "https://github.com/advisories/GHSA-33jq-p8c2-q3q4",
+      "epss_warn": false,
+      "epss": 0.01488,
+      "refs": [
+        "https://github.com/advisories/GHSA-33jq-p8c2-q3q4"
+      ],
+      "desc_en": "SiYuan: Unauthenticated SQL injection in searchDocs via unescaped keyword (publish mode): cross-notebook read/write with statement stacking\n### Summary\n\nThe `/api/filetree/searchDocs` endpoint concatenates the caller-supplied search keyword directly into a SQL statement with no escaping and no parameter binding. The endpoint is gated by `CheckAuth` only reachable by the publish RoleReader token, and by the anonymous account when `Publish.Auth.Enable` is `false`. The resulting statement runs on a read-write SQLite handle through a driver that executes stacked (`;`-separated) statements, against",
+      "source": "github",
+      "osv_packages": [],
+      "osv_fixed": []
+    },
+    {
+      "cve": "CVE-2026-92937",
+      "title_zh": "vm2 沙箱逃逸 RCE",
+      "cvss": 10.0,
+      "type": "逃逸",
+      "in_wild": false,
+      "summary_zh": "繞過先前修復補丁，透過 Promise 處理實現沙箱逃逸 RCE。",
+      "affected": "vm2",
+      "affected_versions": "",
+      "fix_hint": "vm2 已停止維護，建議遷移至更安全的替代方案。",
+      "patch_url": "https://github.com/advisories/GHSA-647f-g98j-qq25",
+      "epss_warn": false,
+      "epss": 0.01033,
+      "refs": [
+        "https://github.com/advisories/GHSA-647f-g98j-qq25"
+      ],
+      "desc_en": "vm2: GHSA-m283-3h24-438v fix bypass leads to host RCE via call/apply indirection\n## Summary\n\nUntrusted JavaScript run by vm2 can escape the sandbox and execute arbitrary commands in the host Node.js process when an embedder-exposed host Promise rejects. This is an incomplete fix for GHSA-m283-3h24-438v: the advisory's capability-bearing rejection rebuild runs only through this direct Promise-handler path, so call/apply indirection bypasses the protection it introduced. The bridge sanitises host rejection values before sandbox callbacks run, but the gate at `lib/bridge.js:1624` identity-checks ",
+      "source": "github",
+      "osv_packages": [],
+      "osv_fixed": []
+    },
+    {
+      "cve": "CVE-2026-105135",
+      "title_zh": "MindSearch 代碼注入",
+      "cvss": 10.0,
+      "type": "RCE",
+      "in_wild": false,
+      "summary_zh": "Planner Agent 組件輸入處理不當，導致遠端代碼注入。",
+      "affected": "InternLM MindSearch",
+      "affected_versions": "0.1.0",
+      "fix_hint": "官方尚未回應，建議暫停使用受影響組件或手動修補。",
+      "patch_url": "https://gist.github.com/DReazer/7ad46df9da73d0cf414276e4195b2183",
+      "epss_warn": false,
+      "epss": 0.0077,
+      "refs": [
+        "https://gist.github.com/DReazer/7ad46df9da73d0cf414276e4195b2183",
+        "https://vuldb.com/cve/CVE-2026-105135",
+        "https://vuldb.com/submit/943315",
+        "https://vuldb.com/vuln/413352",
+        "https://vuldb.com/vuln/413352/cti"
+      ],
+      "desc_en": "A vulnerability has been found in InternLM MindSearch 0.1.0. This issue affects the function ExecutionAction.run of the file mindsearch/agent/graph.py of the component Planner Agent. The manipulation of the argument inputs leads to code injection. The attack can be initiated remotely. The exploit has been disclosed to the public and may be used. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "source": "nvd",
+      "osv_packages": [],
+      "osv_fixed": []
+    }
+  ]
+}
