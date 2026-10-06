@@ -4,7 +4,14 @@
 <link>https://ryanran8787-a11y.github.io/sec-daily-report/</link>
 <description>CVSS&gt;=9.0 或在野利用的高危漏洞日報</description>
 <language>zh-tw</language>
-<lastBuildDate>Mon, 05 Oct 2026 05:05:17 GMT</lastBuildDate>
+<lastBuildDate>Tue, 06 Oct 2026 05:54:01 GMT</lastBuildDate>
+<item>
+<title>2026-10-06 高危 5 則</title>
+<link>https://ryanran8787-a11y.github.io/sec-daily-report/2026-10-06.html</link>
+<guid>https://ryanran8787-a11y.github.io/sec-daily-report/2026-10-06.html</guid>
+<pubDate>Tue, 06 Oct 2026 05:54:01 GMT</pubDate>
+<description><![CDATA[<ul><li>Cisco SD-WAN 管理員接管 (CVSS None)</li><li>Totolink 路由器 RCE 漏洞 (CVSS 10.0)</li><li>vm2 沙箱逃逸漏洞 (CVSS 10.0)</li><li>Totolink 路由器未授權存取 (CVSS 10.0)</li><li>vm2 控制台沙箱逃逸漏洞 (CVSS 10.0)</li></ul>]]></description>
+</item>
 <item>
 <title>2026-10-05 高危 5 則</title>
 <link>https://ryanran8787-a11y.github.io/sec-daily-report/2026-10-05.html</link>

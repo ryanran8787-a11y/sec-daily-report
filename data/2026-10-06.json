@@ -1,0 +1,122 @@
+{
+  "date": "2026-10-06",
+  "generated_at": "2026-10-06T05:54:01.032004+00:00",
+  "engine": "gemini",
+  "count": 5,
+  "brief_zh": "本期5項漏洞以逃逸與RCE為主，應優先防範已遭利用的 Cisco SD-WAN 管理員接管漏洞。",
+  "items": [
+    {
+      "cve": "CVE-2026-76504",
+      "title_zh": "Cisco SD-WAN 管理員接管",
+      "cvss": null,
+      "type": "接管",
+      "in_wild": true,
+      "summary_zh": "攻擊者可繞過 API 認證，以管理員權限存取系統。",
+      "affected": "Cisco Catalyst SD-WAN Manager",
+      "affected_versions": "",
+      "fix_hint": "升級至官方發布的安全版本。",
+      "patch_url": "https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-sdwan-webauth-xr8beuuU?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Catalyst%20SD-WAN%20Manager%20API%20Authentication%20Bypass%20Vulnerability%26vs_k=1",
+      "epss_warn": false,
+      "epss": 0.01575,
+      "refs": [
+        "https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-sdwan-webauth-xr8beuuU?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Catalyst%20SD-WAN%20Manager%20API%20Authentication%20Bypass%20Vulnerability%26vs_k=1"
+      ],
+      "desc_en": "Cisco Catalyst SD-WAN Manager API Authentication Bypass Vulnerability\n<p>A vulnerability in the API session-based authentication management of Cisco Catalyst SD-WAN Manager could allow an unauthenticated, remote attacker to access an affected system with privileges of the admin user.</p>\n<p class=\"p1\">This vulnerability is due to improper handling of URI encoding in an HTTP request, which allows the request to bypass an authentication rule that is intended to restrict access to a specific API endpoint. An attacker could exploit this vulnerability by sending a crafted HTTP request to the API of",
+      "source": "cisco",
+      "osv_packages": [],
+      "osv_fixed": []
+    },
+    {
+      "cve": "CVE-2026-105285",
+      "title_zh": "Totolink 路由器 RCE 漏洞",
+      "cvss": 10.0,
+      "type": "RCE",
+      "in_wild": false,
+      "summary_zh": "QoS 處理器緩衝區溢位，允許遠端執行任意程式碼。",
+      "affected": "Totolink A3002MU",
+      "affected_versions": "1.0.0-B20230403.1455",
+      "fix_hint": "建議更新韌體或停用相關服務。",
+      "patch_url": "https://gist.github.com/H3rmesk1t/b68352b011bc2825adc85cf336c25dfb",
+      "epss_warn": false,
+      "epss": 0.01096,
+      "refs": [
+        "https://gist.github.com/H3rmesk1t/b68352b011bc2825adc85cf336c25dfb",
+        "https://vuldb.com/cve/CVE-2026-105285",
+        "https://vuldb.com/submit/977224",
+        "https://vuldb.com/vuln/413466",
+        "https://vuldb.com/vuln/413466/cti"
+      ],
+      "desc_en": "A security vulnerability has been detected in Totolink A3002MU 1.0.0-B20230403.1455. This affects an unknown function of the file /boafrm/formIpQoS of the component QoS Rule Handler. The manipulation of the argument addQos/comment/entry_name leads to stack-based buffer overflow. Remote exploitation of the attack is possible. The exploit has been disclosed publicly and may be used.",
+      "source": "nvd",
+      "osv_packages": [],
+      "osv_fixed": []
+    },
+    {
+      "cve": "CVE-2026-92946",
+      "title_zh": "vm2 沙箱逃逸漏洞",
+      "cvss": 10.0,
+      "type": "逃逸",
+      "in_wild": false,
+      "summary_zh": "外部載入設定缺陷導致沙箱逃逸並執行任意程式碼。",
+      "affected": "vm2",
+      "affected_versions": "",
+      "fix_hint": "由於 vm2 已停止維護，建議遷移至其他安全沙箱。",
+      "patch_url": "https://github.com/advisories/GHSA-j3hm-6rg5-mchv",
+      "epss_warn": false,
+      "epss": 0.00857,
+      "refs": [
+        "https://github.com/advisories/GHSA-j3hm-6rg5-mchv"
+      ],
+      "desc_en": "vm2: NodeVM `require.external` without an explicit `require.root` grants unrestricted host filesystem access and full RCE\n## Summary\n\n`NodeVM`'s `require.external` option lets sandboxed code `require()` local files and npm packages. When `require.external` is enabled and `require.root` is **not explicitly set to a path that excludes `node_modules`**, two defaults combine to fully defeat the sandbox:\n\n- `require.root` defaults to **unrestricted** — \"if omitted every path is allowed.\"\n- `require.context` defaults to **`\"host\"`** — files loaded this way run through the **real Node.js `require()`*",
+      "source": "github",
+      "osv_packages": [],
+      "osv_fixed": []
+    },
+    {
+      "cve": "CVE-2026-105284",
+      "title_zh": "Totolink 路由器未授權存取",
+      "cvss": 10.0,
+      "type": "未授權存取",
+      "in_wild": false,
+      "summary_zh": "認證檢查機制缺陷，允許遠端攻擊者繞過授權。",
+      "affected": "Totolink A3002MU",
+      "affected_versions": "1.0.0-B20230403.1455",
+      "fix_hint": "建議更新韌體或限制管理介面存取。",
+      "patch_url": "https://gist.github.com/H3rmesk1t/ac6e91a8fba51002be085755c8bf7d43",
+      "epss_warn": false,
+      "epss": 0.00784,
+      "refs": [
+        "https://gist.github.com/H3rmesk1t/ac6e91a8fba51002be085755c8bf7d43",
+        "https://vuldb.com/cve/CVE-2026-105284",
+        "https://vuldb.com/submit/977217",
+        "https://vuldb.com/vuln/413465",
+        "https://vuldb.com/vuln/413465/cti"
+      ],
+      "desc_en": "A weakness has been identified in Totolink A3002MU 1.0.0-B20230403.1455. The impacted element is the function sub_40FCFC of the file /bin/boa of the component Authentication Check. Executing a manipulation can lead to improper authorization. The attack may be launched remotely. The exploit has been made available to the public and could be used for attacks.",
+      "source": "nvd",
+      "osv_packages": [],
+      "osv_fixed": []
+    },
+    {
+      "cve": "CVE-2026-92955",
+      "title_zh": "vm2 控制台沙箱逃逸漏洞",
+      "cvss": 10.0,
+      "type": "逃逸",
+      "in_wild": false,
+      "summary_zh": "利用原型鏈獲取主機對象，實現沙箱逃逸。",
+      "affected": "vm2",
+      "affected_versions": "",
+      "fix_hint": "由於 vm2 已停止維護，建議遷移至其他安全沙箱。",
+      "patch_url": "https://github.com/advisories/GHSA-88hf-g992-jg85",
+      "epss_warn": false,
+      "epss": 0.00712,
+      "refs": [
+        "https://github.com/advisories/GHSA-88hf-g992-jg85"
+      ],
+      "desc_en": "vm2: Sandbox Escape (NodeVM)\n## Summary\n\nIt being possible to obtain the host `__proto__` getter/setter, has been used in many reports:\n\n- https://github.com/patriksimek/vm2/security/advisories/GHSA-vwrp-x96c-mhwq\n- https://github.com/patriksimek/vm2/security/advisories/GHSA-v6mx-mf47-r5wg\n- https://github.com/patriksimek/vm2/security/advisories/GHSA-grj5-jjm8-h35p\n- https://github.com/patriksimek/vm2/security/advisories/GHSA-47x8-96vw-5wg6\n\nYet it was never patched...\n\n---\n\nThis can, still, be used to escape the sandbox, one example (I'm sure there's other ways as well), is via `console._stdo",
+      "source": "github",
+      "osv_packages": [],
+      "osv_fixed": []
+    }
+  ]
+}
