@@ -1,0 +1,114 @@
+{
+  "date": "2026-10-07",
+  "generated_at": "2026-10-07T05:26:49.861598+00:00",
+  "engine": "gemini",
+  "count": 5,
+  "brief_zh": "本日收錄 5 筆漏洞，主攻 RCE 與逃逸，請優先防範已出現在野攻擊的 Cisco SD-WAN 身份繞過漏洞。",
+  "items": [
+    {
+      "cve": "CVE-2026-76504",
+      "title_zh": "Cisco SD-WAN 管理 API 身份繞過在野利用",
+      "cvss": null,
+      "type": "接管",
+      "in_wild": true,
+      "summary_zh": "API URI 編碼處理不當，導致未經授權攻擊者可獲管理員權限。",
+      "affected": "Cisco Catalyst SD-WAN Manager",
+      "affected_versions": "",
+      "fix_hint": "請更新至官方發布的最新軟體版本。",
+      "patch_url": "https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-sdwan-webauth-xr8beuuU?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Catalyst%20SD-WAN%20Manager%20API%20Authentication%20Bypass%20Vulnerability%26vs_k=1",
+      "epss_warn": false,
+      "epss": 0.01819,
+      "refs": [
+        "https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-sdwan-webauth-xr8beuuU?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Catalyst%20SD-WAN%20Manager%20API%20Authentication%20Bypass%20Vulnerability%26vs_k=1"
+      ],
+      "desc_en": "Cisco Catalyst SD-WAN Manager API Authentication Bypass Vulnerability\n<p>A vulnerability in the API session-based authentication management of Cisco Catalyst SD-WAN Manager could allow an unauthenticated, remote attacker to access an affected system with privileges of the admin user.</p>\n<p class=\"p1\">This vulnerability is due to improper handling of URI encoding in an HTTP request, which allows the request to bypass an authentication rule that is intended to restrict access to a specific API endpoint. An attacker could exploit this vulnerability by sending a crafted HTTP request to the API of",
+      "source": "cisco",
+      "osv_packages": [],
+      "osv_fixed": []
+    },
+    {
+      "cve": "CVE-2026-92955",
+      "title_zh": "vm2 沙箱逃逸漏洞",
+      "cvss": 10.0,
+      "type": "逃逸",
+      "in_wild": false,
+      "summary_zh": "攻擊者可透過 console 物件原型鏈繞過沙箱限制。",
+      "affected": "vm2",
+      "affected_versions": "",
+      "fix_hint": "目前無官方修復，建議更換沙箱方案。",
+      "patch_url": "https://github.com/advisories/GHSA-88hf-g992-jg85",
+      "epss_warn": false,
+      "epss": 0.00712,
+      "refs": [
+        "https://github.com/advisories/GHSA-88hf-g992-jg85"
+      ],
+      "desc_en": "vm2: Sandbox Escape (NodeVM)\n## Summary\n\nIt being possible to obtain the host `__proto__` getter/setter, has been used in many reports:\n\n- https://github.com/patriksimek/vm2/security/advisories/GHSA-vwrp-x96c-mhwq\n- https://github.com/patriksimek/vm2/security/advisories/GHSA-v6mx-mf47-r5wg\n- https://github.com/patriksimek/vm2/security/advisories/GHSA-grj5-jjm8-h35p\n- https://github.com/patriksimek/vm2/security/advisories/GHSA-47x8-96vw-5wg6\n\nYet it was never patched...\n\n---\n\nThis can, still, be used to escape the sandbox, one example (I'm sure there's other ways as well), is via `console._stdo",
+      "source": "github",
+      "osv_packages": [],
+      "osv_fixed": []
+    },
+    {
+      "cve": "CVE-2026-32579",
+      "title_zh": "WordPress Kognetiks Chatbot RCE",
+      "cvss": 10.0,
+      "type": "RCE",
+      "in_wild": false,
+      "summary_zh": "外掛存在任意檔案上傳漏洞，未經授權攻擊者可遠端執行程式碼。",
+      "affected": "Kognetiks Chatbot for WordPress",
+      "affected_versions": "2.4.9 及更早",
+      "fix_hint": "請更新至最新版本。",
+      "patch_url": "https://patchstack.com/database/wordpress/plugin/chatbot-chatgpt/vulnerability/wordpress-kognetiks-chatbot-for-wordpress-plugin-2-4-8-arbitrary-file-upload-vulnerability?_s_id=cve",
+      "epss_warn": false,
+      "epss": 0.00486,
+      "refs": [
+        "https://patchstack.com/database/wordpress/plugin/chatbot-chatgpt/vulnerability/wordpress-kognetiks-chatbot-for-wordpress-plugin-2-4-8-arbitrary-file-upload-vulnerability?_s_id=cve"
+      ],
+      "desc_en": "Unauthenticated Arbitrary File Upload in Kognetiks Chatbot for WordPress <= 2.4.9 versions.",
+      "source": "nvd",
+      "osv_packages": [],
+      "osv_fixed": []
+    },
+    {
+      "cve": "CVE-2026-39770",
+      "title_zh": "WordPress Doctreat 主題 RCE",
+      "cvss": 10.0,
+      "type": "RCE",
+      "in_wild": false,
+      "summary_zh": "主題存在任意檔案上傳漏洞，未經授權攻擊者可遠端執行程式碼。",
+      "affected": "Doctreat",
+      "affected_versions": "1.7.0 及更早",
+      "fix_hint": "請更新至最新版本。",
+      "patch_url": "https://patchstack.com/database/wordpress/theme/doctreat/vulnerability/wordpress-doctreat-theme-1-7-0-arbitrary-file-upload-vulnerability?_s_id=cve",
+      "epss_warn": false,
+      "epss": 0.00423,
+      "refs": [
+        "https://patchstack.com/database/wordpress/theme/doctreat/vulnerability/wordpress-doctreat-theme-1-7-0-arbitrary-file-upload-vulnerability?_s_id=cve"
+      ],
+      "desc_en": "Unauthenticated Arbitrary File Upload in Doctreat <= 1.7.0 versions.",
+      "source": "nvd",
+      "osv_packages": [],
+      "osv_fixed": []
+    },
+    {
+      "cve": "CVE-2026-100721",
+      "title_zh": "vm2 自定義解析路徑邊界繞過",
+      "cvss": 10.0,
+      "type": "逃逸",
+      "in_wild": false,
+      "summary_zh": "NodeVM 自定義解析機制存在路徑邊界驗證缺陷，導致沙箱逃逸。",
+      "affected": "vm2",
+      "affected_versions": "3.11.8",
+      "fix_hint": "請檢查官方更新或限制 NodeVM 使用。",
+      "patch_url": "https://github.com/advisories/GHSA-5h3f-q97h-ccvc",
+      "epss_warn": false,
+      "epss": 0.004,
+      "refs": [
+        "https://github.com/advisories/GHSA-5h3f-q97h-ccvc"
+      ],
+      "desc_en": "vm2: NodeVM custom resolution bypasses external path boundaries\n## Summary\n\nAt source revision `91034466bfb7f56b95fd48083ec6ca36d058f164` of vm2 3.11.8, an untrusted `NodeVM` guest can turn one allowlisted custom-resolved module into authorization for a separate file whose path merely shares the resolved path's string prefix. `LegacyResolver.customResolve` stores the resolved path in `this.externals` as `^<path>` without an end or separator boundary; a later absolute require of a sibling such as `foo2/index.js` therefore passes the external check and is loaded through `hostRequire` when the co",
+      "source": "github",
+      "osv_packages": [],
+      "osv_fixed": []
+    }
+  ]
+}
