@@ -1,0 +1,117 @@
+{
+  "date": "2026-10-08",
+  "generated_at": "2026-10-08T05:33:38.502273+00:00",
+  "engine": "gemini",
+  "count": 5,
+  "brief_zh": "本日收錄 5 則漏洞，以 RCE 為主，請優先關注已出現攻擊活動的 Cisco SD-WAN 身份繞過漏洞。",
+  "items": [
+    {
+      "cve": "CVE-2026-76504",
+      "title_zh": "Cisco SD-WAN 身份繞過",
+      "cvss": null,
+      "type": "接管",
+      "in_wild": true,
+      "summary_zh": "URI 編碼處理不當導致 API 身份驗證繞過，可獲管理員權限。",
+      "affected": "Cisco Catalyst SD-WAN Manager",
+      "affected_versions": "",
+      "fix_hint": "升級至官方發布的修復版本。",
+      "patch_url": "https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-sdwan-webauth-xr8beuuU?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Catalyst%20SD-WAN%20Manager%20API%20Authentication%20Bypass%20Vulnerability%26vs_k=1",
+      "epss_warn": false,
+      "epss": 0.01819,
+      "refs": [
+        "https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-sdwan-webauth-xr8beuuU?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Catalyst%20SD-WAN%20Manager%20API%20Authentication%20Bypass%20Vulnerability%26vs_k=1"
+      ],
+      "desc_en": "Cisco Catalyst SD-WAN Manager API Authentication Bypass Vulnerability\n<p>A vulnerability in the API session-based authentication management of Cisco Catalyst SD-WAN Manager could allow an unauthenticated, remote attacker to access an affected system with privileges of the admin user.</p>\n<p class=\"p1\">This vulnerability is due to improper handling of URI encoding in an HTTP request, which allows the request to bypass an authentication rule that is intended to restrict access to a specific API endpoint. An attacker could exploit this vulnerability by sending a crafted HTTP request to the API of",
+      "source": "cisco",
+      "osv_packages": [],
+      "osv_fixed": []
+    },
+    {
+      "cve": "CVE-2026-93605",
+      "title_zh": "vm2 沙箱逃逸漏洞",
+      "cvss": 10.0,
+      "type": "逃逸",
+      "in_wild": false,
+      "summary_zh": "黑名單遺漏 child_process 導致沙箱逃逸並執行任意指令。",
+      "affected": "vm2 NodeVM",
+      "affected_versions": "3.12.1 之前",
+      "fix_hint": "升級至 3.12.1 或更新版本。",
+      "patch_url": "https://github.com/advisories/GHSA-pq68-rvw4-xp4r",
+      "epss_warn": false,
+      "epss": 0.00726,
+      "refs": [
+        "https://github.com/advisories/GHSA-pq68-rvw4-xp4r"
+      ],
+      "desc_en": "vm2 contains a sandbox escape vulnerability\nvm2 NodeVM versions before 3.12.1 contain a sandbox escape vulnerability where the DANGEROUS_BUILTINS denylist omits child_process despite blocking other host-spawning modules. Attackers can require child_process and execute arbitrary commands on the host system when NodeVM is configured with builtin:['*'] or explicit child_process allowance.\n\nThis fork hardens `NodeVM` with a `DANGEROUS_BUILTINS` denylist that blocks host‑code‑reaching core modules **even when the sandbox requests `builtin:['*']` or names them explicitly** — the list contains `modul",
+      "source": "github",
+      "osv_packages": [],
+      "osv_fixed": []
+    },
+    {
+      "cve": "CVE-2026-105857",
+      "title_zh": "Payload CMS RCE 漏洞",
+      "cvss": 10.0,
+      "type": "RCE",
+      "in_wild": false,
+      "summary_zh": "惡意提交表單可觸發遠端程式碼執行漏洞。",
+      "affected": "@payloadcms/plugin-form-builder",
+      "affected_versions": "3.90.0 之前",
+      "fix_hint": "升級至 3.90.0 或 4.0.0-canary.34 以上。",
+      "patch_url": "https://github.com/advisories/GHSA-r488-j9vj-wx3q",
+      "epss_warn": false,
+      "epss": 0.00434,
+      "refs": [
+        "https://github.com/advisories/GHSA-r488-j9vj-wx3q"
+      ],
+      "desc_en": "Payload Form Builder has an RCE issue\n## Impact\n\nA vulnerability in `@payloadcms/plugin-form-builder` in versions < 3.90.0 allow submissions which could be crafted to execute remote code on the server.\n\n**You are affected if:**\n\n- You are using `@payloadcms/plugin-form-builder`\n\n## Patches\n\nUsers should upgrade Payload packages to `>= 3.90.0` or `>= 4.0.0-canary.34`.",
+      "source": "github",
+      "osv_packages": [],
+      "osv_fixed": []
+    },
+    {
+      "cve": "CVE-2026-102255",
+      "title_zh": "SonicWall SSRF 漏洞",
+      "cvss": 10.0,
+      "type": "SSRF",
+      "in_wild": false,
+      "summary_zh": "存取路徑漏洞允許未授權攻擊者發起 SSRF 請求。",
+      "affected": "SonicWall SMA1000 Appliance",
+      "affected_versions": "",
+      "fix_hint": "參考官方公告並更新韌體。",
+      "patch_url": "https://psirt.global.sonicwall.com/vuln-detail/SNWLID-2026-0017",
+      "epss_warn": false,
+      "epss": null,
+      "refs": [
+        "https://psirt.global.sonicwall.com/vuln-detail/SNWLID-2026-0017"
+      ],
+      "desc_en": "A Pre-authentication SSRF vulnerability exists in the SMA1000 Appliance Work Place interface due to an unintended alternate access path. By abusing this path, a remote unauthenticated attacker could potentially exploit this vulnerability to direct the appliance to issue requests on their behalf and reach internal functionality and perform unauthorized operations.",
+      "source": "nvd",
+      "osv_packages": [],
+      "osv_fixed": []
+    },
+    {
+      "cve": "CVE-2025-70518",
+      "title_zh": "Fanvil x7a RCE 漏洞",
+      "cvss": 10.0,
+      "type": "RCE",
+      "in_wild": false,
+      "summary_zh": "診斷工具未過濾輸入，導致未授權遠端執行指令。",
+      "affected": "Fanvil x7a firmware",
+      "affected_versions": "2.6.0.1182",
+      "fix_hint": "升級至最新韌體版本。",
+      "patch_url": "http://download.fanvil.com/Firmware/Release/X7A/",
+      "epss_warn": false,
+      "epss": null,
+      "refs": [
+        "http://download.fanvil.com/Firmware/Release/X7A/",
+        "https://www.darkpoint.ca/blog/2026/02/27/Fanvil-x7a-PA2S-Vulnerability-Disclosure",
+        "https://www.fanvil.com/products/p1/x/20210921/5043.html",
+        "https://www.darkpoint.ca/blog/2026/02/27/Fanvil-x7a-PA2S-Vulnerability-Disclosure"
+      ],
+      "desc_en": "The management portal's diagnostic ping tool of Fanvil x7a firmware version 2.6.0.1182 does not handle user supplied input securely. The lack of secure user input handling allows any unauthenticated attacker to inject commands and run code in the underlying Android operating system.",
+      "source": "nvd",
+      "osv_packages": [],
+      "osv_fixed": []
+    }
+  ]
+}

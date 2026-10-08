@@ -4,7 +4,14 @@
 <link>https://ryanran8787-a11y.github.io/sec-daily-report/</link>
 <description>CVSS&gt;=9.0 或在野利用的高危漏洞日報</description>
 <language>zh-tw</language>
-<lastBuildDate>Wed, 07 Oct 2026 05:26:50 GMT</lastBuildDate>
+<lastBuildDate>Thu, 08 Oct 2026 05:33:38 GMT</lastBuildDate>
+<item>
+<title>2026-10-08 高危 5 則</title>
+<link>https://ryanran8787-a11y.github.io/sec-daily-report/2026-10-08.html</link>
+<guid>https://ryanran8787-a11y.github.io/sec-daily-report/2026-10-08.html</guid>
+<pubDate>Thu, 08 Oct 2026 05:33:38 GMT</pubDate>
+<description><![CDATA[<ul><li>Cisco SD-WAN 身份繞過 (CVSS None)</li><li>vm2 沙箱逃逸漏洞 (CVSS 10.0)</li><li>Payload CMS RCE 漏洞 (CVSS 10.0)</li><li>SonicWall SSRF 漏洞 (CVSS 10.0)</li><li>Fanvil x7a RCE 漏洞 (CVSS 10.0)</li></ul>]]></description>
+</item>
 <item>
 <title>2026-10-07 高危 5 則</title>
 <link>https://ryanran8787-a11y.github.io/sec-daily-report/2026-10-07.html</link>
