@@ -1,0 +1,114 @@
+{
+  "date": "2026-10-09",
+  "generated_at": "2026-10-09T05:37:37.983563+00:00",
+  "engine": "gemini",
+  "count": 5,
+  "brief_zh": "今日共5項高危漏洞，涵蓋RCE與注入等類型，其中Cisco SD-WAN權限接管漏洞已遭在野利用，建議優先修補。",
+  "items": [
+    {
+      "cve": "CVE-2026-76504",
+      "title_zh": "Cisco SD-WAN 管理員權限接管",
+      "cvss": null,
+      "type": "接管",
+      "in_wild": true,
+      "summary_zh": "API URI 編碼處理不當，導致未授權攻擊者可取得管理員權限。",
+      "affected": "Cisco Catalyst SD-WAN Manager",
+      "affected_versions": "",
+      "fix_hint": "更新至 Cisco 官方發布的最新軟體版本。",
+      "patch_url": "https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-sdwan-webauth-xr8beuuU?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Catalyst%20SD-WAN%20Manager%20API%20Authentication%20Bypass%20Vulnerability%26vs_k=1",
+      "epss_warn": false,
+      "epss": 0.01819,
+      "refs": [
+        "https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-sdwan-webauth-xr8beuuU?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Catalyst%20SD-WAN%20Manager%20API%20Authentication%20Bypass%20Vulnerability%26vs_k=1"
+      ],
+      "desc_en": "Cisco Catalyst SD-WAN Manager API Authentication Bypass Vulnerability\n<p>A vulnerability in the API session-based authentication management of Cisco Catalyst SD-WAN Manager could allow an unauthenticated, remote attacker to access an affected system with privileges of the admin user.</p>\n<p class=\"p1\">This vulnerability is due to improper handling of URI encoding in an HTTP request, which allows the request to bypass an authentication rule that is intended to restrict access to a specific API endpoint. An attacker could exploit this vulnerability by sending a crafted HTTP request to the API of",
+      "source": "cisco",
+      "osv_packages": [],
+      "osv_fixed": []
+    },
+    {
+      "cve": "CVE-2026-61447",
+      "title_zh": "PraisonAI 程式碼執行與機密洩漏",
+      "cvss": 10.0,
+      "type": "RCE",
+      "in_wild": false,
+      "summary_zh": "CodeAgent 執行 LLM 生成程式碼時缺乏沙箱與驗證，導致機密洩漏。",
+      "affected": "PraisonAI",
+      "affected_versions": "",
+      "fix_hint": "請參考 GitHub 安全公告進行修補。",
+      "patch_url": "https://github.com/advisories/GHSA-2xv2-w8cq-5gxw",
+      "epss_warn": false,
+      "epss": 0.0249,
+      "refs": [
+        "https://github.com/advisories/GHSA-2xv2-w8cq-5gxw"
+      ],
+      "desc_en": "PraisonAI: CodeAgent Executes LLM-Generated Code Without Sandboxing and Leaks All Environment Secrets\n### Summary\n`CodeAgent._execute_python()` executes LLM-generated Python code in a subprocess with the complete parent-process environment (`os.environ.copy()`), zero AST validation, zero import restrictions, and no sandbox enforcement — even when `CodeConfig(sandbox=True)` is explicitly set. This allows an attacker who can influence LLM output (via prompt injection in agent input, tool results, or ingested content) to exfiltrate all environment secrets (API keys, database credentials, cloud to",
+      "source": "github",
+      "osv_packages": [],
+      "osv_fixed": []
+    },
+    {
+      "cve": "CVE-2026-12260",
+      "title_zh": "NetBoard CRM SQL 注入漏洞",
+      "cvss": 10.0,
+      "type": "SQL注入",
+      "in_wild": false,
+      "summary_zh": "CRM 系統登入恢復頁面存在 SQL 注入，可導致資料外洩與系統受損。",
+      "affected": "NetBoard CRM demo platform",
+      "affected_versions": "",
+      "fix_hint": "請參考官方公告進行修補。",
+      "patch_url": "https://www.incibe.es/en/incibe-cert/notices/aviso/sql-injection-netboard-crm-demo-platform",
+      "epss_warn": false,
+      "epss": 0.00228,
+      "refs": [
+        "https://www.incibe.es/en/incibe-cert/notices/aviso/sql-injection-netboard-crm-demo-platform"
+      ],
+      "desc_en": "SQL injection in the NetBoard CRM demo platform; specifically, the vulnerable component is the ‘user-name’ POST parameter in the ‘/module/auth/recovery.php’ endpoint. The parameter is vulnerable to blind attacks based on Boolean, error, time-based and UNION techniques. Exploitation allows attackers to extract confidential information (such as the version and type of backend used), alter data or further compromise the CRM environment.",
+      "source": "nvd",
+      "osv_packages": [],
+      "osv_fixed": []
+    },
+    {
+      "cve": "CVE-2026-96207",
+      "title_zh": "Microsoft Partner Center 權限提升",
+      "cvss": 10.0,
+      "type": "其他高危",
+      "in_wild": false,
+      "summary_zh": "憑證驗證不當，導致未授權攻擊者可進行網路權限提升。",
+      "affected": "Microsoft Partner Center",
+      "affected_versions": "",
+      "fix_hint": "請參考 Microsoft 安全更新指南。",
+      "patch_url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-96207",
+      "epss_warn": false,
+      "epss": null,
+      "refs": [
+        "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-96207"
+      ],
+      "desc_en": "Improper certificate validation in Microsoft Partner Center allows an unauthorized attacker to elevate privileges over a network.",
+      "source": "nvd",
+      "osv_packages": [],
+      "osv_fixed": []
+    },
+    {
+      "cve": "CVE-2026-61445",
+      "title_zh": "PraisonAI 任意檔案寫入與指令執行",
+      "cvss": 9.9,
+      "type": "RCE",
+      "in_wild": false,
+      "summary_zh": "AICoder 工具缺乏路徑與指令驗證，導致任意檔案寫入與指令執行。",
+      "affected": "PraisonAI",
+      "affected_versions": "",
+      "fix_hint": "請參考 GitHub 安全公告進行修補。",
+      "patch_url": "https://github.com/advisories/GHSA-9mp3-24cc-77mg",
+      "epss_warn": false,
+      "epss": 0.00881,
+      "refs": [
+        "https://github.com/advisories/GHSA-9mp3-24cc-77mg"
+      ],
+      "desc_en": "PraisonAI: AICoder Arbitrary File Write and Command Execution via LLM Tool Calls\n### Summary\nThe `AICoder` UI component exposes `write_to_file` and `execute_command` tools to the LLM with no path validation and no command sanitization. An attacker can achieve arbitrary file write to any location on the filesystem (including `/root/.ssh/authorized_keys`, `/etc/crontab`) and arbitrary command execution through prompt injection in the chat interface. Docker containers run as root, maximizing impact.\n\n### Details\n\n#### Path Traversal in write_to_file\n\n`src/praisonai/praisonai/ui/components/aicoder",
+      "source": "github",
+      "osv_packages": [],
+      "osv_fixed": []
+    }
+  ]
+}

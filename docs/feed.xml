@@ -4,7 +4,14 @@
 <link>https://ryanran8787-a11y.github.io/sec-daily-report/</link>
 <description>CVSS&gt;=9.0 或在野利用的高危漏洞日報</description>
 <language>zh-tw</language>
-<lastBuildDate>Thu, 08 Oct 2026 05:33:38 GMT</lastBuildDate>
+<lastBuildDate>Fri, 09 Oct 2026 05:37:38 GMT</lastBuildDate>
+<item>
+<title>2026-10-09 高危 5 則</title>
+<link>https://ryanran8787-a11y.github.io/sec-daily-report/2026-10-09.html</link>
+<guid>https://ryanran8787-a11y.github.io/sec-daily-report/2026-10-09.html</guid>
+<pubDate>Fri, 09 Oct 2026 05:37:37 GMT</pubDate>
+<description><![CDATA[<ul><li>Cisco SD-WAN 管理員權限接管 (CVSS None)</li><li>PraisonAI 程式碼執行與機密洩漏 (CVSS 10.0)</li><li>NetBoard CRM SQL 注入漏洞 (CVSS 10.0)</li><li>Microsoft Partner Center 權限提升 (CVSS 10.0)</li><li>PraisonAI 任意檔案寫入與指令執行 (CVSS 9.9)</li></ul>]]></description>
+</item>
 <item>
 <title>2026-10-08 高危 5 則</title>
 <link>https://ryanran8787-a11y.github.io/sec-daily-report/2026-10-08.html</link>
