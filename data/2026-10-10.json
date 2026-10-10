@@ -1,0 +1,120 @@
+{
+  "date": "2026-10-10",
+  "generated_at": "2026-10-10T05:24:03.073062+00:00",
+  "engine": "gemini",
+  "count": 5,
+  "brief_zh": "今日共 5 項高危漏洞，以 RCE 為主，建議優先關注 PraisonAI 任意指令執行漏洞（CVE-2026-61445）。",
+  "items": [
+    {
+      "cve": "CVE-2026-94503",
+      "title_zh": "Zombify 任意檔案上傳漏洞",
+      "cvss": 10.0,
+      "type": "RCE",
+      "in_wild": false,
+      "summary_zh": "Zombify 插件存在任意檔案上傳漏洞，攻擊者可上傳 Web Shell。",
+      "affected": "Zombify",
+      "affected_versions": "1.7.7 及更早",
+      "fix_hint": "更新至最新版本",
+      "patch_url": "https://patchstack.com/database/wordpress/plugin/zombify/vulnerability/wordpress-zombify-plugin-1-7-7-arbitrary-file-upload-vulnerability?_s_id=cve",
+      "epss_warn": false,
+      "epss": null,
+      "refs": [
+        "https://patchstack.com/database/wordpress/plugin/zombify/vulnerability/wordpress-zombify-plugin-1-7-7-arbitrary-file-upload-vulnerability?_s_id=cve"
+      ],
+      "desc_en": "Unrestricted Upload of File with Dangerous Type vulnerability in PX-lab Zombify zombify allows Upload a Web Shell to a Web Server.This issue affects Zombify: from n/a through 1.7.7.",
+      "source": "nvd",
+      "osv_packages": [],
+      "osv_fixed": []
+    },
+    {
+      "cve": "CVE-2026-61445",
+      "title_zh": "PraisonAI 任意指令執行漏洞",
+      "cvss": 9.9,
+      "type": "RCE",
+      "in_wild": false,
+      "summary_zh": "AICoder 組件缺乏驗證，導致攻擊者可透過提示詞注入執行任意指令。",
+      "affected": "PraisonAI",
+      "affected_versions": "",
+      "fix_hint": "限制 LLM 工具呼叫權限並增加路徑驗證",
+      "patch_url": "https://github.com/advisories/GHSA-9mp3-24cc-77mg",
+      "epss_warn": false,
+      "epss": 0.00881,
+      "refs": [
+        "https://github.com/advisories/GHSA-9mp3-24cc-77mg"
+      ],
+      "desc_en": "PraisonAI: AICoder Arbitrary File Write and Command Execution via LLM Tool Calls\n### Summary\nThe `AICoder` UI component exposes `write_to_file` and `execute_command` tools to the LLM with no path validation and no command sanitization. An attacker can achieve arbitrary file write to any location on the filesystem (including `/root/.ssh/authorized_keys`, `/etc/crontab`) and arbitrary command execution through prompt injection in the chat interface. Docker containers run as root, maximizing impact.\n\n### Details\n\n#### Path Traversal in write_to_file\n\n`src/praisonai/praisonai/ui/components/aicoder",
+      "source": "github",
+      "osv_packages": [],
+      "osv_fixed": []
+    },
+    {
+      "cve": "CVE-2026-108263",
+      "title_zh": "Astron Agent 權限繞過漏洞",
+      "cvss": 9.9,
+      "type": "未授權存取",
+      "in_wild": false,
+      "summary_zh": "預設工作流節點配置不當，導致低權限用戶可執行 root 權限代碼。",
+      "affected": "Astron Agent",
+      "affected_versions": "1.1.2 之前",
+      "fix_hint": "更新至 1.1.2 或更高版本",
+      "patch_url": "https://github.com/iflytek/astron-agent/commit/848daba03e5e045435863815be7ab6dfbcefc18f",
+      "epss_warn": false,
+      "epss": null,
+      "refs": [
+        "https://github.com/iflytek/astron-agent/commit/848daba03e5e045435863815be7ab6dfbcefc18f",
+        "https://github.com/iflytek/astron-agent/commit/ebf074a431e96da0ad9e0a56409d3d2da15eae36",
+        "https://github.com/iflytek/astron-agent/pull/1650",
+        "https://github.com/iflytek/astron-agent/pull/1651",
+        "https://github.com/iflytek/astron-agent/releases/tag/v1.1.2"
+      ],
+      "desc_en": "Astron Agent is an agentic workflow platform for building and running AI agents. Prior to 1.1.2, the default workflow code-node path through /console-api/workflow/code/run and /workflow/v1/run selects LocalExecutor in core/workflow/engine/nodes/code/code_node.py when CODE_EXEC_TYPE is not explicitly changed. LocalExecutor supplies complete Python builtins to dynamic code execution without the documented sandbox restrictions. An authenticated low-privilege tenant can execute code as root in the core-workflow container and use shared service and database credentials to bypass application-level t",
+      "source": "nvd",
+      "osv_packages": [],
+      "osv_fixed": []
+    },
+    {
+      "cve": "CVE-2026-107908",
+      "title_zh": "FalkorDB 堆疊溢位漏洞",
+      "cvss": 9.8,
+      "type": "RCE",
+      "in_wild": false,
+      "summary_zh": "BoltReadHandler 存在堆疊溢位，遠端攻擊者可導致 DoS 或執行代碼。",
+      "affected": "FalkorDB",
+      "affected_versions": "4.20.0 之前",
+      "fix_hint": "更新至 4.20.0 或更高版本",
+      "patch_url": "https://github.com/FalkorDB/FalkorDB/commit/0b11a00b34b25c4d4fdfe55f0a35c8a00593bd7d",
+      "epss_warn": false,
+      "epss": 0.00595,
+      "refs": [
+        "https://github.com/FalkorDB/FalkorDB/commit/0b11a00b34b25c4d4fdfe55f0a35c8a00593bd7d",
+        "https://github.com/FalkorDB/FalkorDB/pull/2170",
+        "https://github.com/FalkorDB/FalkorDB/releases/tag/v4.20.0"
+      ],
+      "desc_en": "A heap-based out-of-bounds write in the BoltReadHandler function (src/bolt/bolt_api.c) in FalkorDB before 4.20.0 allows a remote unauthenticated attacker to cause a denial of service and possibly execute arbitrary code by sending a Bolt RESET message with an attacker-chosen chunk size to the Bolt port. The handler checks the size only with ASSERT(), which is compiled out in release builds, then computes a destination pointer from the wire-supplied 16-bit size and moves buffered data up to about 64 KiB backwards past the start of the read buffer. Only deployments that enable the Bolt endpoint (",
+      "source": "nvd",
+      "osv_packages": [],
+      "osv_fixed": []
+    },
+    {
+      "cve": "CVE-2026-107722",
+      "title_zh": "fast-jwt 演算法混淆漏洞",
+      "cvss": 9.8,
+      "type": "其他高危",
+      "in_wild": false,
+      "summary_zh": "JWT 驗證修補不完整，導致 RSA 公鑰可被誤用為 HMAC 密鑰。",
+      "affected": "fast-jwt",
+      "affected_versions": "",
+      "fix_hint": "檢查並強化 PEM 格式檢測邏輯",
+      "patch_url": "https://github.com/advisories/GHSA-ww5h-9m49-7xx4",
+      "epss_warn": false,
+      "epss": 0.00272,
+      "refs": [
+        "https://github.com/advisories/GHSA-ww5h-9m49-7xx4"
+      ],
+      "desc_en": "fast-jwt: Incomplete patch of CVE-2026-34950: Non-whitespace key-prefix re-enables RSA→HS256 algorithm confusion\n### Summary\n\nThe fix for CVE-2026-34950 (CVSS 9.1, released in v6.2.0) is **incomplete**. It adds `key.trim()` to the PEM-detection path in `src/crypto.js`, but `String.prototype.trim()` only strips characters classified as whitespace by the ECMAScript specification. The subsequent `^`-anchored regex (`/^-----BEGIN(?: (RSA))? PUBLIC KEY-----/`) still requires the PEM header at position 0 — so **any non-whitespace leading byte** (control chars, zero-width unicode, `#` comments, HTTP-",
+      "source": "github",
+      "osv_packages": [],
+      "osv_fixed": []
+    }
+  ]
+}
