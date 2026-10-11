@@ -1,0 +1,118 @@
+{
+  "date": "2026-10-11",
+  "generated_at": "2026-10-11T05:13:34.141831+00:00",
+  "engine": "gemini",
+  "count": 5,
+  "brief_zh": "本日新增 5 筆 RCE 高危漏洞，主要集中在插件與 AI 工具，建議優先修補 WooCommerce 3D 配置器漏洞。",
+  "items": [
+    {
+      "cve": "CVE-2026-42696",
+      "title_zh": "SiteVault 插件 RCE",
+      "cvss": 10.0,
+      "type": "RCE",
+      "in_wild": false,
+      "summary_zh": "未經授權的遠端程式碼執行漏洞，影響備份遷移插件。",
+      "affected": "SiteVault – Backup, Restore, Migration & Cloning",
+      "affected_versions": "1.5.19 及更早",
+      "fix_hint": "更新至最新版本或 1.5.20 以上版本。",
+      "patch_url": "https://patchstack.com/database/wordpress/plugin/sitevault-backup-restore-migration/vulnerability/wordpress-sitevault-backup-restore-migration-cloning-plugin-1-5-18-remote-code-execution-rce-vulnerability?_s_id=cve",
+      "epss_warn": false,
+      "epss": null,
+      "refs": [
+        "https://patchstack.com/database/wordpress/plugin/sitevault-backup-restore-migration/vulnerability/wordpress-sitevault-backup-restore-migration-cloning-plugin-1-5-18-remote-code-execution-rce-vulnerability?_s_id=cve"
+      ],
+      "desc_en": "Unauthenticated Remote Code Execution (RCE) in SiteVault – Backup, Restore, Migration &amp; Cloning <= 1.5.19 versions.",
+      "source": "nvd",
+      "osv_packages": [],
+      "osv_fixed": []
+    },
+    {
+      "cve": "CVE-2026-61445",
+      "title_zh": "PraisonAI AICoder RCE",
+      "cvss": 9.9,
+      "type": "RCE",
+      "in_wild": false,
+      "summary_zh": "透過 LLM 工具調用實現任意檔案寫入與指令執行。",
+      "affected": "PraisonAI AICoder",
+      "affected_versions": "",
+      "fix_hint": "實施路徑驗證並對 LLM 執行的指令進行過濾。",
+      "patch_url": "https://github.com/advisories/GHSA-9mp3-24cc-77mg",
+      "epss_warn": false,
+      "epss": 0.00881,
+      "refs": [
+        "https://github.com/advisories/GHSA-9mp3-24cc-77mg"
+      ],
+      "desc_en": "PraisonAI: AICoder Arbitrary File Write and Command Execution via LLM Tool Calls\n### Summary\nThe `AICoder` UI component exposes `write_to_file` and `execute_command` tools to the LLM with no path validation and no command sanitization. An attacker can achieve arbitrary file write to any location on the filesystem (including `/root/.ssh/authorized_keys`, `/etc/crontab`) and arbitrary command execution through prompt injection in the chat interface. Docker containers run as root, maximizing impact.\n\n### Details\n\n#### Path Traversal in write_to_file\n\n`src/praisonai/praisonai/ui/components/aicoder",
+      "source": "github",
+      "osv_packages": [],
+      "osv_fixed": []
+    },
+    {
+      "cve": "CVE-2026-62024",
+      "title_zh": "CodeBard Help Desk RCE",
+      "cvss": 9.9,
+      "type": "RCE",
+      "in_wild": false,
+      "summary_zh": "訂閱者權限可上傳任意檔案，導致遠端程式碼執行。",
+      "affected": "CodeBard Help Desk",
+      "affected_versions": "1.1.2 及更早",
+      "fix_hint": "更新至最新版本以修復任意檔案上傳漏洞。",
+      "patch_url": "https://patchstack.com/database/wordpress/plugin/codebard-help-desk/vulnerability/wordpress-codebard-help-desk-plugin-1-1-2-arbitrary-file-upload-vulnerability?_s_id=cve",
+      "epss_warn": false,
+      "epss": null,
+      "refs": [
+        "https://patchstack.com/database/wordpress/plugin/codebard-help-desk/vulnerability/wordpress-codebard-help-desk-plugin-1-1-2-arbitrary-file-upload-vulnerability?_s_id=cve"
+      ],
+      "desc_en": "Subscriber Arbitrary File Upload in CodeBard Help Desk <= 1.1.2 versions.",
+      "source": "nvd",
+      "osv_packages": [],
+      "osv_fixed": []
+    },
+    {
+      "cve": "CVE-2026-62129",
+      "title_zh": "Creator LMS 插件 RCE",
+      "cvss": 9.9,
+      "type": "RCE",
+      "in_wild": false,
+      "summary_zh": "投稿者權限可上傳任意檔案，導致遠端程式碼執行。",
+      "affected": "Creator LMS",
+      "affected_versions": "1.2.21 及更早",
+      "fix_hint": "更新至最新版本以修復檔案上傳權限檢查。",
+      "patch_url": "https://patchstack.com/database/wordpress/plugin/creatorlms/vulnerability/wordpress-creator-lms-plugin-1-2-21-arbitrary-file-upload-vulnerability?_s_id=cve",
+      "epss_warn": false,
+      "epss": null,
+      "refs": [
+        "https://patchstack.com/database/wordpress/plugin/creatorlms/vulnerability/wordpress-creator-lms-plugin-1-2-21-arbitrary-file-upload-vulnerability?_s_id=cve"
+      ],
+      "desc_en": "Contributor Arbitrary File Upload in Creator LMS <= 1.2.21 versions.",
+      "source": "nvd",
+      "osv_packages": [],
+      "osv_fixed": []
+    },
+    {
+      "cve": "CVE-2026-103889",
+      "title_zh": "WooCommerce 3D 配置器 RCE",
+      "cvss": 9.8,
+      "type": "RCE",
+      "in_wild": false,
+      "summary_zh": "未經授權者可透過 xpv_image 參數執行遠端程式碼。",
+      "affected": "3D Product configurator for WooCommerce (Expivi)",
+      "affected_versions": "2.16.2 及更早",
+      "fix_hint": "更新至 2.16.3 或更高版本。",
+      "patch_url": "https://plugins.trac.wordpress.org/browser/expivi/tags/2.16.2/classes/pdf/class-pdf.php#L34",
+      "epss_warn": false,
+      "epss": 0.00742,
+      "refs": [
+        "https://plugins.trac.wordpress.org/browser/expivi/tags/2.16.2/classes/pdf/class-pdf.php#L34",
+        "https://plugins.trac.wordpress.org/browser/expivi/tags/2.16.2/classes/woocommerce/class-expivi-cart-manager.php#L212",
+        "https://plugins.trac.wordpress.org/browser/expivi/tags/2.16.2/classes/woocommerce/class-expivi-cart-manager.php#L238",
+        "https://plugins.trac.wordpress.org/browser/expivi/tags/2.16.2/classes/woocommerce/class-expivi-cart-manager.php#L598",
+        "https://plugins.trac.wordpress.org/browser/expivi/tags/2.16.2/classes/woocommerce/class-expivi-cart-manager.php#L95"
+      ],
+      "desc_en": "The 3D Product configurator for WooCommerce plugin for WordPress is vulnerable to Remote Code Execution in all versions up to, and including, 2.16.2 via the 'xpv_image' parameter parameter. This is due to missing authentication and nonce checks on the wp_loaded handler combined with no sanitization of the xpv_image POST parameter before it is echoed unescaped into a Dompdf-rendered HTML template with PHP execution enabled. This makes it possible for unauthenticated attackers to execute code on the server. The only nonce and authentication check in the handler is entirely enclosed in a block co",
+      "source": "nvd",
+      "osv_packages": [],
+      "osv_fixed": []
+    }
+  ]
+}

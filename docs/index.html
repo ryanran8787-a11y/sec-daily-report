@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>網安每日報 2026-10-10</title>
+<title>網安每日報 2026-10-11</title>
 <style>
 /* Geist 設計語言（灰階層次、細邊框、小圓角），logo 與配色為原創 */
 :root{
@@ -109,7 +109,7 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
 <div class="nav"><div class="nav-inner">
   <svg class="logo" viewBox="0 0 24 24"><path d="M12 1.8 3.5 5v6.1c0 5.1 3.6 9.6 8.5 10.9 4.9-1.3 8.5-5.8 8.5-10.9V5L12 1.8Zm0 2.4 6.5 2.6v4.3c0 4-2.7 7.6-6.5 8.7-3.8-1.1-6.5-4.7-6.5-8.7V6.8L12 4.2Zm-1.4 9.1 4-4 1.4 1.4-5.4 5.4-2.6-2.6 1.4-1.4 1.2 1.2Z"/></svg>
   <div class="brand">SecDaily <span>/ 網安每日報</span></div>
-  <div class="nav-right"><span class="dot"></span>2026-10-10・gemini<a class="rss-link" href="feed.xml" title="RSS 訂閱">RSS</a><button class="theme-btn" onclick="toggleTheme()" title="切換淺色/深色">◐</button></div>
+  <div class="nav-right"><span class="dot"></span>2026-10-11・gemini<a class="rss-link" href="feed.xml" title="RSS 訂閱">RSS</a><button class="theme-btn" onclick="toggleTheme()" title="切換淺色/深色">◐</button></div>
 </div></div>
 
 <div class="wrap">
@@ -117,7 +117,7 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
   <div class="eyebrow">NVD + KEV + EPSS + OSV + GitHub + Cisco ・ 每天 08:00（台北）自動更新</div>
   <h1><span class="grad">今日高危漏洞</span></h1>
   <p class="lede">僅收錄 CVSS ≥ 9.0、在野利用或 EPSS 利用預警項目。點擊任一條目展開完整描述與修補建議。</p>
-  <div class="brief"><span>AI 總評</span>今日共 5 項高危漏洞，以 RCE 為主，建議優先關注 PraisonAI 任意指令執行漏洞（CVE-2026-61445）。</div>
+  <div class="brief"><span>AI 總評</span>本日新增 5 筆 RCE 高危漏洞，主要集中在插件與 AI 工具，建議優先修補 WooCommerce 3D 配置器漏洞。</div>
 </div>
 
 <div class="stats">
@@ -146,7 +146,7 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
 
   <div class="row" data-wild="0" onclick="if(event.target.tagName!=='A')this.classList.toggle('open')">
     <div class="row-head">
-      <h2>Zombify 任意檔案上傳漏洞</h2>
+      <h2>SiteVault 插件 RCE</h2>
       <span class="badge crit">CVSS 10.0</span>
       
       
@@ -154,13 +154,13 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
       
       <span class="chev">▾</span>
     </div>
-    <div class="row-sum">Zombify 插件存在任意檔案上傳漏洞，攻擊者可上傳 Web Shell。</div>
-    <div class="row-foot"><span>CVE-2026-94503</span><span>Zombify 1.7.7 及更早</span>
-      <a href="https://patchstack.com/database/wordpress/plugin/zombify/vulnerability/wordpress-zombify-plugin-1-7-7-arbitrary-file-upload-vulnerability?_s_id=cve" target="_blank">官方補丁 ↗</a>
+    <div class="row-sum">未經授權的遠端程式碼執行漏洞，影響備份遷移插件。</div>
+    <div class="row-foot"><span>CVE-2026-42696</span><span>SiteVault – Backup, Restore, Migration &amp; Cloning 1.5.19 及更早</span>
+      <a href="https://patchstack.com/database/wordpress/plugin/sitevault-backup-restore-migration/vulnerability/wordpress-sitevault-backup-restore-migration-cloning-plugin-1-5-18-remote-code-execution-rce-vulnerability?_s_id=cve" target="_blank">官方補丁 ↗</a>
     </div>
     <div class="detail">
-      <div class="en">Unrestricted Upload of File with Dangerous Type vulnerability in PX-lab Zombify zombify allows Upload a Web Shell to a Web Server.This issue affects Zombify: from n/a through 1.7.7.</div>
-      <div>修補建議：更新至最新版本</div>
+      <div class="en">Unauthenticated Remote Code Execution (RCE) in SiteVault – Backup, Restore, Migration &amp;amp; Cloning &lt;= 1.5.19 versions.</div>
+      <div>修補建議：更新至最新版本或 1.5.20 以上版本。</div>
       
       
     </div>
@@ -168,7 +168,7 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
 
   <div class="row" data-wild="0" onclick="if(event.target.tagName!=='A')this.classList.toggle('open')">
     <div class="row-head">
-      <h2>PraisonAI 任意指令執行漏洞</h2>
+      <h2>PraisonAI AICoder RCE</h2>
       <span class="badge crit">CVSS 9.9</span>
       
       <span class="badge epss">via github</span>
@@ -176,8 +176,8 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
       <span class="badge epss">EPSS 0.01</span>
       <span class="chev">▾</span>
     </div>
-    <div class="row-sum">AICoder 組件缺乏驗證，導致攻擊者可透過提示詞注入執行任意指令。</div>
-    <div class="row-foot"><span>CVE-2026-61445</span><span>PraisonAI</span>
+    <div class="row-sum">透過 LLM 工具調用實現任意檔案寫入與指令執行。</div>
+    <div class="row-foot"><span>CVE-2026-61445</span><span>PraisonAI AICoder</span>
       <a href="https://github.com/advisories/GHSA-9mp3-24cc-77mg" target="_blank">官方補丁 ↗</a>
     </div>
     <div class="detail">
@@ -190,7 +190,7 @@ The `AICoder` UI component exposes `write_to_file` and `execute_command` tools t
 #### Path Traversal in write_to_file
 
 `src/praisonai/praisonai/ui/components/aicoder</div>
-      <div>修補建議：限制 LLM 工具呼叫權限並增加路徑驗證</div>
+      <div>修補建議：實施路徑驗證並對 LLM 執行的指令進行過濾。</div>
       
       
     </div>
@@ -198,29 +198,51 @@ The `AICoder` UI component exposes `write_to_file` and `execute_command` tools t
 
   <div class="row" data-wild="0" onclick="if(event.target.tagName!=='A')this.classList.toggle('open')">
     <div class="row-head">
-      <h2>Astron Agent 權限繞過漏洞</h2>
+      <h2>CodeBard Help Desk RCE</h2>
       <span class="badge crit">CVSS 9.9</span>
       
       
-      <span class="badge">未授權存取</span>
+      <span class="badge">RCE</span>
       
       <span class="chev">▾</span>
     </div>
-    <div class="row-sum">預設工作流節點配置不當，導致低權限用戶可執行 root 權限代碼。</div>
-    <div class="row-foot"><span>CVE-2026-108263</span><span>Astron Agent 1.1.2 之前</span>
-      <a href="https://github.com/iflytek/astron-agent/commit/848daba03e5e045435863815be7ab6dfbcefc18f" target="_blank">官方補丁 ↗</a>
+    <div class="row-sum">訂閱者權限可上傳任意檔案，導致遠端程式碼執行。</div>
+    <div class="row-foot"><span>CVE-2026-62024</span><span>CodeBard Help Desk 1.1.2 及更早</span>
+      <a href="https://patchstack.com/database/wordpress/plugin/codebard-help-desk/vulnerability/wordpress-codebard-help-desk-plugin-1-1-2-arbitrary-file-upload-vulnerability?_s_id=cve" target="_blank">官方補丁 ↗</a>
     </div>
     <div class="detail">
-      <div class="en">Astron Agent is an agentic workflow platform for building and running AI agents. Prior to 1.1.2, the default workflow code-node path through /console-api/workflow/code/run and /workflow/v1/run selects LocalExecutor in core/workflow/engine/nodes/code/code_node.py when CODE_EXEC_TYPE is not explicitly changed. LocalExecutor supplies complete Python builtins to dynamic code execution without the documented sandbox restrictions. An authenticated low-privilege tenant can execute code as root in the core-workflow container and use shared service and database credentials to bypass application-level t</div>
-      <div>修補建議：更新至 1.1.2 或更高版本</div>
+      <div class="en">Subscriber Arbitrary File Upload in CodeBard Help Desk &lt;= 1.1.2 versions.</div>
+      <div>修補建議：更新至最新版本以修復任意檔案上傳漏洞。</div>
       
-      <div style="margin-top:6px">更多參考：<a href="https://github.com/iflytek/astron-agent/commit/ebf074a431e96da0ad9e0a56409d3d2da15eae36" target="_blank">[2]</a> <a href="https://github.com/iflytek/astron-agent/pull/1650" target="_blank">[3]</a> <a href="https://github.com/iflytek/astron-agent/pull/1651" target="_blank">[4]</a> <a href="https://github.com/iflytek/astron-agent/releases/tag/v1.1.2" target="_blank">[5]</a> </div>
+      
     </div>
   </div>
 
   <div class="row" data-wild="0" onclick="if(event.target.tagName!=='A')this.classList.toggle('open')">
     <div class="row-head">
-      <h2>FalkorDB 堆疊溢位漏洞</h2>
+      <h2>Creator LMS 插件 RCE</h2>
+      <span class="badge crit">CVSS 9.9</span>
+      
+      
+      <span class="badge">RCE</span>
+      
+      <span class="chev">▾</span>
+    </div>
+    <div class="row-sum">投稿者權限可上傳任意檔案，導致遠端程式碼執行。</div>
+    <div class="row-foot"><span>CVE-2026-62129</span><span>Creator LMS 1.2.21 及更早</span>
+      <a href="https://patchstack.com/database/wordpress/plugin/creatorlms/vulnerability/wordpress-creator-lms-plugin-1-2-21-arbitrary-file-upload-vulnerability?_s_id=cve" target="_blank">官方補丁 ↗</a>
+    </div>
+    <div class="detail">
+      <div class="en">Contributor Arbitrary File Upload in Creator LMS &lt;= 1.2.21 versions.</div>
+      <div>修補建議：更新至最新版本以修復檔案上傳權限檢查。</div>
+      
+      
+    </div>
+  </div>
+
+  <div class="row" data-wild="0" onclick="if(event.target.tagName!=='A')this.classList.toggle('open')">
+    <div class="row-head">
+      <h2>WooCommerce 3D 配置器 RCE</h2>
       <span class="badge crit">CVSS 9.8</span>
       
       
@@ -228,40 +250,15 @@ The `AICoder` UI component exposes `write_to_file` and `execute_command` tools t
       <span class="badge epss">EPSS 0.01</span>
       <span class="chev">▾</span>
     </div>
-    <div class="row-sum">BoltReadHandler 存在堆疊溢位，遠端攻擊者可導致 DoS 或執行代碼。</div>
-    <div class="row-foot"><span>CVE-2026-107908</span><span>FalkorDB 4.20.0 之前</span>
-      <a href="https://github.com/FalkorDB/FalkorDB/commit/0b11a00b34b25c4d4fdfe55f0a35c8a00593bd7d" target="_blank">官方補丁 ↗</a>
+    <div class="row-sum">未經授權者可透過 xpv_image 參數執行遠端程式碼。</div>
+    <div class="row-foot"><span>CVE-2026-103889</span><span>3D Product configurator for WooCommerce (Expivi) 2.16.2 及更早</span>
+      <a href="https://plugins.trac.wordpress.org/browser/expivi/tags/2.16.2/classes/pdf/class-pdf.php#L34" target="_blank">官方補丁 ↗</a>
     </div>
     <div class="detail">
-      <div class="en">A heap-based out-of-bounds write in the BoltReadHandler function (src/bolt/bolt_api.c) in FalkorDB before 4.20.0 allows a remote unauthenticated attacker to cause a denial of service and possibly execute arbitrary code by sending a Bolt RESET message with an attacker-chosen chunk size to the Bolt port. The handler checks the size only with ASSERT(), which is compiled out in release builds, then computes a destination pointer from the wire-supplied 16-bit size and moves buffered data up to about 64 KiB backwards past the start of the read buffer. Only deployments that enable the Bolt endpoint (</div>
-      <div>修補建議：更新至 4.20.0 或更高版本</div>
+      <div class="en">The 3D Product configurator for WooCommerce plugin for WordPress is vulnerable to Remote Code Execution in all versions up to, and including, 2.16.2 via the &#39;xpv_image&#39; parameter parameter. This is due to missing authentication and nonce checks on the wp_loaded handler combined with no sanitization of the xpv_image POST parameter before it is echoed unescaped into a Dompdf-rendered HTML template with PHP execution enabled. This makes it possible for unauthenticated attackers to execute code on the server. The only nonce and authentication check in the handler is entirely enclosed in a block co</div>
+      <div>修補建議：更新至 2.16.3 或更高版本。</div>
       
-      <div style="margin-top:6px">更多參考：<a href="https://github.com/FalkorDB/FalkorDB/pull/2170" target="_blank">[2]</a> <a href="https://github.com/FalkorDB/FalkorDB/releases/tag/v4.20.0" target="_blank">[3]</a> </div>
-    </div>
-  </div>
-
-  <div class="row" data-wild="0" onclick="if(event.target.tagName!=='A')this.classList.toggle('open')">
-    <div class="row-head">
-      <h2>fast-jwt 演算法混淆漏洞</h2>
-      <span class="badge crit">CVSS 9.8</span>
-      
-      <span class="badge epss">via github</span>
-      <span class="badge">其他高危</span>
-      <span class="badge epss">EPSS 0.00</span>
-      <span class="chev">▾</span>
-    </div>
-    <div class="row-sum">JWT 驗證修補不完整，導致 RSA 公鑰可被誤用為 HMAC 密鑰。</div>
-    <div class="row-foot"><span>CVE-2026-107722</span><span>fast-jwt</span>
-      <a href="https://github.com/advisories/GHSA-ww5h-9m49-7xx4" target="_blank">官方補丁 ↗</a>
-    </div>
-    <div class="detail">
-      <div class="en">fast-jwt: Incomplete patch of CVE-2026-34950: Non-whitespace key-prefix re-enables RSA→HS256 algorithm confusion
-### Summary
-
-The fix for CVE-2026-34950 (CVSS 9.1, released in v6.2.0) is **incomplete**. It adds `key.trim()` to the PEM-detection path in `src/crypto.js`, but `String.prototype.trim()` only strips characters classified as whitespace by the ECMAScript specification. The subsequent `^`-anchored regex (`/^-----BEGIN(?: (RSA))? PUBLIC KEY-----/`) still requires the PEM header at position 0 — so **any non-whitespace leading byte** (control chars, zero-width unicode, `#` comments, HTTP-</div>
-      <div>修補建議：檢查並強化 PEM 格式檢測邏輯</div>
-      
-      
+      <div style="margin-top:6px">更多參考：<a href="https://plugins.trac.wordpress.org/browser/expivi/tags/2.16.2/classes/woocommerce/class-expivi-cart-manager.php#L212" target="_blank">[2]</a> <a href="https://plugins.trac.wordpress.org/browser/expivi/tags/2.16.2/classes/woocommerce/class-expivi-cart-manager.php#L238" target="_blank">[3]</a> <a href="https://plugins.trac.wordpress.org/browser/expivi/tags/2.16.2/classes/woocommerce/class-expivi-cart-manager.php#L598" target="_blank">[4]</a> <a href="https://plugins.trac.wordpress.org/browser/expivi/tags/2.16.2/classes/woocommerce/class-expivi-cart-manager.php#L95" target="_blank">[5]</a> </div>
     </div>
   </div>
 
@@ -274,6 +271,8 @@ The fix for CVE-2026-34950 (CVSS 9.1, released in v6.2.0) is **incomplete**. It 
 <div class="hist">
   <h3>Archive / 歷史存檔</h3>
   <div class="hist-grid">
+    
+    <a class="hcard" href="2026-10-11.html"><div class="d">2026-10-11</div><div class="c">5 則・gemini</div></a>
     
     <a class="hcard" href="2026-10-10.html"><div class="d">2026-10-10</div><div class="c">5 則・gemini</div></a>
     
@@ -344,8 +343,6 @@ The fix for CVE-2026-34950 (CVSS 9.1, released in v6.2.0) is **incomplete**. It 
   <div class="sub2">琥珀色 = 當日有在野利用，點擊跳轉存檔</div>
   <div class="cal">
   
-    <a class="day" href="2026-09-11.html" title="2026-09-11・高危5則・在野0則">11</a>
-  
     <a class="day has w1" href="2026-09-12.html" title="2026-09-12・高危5則・在野1則">12</a>
   
     <a class="day" href="2026-09-13.html" title="2026-09-13・高危5則・在野0則">13</a>
@@ -402,7 +399,9 @@ The fix for CVE-2026-34950 (CVSS 9.1, released in v6.2.0) is **incomplete**. It 
   
     <a class="day has w1" href="2026-10-09.html" title="2026-10-09・高危5則・在野1則">09</a>
   
-    <a class="day" href="2026-10-10.html" title="2026-10-10・高危42則・在野0則">10</a>
+    <a class="day" href="2026-10-10.html" title="2026-10-10・高危5則・在野0則">10</a>
+  
+    <a class="day" href="2026-10-11.html" title="2026-10-11・高危75則・在野0則">11</a>
   
   </div>
   <div class="cal-legend"><span>■ 無在野</span><span style="color:var(--amber)">■ 有在野（顏色越深越多）</span></div>
