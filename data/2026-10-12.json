@@ -1,0 +1,122 @@
+{
+  "date": "2026-10-12",
+  "generated_at": "2026-10-12T05:26:32.057898+00:00",
+  "engine": "gemini",
+  "count": 5,
+  "brief_zh": "今日 5 則高危清單以 RCE 為主，應優先關注 fast-jwt 認證繞過漏洞。",
+  "items": [
+    {
+      "cve": "CVE-2026-108576",
+      "title_zh": "TOZED X300 RCE 漏洞",
+      "cvss": 10.0,
+      "type": "RCE",
+      "in_wild": false,
+      "summary_zh": "IPPing 組件存在指令注入，允許遠端執行指令。",
+      "affected": "TOZED X300",
+      "affected_versions": "6.01.3 之前",
+      "fix_hint": "廠商未回應，建議限制網路存取或更換設備。",
+      "patch_url": "https://github.com/danish1162/CVE-2026-2035703-x300/security/advisories/GHSA-qcpp-vfr2-v242",
+      "epss_warn": false,
+      "epss": null,
+      "refs": [
+        "https://github.com/danish1162/CVE-2026-2035703-x300/security/advisories/GHSA-qcpp-vfr2-v242",
+        "https://vuldb.com/cve/CVE-2026-108576",
+        "https://vuldb.com/submit/956290",
+        "https://vuldb.com/vuln/416233",
+        "https://vuldb.com/vuln/416233/cti"
+      ],
+      "desc_en": "A vulnerability was found in TOZED X300 up to 6.01.3. This vulnerability affects the function process_ping of the component IPPingDiagnostics Handler. The manipulation of the argument Host results in os command injection. The attack can be launched remotely. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "source": "nvd",
+      "osv_packages": [],
+      "osv_fixed": []
+    },
+    {
+      "cve": "CVE-2026-108540",
+      "title_zh": "OpenSpug Spug RCE 漏洞",
+      "cvss": 9.9,
+      "type": "RCE",
+      "in_wild": false,
+      "summary_zh": "檔案傳輸功能存在指令注入，可導致遠端執行。",
+      "affected": "OpenSpug Spug",
+      "affected_versions": "3.4.0/4.0.1 之前",
+      "fix_hint": "廠商未回應，建議暫停使用相關功能並加強過濾。",
+      "patch_url": "https://github.com/SECWG/CVE/issues/10",
+      "epss_warn": false,
+      "epss": 0.01703,
+      "refs": [
+        "https://github.com/SECWG/CVE/issues/10",
+        "https://vuldb.com/cve/CVE-2026-108540",
+        "https://vuldb.com/submit/948328",
+        "https://vuldb.com/vuln/416195",
+        "https://vuldb.com/vuln/416195/cti"
+      ],
+      "desc_en": "A flaw has been found in OpenSpug Spug up to 3.4.0/4.0.1. This impacts an unknown function of the file /exec/transfer of the component File Transfer. Executing a manipulation can lead to os command injection. The attack may be launched remotely. The exploit has been published and may be used. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "source": "nvd",
+      "osv_packages": [],
+      "osv_fixed": []
+    },
+    {
+      "cve": "CVE-2026-61445",
+      "title_zh": "PraisonAI AICoder RCE 漏洞",
+      "cvss": 9.9,
+      "type": "RCE",
+      "in_wild": false,
+      "summary_zh": "LLM 工具調用缺乏驗證，可寫入檔案並執行指令。",
+      "affected": "PraisonAI AICoder",
+      "affected_versions": "",
+      "fix_hint": "升級至最新版本並對 LLM 工具調用實施路徑驗證。",
+      "patch_url": "https://github.com/advisories/GHSA-9mp3-24cc-77mg",
+      "epss_warn": false,
+      "epss": 0.00881,
+      "refs": [
+        "https://github.com/advisories/GHSA-9mp3-24cc-77mg"
+      ],
+      "desc_en": "PraisonAI: AICoder Arbitrary File Write and Command Execution via LLM Tool Calls\n### Summary\nThe `AICoder` UI component exposes `write_to_file` and `execute_command` tools to the LLM with no path validation and no command sanitization. An attacker can achieve arbitrary file write to any location on the filesystem (including `/root/.ssh/authorized_keys`, `/etc/crontab`) and arbitrary command execution through prompt injection in the chat interface. Docker containers run as root, maximizing impact.\n\n### Details\n\n#### Path Traversal in write_to_file\n\n`src/praisonai/praisonai/ui/components/aicoder",
+      "source": "github",
+      "osv_packages": [],
+      "osv_fixed": []
+    },
+    {
+      "cve": "CVE-2026-107722",
+      "title_zh": "fast-jwt 認證繞過漏洞",
+      "cvss": 9.8,
+      "type": "其他高危",
+      "in_wild": false,
+      "summary_zh": "補丁不完全導致演算法混淆，攻擊者可偽造 JWT。",
+      "affected": "fast-jwt",
+      "affected_versions": "6.2.0 之前",
+      "fix_hint": "升級至修復演算法混淆漏洞的最新版本。",
+      "patch_url": "https://github.com/advisories/GHSA-ww5h-9m49-7xx4",
+      "epss_warn": false,
+      "epss": 0.00272,
+      "refs": [
+        "https://github.com/advisories/GHSA-ww5h-9m49-7xx4"
+      ],
+      "desc_en": "fast-jwt: Incomplete patch of CVE-2026-34950: Non-whitespace key-prefix re-enables RSA→HS256 algorithm confusion\n### Summary\n\nThe fix for CVE-2026-34950 (CVSS 9.1, released in v6.2.0) is **incomplete**. It adds `key.trim()` to the PEM-detection path in `src/crypto.js`, but `String.prototype.trim()` only strips characters classified as whitespace by the ECMAScript specification. The subsequent `^`-anchored regex (`/^-----BEGIN(?: (RSA))? PUBLIC KEY-----/`) still requires the PEM header at position 0 — so **any non-whitespace leading byte** (control chars, zero-width unicode, `#` comments, HTTP-",
+      "source": "github",
+      "osv_packages": [],
+      "osv_fixed": []
+    },
+    {
+      "cve": "CVE-2026-104028",
+      "title_zh": "Anton Extensions RCE 漏洞",
+      "cvss": 9.8,
+      "type": "RCE",
+      "in_wild": false,
+      "summary_zh": "未經授權可上傳 PHP 檔案，導致遠端執行指令。",
+      "affected": "Anton Extensions WordPress plugin",
+      "affected_versions": "1.2.2 及更早",
+      "fix_hint": "停用或移除該外掛，或更新至官方修復版本。",
+      "patch_url": "https://wpscan.com/vulnerability/0be8a03e-d854-48db-bdc0-1beead3d7b91/",
+      "epss_warn": false,
+      "epss": 0.00211,
+      "refs": [
+        "https://wpscan.com/vulnerability/0be8a03e-d854-48db-bdc0-1beead3d7b91/"
+      ],
+      "desc_en": "The Anton Extensions WordPress plugin through 1.2.2 does not perform any capability check, nonce verification, or file-type validation before writing attacker-supplied content to an attacker-chosen path, allowing unauthenticated attackers to upload arbitrary PHP files and achieve remote code execution.",
+      "source": "nvd",
+      "osv_packages": [],
+      "osv_fixed": []
+    }
+  ]
+}
