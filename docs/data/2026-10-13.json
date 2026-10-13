@@ -1,0 +1,131 @@
+{
+  "date": "2026-10-13",
+  "generated_at": "2026-10-13T06:24:27.543580+00:00",
+  "engine": "gemini",
+  "count": 5,
+  "brief_zh": "本日收錄 5 則漏洞，以路由器 RCE 與接管為主，建議優先處理 Edimax 路由器遠端代碼執行漏洞。",
+  "items": [
+    {
+      "cve": "CVE-2026-108892",
+      "title_zh": "Linksys E1700 緩衝區溢位",
+      "cvss": 10.0,
+      "type": "其他高危",
+      "in_wild": false,
+      "summary_zh": "Mac Filter 組件緩衝區溢位，可遠端攻擊。",
+      "affected": "Linksys E1700",
+      "affected_versions": "1.0.0.4.003",
+      "fix_hint": "廠商未回應，建議限制存取或更換設備。",
+      "patch_url": "https://github.com/wudipjq/my_vuln/blob/main/Linksys3/vuln_66/66.md",
+      "epss_warn": false,
+      "epss": null,
+      "refs": [
+        "https://github.com/wudipjq/my_vuln/blob/main/Linksys3/vuln_66/66.md",
+        "https://vuldb.com/cve/CVE-2026-108892",
+        "https://vuldb.com/submit/973111",
+        "https://vuldb.com/vuln/416684",
+        "https://vuldb.com/vuln/416684/cti"
+      ],
+      "desc_en": "A vulnerability was determined in Linksys E1700 1.0.0.4.003. This vulnerability affects the function ssid1MACFilter of the file /goform/ssid1MACFilter of the component Mac Filter. This manipulation of the argument newap_text_%d causes stack-based buffer overflow. The attack may be initiated remotely. The exploit has been publicly disclosed and may be utilized. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "source": "nvd",
+      "osv_packages": [],
+      "osv_fixed": []
+    },
+    {
+      "cve": "CVE-2026-108907",
+      "title_zh": "Netcore NR268 身份驗證繞過",
+      "cvss": 10.0,
+      "type": "接管",
+      "in_wild": false,
+      "summary_zh": "CGI 執行組件驗證不當，可遠端繞過驗證。",
+      "affected": "Netcore NR268",
+      "affected_versions": "1.7.121109",
+      "fix_hint": "廠商未回應，建議加強網路邊界防護。",
+      "patch_url": "https://github.com/draw-ctf/report/blob/main/NR268/2026.09.14-netcore-nr268-boa-auth-fail-open.md",
+      "epss_warn": false,
+      "epss": null,
+      "refs": [
+        "https://github.com/draw-ctf/report/blob/main/NR268/2026.09.14-netcore-nr268-boa-auth-fail-open.md",
+        "https://vuldb.com/cve/CVE-2026-108907",
+        "https://vuldb.com/submit/977173",
+        "https://vuldb.com/vuln/416702",
+        "https://vuldb.com/vuln/416702/cti"
+      ],
+      "desc_en": "A vulnerability was determined in Netcore NR268 1.7.121109. Affected is the function user_ok of the component CGI Execution. This manipulation causes improper authentication. The attack can be initiated remotely. The exploit has been publicly disclosed and may be utilized. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "source": "nvd",
+      "osv_packages": [],
+      "osv_fixed": []
+    },
+    {
+      "cve": "CVE-2026-108917",
+      "title_zh": "Edimax 路由器 RCE 漏洞",
+      "cvss": 10.0,
+      "type": "RCE",
+      "in_wild": false,
+      "summary_zh": "韌體更新組件指令注入，可遠端執行指令。",
+      "affected": "Edimax BR-6208AC",
+      "affected_versions": "1.32",
+      "fix_hint": "產品已停止支援，建議更換受支援設備。",
+      "patch_url": "https://github.com/fizz-is-on-the-way/Iot_vuls/tree/main/BR-6208AC/RCE_formAutoFWupgrade",
+      "epss_warn": false,
+      "epss": null,
+      "refs": [
+        "https://github.com/fizz-is-on-the-way/Iot_vuls/tree/main/BR-6208AC/RCE_formAutoFWupgrade",
+        "https://vuldb.com/cve/CVE-2026-108917",
+        "https://vuldb.com/submit/977199",
+        "https://vuldb.com/vuln/416729",
+        "https://vuldb.com/vuln/416729/cti"
+      ],
+      "desc_en": "A vulnerability was determined in Edimax BR-6208AC 1.32. This issue affects some unknown processing of the file /goform/formAutoFWupgrade. Executing a manipulation of the argument tftpsIP can lead to command injection. The attack may be performed from remote. The exploit has been publicly disclosed and may be utilized. The vendor was contacted early about this disclosure but did not respond in any way. This vulnerability only affects products that are no longer supported by the maintainer.",
+      "source": "nvd",
+      "osv_packages": [],
+      "osv_fixed": []
+    },
+    {
+      "cve": "CVE-2026-108918",
+      "title_zh": "Edimax 路由器 指令注入 RCE",
+      "cvss": 10.0,
+      "type": "RCE",
+      "in_wild": false,
+      "summary_zh": "無線管理組件指令注入，可遠端執行指令。",
+      "affected": "Edimax BR-6208AC",
+      "affected_versions": "1.32",
+      "fix_hint": "產品已停止支援，建議更換受支援設備。",
+      "patch_url": "https://github.com/fizz-is-on-the-way/Iot_vuls/tree/main/BR-6208AC/RCE_formWlanMP",
+      "epss_warn": false,
+      "epss": null,
+      "refs": [
+        "https://github.com/fizz-is-on-the-way/Iot_vuls/tree/main/BR-6208AC/RCE_formWlanMP",
+        "https://vuldb.com/cve/CVE-2026-108918",
+        "https://vuldb.com/submit/977200",
+        "https://vuldb.com/vuln/416730",
+        "https://vuldb.com/vuln/416730/cti"
+      ],
+      "desc_en": "A vulnerability was identified in Edimax BR-6208AC 1.32. Impacted is an unknown function of the file /goform/formWlanMP. The manipulation of the argument readE2P leads to command injection. It is possible to initiate the attack remotely. The exploit is publicly available and might be used. The vendor was contacted early about this disclosure but did not respond in any way. This vulnerability only affects products that are no longer supported by the maintainer.",
+      "source": "nvd",
+      "osv_packages": [],
+      "osv_fixed": []
+    },
+    {
+      "cve": "CVE-2026-89111",
+      "title_zh": "SAP Cloud SDK SSRF 漏洞",
+      "cvss": 10.0,
+      "type": "SSRF",
+      "in_wild": false,
+      "summary_zh": "OAuth2 請求可被重導向，導致憑證外洩。",
+      "affected": "SAP Cloud SDK for Python",
+      "affected_versions": "",
+      "fix_hint": "請參考 SAP 安全更新公告進行修補。",
+      "patch_url": "https://github.com/SAP/cloud-sdk-python/security/advisories/GHSA-4mv3-jxxm-9cx2",
+      "epss_warn": false,
+      "epss": null,
+      "refs": [
+        "https://github.com/SAP/cloud-sdk-python/security/advisories/GHSA-4mv3-jxxm-9cx2",
+        "https://url.sap/sapsecuritypatchday"
+      ],
+      "desc_en": "The SAP Cloud SDK for Python contains an OAuth2 SSRF vulnerability affecting multi-tenant BTP applications. An attacker who controls the tenant_subdomain parameter can redirect OAuth2 token requests to an attacker-controlled server, causing client credentials to be exfiltrated.",
+      "source": "nvd",
+      "osv_packages": [],
+      "osv_fixed": []
+    }
+  ]
+}

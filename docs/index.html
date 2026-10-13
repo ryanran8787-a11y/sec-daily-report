@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>網安每日報 2026-10-12</title>
+<title>網安每日報 2026-10-13</title>
 <style>
 /* Geist 設計語言（灰階層次、細邊框、小圓角），logo 與配色為原創 */
 :root{
@@ -109,7 +109,7 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
 <div class="nav"><div class="nav-inner">
   <svg class="logo" viewBox="0 0 24 24"><path d="M12 1.8 3.5 5v6.1c0 5.1 3.6 9.6 8.5 10.9 4.9-1.3 8.5-5.8 8.5-10.9V5L12 1.8Zm0 2.4 6.5 2.6v4.3c0 4-2.7 7.6-6.5 8.7-3.8-1.1-6.5-4.7-6.5-8.7V6.8L12 4.2Zm-1.4 9.1 4-4 1.4 1.4-5.4 5.4-2.6-2.6 1.4-1.4 1.2 1.2Z"/></svg>
   <div class="brand">SecDaily <span>/ 網安每日報</span></div>
-  <div class="nav-right"><span class="dot"></span>2026-10-12・gemini<a class="rss-link" href="feed.xml" title="RSS 訂閱">RSS</a><button class="theme-btn" onclick="toggleTheme()" title="切換淺色/深色">◐</button></div>
+  <div class="nav-right"><span class="dot"></span>2026-10-13・gemini<a class="rss-link" href="feed.xml" title="RSS 訂閱">RSS</a><button class="theme-btn" onclick="toggleTheme()" title="切換淺色/深色">◐</button></div>
 </div></div>
 
 <div class="wrap">
@@ -117,7 +117,7 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
   <div class="eyebrow">NVD + KEV + EPSS + OSV + GitHub + Cisco ・ 每天 08:00（台北）自動更新</div>
   <h1><span class="grad">今日高危漏洞</span></h1>
   <p class="lede">僅收錄 CVSS ≥ 9.0、在野利用或 EPSS 利用預警項目。點擊任一條目展開完整描述與修補建議。</p>
-  <div class="brief"><span>AI 總評</span>今日 5 則高危清單以 RCE 為主，應優先關注 fast-jwt 認證繞過漏洞。</div>
+  <div class="brief"><span>AI 總評</span>本日收錄 5 則漏洞，以路由器 RCE 與接管為主，建議優先處理 Edimax 路由器遠端代碼執行漏洞。</div>
 </div>
 
 <div class="stats">
@@ -146,7 +146,51 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
 
   <div class="row" data-wild="0" onclick="if(event.target.tagName!=='A')this.classList.toggle('open')">
     <div class="row-head">
-      <h2>TOZED X300 RCE 漏洞</h2>
+      <h2>Linksys E1700 緩衝區溢位</h2>
+      <span class="badge crit">CVSS 10.0</span>
+      
+      
+      <span class="badge">其他高危</span>
+      
+      <span class="chev">▾</span>
+    </div>
+    <div class="row-sum">Mac Filter 組件緩衝區溢位，可遠端攻擊。</div>
+    <div class="row-foot"><span>CVE-2026-108892</span><span>Linksys E1700 1.0.0.4.003</span>
+      <a href="https://github.com/wudipjq/my_vuln/blob/main/Linksys3/vuln_66/66.md" target="_blank">官方補丁 ↗</a>
+    </div>
+    <div class="detail">
+      <div class="en">A vulnerability was determined in Linksys E1700 1.0.0.4.003. This vulnerability affects the function ssid1MACFilter of the file /goform/ssid1MACFilter of the component Mac Filter. This manipulation of the argument newap_text_%d causes stack-based buffer overflow. The attack may be initiated remotely. The exploit has been publicly disclosed and may be utilized. The vendor was contacted early about this disclosure but did not respond in any way.</div>
+      <div>修補建議：廠商未回應，建議限制存取或更換設備。</div>
+      
+      <div style="margin-top:6px">更多參考：<a href="https://vuldb.com/cve/CVE-2026-108892" target="_blank">[2]</a> <a href="https://vuldb.com/submit/973111" target="_blank">[3]</a> <a href="https://vuldb.com/vuln/416684" target="_blank">[4]</a> <a href="https://vuldb.com/vuln/416684/cti" target="_blank">[5]</a> </div>
+    </div>
+  </div>
+
+  <div class="row" data-wild="0" onclick="if(event.target.tagName!=='A')this.classList.toggle('open')">
+    <div class="row-head">
+      <h2>Netcore NR268 身份驗證繞過</h2>
+      <span class="badge crit">CVSS 10.0</span>
+      
+      
+      <span class="badge">接管</span>
+      
+      <span class="chev">▾</span>
+    </div>
+    <div class="row-sum">CGI 執行組件驗證不當，可遠端繞過驗證。</div>
+    <div class="row-foot"><span>CVE-2026-108907</span><span>Netcore NR268 1.7.121109</span>
+      <a href="https://github.com/draw-ctf/report/blob/main/NR268/2026.09.14-netcore-nr268-boa-auth-fail-open.md" target="_blank">官方補丁 ↗</a>
+    </div>
+    <div class="detail">
+      <div class="en">A vulnerability was determined in Netcore NR268 1.7.121109. Affected is the function user_ok of the component CGI Execution. This manipulation causes improper authentication. The attack can be initiated remotely. The exploit has been publicly disclosed and may be utilized. The vendor was contacted early about this disclosure but did not respond in any way.</div>
+      <div>修補建議：廠商未回應，建議加強網路邊界防護。</div>
+      
+      <div style="margin-top:6px">更多參考：<a href="https://vuldb.com/cve/CVE-2026-108907" target="_blank">[2]</a> <a href="https://vuldb.com/submit/977173" target="_blank">[3]</a> <a href="https://vuldb.com/vuln/416702" target="_blank">[4]</a> <a href="https://vuldb.com/vuln/416702/cti" target="_blank">[5]</a> </div>
+    </div>
+  </div>
+
+  <div class="row" data-wild="0" onclick="if(event.target.tagName!=='A')this.classList.toggle('open')">
+    <div class="row-head">
+      <h2>Edimax 路由器 RCE 漏洞</h2>
       <span class="badge crit">CVSS 10.0</span>
       
       
@@ -154,114 +198,59 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
       
       <span class="chev">▾</span>
     </div>
-    <div class="row-sum">IPPing 組件存在指令注入，允許遠端執行指令。</div>
-    <div class="row-foot"><span>CVE-2026-108576</span><span>TOZED X300 6.01.3 之前</span>
-      <a href="https://github.com/danish1162/CVE-2026-2035703-x300/security/advisories/GHSA-qcpp-vfr2-v242" target="_blank">官方補丁 ↗</a>
+    <div class="row-sum">韌體更新組件指令注入，可遠端執行指令。</div>
+    <div class="row-foot"><span>CVE-2026-108917</span><span>Edimax BR-6208AC 1.32</span>
+      <a href="https://github.com/fizz-is-on-the-way/Iot_vuls/tree/main/BR-6208AC/RCE_formAutoFWupgrade" target="_blank">官方補丁 ↗</a>
     </div>
     <div class="detail">
-      <div class="en">A vulnerability was found in TOZED X300 up to 6.01.3. This vulnerability affects the function process_ping of the component IPPingDiagnostics Handler. The manipulation of the argument Host results in os command injection. The attack can be launched remotely. The vendor was contacted early about this disclosure but did not respond in any way.</div>
-      <div>修補建議：廠商未回應，建議限制網路存取或更換設備。</div>
+      <div class="en">A vulnerability was determined in Edimax BR-6208AC 1.32. This issue affects some unknown processing of the file /goform/formAutoFWupgrade. Executing a manipulation of the argument tftpsIP can lead to command injection. The attack may be performed from remote. The exploit has been publicly disclosed and may be utilized. The vendor was contacted early about this disclosure but did not respond in any way. This vulnerability only affects products that are no longer supported by the maintainer.</div>
+      <div>修補建議：產品已停止支援，建議更換受支援設備。</div>
       
-      <div style="margin-top:6px">更多參考：<a href="https://vuldb.com/cve/CVE-2026-108576" target="_blank">[2]</a> <a href="https://vuldb.com/submit/956290" target="_blank">[3]</a> <a href="https://vuldb.com/vuln/416233" target="_blank">[4]</a> <a href="https://vuldb.com/vuln/416233/cti" target="_blank">[5]</a> </div>
+      <div style="margin-top:6px">更多參考：<a href="https://vuldb.com/cve/CVE-2026-108917" target="_blank">[2]</a> <a href="https://vuldb.com/submit/977199" target="_blank">[3]</a> <a href="https://vuldb.com/vuln/416729" target="_blank">[4]</a> <a href="https://vuldb.com/vuln/416729/cti" target="_blank">[5]</a> </div>
     </div>
   </div>
 
   <div class="row" data-wild="0" onclick="if(event.target.tagName!=='A')this.classList.toggle('open')">
     <div class="row-head">
-      <h2>OpenSpug Spug RCE 漏洞</h2>
-      <span class="badge crit">CVSS 9.9</span>
+      <h2>Edimax 路由器 指令注入 RCE</h2>
+      <span class="badge crit">CVSS 10.0</span>
       
       
       <span class="badge">RCE</span>
-      <span class="badge epss">EPSS 0.02</span>
+      
       <span class="chev">▾</span>
     </div>
-    <div class="row-sum">檔案傳輸功能存在指令注入，可導致遠端執行。</div>
-    <div class="row-foot"><span>CVE-2026-108540</span><span>OpenSpug Spug 3.4.0/4.0.1 之前</span>
-      <a href="https://github.com/SECWG/CVE/issues/10" target="_blank">官方補丁 ↗</a>
+    <div class="row-sum">無線管理組件指令注入，可遠端執行指令。</div>
+    <div class="row-foot"><span>CVE-2026-108918</span><span>Edimax BR-6208AC 1.32</span>
+      <a href="https://github.com/fizz-is-on-the-way/Iot_vuls/tree/main/BR-6208AC/RCE_formWlanMP" target="_blank">官方補丁 ↗</a>
     </div>
     <div class="detail">
-      <div class="en">A flaw has been found in OpenSpug Spug up to 3.4.0/4.0.1. This impacts an unknown function of the file /exec/transfer of the component File Transfer. Executing a manipulation can lead to os command injection. The attack may be launched remotely. The exploit has been published and may be used. The vendor was contacted early about this disclosure but did not respond in any way.</div>
-      <div>修補建議：廠商未回應，建議暫停使用相關功能並加強過濾。</div>
+      <div class="en">A vulnerability was identified in Edimax BR-6208AC 1.32. Impacted is an unknown function of the file /goform/formWlanMP. The manipulation of the argument readE2P leads to command injection. It is possible to initiate the attack remotely. The exploit is publicly available and might be used. The vendor was contacted early about this disclosure but did not respond in any way. This vulnerability only affects products that are no longer supported by the maintainer.</div>
+      <div>修補建議：產品已停止支援，建議更換受支援設備。</div>
       
-      <div style="margin-top:6px">更多參考：<a href="https://vuldb.com/cve/CVE-2026-108540" target="_blank">[2]</a> <a href="https://vuldb.com/submit/948328" target="_blank">[3]</a> <a href="https://vuldb.com/vuln/416195" target="_blank">[4]</a> <a href="https://vuldb.com/vuln/416195/cti" target="_blank">[5]</a> </div>
+      <div style="margin-top:6px">更多參考：<a href="https://vuldb.com/cve/CVE-2026-108918" target="_blank">[2]</a> <a href="https://vuldb.com/submit/977200" target="_blank">[3]</a> <a href="https://vuldb.com/vuln/416730" target="_blank">[4]</a> <a href="https://vuldb.com/vuln/416730/cti" target="_blank">[5]</a> </div>
     </div>
   </div>
 
   <div class="row" data-wild="0" onclick="if(event.target.tagName!=='A')this.classList.toggle('open')">
     <div class="row-head">
-      <h2>PraisonAI AICoder RCE 漏洞</h2>
-      <span class="badge crit">CVSS 9.9</span>
+      <h2>SAP Cloud SDK SSRF 漏洞</h2>
+      <span class="badge crit">CVSS 10.0</span>
       
-      <span class="badge epss">via github</span>
-      <span class="badge">RCE</span>
-      <span class="badge epss">EPSS 0.01</span>
+      
+      <span class="badge">SSRF</span>
+      
       <span class="chev">▾</span>
     </div>
-    <div class="row-sum">LLM 工具調用缺乏驗證，可寫入檔案並執行指令。</div>
-    <div class="row-foot"><span>CVE-2026-61445</span><span>PraisonAI AICoder</span>
-      <a href="https://github.com/advisories/GHSA-9mp3-24cc-77mg" target="_blank">官方補丁 ↗</a>
+    <div class="row-sum">OAuth2 請求可被重導向，導致憑證外洩。</div>
+    <div class="row-foot"><span>CVE-2026-89111</span><span>SAP Cloud SDK for Python</span>
+      <a href="https://github.com/SAP/cloud-sdk-python/security/advisories/GHSA-4mv3-jxxm-9cx2" target="_blank">官方補丁 ↗</a>
     </div>
     <div class="detail">
-      <div class="en">PraisonAI: AICoder Arbitrary File Write and Command Execution via LLM Tool Calls
-### Summary
-The `AICoder` UI component exposes `write_to_file` and `execute_command` tools to the LLM with no path validation and no command sanitization. An attacker can achieve arbitrary file write to any location on the filesystem (including `/root/.ssh/authorized_keys`, `/etc/crontab`) and arbitrary command execution through prompt injection in the chat interface. Docker containers run as root, maximizing impact.
-
-### Details
-
-#### Path Traversal in write_to_file
-
-`src/praisonai/praisonai/ui/components/aicoder</div>
-      <div>修補建議：升級至最新版本並對 LLM 工具調用實施路徑驗證。</div>
+      <div class="en">The SAP Cloud SDK for Python contains an OAuth2 SSRF vulnerability affecting multi-tenant BTP applications. An attacker who controls the tenant_subdomain parameter can redirect OAuth2 token requests to an attacker-controlled server, causing client credentials to be exfiltrated.</div>
+      <div>修補建議：請參考 SAP 安全更新公告進行修補。</div>
       
-      
-    </div>
-  </div>
-
-  <div class="row" data-wild="0" onclick="if(event.target.tagName!=='A')this.classList.toggle('open')">
-    <div class="row-head">
-      <h2>fast-jwt 認證繞過漏洞</h2>
-      <span class="badge crit">CVSS 9.8</span>
-      
-      <span class="badge epss">via github</span>
-      <span class="badge">其他高危</span>
-      <span class="badge epss">EPSS 0.00</span>
-      <span class="chev">▾</span>
-    </div>
-    <div class="row-sum">補丁不完全導致演算法混淆，攻擊者可偽造 JWT。</div>
-    <div class="row-foot"><span>CVE-2026-107722</span><span>fast-jwt 6.2.0 之前</span>
-      <a href="https://github.com/advisories/GHSA-ww5h-9m49-7xx4" target="_blank">官方補丁 ↗</a>
-    </div>
-    <div class="detail">
-      <div class="en">fast-jwt: Incomplete patch of CVE-2026-34950: Non-whitespace key-prefix re-enables RSA→HS256 algorithm confusion
-### Summary
-
-The fix for CVE-2026-34950 (CVSS 9.1, released in v6.2.0) is **incomplete**. It adds `key.trim()` to the PEM-detection path in `src/crypto.js`, but `String.prototype.trim()` only strips characters classified as whitespace by the ECMAScript specification. The subsequent `^`-anchored regex (`/^-----BEGIN(?: (RSA))? PUBLIC KEY-----/`) still requires the PEM header at position 0 — so **any non-whitespace leading byte** (control chars, zero-width unicode, `#` comments, HTTP-</div>
-      <div>修補建議：升級至修復演算法混淆漏洞的最新版本。</div>
-      
-      
-    </div>
-  </div>
-
-  <div class="row" data-wild="0" onclick="if(event.target.tagName!=='A')this.classList.toggle('open')">
-    <div class="row-head">
-      <h2>Anton Extensions RCE 漏洞</h2>
-      <span class="badge crit">CVSS 9.8</span>
-      
-      
-      <span class="badge">RCE</span>
-      <span class="badge epss">EPSS 0.00</span>
-      <span class="chev">▾</span>
-    </div>
-    <div class="row-sum">未經授權可上傳 PHP 檔案，導致遠端執行指令。</div>
-    <div class="row-foot"><span>CVE-2026-104028</span><span>Anton Extensions WordPress plugin 1.2.2 及更早</span>
-      <a href="https://wpscan.com/vulnerability/0be8a03e-d854-48db-bdc0-1beead3d7b91/" target="_blank">官方補丁 ↗</a>
-    </div>
-    <div class="detail">
-      <div class="en">The Anton Extensions WordPress plugin through 1.2.2 does not perform any capability check, nonce verification, or file-type validation before writing attacker-supplied content to an attacker-chosen path, allowing unauthenticated attackers to upload arbitrary PHP files and achieve remote code execution.</div>
-      <div>修補建議：停用或移除該外掛，或更新至官方修復版本。</div>
-      
-      
+      <div style="margin-top:6px">更多參考：<a href="https://url.sap/sapsecuritypatchday" target="_blank">[2]</a> </div>
     </div>
   </div>
 
@@ -274,6 +263,8 @@ The fix for CVE-2026-34950 (CVSS 9.1, released in v6.2.0) is **incomplete**. It 
 <div class="hist">
   <h3>Archive / 歷史存檔</h3>
   <div class="hist-grid">
+    
+    <a class="hcard" href="2026-10-13.html"><div class="d">2026-10-13</div><div class="c">5 則・gemini</div></a>
     
     <a class="hcard" href="2026-10-12.html"><div class="d">2026-10-12</div><div class="c">5 則・gemini</div></a>
     
@@ -348,8 +339,6 @@ The fix for CVE-2026-34950 (CVSS 9.1, released in v6.2.0) is **incomplete**. It 
   <div class="sub2">琥珀色 = 當日有在野利用，點擊跳轉存檔</div>
   <div class="cal">
   
-    <a class="day" href="2026-09-13.html" title="2026-09-13・高危5則・在野0則">13</a>
-  
     <a class="day" href="2026-09-14.html" title="2026-09-14・高危5則・在野0則">14</a>
   
     <a class="day has w1" href="2026-09-15.html" title="2026-09-15・高危5則・在野1則">15</a>
@@ -406,7 +395,9 @@ The fix for CVE-2026-34950 (CVSS 9.1, released in v6.2.0) is **incomplete**. It 
   
     <a class="day" href="2026-10-11.html" title="2026-10-11・高危5則・在野0則">11</a>
   
-    <a class="day" href="2026-10-12.html" title="2026-10-12・高危21則・在野0則">12</a>
+    <a class="day" href="2026-10-12.html" title="2026-10-12・高危5則・在野0則">12</a>
+  
+    <a class="day" href="2026-10-13.html" title="2026-10-13・高危60則・在野0則">13</a>
   
   </div>
   <div class="cal-legend"><span>■ 無在野</span><span style="color:var(--amber)">■ 有在野（顏色越深越多）</span></div>
