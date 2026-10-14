@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>網安每日報 2026-10-13</title>
+<title>網安每日報 2026-10-14</title>
 <style>
 /* Geist 設計語言（灰階層次、細邊框、小圓角），logo 與配色為原創 */
 :root{
@@ -109,7 +109,7 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
 <div class="nav"><div class="nav-inner">
   <svg class="logo" viewBox="0 0 24 24"><path d="M12 1.8 3.5 5v6.1c0 5.1 3.6 9.6 8.5 10.9 4.9-1.3 8.5-5.8 8.5-10.9V5L12 1.8Zm0 2.4 6.5 2.6v4.3c0 4-2.7 7.6-6.5 8.7-3.8-1.1-6.5-4.7-6.5-8.7V6.8L12 4.2Zm-1.4 9.1 4-4 1.4 1.4-5.4 5.4-2.6-2.6 1.4-1.4 1.2 1.2Z"/></svg>
   <div class="brand">SecDaily <span>/ 網安每日報</span></div>
-  <div class="nav-right"><span class="dot"></span>2026-10-13・gemini<a class="rss-link" href="feed.xml" title="RSS 訂閱">RSS</a><button class="theme-btn" onclick="toggleTheme()" title="切換淺色/深色">◐</button></div>
+  <div class="nav-right"><span class="dot"></span>2026-10-14・gemini<a class="rss-link" href="feed.xml" title="RSS 訂閱">RSS</a><button class="theme-btn" onclick="toggleTheme()" title="切換淺色/深色">◐</button></div>
 </div></div>
 
 <div class="wrap">
@@ -117,14 +117,14 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
   <div class="eyebrow">NVD + KEV + EPSS + OSV + GitHub + Cisco ・ 每天 08:00（台北）自動更新</div>
   <h1><span class="grad">今日高危漏洞</span></h1>
   <p class="lede">僅收錄 CVSS ≥ 9.0、在野利用或 EPSS 利用預警項目。點擊任一條目展開完整描述與修補建議。</p>
-  <div class="brief"><span>AI 總評</span>本日收錄 5 則漏洞，以路由器 RCE 與接管為主，建議優先處理 Edimax 路由器遠端代碼執行漏洞。</div>
+  <div class="brief"><span>AI 總評</span>今日 5 則高危清單以 RCE 為主，應優先關注已遭攻擊者利用的 Windows Shell 指令注入漏洞。</div>
 </div>
 
 <div class="stats">
   <div class="stat"><div class="n red">5</div><div class="l">高危項目</div></div>
-  <div class="stat"><div class="n amber">0</div><div class="l">在野利用</div></div>
+  <div class="stat"><div class="n amber">2</div><div class="l">在野利用</div></div>
   <div class="stat"><div class="n amber">0</div><div class="l">利用預警 EPSS≥0.7</div></div>
-  <div class="stat"><div class="n green">5</div><div class="l">CVSS ≥ 9.5</div></div>
+  <div class="stat"><div class="n green">3</div><div class="l">CVSS ≥ 9.5</div></div>
 </div>
 
 <div class="toolbar">
@@ -140,117 +140,121 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
 
 
 <div id="grid">
+<div class="bucket"><h3>● 在野利用 <span class="cnt">2 則・優先處理</span></h3>
+<div class="list">
 
-<div class="bucket"><h3>▲ 高危關注 <span class="cnt">5 則・EPSS 預警或 CVSS ≥ 9.5</span></h3>
+  <div class="row" data-wild="1" onclick="if(event.target.tagName!=='A')this.classList.toggle('open')">
+    <div class="row-head">
+      <h2>Windows Shell 指令注入漏洞</h2>
+      <span class="badge ">CVSS 8.8</span>
+      <span class="badge wild">● 在野利用</span>
+      
+      <span class="badge">RCE</span>
+      
+      <span class="chev">▾</span>
+    </div>
+    <div class="row-sum">Windows Shell 指令注入漏洞，允許攻擊者繞過安全功能。</div>
+    <div class="row-foot"><span>CVE-2026-96951</span><span>Windows Shell</span>
+      <a href="https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-96951" target="_blank">官方補丁 ↗</a>
+    </div>
+    <div class="detail">
+      <div class="en">Improper neutralization of special elements used in a command (&#39;command injection&#39;) in Windows Shell allows an unauthorized attacker to bypass a security feature over a network.</div>
+      <div>修補建議：請參考微軟官方更新指南進行修補。</div>
+      
+      <div style="margin-top:6px">更多參考：<a href="https://www.cisa.gov/known-exploited-vulnerabilities-catalog?field_cve=CVE-2026-96951" target="_blank">[2]</a> </div>
+    </div>
+  </div>
+
+  <div class="row" data-wild="1" onclick="if(event.target.tagName!=='A')this.classList.toggle('open')">
+    <div class="row-head">
+      <h2>Ivanti ICS 身份繞過漏洞</h2>
+      <span class="badge ">CVSS 8.6</span>
+      <span class="badge wild">● 在野利用</span>
+      
+      <span class="badge">未授權存取</span>
+      
+      <span class="chev">▾</span>
+    </div>
+    <div class="row-sum">Ivanti ICS 存在身份欺騙漏洞，允許遠端執行任意指令。</div>
+    <div class="row-foot"><span>CVE-2026-104935</span><span>Ivanti Connect Secure 25.1.3.0 之前</span>
+      <a href="https://hub.ivanti.com/s/article/Security-Advisory-Ivanti-Connect-Secure-CVE-2026-104935" target="_blank">官方補丁 ↗</a>
+    </div>
+    <div class="detail">
+      <div class="en">Authentication bypass by spoofing in ICS before version 25.1.3.0 allows a remote unauthenticated attacker to execute arbitrary commands. This does not impact ICS version 22.7R2.14 or prior.</div>
+      <div>修補建議：更新至最新版本以修復身份驗證繞過問題。</div>
+      
+      <div style="margin-top:6px">更多參考：<a href="https://www.cisa.gov/known-exploited-vulnerabilities-catalog?field_cve=CVE-2026-104935" target="_blank">[2]</a> </div>
+    </div>
+  </div>
+
+</div>
+</div>
+<div class="bucket"><h3>▲ 高危關注 <span class="cnt">3 則・EPSS 預警或 CVSS ≥ 9.5</span></h3>
 <div class="list">
 
   <div class="row" data-wild="0" onclick="if(event.target.tagName!=='A')this.classList.toggle('open')">
     <div class="row-head">
-      <h2>Linksys E1700 緩衝區溢位</h2>
+      <h2>Wavlink 路由器 RCE 漏洞</h2>
+      <span class="badge crit">CVSS 10.0</span>
+      
+      
+      <span class="badge">RCE</span>
+      <span class="badge epss">EPSS 0.02</span>
+      <span class="chev">▾</span>
+    </div>
+    <div class="row-sum">Wavlink WL-WN592AX6 存在指令注入漏洞，可遠端執行指令。</div>
+    <div class="row-foot"><span>CVE-2026-109110</span><span>Wavlink WL-WN592AX6 250422</span>
+      <a href="https://drive.google.com/file/d/1KtZZ7kjVswRgP2VLEx7M7gEafyY8Wp2Q/view?usp=drive_link" target="_blank">官方補丁 ↗</a>
+    </div>
+    <div class="detail">
+      <div class="en">A flaw has been found in Wavlink WL-WN592AX6 250422. This issue affects the function system of the component wmapd Daemon. Executing a manipulation can lead to os command injection. It is possible to launch the attack remotely. The exploit has been published and may be used. The vendor was contacted early about this disclosure.</div>
+      <div>修補建議：請聯繫廠商獲取韌體更新。</div>
+      
+      <div style="margin-top:6px">更多參考：<a href="https://vuldb.com/cve/CVE-2026-109110" target="_blank">[2]</a> <a href="https://vuldb.com/submit/913573" target="_blank">[3]</a> <a href="https://vuldb.com/vuln/416861" target="_blank">[4]</a> <a href="https://vuldb.com/vuln/416861/cti" target="_blank">[5]</a> </div>
+    </div>
+  </div>
+
+  <div class="row" data-wild="0" onclick="if(event.target.tagName!=='A')this.classList.toggle('open')">
+    <div class="row-head">
+      <h2>Wavlink 路由器緩衝區溢位</h2>
       <span class="badge crit">CVSS 10.0</span>
       
       
       <span class="badge">其他高危</span>
-      
+      <span class="badge epss">EPSS 0.01</span>
       <span class="chev">▾</span>
     </div>
-    <div class="row-sum">Mac Filter 組件緩衝區溢位，可遠端攻擊。</div>
-    <div class="row-foot"><span>CVE-2026-108892</span><span>Linksys E1700 1.0.0.4.003</span>
-      <a href="https://github.com/wudipjq/my_vuln/blob/main/Linksys3/vuln_66/66.md" target="_blank">官方補丁 ↗</a>
+    <div class="row-sum">Wavlink 設備設定匯出功能存在堆疊緩衝區溢位漏洞。</div>
+    <div class="row-foot"><span>CVE-2026-109109</span><span>Wavlink WL-WN530BE1-A 251117</span>
+      <a href="https://gist.github.com/Rauzk/9ef4fe7574e5689386cc43139f4cf9e1" target="_blank">官方補丁 ↗</a>
     </div>
     <div class="detail">
-      <div class="en">A vulnerability was determined in Linksys E1700 1.0.0.4.003. This vulnerability affects the function ssid1MACFilter of the file /goform/ssid1MACFilter of the component Mac Filter. This manipulation of the argument newap_text_%d causes stack-based buffer overflow. The attack may be initiated remotely. The exploit has been publicly disclosed and may be utilized. The vendor was contacted early about this disclosure but did not respond in any way.</div>
-      <div>修補建議：廠商未回應，建議限制存取或更換設備。</div>
+      <div class="en">A vulnerability was detected in Wavlink WL-WN530BE1-A 251117. This vulnerability affects the function strcpy of the file /cgi-bin/ExportAllSettings.cgi of the component Settings Export CGI. Performing a manipulation of the argument HTTP_COOKIE/X-Cmd results in stack-based buffer overflow. It is possible to initiate the attack remotely. The exploit is now public and may be used. The vendor was contacted early about this disclosure.</div>
+      <div>修補建議：請聯繫廠商獲取韌體更新。</div>
       
-      <div style="margin-top:6px">更多參考：<a href="https://vuldb.com/cve/CVE-2026-108892" target="_blank">[2]</a> <a href="https://vuldb.com/submit/973111" target="_blank">[3]</a> <a href="https://vuldb.com/vuln/416684" target="_blank">[4]</a> <a href="https://vuldb.com/vuln/416684/cti" target="_blank">[5]</a> </div>
+      <div style="margin-top:6px">更多參考：<a href="https://vuldb.com/cve/CVE-2026-109109" target="_blank">[2]</a> <a href="https://vuldb.com/submit/909191" target="_blank">[3]</a> <a href="https://vuldb.com/vuln/416860" target="_blank">[4]</a> <a href="https://vuldb.com/vuln/416860/cti" target="_blank">[5]</a> </div>
     </div>
   </div>
 
   <div class="row" data-wild="0" onclick="if(event.target.tagName!=='A')this.classList.toggle('open')">
     <div class="row-head">
-      <h2>Netcore NR268 身份驗證繞過</h2>
+      <h2>D-Link 韌體簽章驗證漏洞</h2>
       <span class="badge crit">CVSS 10.0</span>
       
       
-      <span class="badge">接管</span>
-      
+      <span class="badge">其他高危</span>
+      <span class="badge epss">EPSS 0.00</span>
       <span class="chev">▾</span>
     </div>
-    <div class="row-sum">CGI 執行組件驗證不當，可遠端繞過驗證。</div>
-    <div class="row-foot"><span>CVE-2026-108907</span><span>Netcore NR268 1.7.121109</span>
-      <a href="https://github.com/draw-ctf/report/blob/main/NR268/2026.09.14-netcore-nr268-boa-auth-fail-open.md" target="_blank">官方補丁 ↗</a>
+    <div class="row-sum">D-Link 攝影機韌體恢復伺服器存在加密簽章驗證不當。</div>
+    <div class="row-foot"><span>CVE-2026-108971</span><span>D-Link DCS-930L B1.08B4</span>
+      <a href="https://github.com/sweethub521/somevul/blob/main/dlink-dcs930l-bootloader-emergency-room-flash.md" target="_blank">官方補丁 ↗</a>
     </div>
     <div class="detail">
-      <div class="en">A vulnerability was determined in Netcore NR268 1.7.121109. Affected is the function user_ok of the component CGI Execution. This manipulation causes improper authentication. The attack can be initiated remotely. The exploit has been publicly disclosed and may be utilized. The vendor was contacted early about this disclosure but did not respond in any way.</div>
-      <div>修補建議：廠商未回應，建議加強網路邊界防護。</div>
+      <div class="en">A flaw has been found in D-Link DCS-930L B1.08B4. This impacts the function mpfd_decode of the file bootloader_region.bin of the component Emergency HTTP Recovery Server. Executing a manipulation of the argument firmware can lead to improper verification of cryptographic signature. The attack may be performed from remote. The exploit has been published and may be used.</div>
+      <div>修補建議：請聯繫廠商獲取韌體更新。</div>
       
-      <div style="margin-top:6px">更多參考：<a href="https://vuldb.com/cve/CVE-2026-108907" target="_blank">[2]</a> <a href="https://vuldb.com/submit/977173" target="_blank">[3]</a> <a href="https://vuldb.com/vuln/416702" target="_blank">[4]</a> <a href="https://vuldb.com/vuln/416702/cti" target="_blank">[5]</a> </div>
-    </div>
-  </div>
-
-  <div class="row" data-wild="0" onclick="if(event.target.tagName!=='A')this.classList.toggle('open')">
-    <div class="row-head">
-      <h2>Edimax 路由器 RCE 漏洞</h2>
-      <span class="badge crit">CVSS 10.0</span>
-      
-      
-      <span class="badge">RCE</span>
-      
-      <span class="chev">▾</span>
-    </div>
-    <div class="row-sum">韌體更新組件指令注入，可遠端執行指令。</div>
-    <div class="row-foot"><span>CVE-2026-108917</span><span>Edimax BR-6208AC 1.32</span>
-      <a href="https://github.com/fizz-is-on-the-way/Iot_vuls/tree/main/BR-6208AC/RCE_formAutoFWupgrade" target="_blank">官方補丁 ↗</a>
-    </div>
-    <div class="detail">
-      <div class="en">A vulnerability was determined in Edimax BR-6208AC 1.32. This issue affects some unknown processing of the file /goform/formAutoFWupgrade. Executing a manipulation of the argument tftpsIP can lead to command injection. The attack may be performed from remote. The exploit has been publicly disclosed and may be utilized. The vendor was contacted early about this disclosure but did not respond in any way. This vulnerability only affects products that are no longer supported by the maintainer.</div>
-      <div>修補建議：產品已停止支援，建議更換受支援設備。</div>
-      
-      <div style="margin-top:6px">更多參考：<a href="https://vuldb.com/cve/CVE-2026-108917" target="_blank">[2]</a> <a href="https://vuldb.com/submit/977199" target="_blank">[3]</a> <a href="https://vuldb.com/vuln/416729" target="_blank">[4]</a> <a href="https://vuldb.com/vuln/416729/cti" target="_blank">[5]</a> </div>
-    </div>
-  </div>
-
-  <div class="row" data-wild="0" onclick="if(event.target.tagName!=='A')this.classList.toggle('open')">
-    <div class="row-head">
-      <h2>Edimax 路由器 指令注入 RCE</h2>
-      <span class="badge crit">CVSS 10.0</span>
-      
-      
-      <span class="badge">RCE</span>
-      
-      <span class="chev">▾</span>
-    </div>
-    <div class="row-sum">無線管理組件指令注入，可遠端執行指令。</div>
-    <div class="row-foot"><span>CVE-2026-108918</span><span>Edimax BR-6208AC 1.32</span>
-      <a href="https://github.com/fizz-is-on-the-way/Iot_vuls/tree/main/BR-6208AC/RCE_formWlanMP" target="_blank">官方補丁 ↗</a>
-    </div>
-    <div class="detail">
-      <div class="en">A vulnerability was identified in Edimax BR-6208AC 1.32. Impacted is an unknown function of the file /goform/formWlanMP. The manipulation of the argument readE2P leads to command injection. It is possible to initiate the attack remotely. The exploit is publicly available and might be used. The vendor was contacted early about this disclosure but did not respond in any way. This vulnerability only affects products that are no longer supported by the maintainer.</div>
-      <div>修補建議：產品已停止支援，建議更換受支援設備。</div>
-      
-      <div style="margin-top:6px">更多參考：<a href="https://vuldb.com/cve/CVE-2026-108918" target="_blank">[2]</a> <a href="https://vuldb.com/submit/977200" target="_blank">[3]</a> <a href="https://vuldb.com/vuln/416730" target="_blank">[4]</a> <a href="https://vuldb.com/vuln/416730/cti" target="_blank">[5]</a> </div>
-    </div>
-  </div>
-
-  <div class="row" data-wild="0" onclick="if(event.target.tagName!=='A')this.classList.toggle('open')">
-    <div class="row-head">
-      <h2>SAP Cloud SDK SSRF 漏洞</h2>
-      <span class="badge crit">CVSS 10.0</span>
-      
-      
-      <span class="badge">SSRF</span>
-      
-      <span class="chev">▾</span>
-    </div>
-    <div class="row-sum">OAuth2 請求可被重導向，導致憑證外洩。</div>
-    <div class="row-foot"><span>CVE-2026-89111</span><span>SAP Cloud SDK for Python</span>
-      <a href="https://github.com/SAP/cloud-sdk-python/security/advisories/GHSA-4mv3-jxxm-9cx2" target="_blank">官方補丁 ↗</a>
-    </div>
-    <div class="detail">
-      <div class="en">The SAP Cloud SDK for Python contains an OAuth2 SSRF vulnerability affecting multi-tenant BTP applications. An attacker who controls the tenant_subdomain parameter can redirect OAuth2 token requests to an attacker-controlled server, causing client credentials to be exfiltrated.</div>
-      <div>修補建議：請參考 SAP 安全更新公告進行修補。</div>
-      
-      <div style="margin-top:6px">更多參考：<a href="https://url.sap/sapsecuritypatchday" target="_blank">[2]</a> </div>
+      <div style="margin-top:6px">更多參考：<a href="https://vuldb.com/cve/CVE-2026-108971" target="_blank">[2]</a> <a href="https://vuldb.com/submit/999605" target="_blank">[3]</a> <a href="https://vuldb.com/vuln/416789" target="_blank">[4]</a> <a href="https://vuldb.com/vuln/416789/cti" target="_blank">[5]</a> </div>
     </div>
   </div>
 
@@ -263,6 +267,8 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
 <div class="hist">
   <h3>Archive / 歷史存檔</h3>
   <div class="hist-grid">
+    
+    <a class="hcard" href="2026-10-14.html"><div class="d">2026-10-14</div><div class="c">5 則・gemini</div></a>
     
     <a class="hcard" href="2026-10-13.html"><div class="d">2026-10-13</div><div class="c">5 則・gemini</div></a>
     
@@ -339,8 +345,6 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
   <div class="sub2">琥珀色 = 當日有在野利用，點擊跳轉存檔</div>
   <div class="cal">
   
-    <a class="day" href="2026-09-14.html" title="2026-09-14・高危5則・在野0則">14</a>
-  
     <a class="day has w1" href="2026-09-15.html" title="2026-09-15・高危5則・在野1則">15</a>
   
     <a class="day" href="2026-09-16.html" title="2026-09-16・高危5則・在野0則">16</a>
@@ -397,7 +401,9 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
   
     <a class="day" href="2026-10-12.html" title="2026-10-12・高危5則・在野0則">12</a>
   
-    <a class="day" href="2026-10-13.html" title="2026-10-13・高危60則・在野0則">13</a>
+    <a class="day" href="2026-10-13.html" title="2026-10-13・高危5則・在野0則">13</a>
+  
+    <a class="day has w2" href="2026-10-14.html" title="2026-10-14・高危151則・在野2則">14</a>
   
   </div>
   <div class="cal-legend"><span>■ 無在野</span><span style="color:var(--amber)">■ 有在野（顏色越深越多）</span></div>

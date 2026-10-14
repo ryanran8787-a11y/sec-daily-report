@@ -1,0 +1,128 @@
+{
+  "date": "2026-10-14",
+  "generated_at": "2026-10-14T04:32:25.447057+00:00",
+  "engine": "gemini",
+  "count": 5,
+  "brief_zh": "今日 5 則高危清單以 RCE 為主，應優先關注已遭攻擊者利用的 Windows Shell 指令注入漏洞。",
+  "items": [
+    {
+      "cve": "CVE-2026-96951",
+      "title_zh": "Windows Shell 指令注入漏洞",
+      "cvss": 8.8,
+      "type": "RCE",
+      "in_wild": true,
+      "summary_zh": "Windows Shell 指令注入漏洞，允許攻擊者繞過安全功能。",
+      "affected": "Windows Shell",
+      "affected_versions": "",
+      "fix_hint": "請參考微軟官方更新指南進行修補。",
+      "patch_url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-96951",
+      "epss_warn": false,
+      "epss": null,
+      "refs": [
+        "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-96951",
+        "https://www.cisa.gov/known-exploited-vulnerabilities-catalog?field_cve=CVE-2026-96951"
+      ],
+      "desc_en": "Improper neutralization of special elements used in a command ('command injection') in Windows Shell allows an unauthorized attacker to bypass a security feature over a network.",
+      "source": "nvd",
+      "osv_packages": [],
+      "osv_fixed": []
+    },
+    {
+      "cve": "CVE-2026-104935",
+      "title_zh": "Ivanti ICS 身份繞過漏洞",
+      "cvss": 8.6,
+      "type": "未授權存取",
+      "in_wild": true,
+      "summary_zh": "Ivanti ICS 存在身份欺騙漏洞，允許遠端執行任意指令。",
+      "affected": "Ivanti Connect Secure",
+      "affected_versions": "25.1.3.0 之前",
+      "fix_hint": "更新至最新版本以修復身份驗證繞過問題。",
+      "patch_url": "https://hub.ivanti.com/s/article/Security-Advisory-Ivanti-Connect-Secure-CVE-2026-104935",
+      "epss_warn": false,
+      "epss": null,
+      "refs": [
+        "https://hub.ivanti.com/s/article/Security-Advisory-Ivanti-Connect-Secure-CVE-2026-104935",
+        "https://www.cisa.gov/known-exploited-vulnerabilities-catalog?field_cve=CVE-2026-104935"
+      ],
+      "desc_en": "Authentication bypass by spoofing in ICS before version 25.1.3.0 allows a remote unauthenticated attacker to execute arbitrary commands. This does not impact ICS version 22.7R2.14 or prior.",
+      "source": "nvd",
+      "osv_packages": [],
+      "osv_fixed": []
+    },
+    {
+      "cve": "CVE-2026-109110",
+      "title_zh": "Wavlink 路由器 RCE 漏洞",
+      "cvss": 10.0,
+      "type": "RCE",
+      "in_wild": false,
+      "summary_zh": "Wavlink WL-WN592AX6 存在指令注入漏洞，可遠端執行指令。",
+      "affected": "Wavlink WL-WN592AX6",
+      "affected_versions": "250422",
+      "fix_hint": "請聯繫廠商獲取韌體更新。",
+      "patch_url": "https://drive.google.com/file/d/1KtZZ7kjVswRgP2VLEx7M7gEafyY8Wp2Q/view?usp=drive_link",
+      "epss_warn": false,
+      "epss": 0.02028,
+      "refs": [
+        "https://drive.google.com/file/d/1KtZZ7kjVswRgP2VLEx7M7gEafyY8Wp2Q/view?usp=drive_link",
+        "https://vuldb.com/cve/CVE-2026-109110",
+        "https://vuldb.com/submit/913573",
+        "https://vuldb.com/vuln/416861",
+        "https://vuldb.com/vuln/416861/cti"
+      ],
+      "desc_en": "A flaw has been found in Wavlink WL-WN592AX6 250422. This issue affects the function system of the component wmapd Daemon. Executing a manipulation can lead to os command injection. It is possible to launch the attack remotely. The exploit has been published and may be used. The vendor was contacted early about this disclosure.",
+      "source": "nvd",
+      "osv_packages": [],
+      "osv_fixed": []
+    },
+    {
+      "cve": "CVE-2026-109109",
+      "title_zh": "Wavlink 路由器緩衝區溢位",
+      "cvss": 10.0,
+      "type": "其他高危",
+      "in_wild": false,
+      "summary_zh": "Wavlink 設備設定匯出功能存在堆疊緩衝區溢位漏洞。",
+      "affected": "Wavlink WL-WN530BE1-A",
+      "affected_versions": "251117",
+      "fix_hint": "請聯繫廠商獲取韌體更新。",
+      "patch_url": "https://gist.github.com/Rauzk/9ef4fe7574e5689386cc43139f4cf9e1",
+      "epss_warn": false,
+      "epss": 0.00584,
+      "refs": [
+        "https://gist.github.com/Rauzk/9ef4fe7574e5689386cc43139f4cf9e1",
+        "https://vuldb.com/cve/CVE-2026-109109",
+        "https://vuldb.com/submit/909191",
+        "https://vuldb.com/vuln/416860",
+        "https://vuldb.com/vuln/416860/cti"
+      ],
+      "desc_en": "A vulnerability was detected in Wavlink WL-WN530BE1-A 251117. This vulnerability affects the function strcpy of the file /cgi-bin/ExportAllSettings.cgi of the component Settings Export CGI. Performing a manipulation of the argument HTTP_COOKIE/X-Cmd results in stack-based buffer overflow. It is possible to initiate the attack remotely. The exploit is now public and may be used. The vendor was contacted early about this disclosure.",
+      "source": "nvd",
+      "osv_packages": [],
+      "osv_fixed": []
+    },
+    {
+      "cve": "CVE-2026-108971",
+      "title_zh": "D-Link 韌體簽章驗證漏洞",
+      "cvss": 10.0,
+      "type": "其他高危",
+      "in_wild": false,
+      "summary_zh": "D-Link 攝影機韌體恢復伺服器存在加密簽章驗證不當。",
+      "affected": "D-Link DCS-930L",
+      "affected_versions": "B1.08B4",
+      "fix_hint": "請聯繫廠商獲取韌體更新。",
+      "patch_url": "https://github.com/sweethub521/somevul/blob/main/dlink-dcs930l-bootloader-emergency-room-flash.md",
+      "epss_warn": false,
+      "epss": 0.00225,
+      "refs": [
+        "https://github.com/sweethub521/somevul/blob/main/dlink-dcs930l-bootloader-emergency-room-flash.md",
+        "https://vuldb.com/cve/CVE-2026-108971",
+        "https://vuldb.com/submit/999605",
+        "https://vuldb.com/vuln/416789",
+        "https://vuldb.com/vuln/416789/cti"
+      ],
+      "desc_en": "A flaw has been found in D-Link DCS-930L B1.08B4. This impacts the function mpfd_decode of the file bootloader_region.bin of the component Emergency HTTP Recovery Server. Executing a manipulation of the argument firmware can lead to improper verification of cryptographic signature. The attack may be performed from remote. The exploit has been published and may be used.",
+      "source": "nvd",
+      "osv_packages": [],
+      "osv_fixed": []
+    }
+  ]
+}

@@ -4,7 +4,14 @@
 <link>https://ryanran8787-a11y.github.io/sec-daily-report/</link>
 <description>CVSS&gt;=9.0 或在野利用的高危漏洞日報</description>
 <language>zh-tw</language>
-<lastBuildDate>Tue, 13 Oct 2026 06:24:27 GMT</lastBuildDate>
+<lastBuildDate>Wed, 14 Oct 2026 04:32:25 GMT</lastBuildDate>
+<item>
+<title>2026-10-14 高危 5 則</title>
+<link>https://ryanran8787-a11y.github.io/sec-daily-report/2026-10-14.html</link>
+<guid>https://ryanran8787-a11y.github.io/sec-daily-report/2026-10-14.html</guid>
+<pubDate>Wed, 14 Oct 2026 04:32:25 GMT</pubDate>
+<description><![CDATA[<ul><li>Windows Shell 指令注入漏洞 (CVSS 8.8)</li><li>Ivanti ICS 身份繞過漏洞 (CVSS 8.6)</li><li>Wavlink 路由器 RCE 漏洞 (CVSS 10.0)</li><li>Wavlink 路由器緩衝區溢位 (CVSS 10.0)</li><li>D-Link 韌體簽章驗證漏洞 (CVSS 10.0)</li></ul>]]></description>
+</item>
 <item>
 <title>2026-10-13 高危 5 則</title>
 <link>https://ryanran8787-a11y.github.io/sec-daily-report/2026-10-13.html</link>
@@ -207,12 +214,5 @@
 <guid>https://ryanran8787-a11y.github.io/sec-daily-report/2026-09-15.html</guid>
 <pubDate>Tue, 15 Sep 2026 03:53:39 GMT</pubDate>
 <description><![CDATA[<ul><li>Cisco Secure Email RCE 在野利用 (CVSS 9.8)</li><li>Apache Storm 資訊洩漏 (CVSS 10.0)</li><li>D-Link DWR-M920 指令注入 (CVSS 9.9)</li><li>D-Link DIR-823G 緩衝區溢位 (CVSS 9.9)</li><li>D-Link DIR-878 緩衝區溢位 (CVSS 9.9)</li></ul>]]></description>
-</item>
-<item>
-<title>2026-09-14 高危 5 則</title>
-<link>https://ryanran8787-a11y.github.io/sec-daily-report/2026-09-14.html</link>
-<guid>https://ryanran8787-a11y.github.io/sec-daily-report/2026-09-14.html</guid>
-<pubDate>Mon, 14 Sep 2026 03:53:48 GMT</pubDate>
-<description><![CDATA[<ul><li>WP CryptoPayment 未授權存取 (CVSS 10.0)</li><li>Totolink A3002MU 緩衝區溢位 (CVSS 9.9)</li><li>Totolink A3002MU 緩衝區溢位 (CVSS 9.9)</li><li>Totolink A3002MU 緩衝區溢位 (CVSS 9.9)</li><li>Totolink A3002MU 緩衝區溢位 (CVSS 9.9)</li></ul>]]></description>
 </item>
 </channel></rss>
