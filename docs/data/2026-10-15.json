@@ -1,0 +1,122 @@
+{
+  "date": "2026-10-15",
+  "generated_at": "2026-10-15T04:09:58.172777+00:00",
+  "engine": "gemini",
+  "count": 5,
+  "brief_zh": "今日 5 則高危漏洞以 RCE 為主，Cisco 與 Palo Alto 已遭利用，建議優先關注 Palo Alto PAN-OS RCE。",
+  "items": [
+    {
+      "cve": "CVE-2026-76519",
+      "title_zh": "Cisco SEG 檔案寫入 RCE",
+      "cvss": 9.8,
+      "type": "RCE",
+      "in_wild": true,
+      "summary_zh": "攻擊者可透過惡意附件寫入檔案並取得 root 權限。",
+      "affected": "Cisco Secure Email Gateway",
+      "affected_versions": "",
+      "fix_hint": "參考官方安全公告更新系統。",
+      "patch_url": "https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-esa-afw-zqYJkjxp",
+      "epss_warn": false,
+      "epss": null,
+      "refs": [
+        "https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-esa-afw-zqYJkjxp",
+        "https://www.cisa.gov/known-exploited-vulnerabilities-catalog?field_cve=CVE-2026-76519"
+      ],
+      "desc_en": "A vulnerability in the Advanced Malware Protection (AMP) feature of Cisco Secure Email Gateway could allow an unauthenticated, remote attacker to write arbitrary files on the underlying operating system.\r\n\r\nThis vulnerability is due to improper handling of email attachments when the file reputation service is enabled. An attacker could exploit this vulnerability by sending an email that contains a crafted attachment through an affected device. A successful exploit could allow the attacker to write arbitrary files and execute commands with&nbsp;root privileges on the underlying operating system",
+      "source": "nvd",
+      "osv_packages": [],
+      "osv_fixed": []
+    },
+    {
+      "cve": "CVE-2026-0322",
+      "title_zh": "Palo Alto PAN-OS RCE",
+      "cvss": 8.6,
+      "type": "RCE",
+      "in_wild": true,
+      "summary_zh": "驗證後的攻擊者可透過管理介面執行任意程式碼。",
+      "affected": "PAN-OS (PA-Series, VM-Series, Panorama)",
+      "affected_versions": "",
+      "fix_hint": "限制管理介面存取並更新至安全版本。",
+      "patch_url": "https://security.paloaltonetworks.com/CVE-2026-0322",
+      "epss_warn": false,
+      "epss": null,
+      "refs": [
+        "https://security.paloaltonetworks.com/CVE-2026-0322",
+        "https://www.cisa.gov/known-exploited-vulnerabilities-catalog?field_cve=CVE-2026-0322"
+      ],
+      "desc_en": "A remote code execution (RCE) vulnerability in the management interface of Palo Alto Networks PAN-OS® software enables an authenticated attacker with network access to execute arbitrary code with root privileges on the firewall.\n\n\n\nThe security risk posed by this issue is minimized by restricting access to the management interface to only trusted internal IP addresses according to our recommended  best practice deployment guidelines https://live.paloaltonetworks.com/t5/community-blogs/tips-amp-tricks-how-to-secure-the-management-access-of-your-palo/ba-p/464431 .\n\n\n\nThis issue is applicable to ",
+      "source": "nvd",
+      "osv_packages": [],
+      "osv_fixed": []
+    },
+    {
+      "cve": "CVE-2026-107594",
+      "title_zh": "WP 外掛檔案刪除漏洞",
+      "cvss": 10.0,
+      "type": "其他高危",
+      "in_wild": false,
+      "summary_zh": "未經授權使用者可刪除伺服器檔案，導致網站接管。",
+      "affected": "File Upload to Order WordPress plugin",
+      "affected_versions": "1.1.4 之前",
+      "fix_hint": "升級至 1.1.4 或更新版本。",
+      "patch_url": "https://wpscan.com/vulnerability/bcd5538b-0ad4-4311-b3b6-3fb89d4caa76/",
+      "epss_warn": false,
+      "epss": 0.0019,
+      "refs": [
+        "https://wpscan.com/vulnerability/bcd5538b-0ad4-4311-b3b6-3fb89d4caa76/"
+      ],
+      "desc_en": "The File Upload to Order WordPress plugin before 1.1.4 does not validate or confine a file path taken from attacker-controlled session data before deleting the file, and the action that performs the deletion is reachable by unauthenticated users, allowing them to delete arbitrary files on the server, including files whose removal leads to full site compromise.",
+      "source": "nvd",
+      "osv_packages": [],
+      "osv_fixed": []
+    },
+    {
+      "cve": "CVE-2026-55572",
+      "title_zh": "e107 CMS SQL 注入",
+      "cvss": 10.0,
+      "type": "SQL注入",
+      "in_wild": false,
+      "summary_zh": "攻擊者可透過登入介面注入 SQL 指令並修改資料。",
+      "affected": "e107 CMS (alt_auth plugin)",
+      "affected_versions": "2.3.7 之前",
+      "fix_hint": "升級至 2.3.7 版本。",
+      "patch_url": "https://github.com/e107inc/e107/commit/120bd4bdbe18c8690c60a007ad6716e52e6ee965",
+      "epss_warn": false,
+      "epss": null,
+      "refs": [
+        "https://github.com/e107inc/e107/commit/120bd4bdbe18c8690c60a007ad6716e52e6ee965",
+        "https://github.com/e107inc/e107/releases/tag/v2.3.7",
+        "https://github.com/e107inc/e107/security/advisories/GHSA-5f75-c25x-59wx"
+      ],
+      "desc_en": "e107 is a content management system (CMS). Prior to 2.3.7, the bundled alt_auth plugin's otherdb and e107db authentication backends interpolate the submitted login username directly into SQL in e107_plugins/alt_auth/otherdb_auth.php and e107_plugins/alt_auth/e107db_auth.php. The login() methods execute those strings with PDO::query() before effective sanitization, so an unauthenticated user can inject SQL when alt_auth is installed and either backend is configured with a live external database connection. The injection can expose or modify data available to the configured database account, and",
+      "source": "nvd",
+      "osv_packages": [],
+      "osv_fixed": []
+    },
+    {
+      "cve": "CVE-2026-110536",
+      "title_zh": "D-Link 路由器指令注入",
+      "cvss": 10.0,
+      "type": "RCE",
+      "in_wild": false,
+      "summary_zh": "遠端攻擊者可透過 SOAPACTION 參數執行指令。",
+      "affected": "D-Link DIR-868L",
+      "affected_versions": "2.01b05",
+      "fix_hint": "檢查韌體更新或更換受影響設備。",
+      "patch_url": "https://github.com/Walnut1337/Command-Injection-DIR-868L/blob/main/ADVISORY.md",
+      "epss_warn": false,
+      "epss": null,
+      "refs": [
+        "https://github.com/Walnut1337/Command-Injection-DIR-868L/blob/main/ADVISORY.md",
+        "https://github.com/Walnut1337/Command-Injection-DIR-868L/tree/main/poc",
+        "https://vuldb.com/cve/CVE-2026-110536",
+        "https://vuldb.com/submit/1003692",
+        "https://vuldb.com/submit/1003693"
+      ],
+      "desc_en": "A vulnerability was determined in D-Link DIR-868L 2.01b05. This impacts the function system of the file /htdocs/cgibin of the component HNAP CGI Handler. Executing a manipulation of the argument SOAPACTION can lead to os command injection. The attack may be launched remotely. The exploit has been publicly disclosed and may be utilized.",
+      "source": "nvd",
+      "osv_packages": [],
+      "osv_fixed": []
+    }
+  ]
+}
