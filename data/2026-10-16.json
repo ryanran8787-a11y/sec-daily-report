@@ -1,0 +1,124 @@
+{
+  "date": "2026-10-16",
+  "generated_at": "2026-10-16T04:04:51.649614+00:00",
+  "engine": "gemini",
+  "count": 5,
+  "brief_zh": "今日共 5 則高危漏洞，以 RCE 為主，應優先關注已遭利用的 Cisco SEG 檔案寫入漏洞。",
+  "items": [
+    {
+      "cve": "CVE-2026-76519",
+      "title_zh": "Cisco SEG 檔案寫入 RCE",
+      "cvss": null,
+      "type": "RCE",
+      "in_wild": true,
+      "summary_zh": "AMP功能處理附件不當，遠端攻擊者可寫檔並獲root權限。",
+      "affected": "Cisco Secure Email Gateway",
+      "affected_versions": "",
+      "fix_hint": "升級至官方發布的最新軟體版本。",
+      "patch_url": "https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-esa-afw-zqYJkjxp?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Security%20Gateway%20Arbitrary%20File%20Write%20Vulnerability%26vs_k=1",
+      "epss_warn": false,
+      "epss": 0.01743,
+      "refs": [
+        "https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-esa-afw-zqYJkjxp?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Secure%20Email%20Gateway%20Arbitrary%20File%20Write%20Vulnerability%26vs_k=1"
+      ],
+      "desc_en": "Cisco Secure Email Gateway Arbitrary File Write Vulnerability\n<p>A vulnerability in the Advanced Malware Protection (AMP) feature of Cisco Secure Email Gateway could allow an unauthenticated, remote attacker to write arbitrary files on the underlying operating system.</p>\n<p>This vulnerability is due to improper handling of email attachments when the file reputation service is enabled. An attacker could exploit this vulnerability by sending an email that contains a crafted attachment through an affected device. A successful exploit could allow the attacker to write arbitrary files and execute ",
+      "source": "cisco",
+      "osv_packages": [],
+      "osv_fixed": []
+    },
+    {
+      "cve": "CVE-2026-94603",
+      "title_zh": "Podman 沙箱逃逸漏洞",
+      "cvss": 10.0,
+      "type": "逃逸",
+      "in_wild": false,
+      "summary_zh": "容器檢查點功能可繞過沙箱，獲取容器完全控制權。",
+      "affected": "Podman",
+      "affected_versions": "v4.4.0 及之後",
+      "fix_hint": "請參考 GitHub 安全公告並更新 Podman 版本。",
+      "patch_url": "https://github.com/advisories/GHSA-2cvf-wqm6-wr9g",
+      "epss_warn": false,
+      "epss": 0.00918,
+      "refs": [
+        "https://github.com/advisories/GHSA-2cvf-wqm6-wr9g"
+      ],
+      "desc_en": "Podman: The `podman run` command can be instructed to disable almost all sandboxing by image annotation\n### Impact\nPodman v4.4.0 added a feature where container checkpoints (from the `podman container checkpoint` command) could be distributed via OCI registry, and pulled from that registry and run via the `podman run` command. This allowed easy transfer of checkpoints between systems. However, checkpoints allow complete control of how the container is created - including full control of the container sandbox. When `podman run` detects a checkpoint, it will silently ignore all user input regard",
+      "source": "github",
+      "osv_packages": [],
+      "osv_fixed": []
+    },
+    {
+      "cve": "CVE-2026-110957",
+      "title_zh": "Wavlink 路由器 RCE 漏洞",
+      "cvss": 10.0,
+      "type": "RCE",
+      "in_wild": false,
+      "summary_zh": "api.cgi處理參數不當，遠端攻擊者可注入指令執行。",
+      "affected": "Wavlink WL-WN530BE2-A",
+      "affected_versions": "M30BE2_V250604 及更早",
+      "fix_hint": "升級至 2026-09-24-841a51c6d5_tclinux.bin 韌體。",
+      "patch_url": "https://dl.wavlink.com/firmware/RD/WN530BE2_WAVLINK-WO-2026-09-24-841a51c6d5_tclinux.bin",
+      "epss_warn": false,
+      "epss": null,
+      "refs": [
+        "https://dl.wavlink.com/firmware/RD/WN530BE2_WAVLINK-WO-2026-09-24-841a51c6d5_tclinux.bin",
+        "https://github.com/F-yyjy/cve/blob/main/WN530BE2-A_api-cgi.md",
+        "https://vuldb.com/cve/CVE-2026-110957",
+        "https://vuldb.com/submit/920217",
+        "https://vuldb.com/vuln/420570"
+      ],
+      "desc_en": "A vulnerability has been found in Wavlink WL-WN530BE2-A up to M30BE2_V250604. The affected element is the function sub_12580 of the file api.cgi of the component Login Processing. The manipulation of the argument REMOTE_ADDR leads to os command injection. It is possible to initiate the attack remotely. The exploit has been disclosed to the public and may be used. Upgrading to version 2026-09-24-841a51c6d5_tclinux.bin is sufficient to fix this issue. You should upgrade the affected component. The vendor confirms: \"We confirm the finding, and it has already been addressed. In the current firmwar",
+      "source": "nvd",
+      "osv_packages": [],
+      "osv_fixed": []
+    },
+    {
+      "cve": "CVE-2026-110958",
+      "title_zh": "Wavlink 路由器堆疊溢位",
+      "cvss": 10.0,
+      "type": "其他高危",
+      "in_wild": false,
+      "summary_zh": "api.cgi存在堆疊溢位漏洞，遠端攻擊者可發動攻擊。",
+      "affected": "Wavlink WN530HG4B",
+      "affected_versions": "M30HG4B_V260724",
+      "fix_hint": "升級至 2026-09-24-841a51c6d5_tclinux.bin 韌體。",
+      "patch_url": "https://dl.wavlink.com/firmware/RD/WN530BE2_WAVLINK-WO-2026-09-24-841a51c6d5_tclinux.bin",
+      "epss_warn": false,
+      "epss": null,
+      "refs": [
+        "https://dl.wavlink.com/firmware/RD/WN530BE2_WAVLINK-WO-2026-09-24-841a51c6d5_tclinux.bin",
+        "https://drive.google.com/file/d/12OOh8g9YDCbD-Q4cc52J6TH9KuOoD44A/view?usp=drive_link",
+        "https://vuldb.com/cve/CVE-2026-110958",
+        "https://vuldb.com/submit/933388",
+        "https://vuldb.com/vuln/420571"
+      ],
+      "desc_en": "A vulnerability was found in Wavlink WN530HG4B M30HG4B_V260724. The impacted element is an unknown function of the file api.cgi. The manipulation results in heap-based buffer overflow. It is possible to launch the attack remotely. The exploit has been made public and could be used. Upgrading to version 2026-09-24-841a51c6d5_tclinux.bin is sufficient to resolve this issue. The affected component should be upgraded. The vendor confirms: \"We confirm the finding, and it has already been addressed. In the current firmware the api=info&client=app handler no longer builds a shell command: the login s",
+      "source": "nvd",
+      "osv_packages": [],
+      "osv_fixed": []
+    },
+    {
+      "cve": "CVE-2026-84731",
+      "title_zh": "Nutanix Prism 認證繞過",
+      "cvss": 10.0,
+      "type": "接管",
+      "in_wild": false,
+      "summary_zh": "偽造標頭可繞過認證，獲取管理權限並執行指令。",
+      "affected": "Nutanix Prism Element",
+      "affected_versions": "",
+      "fix_hint": "請參考 Nutanix 安全公告 0058 進行修補。",
+      "patch_url": "https://download.nutanix.com/alerts/Security_Advisory_0058.pdf",
+      "epss_warn": false,
+      "epss": null,
+      "refs": [
+        "https://download.nutanix.com/alerts/Security_Advisory_0058.pdf",
+        "https://portal.nutanix.com/page/documents/list?type=software&filterKey=software&filterVal=AOS",
+        "https://www.nutanix.com/support"
+      ],
+      "desc_en": "An unauthenticated remote attacker can bypass authentication and gain full access to administrative API endpoints in Nutanix Prism Element by including a crafted internal management HTTP header. The vulnerability is caused by a misconfiguration in the application's authentication filters.\n\n\n\nConsequently, the server responds with a Set-Cookie header containing a valid JSESSIONID. This session cookie decodes to a JSON Web Token (JWT) granting maximum cluster administrative privileges. Successful exploitation allows the attacker to execute root-level commands on all Controller VMs (CVMs) in the ",
+      "source": "nvd",
+      "osv_packages": [],
+      "osv_fixed": []
+    }
+  ]
+}
