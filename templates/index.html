@@ -76,7 +76,9 @@ h1 .grad{background:linear-gradient(180deg,var(--grad-from),var(--grad-to));-web
 .row.open .chev{transform:rotate(180deg)}
 .detail{display:none;margin-top:12px;padding-top:12px;border-top:1px dashed var(--border);font-size:13px;color:var(--gray-900)}
 .row.open .detail{display:block}
-.detail .en{margin-bottom:8px}
+.detail .en{margin-bottom:0}
+.lang{border:1px solid var(--border);border-radius:var(--radius-sm);padding:10px 12px;margin-bottom:8px;background:var(--bg)}
+.lang-tag{font-size:10px;color:var(--gray-900);letter-spacing:.08em;text-transform:uppercase;margin-bottom:4px}
 .badge{display:inline-flex;align-items:center;font-size:11px;font-weight:500;border-radius:5px;padding:2px 7px;border:1px solid var(--border);background:var(--gray-100);color:var(--gray-900);font-family:"Geist Mono",ui-monospace,SFMono-Regular,Menlo,monospace;white-space:nowrap}
 .badge.crit{background:var(--red);border-color:var(--red);color:#fff}
 .badge.wild{background:transparent;border-color:var(--amber);color:var(--amber)}
@@ -151,7 +153,8 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
       {% if it.patch_url %}<a href="{{ it.patch_url }}" target="_blank">官方補丁 ↗</a>{% elif it.refs %}<a href="{{ it.refs[0] }}" target="_blank">參考連結 ↗</a>{% endif %}
     </div>
     <div class="detail">
-      {% if it.desc_en %}<div class="en">{{ it.desc_en }}</div>{% endif %}
+      <div class="lang"><div class="lang-tag">中文提煉</div><div>{{ it.summary_zh }}</div></div>
+      {% if it.desc_en %}<div class="lang"><div class="lang-tag">英文原文</div><div class="en">{{ it.desc_en }}</div></div>{% endif %}
       <div>修補建議：{{ it.fix_hint }}</div>
       {% if it.osv_packages %}<div style="margin-top:6px">影響生態包：{{ it.osv_packages|join(", ") }}{% if it.osv_fixed %}・已修復於 {{ it.osv_fixed|join(", ") }}{% endif %}</div>{% endif %}
       {% if it.refs and it.refs|length > 1 %}<div style="margin-top:6px">更多參考：{% for u in it.refs[1:] %}<a href="{{ u }}" target="_blank">[{{ loop.index + 1 }}]</a> {% endfor %}</div>{% endif %}

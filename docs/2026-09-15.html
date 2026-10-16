@@ -76,7 +76,9 @@ h1 .grad{background:linear-gradient(180deg,var(--grad-from),var(--grad-to));-web
 .row.open .chev{transform:rotate(180deg)}
 .detail{display:none;margin-top:12px;padding-top:12px;border-top:1px dashed var(--border);font-size:13px;color:var(--gray-900)}
 .row.open .detail{display:block}
-.detail .en{margin-bottom:8px}
+.detail .en{margin-bottom:0}
+.lang{border:1px solid var(--border);border-radius:var(--radius-sm);padding:10px 12px;margin-bottom:8px;background:var(--bg)}
+.lang-tag{font-size:10px;color:var(--gray-900);letter-spacing:.08em;text-transform:uppercase;margin-bottom:4px}
 .badge{display:inline-flex;align-items:center;font-size:11px;font-weight:500;border-radius:5px;padding:2px 7px;border:1px solid var(--border);background:var(--gray-100);color:var(--gray-900);font-family:"Geist Mono",ui-monospace,SFMono-Regular,Menlo,monospace;white-space:nowrap}
 .badge.crit{background:var(--red);border-color:var(--red);color:#fff}
 .badge.wild{background:transparent;border-color:var(--amber);color:var(--amber)}
@@ -158,9 +160,10 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
       <a href="https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-esa-inj-2bLVGmhX" target="_blank">官方補丁 ↗</a>
     </div>
     <div class="detail">
-      <div class="en">A vulnerability in the email parsing of Cisco AsyncOS Software for Cisco Secure Email Gateway could allow an unauthenticated, remote attacker to execute arbitrary commands with root privileges on the underlying operating system.
-
-This vulnerability is due to insufficient validation in the email parsing logic. An attacker could exploit this vulnerability by sending a crafted email message that contains malicious SQL statements through an affected device. A successful exploit could allow the attacker to execute arbitrary SQL statements, leading to command execution with root privileges on the </div>
+      <div class="lang"><div class="lang-tag">中文提煉</div><div>郵件解析邏輯漏洞，攻擊者可透過惡意郵件執行系統指令。</div></div>
+      <div class="lang"><div class="lang-tag">英文原文</div><div class="en">A vulnerability in the email parsing of Cisco AsyncOS Software for Cisco Secure Email Gateway could allow an unauthenticated, remote attacker to execute arbitrary commands with root privileges on the underlying operating system.
+
+This vulnerability is due to insufficient validation in the email parsing logic. An attacker could exploit this vulnerability by sending a crafted email message that contains malicious SQL statements through an affected device. A successful exploit could allow the attacker to execute arbitrary SQL statements, leading to command execution with root privileges on the </div></div>
       <div>修補建議：請參閱 Cisco 安全公告更新至修補版本。</div>
       
       <div style="margin-top:6px">更多參考：<a href="https://www.cisa.gov/known-exploited-vulnerabilities-catalog?field_cve=CVE-2026-76461" target="_blank">[2]</a> </div>
@@ -187,7 +190,8 @@ This vulnerability is due to insufficient validation in the email parsing logic.
       <a href="https://lists.apache.org/thread/1t7hggrz59rdq792qm1pnkqj0ogm2szq" target="_blank">官方補丁 ↗</a>
     </div>
     <div class="detail">
-      <div class="en">Description
+      <div class="lang"><div class="lang-tag">中文提煉</div><div>Nimbus 錯誤地向唯讀權限用戶洩漏 ZooKeeper 憑證。</div></div>
+      <div class="lang"><div class="lang-tag">英文原文</div><div class="en">Description
 
 When ZooKeeper authentication is configured, Storm deliberately retains
 `storm.zookeeper.topology.auth.payload` in the topology configuration, because workers need it. Nimbus then
@@ -196,7 +200,7 @@ only grant was the ability to view a topology received its ZooKeeper credential.
 
 That credential is not read-only. The cluster state implementation uses write-capable ACLs for worker
 heartbeats, backpressure and error state, so a recipient can forge or remove that state for the topology
-concerned. It</div>
+concerned. It</div></div>
       <div>修補建議：請參閱 Apache 官方公告進行版本更新。</div>
       
       <div style="margin-top:6px">更多參考：<a href="http://www.openwall.com/lists/oss-security/2026/09/13/14" target="_blank">[2]</a> <a href="http://www.openwall.com/lists/oss-security/2026/09/13/23" target="_blank">[3]</a> </div>
@@ -218,7 +222,8 @@ concerned. It</div>
       <a href="https://github.com/H3rmesk1t/vulnerability-paper/issues/9" target="_blank">官方補丁 ↗</a>
     </div>
     <div class="detail">
-      <div class="en">A weakness has been identified in D-Link DWR-M920 1.1.7. This issue affects the function sub_41E60C of the file /boafrm/formPinManageSetup. This manipulation of the argument newPin causes os command injection. The attack can be initiated remotely. The exploit has been made available to the public and could be used for attacks.</div>
+      <div class="lang"><div class="lang-tag">中文提煉</div><div>PIN 管理功能參數驗證不足，導致遠端指令注入。</div></div>
+      <div class="lang"><div class="lang-tag">英文原文</div><div class="en">A weakness has been identified in D-Link DWR-M920 1.1.7. This issue affects the function sub_41E60C of the file /boafrm/formPinManageSetup. This manipulation of the argument newPin causes os command injection. The attack can be initiated remotely. The exploit has been made available to the public and could be used for attacks.</div></div>
       <div>修補建議：目前無官方修補程式，建議限制存取或更換設備。</div>
       
       <div style="margin-top:6px">更多參考：<a href="https://vuldb.com/cve/CVE-2026-90699" target="_blank">[2]</a> <a href="https://vuldb.com/submit/916259" target="_blank">[3]</a> <a href="https://vuldb.com/vuln/403232" target="_blank">[4]</a> <a href="https://vuldb.com/vuln/403232/cti" target="_blank">[5]</a> </div>
@@ -240,7 +245,8 @@ concerned. It</div>
       <a href="https://github.com/Amalll-Sec/router-vulnerability-research/blob/main/advisories/d-link/dir-823g/SetStaticRouteSettings/README.md" target="_blank">官方補丁 ↗</a>
     </div>
     <div class="detail">
-      <div class="en">A security flaw has been discovered in D-Link DIR-823G 1.0.2B05_20181207. The impacted element is the function strcpy of the file /HNAP1/SetStaticRouteSettings of the component HNAP1. The manipulation of the argument PAddress/SubnetMask/Gateway results in stack-based buffer overflow. The attack can be launched remotely.</div>
+      <div class="lang"><div class="lang-tag">中文提煉</div><div>HNAP1 靜態路由設定參數處理不當，導致堆疊緩衝區溢位。</div></div>
+      <div class="lang"><div class="lang-tag">英文原文</div><div class="en">A security flaw has been discovered in D-Link DIR-823G 1.0.2B05_20181207. The impacted element is the function strcpy of the file /HNAP1/SetStaticRouteSettings of the component HNAP1. The manipulation of the argument PAddress/SubnetMask/Gateway results in stack-based buffer overflow. The attack can be launched remotely.</div></div>
       <div>修補建議：目前無官方修補程式，建議限制存取或更換設備。</div>
       
       <div style="margin-top:6px">更多參考：<a href="https://vuldb.com/cve/CVE-2026-90680" target="_blank">[2]</a> <a href="https://vuldb.com/submit/914902" target="_blank">[3]</a> <a href="https://vuldb.com/vuln/403213" target="_blank">[4]</a> <a href="https://vuldb.com/vuln/403213/cti" target="_blank">[5]</a> </div>
@@ -262,7 +268,8 @@ concerned. It</div>
       <a href="https://github.com/Amalll-Sec/router-vulnerability-research/blob/main/advisories/d-link/dir-878/SetDynamicDNSIPv6Settings/README.md" target="_blank">官方補丁 ↗</a>
     </div>
     <div class="detail">
-      <div class="en">A vulnerability was detected in D-Link DIR-878 120B05. This affects the function SetDynamicDNSIPv6Settings of the component Dynamic DNS IPv6 Settings. The manipulation of the argument IPv6Address/Hostname results in stack-based buffer overflow. The attack may be launched remotely.</div>
+      <div class="lang"><div class="lang-tag">中文提煉</div><div>動態 DNS 設定參數處理不當，導致遠端堆疊緩衝區溢位。</div></div>
+      <div class="lang"><div class="lang-tag">英文原文</div><div class="en">A vulnerability was detected in D-Link DIR-878 120B05. This affects the function SetDynamicDNSIPv6Settings of the component Dynamic DNS IPv6 Settings. The manipulation of the argument IPv6Address/Hostname results in stack-based buffer overflow. The attack may be launched remotely.</div></div>
       <div>修補建議：目前無官方修補程式，建議限制存取或更換設備。</div>
       
       <div style="margin-top:6px">更多參考：<a href="https://vuldb.com/cve/CVE-2026-90692" target="_blank">[2]</a> <a href="https://vuldb.com/submit/915572" target="_blank">[3]</a> <a href="https://vuldb.com/vuln/403225" target="_blank">[4]</a> <a href="https://vuldb.com/vuln/403225/cti" target="_blank">[5]</a> </div>
@@ -278,34 +285,6 @@ concerned. It</div>
 <div class="hist">
   <h3>Archive / 歷史存檔</h3>
   <div class="hist-grid">
-    
-    <a class="hcard" href="2026-10-16.html"><div class="d">2026-10-16</div><div class="c">5 則・gemini</div></a>
-    
-    <a class="hcard" href="2026-10-15.html"><div class="d">2026-10-15</div><div class="c">5 則・gemini</div></a>
-    
-    <a class="hcard" href="2026-10-14.html"><div class="d">2026-10-14</div><div class="c">5 則・gemini</div></a>
-    
-    <a class="hcard" href="2026-10-13.html"><div class="d">2026-10-13</div><div class="c">5 則・gemini</div></a>
-    
-    <a class="hcard" href="2026-10-12.html"><div class="d">2026-10-12</div><div class="c">5 則・gemini</div></a>
-    
-    <a class="hcard" href="2026-10-11.html"><div class="d">2026-10-11</div><div class="c">5 則・gemini</div></a>
-    
-    <a class="hcard" href="2026-10-10.html"><div class="d">2026-10-10</div><div class="c">5 則・gemini</div></a>
-    
-    <a class="hcard" href="2026-10-09.html"><div class="d">2026-10-09</div><div class="c">5 則・gemini</div></a>
-    
-    <a class="hcard" href="2026-10-08.html"><div class="d">2026-10-08</div><div class="c">5 則・gemini</div></a>
-    
-    <a class="hcard" href="2026-10-07.html"><div class="d">2026-10-07</div><div class="c">5 則・gemini</div></a>
-    
-    <a class="hcard" href="2026-10-06.html"><div class="d">2026-10-06</div><div class="c">5 則・gemini</div></a>
-    
-    <a class="hcard" href="2026-10-05.html"><div class="d">2026-10-05</div><div class="c">5 則・gemini</div></a>
-    
-    <a class="hcard" href="2026-10-04.html"><div class="d">2026-10-04</div><div class="c">5 則・gemini</div></a>
-    
-    <a class="hcard" href="2026-10-03.html"><div class="d">2026-10-03</div><div class="c">5 則・gemini</div></a>
     
     <a class="hcard" href="2026-10-02.html"><div class="d">2026-10-02</div><div class="c">5 則・gemini</div></a>
     
@@ -356,9 +335,21 @@ concerned. It</div>
 
 
 <div class="trend">
-  <h3>Exposure / 近30日在野日曆</h3>
+  <h3>Exposure / 近22日在野日曆</h3>
   <div class="sub2">琥珀色 = 當日有在野利用，點擊跳轉存檔</div>
   <div class="cal">
+  
+    <a class="day" href="2026-09-11.html" title="2026-09-11・高危47則・在野0則">11</a>
+  
+    <a class="day has w1" href="2026-09-12.html" title="2026-09-12・高危5則・在野1則">12</a>
+  
+    <a class="day" href="2026-09-13.html" title="2026-09-13・高危5則・在野0則">13</a>
+  
+    <a class="day" href="2026-09-14.html" title="2026-09-14・高危5則・在野0則">14</a>
+  
+    <a class="day has w1" href="2026-09-15.html" title="2026-09-15・高危5則・在野1則">15</a>
+  
+    <a class="day" href="2026-09-16.html" title="2026-09-16・高危5則・在野0則">16</a>
   
     <a class="day has w1" href="2026-09-17.html" title="2026-09-17・高危5則・在野1則">17</a>
   
@@ -391,34 +382,6 @@ concerned. It</div>
     <a class="day has w1" href="2026-10-01.html" title="2026-10-01・高危5則・在野1則">10/1</a>
   
     <a class="day has w2" href="2026-10-02.html" title="2026-10-02・高危5則・在野2則">02</a>
-  
-    <a class="day has w1" href="2026-10-03.html" title="2026-10-03・高危5則・在野1則">03</a>
-  
-    <a class="day has w1" href="2026-10-04.html" title="2026-10-04・高危5則・在野1則">04</a>
-  
-    <a class="day has w1" href="2026-10-05.html" title="2026-10-05・高危5則・在野1則">05</a>
-  
-    <a class="day has w1" href="2026-10-06.html" title="2026-10-06・高危5則・在野1則">06</a>
-  
-    <a class="day has w1" href="2026-10-07.html" title="2026-10-07・高危5則・在野1則">07</a>
-  
-    <a class="day has w1" href="2026-10-08.html" title="2026-10-08・高危5則・在野1則">08</a>
-  
-    <a class="day has w1" href="2026-10-09.html" title="2026-10-09・高危5則・在野1則">09</a>
-  
-    <a class="day" href="2026-10-10.html" title="2026-10-10・高危5則・在野0則">10</a>
-  
-    <a class="day" href="2026-10-11.html" title="2026-10-11・高危5則・在野0則">11</a>
-  
-    <a class="day" href="2026-10-12.html" title="2026-10-12・高危5則・在野0則">12</a>
-  
-    <a class="day" href="2026-10-13.html" title="2026-10-13・高危5則・在野0則">13</a>
-  
-    <a class="day has w2" href="2026-10-14.html" title="2026-10-14・高危5則・在野2則">14</a>
-  
-    <a class="day has w2" href="2026-10-15.html" title="2026-10-15・高危5則・在野2則">15</a>
-  
-    <a class="day has w1" href="2026-10-16.html" title="2026-10-16・高危51則・在野1則">16</a>
   
   </div>
   <div class="cal-legend"><span>■ 無在野</span><span style="color:var(--amber)">■ 有在野（顏色越深越多）</span></div>

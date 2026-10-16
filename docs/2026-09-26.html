@@ -76,7 +76,9 @@ h1 .grad{background:linear-gradient(180deg,var(--grad-from),var(--grad-to));-web
 .row.open .chev{transform:rotate(180deg)}
 .detail{display:none;margin-top:12px;padding-top:12px;border-top:1px dashed var(--border);font-size:13px;color:var(--gray-900)}
 .row.open .detail{display:block}
-.detail .en{margin-bottom:8px}
+.detail .en{margin-bottom:0}
+.lang{border:1px solid var(--border);border-radius:var(--radius-sm);padding:10px 12px;margin-bottom:8px;background:var(--bg)}
+.lang-tag{font-size:10px;color:var(--gray-900);letter-spacing:.08em;text-transform:uppercase;margin-bottom:4px}
 .badge{display:inline-flex;align-items:center;font-size:11px;font-weight:500;border-radius:5px;padding:2px 7px;border:1px solid var(--border);background:var(--gray-100);color:var(--gray-900);font-family:"Geist Mono",ui-monospace,SFMono-Regular,Menlo,monospace;white-space:nowrap}
 .badge.crit{background:var(--red);border-color:var(--red);color:#fff}
 .badge.wild{background:transparent;border-color:var(--amber);color:var(--amber)}
@@ -159,9 +161,10 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
       <a href="https://gerrit.wikimedia.org/r/c/mediawiki/extensions/ExternalData/+/1326012" target="_blank">官方補丁 ↗</a>
     </div>
     <div class="detail">
-      <div class="en">Improper Neutralization of Special Elements used in an OS Command (&#39;OS Command Injection&#39;) vulnerability in Wikimedia Foundation Mediawiki - ExternalData Extension allows OS Command Injection.
+      <div class="lang"><div class="lang-tag">中文提煉</div><div>ExternalData 擴充功能存在指令注入漏洞。</div></div>
+      <div class="lang"><div class="lang-tag">英文原文</div><div class="en">Improper Neutralization of Special Elements used in an OS Command (&#39;OS Command Injection&#39;) vulnerability in Wikimedia Foundation Mediawiki - ExternalData Extension allows OS Command Injection.
 
-This issue affects Mediawiki - ExternalData Extension: from * before 3.7.</div>
+This issue affects Mediawiki - ExternalData Extension: from * before 3.7.</div></div>
       <div>修補建議：升級至 3.7 或更新版本</div>
       
       <div style="margin-top:6px">更多參考：<a href="https://phabricator.wikimedia.org/T434961" target="_blank">[2]</a> </div>
@@ -183,7 +186,8 @@ This issue affects Mediawiki - ExternalData Extension: from * before 3.7.</div>
       <a href="https://plugins.trac.wordpress.org/browser/automation-web-platform/tags/4.8.6/includes/api/class-wawp-rest-settings-api.php#L342" target="_blank">官方補丁 ↗</a>
     </div>
     <div class="detail">
-      <div class="en">The Automation Web Platform – Notifications and OTP for WooCommerce, Advanced Country Code plugin for WordPress is vulnerable to Privilege Escalation in all versions up to, and including, 4.8.6. This is due to missing permission enforcement on the publicly accessible REST route `POST /wp-json/wawp/v1/signup/&lt;op&gt;` and the absence of a key allowlist in the `finish_registration_logic` function, which copies the attacker-controlled `wawp_custom_fields` parameter directly into `update_user_meta()` — allowing sensitive meta keys such as `wp_capabilities` and `wp_user_level` to be set by the caller. </div>
+      <div class="lang"><div class="lang-tag">中文提煉</div><div>攻擊者可註冊管理員帳號並接管 WordPress 網站。</div></div>
+      <div class="lang"><div class="lang-tag">英文原文</div><div class="en">The Automation Web Platform – Notifications and OTP for WooCommerce, Advanced Country Code plugin for WordPress is vulnerable to Privilege Escalation in all versions up to, and including, 4.8.6. This is due to missing permission enforcement on the publicly accessible REST route `POST /wp-json/wawp/v1/signup/&lt;op&gt;` and the absence of a key allowlist in the `finish_registration_logic` function, which copies the attacker-controlled `wawp_custom_fields` parameter directly into `update_user_meta()` — allowing sensitive meta keys such as `wp_capabilities` and `wp_user_level` to be set by the caller. </div></div>
       <div>修補建議：升級至最新版本</div>
       
       <div style="margin-top:6px">更多參考：<a href="https://plugins.trac.wordpress.org/browser/automation-web-platform/tags/4.8.6/includes/api/class-wawp-rest-settings-api.php#L574" target="_blank">[2]</a> <a href="https://plugins.trac.wordpress.org/browser/automation-web-platform/tags/4.8.6/includes/auth-services/class-wawp-otp-service.php#L477" target="_blank">[3]</a> <a href="https://plugins.trac.wordpress.org/browser/automation-web-platform/tags/4.8.6/includes/auth-services/class-wawp-otp-service.php#L787" target="_blank">[4]</a> <a href="https://plugins.trac.wordpress.org/browser/automation-web-platform/tags/4.8.6/includes/auth-services/class-wawp-signup.php#L1002" target="_blank">[5]</a> </div>
@@ -205,11 +209,12 @@ This issue affects Mediawiki - ExternalData Extension: from * before 3.7.</div>
       <a href="https://lists.apache.org/thread/93w83oro48cqokb24k8tkogyvtlqhqw6" target="_blank">官方補丁 ↗</a>
     </div>
     <div class="detail">
-      <div class="en">Session fixation in HTTP management authentication allows remote attackers to gain unauthorized access to an authenticated management session via reuse of a session identifier retained across successful authentication.
+      <div class="lang"><div class="lang-tag">中文提煉</div><div>遠端攻擊者可重用會話識別碼獲取管理權限。</div></div>
+      <div class="lang"><div class="lang-tag">英文原文</div><div class="en">Session fixation in HTTP management authentication allows remote attackers to gain unauthorized access to an authenticated management session via reuse of a session identifier retained across successful authentication.
 
 This issue affects Apache Qpid Broker-J: through 10.1.0.
 
-Users are recommended to upgrade to version 10.1.1, which fixes the issue.</div>
+Users are recommended to upgrade to version 10.1.1, which fixes the issue.</div></div>
       <div>修補建議：升級至 10.1.1 或更新版本</div>
       
       <div style="margin-top:6px">更多參考：<a href="http://www.openwall.com/lists/oss-security/2026/09/24/17" target="_blank">[2]</a> </div>
@@ -231,7 +236,8 @@ Users are recommended to upgrade to version 10.1.1, which fixes the issue.</div>
       <a href="https://git.kernel.org/stable/c/717ab4d0614e9446bf8e2de6229464499e4008d6" target="_blank">官方補丁 ↗</a>
     </div>
     <div class="detail">
-      <div class="en">In the Linux kernel, the following vulnerability has been resolved:
+      <div class="lang"><div class="lang-tag">中文提煉</div><div>RDMA 處理失敗時計數器錯誤導致系統不穩定。</div></div>
+      <div class="lang"><div class="lang-tag">英文原文</div><div class="en">In the Linux kernel, the following vulnerability has been resolved:
 
 RDMA/srpt: Fix srpt_alloc_rw_ctxs() unwind counters
 
@@ -242,7 +248,7 @@ sq_wr_avail accounting in srpt_queue_response() or srpt_write_pending()
 can then subtract the wrong number of send queue credits.
 
 Reset the counters and clear rw_ctxs after freeing the heap
-allocation before returning an error.</div>
+allocation before returning an error.</div></div>
       <div>修補建議：更新 Linux 核心至最新修補版本</div>
       <div style="margin-top:6px">影響生態包：Linux:Kernel・已修復於 5.10.270, 5.15.221</div>
       <div style="margin-top:6px">更多參考：<a href="https://git.kernel.org/stable/c/af00051dbc9f467d4840ec709680660a3f8990fa" target="_blank">[2]</a> <a href="https://git.kernel.org/stable/c/af073bd245180393bcb15d33d3990a6bdc32593a" target="_blank">[3]</a> <a href="https://git.kernel.org/stable/c/b38f98e176050850f41bb6415f3a71400056623e" target="_blank">[4]</a> <a href="https://git.kernel.org/stable/c/bd02d644bd19a2795c018635d273d91e45d2bb95" target="_blank">[5]</a> </div>
@@ -264,7 +270,8 @@ allocation before returning an error.</div>
       <a href="https://wiki.zimbra.com/wiki/Zimbra_Security_Advisories" target="_blank">官方補丁 ↗</a>
     </div>
     <div class="detail">
-      <div class="en">When OnlyOffice/Document Editing is available, an unauthenticated remote attacker with access to an existing supported public Briefcase document can abuse unsigned save fields to perform path-traversal writes and execute commands as zimbra.</div>
+      <div class="lang"><div class="lang-tag">中文提煉</div><div>利用路徑遍歷寫入檔案並以系統權限執行指令。</div></div>
+      <div class="lang"><div class="lang-tag">英文原文</div><div class="en">When OnlyOffice/Document Editing is available, an unauthenticated remote attacker with access to an existing supported public Briefcase document can abuse unsigned save fields to perform path-traversal writes and execute commands as zimbra.</div></div>
       <div>修補建議：參考 Zimbra 安全公告並安裝更新</div>
       
       
@@ -362,6 +369,18 @@ allocation before returning an error.</div>
   <div class="sub2">琥珀色 = 當日有在野利用，點擊跳轉存檔</div>
   <div class="cal">
   
+    <a class="day" href="2026-09-11.html" title="2026-09-11・高危47則・在野0則">11</a>
+  
+    <a class="day has w1" href="2026-09-12.html" title="2026-09-12・高危5則・在野1則">12</a>
+  
+    <a class="day" href="2026-09-13.html" title="2026-09-13・高危5則・在野0則">13</a>
+  
+    <a class="day" href="2026-09-14.html" title="2026-09-14・高危5則・在野0則">14</a>
+  
+    <a class="day has w1" href="2026-09-15.html" title="2026-09-15・高危5則・在野1則">15</a>
+  
+    <a class="day" href="2026-09-16.html" title="2026-09-16・高危5則・在野0則">16</a>
+  
     <a class="day has w1" href="2026-09-17.html" title="2026-09-17・高危5則・在野1則">17</a>
   
     <a class="day has w1" href="2026-09-18.html" title="2026-09-18・高危5則・在野1則">18</a>
@@ -393,34 +412,6 @@ allocation before returning an error.</div>
     <a class="day has w1" href="2026-10-01.html" title="2026-10-01・高危5則・在野1則">10/1</a>
   
     <a class="day has w2" href="2026-10-02.html" title="2026-10-02・高危5則・在野2則">02</a>
-  
-    <a class="day has w1" href="2026-10-03.html" title="2026-10-03・高危5則・在野1則">03</a>
-  
-    <a class="day has w1" href="2026-10-04.html" title="2026-10-04・高危5則・在野1則">04</a>
-  
-    <a class="day has w1" href="2026-10-05.html" title="2026-10-05・高危5則・在野1則">05</a>
-  
-    <a class="day has w1" href="2026-10-06.html" title="2026-10-06・高危5則・在野1則">06</a>
-  
-    <a class="day has w1" href="2026-10-07.html" title="2026-10-07・高危5則・在野1則">07</a>
-  
-    <a class="day has w1" href="2026-10-08.html" title="2026-10-08・高危5則・在野1則">08</a>
-  
-    <a class="day has w1" href="2026-10-09.html" title="2026-10-09・高危5則・在野1則">09</a>
-  
-    <a class="day" href="2026-10-10.html" title="2026-10-10・高危5則・在野0則">10</a>
-  
-    <a class="day" href="2026-10-11.html" title="2026-10-11・高危5則・在野0則">11</a>
-  
-    <a class="day" href="2026-10-12.html" title="2026-10-12・高危5則・在野0則">12</a>
-  
-    <a class="day" href="2026-10-13.html" title="2026-10-13・高危5則・在野0則">13</a>
-  
-    <a class="day has w2" href="2026-10-14.html" title="2026-10-14・高危5則・在野2則">14</a>
-  
-    <a class="day has w2" href="2026-10-15.html" title="2026-10-15・高危5則・在野2則">15</a>
-  
-    <a class="day has w1" href="2026-10-16.html" title="2026-10-16・高危51則・在野1則">16</a>
   
   </div>
   <div class="cal-legend"><span>■ 無在野</span><span style="color:var(--amber)">■ 有在野（顏色越深越多）</span></div>

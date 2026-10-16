@@ -76,7 +76,9 @@ h1 .grad{background:linear-gradient(180deg,var(--grad-from),var(--grad-to));-web
 .row.open .chev{transform:rotate(180deg)}
 .detail{display:none;margin-top:12px;padding-top:12px;border-top:1px dashed var(--border);font-size:13px;color:var(--gray-900)}
 .row.open .detail{display:block}
-.detail .en{margin-bottom:8px}
+.detail .en{margin-bottom:0}
+.lang{border:1px solid var(--border);border-radius:var(--radius-sm);padding:10px 12px;margin-bottom:8px;background:var(--bg)}
+.lang-tag{font-size:10px;color:var(--gray-900);letter-spacing:.08em;text-transform:uppercase;margin-bottom:4px}
 .badge{display:inline-flex;align-items:center;font-size:11px;font-weight:500;border-radius:5px;padding:2px 7px;border:1px solid var(--border);background:var(--gray-100);color:var(--gray-900);font-family:"Geist Mono",ui-monospace,SFMono-Regular,Menlo,monospace;white-space:nowrap}
 .badge.crit{background:var(--red);border-color:var(--red);color:#fff}
 .badge.wild{background:transparent;border-color:var(--amber);color:var(--amber)}
@@ -158,9 +160,10 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
       <a href="https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-sdwan-webauth-xr8beuuU" target="_blank">官方補丁 ↗</a>
     </div>
     <div class="detail">
-      <div class="en">A vulnerability in the API session-based authentication management of Cisco Catalyst SD-WAN Manager could allow an unauthenticated, remote attacker to access an affected system with privileges of the admin user.
-
-This vulnerability is due to improper handling of URI encoding in an HTTP request, which allows the request to bypass an authentication rule that is intended to restrict access to a specific API endpoint. An attacker could exploit this vulnerability by sending a crafted HTTP request to the API of the affected system. A successful exploit could allow the attacker to bypass authentica</div>
+      <div class="lang"><div class="lang-tag">中文提煉</div><div>URI 編碼處理錯誤導致繞過驗證取得管理權限。</div></div>
+      <div class="lang"><div class="lang-tag">英文原文</div><div class="en">A vulnerability in the API session-based authentication management of Cisco Catalyst SD-WAN Manager could allow an unauthenticated, remote attacker to access an affected system with privileges of the admin user.
+
+This vulnerability is due to improper handling of URI encoding in an HTTP request, which allows the request to bypass an authentication rule that is intended to restrict access to a specific API endpoint. An attacker could exploit this vulnerability by sending a crafted HTTP request to the API of the affected system. A successful exploit could allow the attacker to bypass authentica</div></div>
       <div>修補建議：請參考 Cisco 官方安全公告並更新至修補版本。</div>
       
       <div style="margin-top:6px">更多參考：<a href="https://www.cisa.gov/known-exploited-vulnerabilities-catalog?field_cve=CVE-2026-76504" target="_blank">[2]</a> </div>
@@ -187,7 +190,8 @@ This vulnerability is due to improper handling of URI encoding in an HTTP reques
       <a href="https://patchstack.com/database/wordpress/plugin/siteskite/vulnerability/wordpress-siteskite-plugin-2-1-8-remote-code-execution-rce-vulnerability?_s_id=cve" target="_blank">官方補丁 ↗</a>
     </div>
     <div class="detail">
-      <div class="en">Unauthenticated Remote Code Execution (RCE) in SiteSkite &lt;= 2.1.8 versions.</div>
+      <div class="lang"><div class="lang-tag">中文提煉</div><div>未經身份驗證即可遠端執行任意程式碼。</div></div>
+      <div class="lang"><div class="lang-tag">英文原文</div><div class="en">Unauthenticated Remote Code Execution (RCE) in SiteSkite &lt;= 2.1.8 versions.</div></div>
       <div>修補建議：升級至最新版本或停用該 WordPress 外掛。</div>
       
       
@@ -209,7 +213,8 @@ This vulnerability is due to improper handling of URI encoding in an HTTP reques
       <a href="https://www.joomcode.com/" target="_blank">官方補丁 ↗</a>
     </div>
     <div class="detail">
-      <div class="en">Joomla Extension - joomcode.com - Unauthenticated SQL injection in read and write queries in JCTables  1.21.1 - The front-end CRUD API controller performs no Joomla token validation and no authentication check on any task. Table names, column names, and values are taken directly from request parameters and concatenated into SQL queries, allowing SQLi for reading and writing queries.</div>
+      <div class="lang"><div class="lang-tag">中文提煉</div><div>前端 API 缺乏驗證導致資料庫遭非法讀寫。</div></div>
+      <div class="lang"><div class="lang-tag">英文原文</div><div class="en">Joomla Extension - joomcode.com - Unauthenticated SQL injection in read and write queries in JCTables  1.21.1 - The front-end CRUD API controller performs no Joomla token validation and no authentication check on any task. Table names, column names, and values are taken directly from request parameters and concatenated into SQL queries, allowing SQLi for reading and writing queries.</div></div>
       <div>修補建議：聯繫開發商獲取修補程式或更新至安全版本。</div>
       
       <div style="margin-top:6px">更多參考：<a href="https://www.vulncheck.com/blog/jctables-unauthenticated-sql-rw-to-rce" target="_blank">[2]</a> </div>
@@ -231,7 +236,8 @@ This vulnerability is due to improper handling of URI encoding in an HTTP reques
       <a href="https://www.ordasoft.com/" target="_blank">官方補丁 ↗</a>
     </div>
     <div class="detail">
-      <div class="en">Joomla Extension - ordasoft.com - Unauthenticated Remote Code Execution in OrdaSoft Joomla CCK &lt; 8.3.16 - site/uploader.php is reached through the component’s normal frontend routing (task=getContent), a task with no authentication or ACL check anywhere in the dispatch chain. The handler validates the uploaded file’s content with a real magic-byte MIME check, but the extension allow-list that would otherwise restrict the saved file’s extension was present in the source and commented out. The saved file’s extension was taken directly from the attacker-supplied filename with no validation, and t</div>
+      <div class="lang"><div class="lang-tag">中文提煉</div><div>檔案上傳過濾不嚴導致遠端執行任意程式碼。</div></div>
+      <div class="lang"><div class="lang-tag">英文原文</div><div class="en">Joomla Extension - ordasoft.com - Unauthenticated Remote Code Execution in OrdaSoft Joomla CCK &lt; 8.3.16 - site/uploader.php is reached through the component’s normal frontend routing (task=getContent), a task with no authentication or ACL check anywhere in the dispatch chain. The handler validates the uploaded file’s content with a real magic-byte MIME check, but the extension allow-list that would otherwise restrict the saved file’s extension was present in the source and commented out. The saved file’s extension was taken directly from the attacker-supplied filename with no validation, and t</div></div>
       <div>修補建議：升級至 OrdaSoft Joomla CCK 8.3.16 或更高版本。</div>
       
       
@@ -253,7 +259,8 @@ This vulnerability is due to improper handling of URI encoding in an HTTP reques
       <a href="https://github.com/elct9620/kobako/commit/64f84700c81f44902bed9211318d5362f44987b3" target="_blank">官方補丁 ↗</a>
     </div>
     <div class="detail">
-      <div class="en">Kobako is a Ruby gem that embeds a Wasm-isolated mruby interpreter inside applications, allowing execution of untrusted Ruby scripts (LLM-generated code, user formulas, student submissions, third-party plugins) in-process without giving them access to host memory, files, network, or credentials. From version 0.1.0 to before version 0.9.1, a guest mruby script running inside the Kobako sandbox can execute arbitrary Ruby in the host process, fully escaping the sandbox. This issue has been patched in version 0.9.1.</div>
+      <div class="lang"><div class="lang-tag">中文提煉</div><div>惡意腳本可逃逸沙箱並於主機執行任意程式。</div></div>
+      <div class="lang"><div class="lang-tag">英文原文</div><div class="en">Kobako is a Ruby gem that embeds a Wasm-isolated mruby interpreter inside applications, allowing execution of untrusted Ruby scripts (LLM-generated code, user formulas, student submissions, third-party plugins) in-process without giving them access to host memory, files, network, or credentials. From version 0.1.0 to before version 0.9.1, a guest mruby script running inside the Kobako sandbox can execute arbitrary Ruby in the host process, fully escaping the sandbox. This issue has been patched in version 0.9.1.</div></div>
       <div>修補建議：升級 Ruby gem Kobako 至 0.9.1 或更新版本。</div>
       
       <div style="margin-top:6px">更多參考：<a href="https://github.com/elct9620/kobako/releases/tag/v0.9.1" target="_blank">[2]</a> <a href="https://github.com/elct9620/kobako/security/advisories/GHSA-7pwq-q9jf-539h" target="_blank">[3]</a> <a href="https://github.com/elct9620/kobako/security/advisories/GHSA-7pwq-q9jf-539h" target="_blank">[4]</a> </div>
@@ -269,34 +276,6 @@ This vulnerability is due to improper handling of URI encoding in an HTTP reques
 <div class="hist">
   <h3>Archive / 歷史存檔</h3>
   <div class="hist-grid">
-    
-    <a class="hcard" href="2026-10-16.html"><div class="d">2026-10-16</div><div class="c">5 則・gemini</div></a>
-    
-    <a class="hcard" href="2026-10-15.html"><div class="d">2026-10-15</div><div class="c">5 則・gemini</div></a>
-    
-    <a class="hcard" href="2026-10-14.html"><div class="d">2026-10-14</div><div class="c">5 則・gemini</div></a>
-    
-    <a class="hcard" href="2026-10-13.html"><div class="d">2026-10-13</div><div class="c">5 則・gemini</div></a>
-    
-    <a class="hcard" href="2026-10-12.html"><div class="d">2026-10-12</div><div class="c">5 則・gemini</div></a>
-    
-    <a class="hcard" href="2026-10-11.html"><div class="d">2026-10-11</div><div class="c">5 則・gemini</div></a>
-    
-    <a class="hcard" href="2026-10-10.html"><div class="d">2026-10-10</div><div class="c">5 則・gemini</div></a>
-    
-    <a class="hcard" href="2026-10-09.html"><div class="d">2026-10-09</div><div class="c">5 則・gemini</div></a>
-    
-    <a class="hcard" href="2026-10-08.html"><div class="d">2026-10-08</div><div class="c">5 則・gemini</div></a>
-    
-    <a class="hcard" href="2026-10-07.html"><div class="d">2026-10-07</div><div class="c">5 則・gemini</div></a>
-    
-    <a class="hcard" href="2026-10-06.html"><div class="d">2026-10-06</div><div class="c">5 則・gemini</div></a>
-    
-    <a class="hcard" href="2026-10-05.html"><div class="d">2026-10-05</div><div class="c">5 則・gemini</div></a>
-    
-    <a class="hcard" href="2026-10-04.html"><div class="d">2026-10-04</div><div class="c">5 則・gemini</div></a>
-    
-    <a class="hcard" href="2026-10-03.html"><div class="d">2026-10-03</div><div class="c">5 則・gemini</div></a>
     
     <a class="hcard" href="2026-10-02.html"><div class="d">2026-10-02</div><div class="c">5 則・gemini</div></a>
     
@@ -347,9 +326,21 @@ This vulnerability is due to improper handling of URI encoding in an HTTP reques
 
 
 <div class="trend">
-  <h3>Exposure / 近30日在野日曆</h3>
+  <h3>Exposure / 近22日在野日曆</h3>
   <div class="sub2">琥珀色 = 當日有在野利用，點擊跳轉存檔</div>
   <div class="cal">
+  
+    <a class="day" href="2026-09-11.html" title="2026-09-11・高危47則・在野0則">11</a>
+  
+    <a class="day has w1" href="2026-09-12.html" title="2026-09-12・高危5則・在野1則">12</a>
+  
+    <a class="day" href="2026-09-13.html" title="2026-09-13・高危5則・在野0則">13</a>
+  
+    <a class="day" href="2026-09-14.html" title="2026-09-14・高危5則・在野0則">14</a>
+  
+    <a class="day has w1" href="2026-09-15.html" title="2026-09-15・高危5則・在野1則">15</a>
+  
+    <a class="day" href="2026-09-16.html" title="2026-09-16・高危5則・在野0則">16</a>
   
     <a class="day has w1" href="2026-09-17.html" title="2026-09-17・高危5則・在野1則">17</a>
   
@@ -382,34 +373,6 @@ This vulnerability is due to improper handling of URI encoding in an HTTP reques
     <a class="day has w1" href="2026-10-01.html" title="2026-10-01・高危5則・在野1則">10/1</a>
   
     <a class="day has w2" href="2026-10-02.html" title="2026-10-02・高危5則・在野2則">02</a>
-  
-    <a class="day has w1" href="2026-10-03.html" title="2026-10-03・高危5則・在野1則">03</a>
-  
-    <a class="day has w1" href="2026-10-04.html" title="2026-10-04・高危5則・在野1則">04</a>
-  
-    <a class="day has w1" href="2026-10-05.html" title="2026-10-05・高危5則・在野1則">05</a>
-  
-    <a class="day has w1" href="2026-10-06.html" title="2026-10-06・高危5則・在野1則">06</a>
-  
-    <a class="day has w1" href="2026-10-07.html" title="2026-10-07・高危5則・在野1則">07</a>
-  
-    <a class="day has w1" href="2026-10-08.html" title="2026-10-08・高危5則・在野1則">08</a>
-  
-    <a class="day has w1" href="2026-10-09.html" title="2026-10-09・高危5則・在野1則">09</a>
-  
-    <a class="day" href="2026-10-10.html" title="2026-10-10・高危5則・在野0則">10</a>
-  
-    <a class="day" href="2026-10-11.html" title="2026-10-11・高危5則・在野0則">11</a>
-  
-    <a class="day" href="2026-10-12.html" title="2026-10-12・高危5則・在野0則">12</a>
-  
-    <a class="day" href="2026-10-13.html" title="2026-10-13・高危5則・在野0則">13</a>
-  
-    <a class="day has w2" href="2026-10-14.html" title="2026-10-14・高危5則・在野2則">14</a>
-  
-    <a class="day has w2" href="2026-10-15.html" title="2026-10-15・高危5則・在野2則">15</a>
-  
-    <a class="day has w1" href="2026-10-16.html" title="2026-10-16・高危51則・在野1則">16</a>
   
   </div>
   <div class="cal-legend"><span>■ 無在野</span><span style="color:var(--amber)">■ 有在野（顏色越深越多）</span></div>

@@ -76,7 +76,9 @@ h1 .grad{background:linear-gradient(180deg,var(--grad-from),var(--grad-to));-web
 .row.open .chev{transform:rotate(180deg)}
 .detail{display:none;margin-top:12px;padding-top:12px;border-top:1px dashed var(--border);font-size:13px;color:var(--gray-900)}
 .row.open .detail{display:block}
-.detail .en{margin-bottom:8px}
+.detail .en{margin-bottom:0}
+.lang{border:1px solid var(--border);border-radius:var(--radius-sm);padding:10px 12px;margin-bottom:8px;background:var(--bg)}
+.lang-tag{font-size:10px;color:var(--gray-900);letter-spacing:.08em;text-transform:uppercase;margin-bottom:4px}
 .badge{display:inline-flex;align-items:center;font-size:11px;font-weight:500;border-radius:5px;padding:2px 7px;border:1px solid var(--border);background:var(--gray-100);color:var(--gray-900);font-family:"Geist Mono",ui-monospace,SFMono-Regular,Menlo,monospace;white-space:nowrap}
 .badge.crit{background:var(--red);border-color:var(--red);color:#fff}
 .badge.wild{background:transparent;border-color:var(--amber);color:var(--amber)}
@@ -159,7 +161,8 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
       <a href="https://github.com/JiHong88/suneditor/commit/a94ace269c7102bfb6de58a27a6547bc4eb09045" target="_blank">官方補丁 ↗</a>
     </div>
     <div class="detail">
-      <div class="en">SunEditor is a lightweight and powerful WYSIWYG editor in vanilla JavaScript with no dependencies. Prior to 2.47.11, the sanitizer in src/lib/core.js does not consistently reject namespaced or custom HTML elements, allowing event-handler attributes to remain on crafted elements. When an application renders attacker-controlled editor content and a user interacts with the element, the retained handler can execute script in the application&#39;s browser origin, enabling stored cross-site scripting, data exposure, or unauthorized browser-context actions. This issue is fixed in version 2.47.11.</div>
+      <div class="lang"><div class="lang-tag">中文提煉</div><div>SunEditor 淨化器處理不當，導致攻擊者可注入惡意腳本。</div></div>
+      <div class="lang"><div class="lang-tag">英文原文</div><div class="en">SunEditor is a lightweight and powerful WYSIWYG editor in vanilla JavaScript with no dependencies. Prior to 2.47.11, the sanitizer in src/lib/core.js does not consistently reject namespaced or custom HTML elements, allowing event-handler attributes to remain on crafted elements. When an application renders attacker-controlled editor content and a user interacts with the element, the retained handler can execute script in the application&#39;s browser origin, enabling stored cross-site scripting, data exposure, or unauthorized browser-context actions. This issue is fixed in version 2.47.11.</div></div>
       <div>修補建議：升級至 2.47.11 或更新版本</div>
       
       <div style="margin-top:6px">更多參考：<a href="https://github.com/JiHong88/suneditor/issues/1646" target="_blank">[2]</a> <a href="https://github.com/JiHong88/suneditor/releases/tag/2.47.11" target="_blank">[3]</a> <a href="https://github.com/JiHong88/suneditor/security/advisories/GHSA-6rf4-v2fh-m6p4" target="_blank">[4]</a> </div>
@@ -181,7 +184,8 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
       <a href="https://www.manageengine.com/products/applications_manager/security-updates/security-updates-cve-2026-86708.html" target="_blank">官方補丁 ↗</a>
     </div>
     <div class="detail">
-      <div class="en">ZohoCorp ManageEngine Applications Manager versions 182200 and below were vulnerable to exposure of a Google Cloud service-account private key in the Applications Manager installer, which could allow an unauthenticated attacker to impersonate the service account and access or modify associated cloud resources.</div>
+      <div class="lang"><div class="lang-tag">中文提煉</div><div>安裝程式洩漏 Google Cloud 私鑰，導致雲端資源遭冒用。</div></div>
+      <div class="lang"><div class="lang-tag">英文原文</div><div class="en">ZohoCorp ManageEngine Applications Manager versions 182200 and below were vulnerable to exposure of a Google Cloud service-account private key in the Applications Manager installer, which could allow an unauthenticated attacker to impersonate the service account and access or modify associated cloud resources.</div></div>
       <div>修補建議：請參閱官方安全公告進行更新</div>
       
       
@@ -203,7 +207,8 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
       <a href="https://tzh00203.notion.site/D-Link-DIR-825-L2TP-Host-Name-AVP-Out-of-Bounds-Write-33cb5c52018a80458ffec58b62096940" target="_blank">官方補丁 ↗</a>
     </div>
     <div class="detail">
-      <div class="en">A vulnerability was identified in D-Link DIR-825 3.00b32. Affected is the function tunnel_set_params of the file tunnel.c of the component rp-l2tp. The manipulation of the argument peer_hostname  leads to out-of-bounds write. The attack may be initiated remotely.</div>
+      <div class="lang"><div class="lang-tag">中文提煉</div><div>L2TP 參數處理不當導致越界寫入，可遠端觸發 RCE。</div></div>
+      <div class="lang"><div class="lang-tag">英文原文</div><div class="en">A vulnerability was identified in D-Link DIR-825 3.00b32. Affected is the function tunnel_set_params of the file tunnel.c of the component rp-l2tp. The manipulation of the argument peer_hostname  leads to out-of-bounds write. The attack may be initiated remotely.</div></div>
       <div>修補建議：請關注官方韌體更新</div>
       
       <div style="margin-top:6px">更多參考：<a href="https://vuldb.com/cve/CVE-2026-96891" target="_blank">[2]</a> <a href="https://vuldb.com/submit/906301" target="_blank">[3]</a> <a href="https://vuldb.com/vuln/409134" target="_blank">[4]</a> <a href="https://vuldb.com/vuln/409134/cti" target="_blank">[5]</a> </div>
@@ -225,7 +230,8 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
       <a href="https://www.manageengine.com/itom/advisory/cve-2026-19599.html" target="_blank">官方補丁 ↗</a>
     </div>
     <div class="detail">
-      <div class="en">ZohoCorp ManageEngine OpManager MSP versions 12.8.709 and below were vulnerable to a Remote Code Execution vulnerability in the Notification Profile module.</div>
+      <div class="lang"><div class="lang-tag">中文提煉</div><div>通知設定檔模組存在漏洞，允許遠端執行任意程式碼。</div></div>
+      <div class="lang"><div class="lang-tag">英文原文</div><div class="en">ZohoCorp ManageEngine OpManager MSP versions 12.8.709 and below were vulnerable to a Remote Code Execution vulnerability in the Notification Profile module.</div></div>
       <div>修補建議：請參閱官方安全公告進行更新</div>
       
       
@@ -247,7 +253,8 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
       <a href="https://github.com/OpenC3/cosmos/commit/71943352a28128ef3e7e894319d97a656b5cd4f2" target="_blank">官方補丁 ↗</a>
     </div>
     <div class="detail">
-      <div class="en">OpenC3 COSMOS provides the functionality needed to send commands to and receive data from one or more embedded systems. From 5.1.0 until 7.3.0, authenticated non-administrator users can write content under targets_modified/ that is later executed by multiple configuration paths below the intended code-execution privilege tier. Table and command or telemetry definitions are processed through ConfigParser, PacketConfig, GENERIC_READ_CONVERSION, or GENERIC_WRITE_CONVERSION, allowing ERB rendering or Ruby and Python evaluation, while openc3-cosmos-script-runner-api/scripts/run_suite_analysis.rb ex</div>
+      <div class="lang"><div class="lang-tag">中文提煉</div><div>一般使用者可寫入惡意內容，導致權限提升與程式碼執行。</div></div>
+      <div class="lang"><div class="lang-tag">英文原文</div><div class="en">OpenC3 COSMOS provides the functionality needed to send commands to and receive data from one or more embedded systems. From 5.1.0 until 7.3.0, authenticated non-administrator users can write content under targets_modified/ that is later executed by multiple configuration paths below the intended code-execution privilege tier. Table and command or telemetry definitions are processed through ConfigParser, PacketConfig, GENERIC_READ_CONVERSION, or GENERIC_WRITE_CONVERSION, allowing ERB rendering or Ruby and Python evaluation, while openc3-cosmos-script-runner-api/scripts/run_suite_analysis.rb ex</div></div>
       <div>修補建議：請更新至修復版本</div>
       
       <div style="margin-top:6px">更多參考：<a href="https://github.com/OpenC3/cosmos/commit/7a1538a4626f82c0d1540fcaa27ffdcbbd71ff81" target="_blank">[2]</a> <a href="https://github.com/OpenC3/cosmos/pull/3488" target="_blank">[3]</a> <a href="https://github.com/OpenC3/cosmos/security/advisories/GHSA-jjq7-m736-w977" target="_blank">[4]</a> </div>
@@ -345,6 +352,18 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
   <div class="sub2">琥珀色 = 當日有在野利用，點擊跳轉存檔</div>
   <div class="cal">
   
+    <a class="day" href="2026-09-11.html" title="2026-09-11・高危47則・在野0則">11</a>
+  
+    <a class="day has w1" href="2026-09-12.html" title="2026-09-12・高危5則・在野1則">12</a>
+  
+    <a class="day" href="2026-09-13.html" title="2026-09-13・高危5則・在野0則">13</a>
+  
+    <a class="day" href="2026-09-14.html" title="2026-09-14・高危5則・在野0則">14</a>
+  
+    <a class="day has w1" href="2026-09-15.html" title="2026-09-15・高危5則・在野1則">15</a>
+  
+    <a class="day" href="2026-09-16.html" title="2026-09-16・高危5則・在野0則">16</a>
+  
     <a class="day has w1" href="2026-09-17.html" title="2026-09-17・高危5則・在野1則">17</a>
   
     <a class="day has w1" href="2026-09-18.html" title="2026-09-18・高危5則・在野1則">18</a>
@@ -376,34 +395,6 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
     <a class="day has w1" href="2026-10-01.html" title="2026-10-01・高危5則・在野1則">10/1</a>
   
     <a class="day has w2" href="2026-10-02.html" title="2026-10-02・高危5則・在野2則">02</a>
-  
-    <a class="day has w1" href="2026-10-03.html" title="2026-10-03・高危5則・在野1則">03</a>
-  
-    <a class="day has w1" href="2026-10-04.html" title="2026-10-04・高危5則・在野1則">04</a>
-  
-    <a class="day has w1" href="2026-10-05.html" title="2026-10-05・高危5則・在野1則">05</a>
-  
-    <a class="day has w1" href="2026-10-06.html" title="2026-10-06・高危5則・在野1則">06</a>
-  
-    <a class="day has w1" href="2026-10-07.html" title="2026-10-07・高危5則・在野1則">07</a>
-  
-    <a class="day has w1" href="2026-10-08.html" title="2026-10-08・高危5則・在野1則">08</a>
-  
-    <a class="day has w1" href="2026-10-09.html" title="2026-10-09・高危5則・在野1則">09</a>
-  
-    <a class="day" href="2026-10-10.html" title="2026-10-10・高危5則・在野0則">10</a>
-  
-    <a class="day" href="2026-10-11.html" title="2026-10-11・高危5則・在野0則">11</a>
-  
-    <a class="day" href="2026-10-12.html" title="2026-10-12・高危5則・在野0則">12</a>
-  
-    <a class="day" href="2026-10-13.html" title="2026-10-13・高危5則・在野0則">13</a>
-  
-    <a class="day has w2" href="2026-10-14.html" title="2026-10-14・高危5則・在野2則">14</a>
-  
-    <a class="day has w2" href="2026-10-15.html" title="2026-10-15・高危5則・在野2則">15</a>
-  
-    <a class="day has w1" href="2026-10-16.html" title="2026-10-16・高危51則・在野1則">16</a>
   
   </div>
   <div class="cal-legend"><span>■ 無在野</span><span style="color:var(--amber)">■ 有在野（顏色越深越多）</span></div>

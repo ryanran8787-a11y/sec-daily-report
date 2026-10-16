@@ -76,7 +76,9 @@ h1 .grad{background:linear-gradient(180deg,var(--grad-from),var(--grad-to));-web
 .row.open .chev{transform:rotate(180deg)}
 .detail{display:none;margin-top:12px;padding-top:12px;border-top:1px dashed var(--border);font-size:13px;color:var(--gray-900)}
 .row.open .detail{display:block}
-.detail .en{margin-bottom:8px}
+.detail .en{margin-bottom:0}
+.lang{border:1px solid var(--border);border-radius:var(--radius-sm);padding:10px 12px;margin-bottom:8px;background:var(--bg)}
+.lang-tag{font-size:10px;color:var(--gray-900);letter-spacing:.08em;text-transform:uppercase;margin-bottom:4px}
 .badge{display:inline-flex;align-items:center;font-size:11px;font-weight:500;border-radius:5px;padding:2px 7px;border:1px solid var(--border);background:var(--gray-100);color:var(--gray-900);font-family:"Geist Mono",ui-monospace,SFMono-Regular,Menlo,monospace;white-space:nowrap}
 .badge.crit{background:var(--red);border-color:var(--red);color:#fff}
 .badge.wild{background:transparent;border-color:var(--amber);color:var(--amber)}
@@ -159,7 +161,8 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
       <a href="https://github.com/senxitoyshuyi-ui/HACKALL/blob/main/netcore_NBR100V2_V1.3.240614.030928%20Router/netcore_nbr100v2_uci_config_tamper.md" target="_blank">官方補丁 ↗</a>
     </div>
     <div class="detail">
-      <div class="en">A vulnerability was determined in Netcore NBR100V2 1.3.240614.030928. This affects the function uci.apply of the file /usr/share/rpcd/acl.d/unauthenticated.json of the component ACL Handler. This manipulation of the argument section causes missing authorization. It is possible to initiate the attack remotely. The exploit has been publicly disclosed and may be utilized. The vendor was contacted early about this disclosure but did not respond in any way.</div>
+      <div class="lang"><div class="lang-tag">中文提煉</div><div>Netcore NBR100V2 路由器 ACL 處理器存在未授權存取漏洞。</div></div>
+      <div class="lang"><div class="lang-tag">英文原文</div><div class="en">A vulnerability was determined in Netcore NBR100V2 1.3.240614.030928. This affects the function uci.apply of the file /usr/share/rpcd/acl.d/unauthenticated.json of the component ACL Handler. This manipulation of the argument section causes missing authorization. It is possible to initiate the attack remotely. The exploit has been publicly disclosed and may be utilized. The vendor was contacted early about this disclosure but did not respond in any way.</div></div>
       <div>修補建議：廠商未回應，建議隔離受影響設備或限制存取權限。</div>
       
       <div style="margin-top:6px">更多參考：<a href="https://vuldb.com/cve/CVE-2026-101000" target="_blank">[2]</a> <a href="https://vuldb.com/submit/919999" target="_blank">[3]</a> <a href="https://vuldb.com/vuln/410870" target="_blank">[4]</a> <a href="https://vuldb.com/vuln/410870/cti" target="_blank">[5]</a> </div>
@@ -181,7 +184,8 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
       <a href="https://github.com/senxitoyshuyi-ui/HACKALL/blob/main/netcore_NBR200V2_V1.3.241127.071246%20Router/Netcore_NBR200V2_network_tools_command_injection.md" target="_blank">官方補丁 ↗</a>
     </div>
     <div class="detail">
-      <div class="en">A vulnerability was identified in Netcore NBR200V2 1.3.241127.071246. This impacts the function eval of the file /www/cgi-bin/network_tools of the component Web Management Interface. Such manipulation of the argument QUERY_STRING leads to os command injection. It is possible to launch the attack remotely. The exploit is publicly available and might be used. The vendor was contacted early about this disclosure but did not respond in any way.</div>
+      <div class="lang"><div class="lang-tag">中文提煉</div><div>Netcore NBR200V2 Web 管理介面存在 OS 指令注入漏洞。</div></div>
+      <div class="lang"><div class="lang-tag">英文原文</div><div class="en">A vulnerability was identified in Netcore NBR200V2 1.3.241127.071246. This impacts the function eval of the file /www/cgi-bin/network_tools of the component Web Management Interface. Such manipulation of the argument QUERY_STRING leads to os command injection. It is possible to launch the attack remotely. The exploit is publicly available and might be used. The vendor was contacted early about this disclosure but did not respond in any way.</div></div>
       <div>修補建議：廠商未回應，建議限制 Web 管理介面存取。</div>
       
       <div style="margin-top:6px">更多參考：<a href="https://vuldb.com/cve/CVE-2026-101001" target="_blank">[2]</a> <a href="https://vuldb.com/submit/920178" target="_blank">[3]</a> <a href="https://vuldb.com/vuln/410871" target="_blank">[4]</a> <a href="https://vuldb.com/vuln/410871/cti" target="_blank">[5]</a> </div>
@@ -203,7 +207,8 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
       <a href="https://github.com/xiaobor123/vuls-find-VxWorks/tree/main/vul-find-FAST_FAC1900R-copy_msg_element(2)" target="_blank">官方補丁 ↗</a>
     </div>
     <div class="detail">
-      <div class="en">A vulnerability was identified in FAST FAC1900R 20190827_2.0.2. Affected by this issue is the function copy_msg_element of the component devdiscover Service. Such manipulation leads to stack-based buffer overflow. The attack can be executed remotely. The exploit is publicly available and might be used. The vendor was contacted early about this disclosure but did not respond in any way.</div>
+      <div class="lang"><div class="lang-tag">中文提煉</div><div>FAST FAC1900R devdiscover 服務存在堆疊緩衝區溢位。</div></div>
+      <div class="lang"><div class="lang-tag">英文原文</div><div class="en">A vulnerability was identified in FAST FAC1900R 20190827_2.0.2. Affected by this issue is the function copy_msg_element of the component devdiscover Service. Such manipulation leads to stack-based buffer overflow. The attack can be executed remotely. The exploit is publicly available and might be used. The vendor was contacted early about this disclosure but did not respond in any way.</div></div>
       <div>修補建議：廠商未回應，建議將設備置於防火牆後方。</div>
       
       <div style="margin-top:6px">更多參考：<a href="https://vuldb.com/cve/CVE-2026-101039" target="_blank">[2]</a> <a href="https://vuldb.com/submit/927251" target="_blank">[3]</a> <a href="https://vuldb.com/vuln/410907" target="_blank">[4]</a> <a href="https://vuldb.com/vuln/410907/cti" target="_blank">[5]</a> </div>
@@ -225,7 +230,8 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
       <a href="https://github.com/senxitoyshuyi-ui/HACKALL/blob/main/netcore_NR289-GE_V1.4.5102%2C2018.06.1418_44%20Router/Netcore_NR289-GE_ap_ip_command_injection.md" target="_blank">官方補丁 ↗</a>
     </div>
     <div class="detail">
-      <div class="en">A vulnerability was identified in Netcore NR289-GE 1.4.5102. This issue affects the function system of the file /ap_ip.cgi of the component CGI Handler. Such manipulation of the argument ip leads to os command injection. The attack can be launched remotely. The exploit is publicly available and might be used. The vendor was contacted early about this disclosure but did not respond in any way.</div>
+      <div class="lang"><div class="lang-tag">中文提煉</div><div>Netcore NR289-GE CGI 處理器存在 OS 指令注入漏洞。</div></div>
+      <div class="lang"><div class="lang-tag">英文原文</div><div class="en">A vulnerability was identified in Netcore NR289-GE 1.4.5102. This issue affects the function system of the file /ap_ip.cgi of the component CGI Handler. Such manipulation of the argument ip leads to os command injection. The attack can be launched remotely. The exploit is publicly available and might be used. The vendor was contacted early about this disclosure but did not respond in any way.</div></div>
       <div>修補建議：廠商未回應，建議限制 CGI 介面存取。</div>
       
       <div style="margin-top:6px">更多參考：<a href="https://vuldb.com/cve/CVE-2026-101072" target="_blank">[2]</a> <a href="https://vuldb.com/submit/929176" target="_blank">[3]</a> <a href="https://vuldb.com/vuln/410943" target="_blank">[4]</a> <a href="https://vuldb.com/vuln/410943/cti" target="_blank">[5]</a> </div>
@@ -247,7 +253,8 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
       <a href="https://github.com/senxitoyshuyi-ui/HACKALL/blob/main/netcore_NR289-GE_V1.4.5102%2C2018.06.1418_44%20Router/Netcore_NR289-GE_boa_stack_overflow.md" target="_blank">官方補丁 ↗</a>
     </div>
     <div class="detail">
-      <div class="en">A weakness has been identified in Netcore NR289-GE 1.4.5102. The affected element is the function password-check of the file /bin/boa of the component Authentication. Executing a manipulation of the argument Username can lead to stack-based buffer overflow. The attack may be launched remotely. The exploit has been made available to the public and could be used for attacks. The vendor was contacted early about this disclosure but did not respond in any way.</div>
+      <div class="lang"><div class="lang-tag">中文提煉</div><div>Netcore NR289-GE 認證模組存在堆疊緩衝區溢位漏洞。</div></div>
+      <div class="lang"><div class="lang-tag">英文原文</div><div class="en">A weakness has been identified in Netcore NR289-GE 1.4.5102. The affected element is the function password-check of the file /bin/boa of the component Authentication. Executing a manipulation of the argument Username can lead to stack-based buffer overflow. The attack may be launched remotely. The exploit has been made available to the public and could be used for attacks. The vendor was contacted early about this disclosure but did not respond in any way.</div></div>
       <div>修補建議：廠商未回應，建議加強網路邊界防護。</div>
       
       <div style="margin-top:6px">更多參考：<a href="https://vuldb.com/cve/CVE-2026-101074" target="_blank">[2]</a> <a href="https://vuldb.com/submit/929202" target="_blank">[3]</a> <a href="https://vuldb.com/vuln/410945" target="_blank">[4]</a> <a href="https://vuldb.com/vuln/410945/cti" target="_blank">[5]</a> </div>
@@ -345,6 +352,18 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
   <div class="sub2">琥珀色 = 當日有在野利用，點擊跳轉存檔</div>
   <div class="cal">
   
+    <a class="day" href="2026-09-11.html" title="2026-09-11・高危47則・在野0則">11</a>
+  
+    <a class="day has w1" href="2026-09-12.html" title="2026-09-12・高危5則・在野1則">12</a>
+  
+    <a class="day" href="2026-09-13.html" title="2026-09-13・高危5則・在野0則">13</a>
+  
+    <a class="day" href="2026-09-14.html" title="2026-09-14・高危5則・在野0則">14</a>
+  
+    <a class="day has w1" href="2026-09-15.html" title="2026-09-15・高危5則・在野1則">15</a>
+  
+    <a class="day" href="2026-09-16.html" title="2026-09-16・高危5則・在野0則">16</a>
+  
     <a class="day has w1" href="2026-09-17.html" title="2026-09-17・高危5則・在野1則">17</a>
   
     <a class="day has w1" href="2026-09-18.html" title="2026-09-18・高危5則・在野1則">18</a>
@@ -376,34 +395,6 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
     <a class="day has w1" href="2026-10-01.html" title="2026-10-01・高危5則・在野1則">10/1</a>
   
     <a class="day has w2" href="2026-10-02.html" title="2026-10-02・高危5則・在野2則">02</a>
-  
-    <a class="day has w1" href="2026-10-03.html" title="2026-10-03・高危5則・在野1則">03</a>
-  
-    <a class="day has w1" href="2026-10-04.html" title="2026-10-04・高危5則・在野1則">04</a>
-  
-    <a class="day has w1" href="2026-10-05.html" title="2026-10-05・高危5則・在野1則">05</a>
-  
-    <a class="day has w1" href="2026-10-06.html" title="2026-10-06・高危5則・在野1則">06</a>
-  
-    <a class="day has w1" href="2026-10-07.html" title="2026-10-07・高危5則・在野1則">07</a>
-  
-    <a class="day has w1" href="2026-10-08.html" title="2026-10-08・高危5則・在野1則">08</a>
-  
-    <a class="day has w1" href="2026-10-09.html" title="2026-10-09・高危5則・在野1則">09</a>
-  
-    <a class="day" href="2026-10-10.html" title="2026-10-10・高危5則・在野0則">10</a>
-  
-    <a class="day" href="2026-10-11.html" title="2026-10-11・高危5則・在野0則">11</a>
-  
-    <a class="day" href="2026-10-12.html" title="2026-10-12・高危5則・在野0則">12</a>
-  
-    <a class="day" href="2026-10-13.html" title="2026-10-13・高危5則・在野0則">13</a>
-  
-    <a class="day has w2" href="2026-10-14.html" title="2026-10-14・高危5則・在野2則">14</a>
-  
-    <a class="day has w2" href="2026-10-15.html" title="2026-10-15・高危5則・在野2則">15</a>
-  
-    <a class="day has w1" href="2026-10-16.html" title="2026-10-16・高危51則・在野1則">16</a>
   
   </div>
   <div class="cal-legend"><span>■ 無在野</span><span style="color:var(--amber)">■ 有在野（顏色越深越多）</span></div>

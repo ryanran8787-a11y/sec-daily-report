@@ -76,7 +76,9 @@ h1 .grad{background:linear-gradient(180deg,var(--grad-from),var(--grad-to));-web
 .row.open .chev{transform:rotate(180deg)}
 .detail{display:none;margin-top:12px;padding-top:12px;border-top:1px dashed var(--border);font-size:13px;color:var(--gray-900)}
 .row.open .detail{display:block}
-.detail .en{margin-bottom:8px}
+.detail .en{margin-bottom:0}
+.lang{border:1px solid var(--border);border-radius:var(--radius-sm);padding:10px 12px;margin-bottom:8px;background:var(--bg)}
+.lang-tag{font-size:10px;color:var(--gray-900);letter-spacing:.08em;text-transform:uppercase;margin-bottom:4px}
 .badge{display:inline-flex;align-items:center;font-size:11px;font-weight:500;border-radius:5px;padding:2px 7px;border:1px solid var(--border);background:var(--gray-100);color:var(--gray-900);font-family:"Geist Mono",ui-monospace,SFMono-Regular,Menlo,monospace;white-space:nowrap}
 .badge.crit{background:var(--red);border-color:var(--red);color:#fff}
 .badge.wild{background:transparent;border-color:var(--amber);color:var(--amber)}
@@ -158,7 +160,8 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
       <a href="https://security-advisory.acronis.com/advisories/SEC-10986" target="_blank">官方補丁 ↗</a>
     </div>
     <div class="detail">
-      <div class="en">Local privilege escalation due to insecure file permissions. The following products are affected: Acronis Backup plugin for cPanel &amp; WHM (Linux) before build 1.9.3.1021, Acronis Backup extension for Plesk (Linux) before build 1.8.11.638, Acronis Backup plugin for DirectAdmin (Linux) before build 1.2.3.238.</div>
+      <div class="lang"><div class="lang-tag">中文提煉</div><div>檔案權限不安全導致本地權限提升。</div></div>
+      <div class="lang"><div class="lang-tag">英文原文</div><div class="en">Local privilege escalation due to insecure file permissions. The following products are affected: Acronis Backup plugin for cPanel &amp; WHM (Linux) before build 1.9.3.1021, Acronis Backup extension for Plesk (Linux) before build 1.8.11.638, Acronis Backup plugin for DirectAdmin (Linux) before build 1.2.3.238.</div></div>
       <div>修補建議：升級至 1.9.3.1021, 1.8.11.638 或 1.2.3.238 以上</div>
       
       
@@ -185,7 +188,8 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
       <a href="https://patchstack.com/database/wordpress/plugin/migratico-lite/vulnerability/wordpress-migratico-lite-plugin-2-6-8-remote-code-execution-rce-vulnerability?_s_id=cve" target="_blank">官方補丁 ↗</a>
     </div>
     <div class="detail">
-      <div class="en">Unauthenticated Remote Code Execution (RCE) in Migratico Lite &lt;= 2.6.8 versions.</div>
+      <div class="lang"><div class="lang-tag">中文提煉</div><div>未經授權的遠端程式碼執行漏洞。</div></div>
+      <div class="lang"><div class="lang-tag">英文原文</div><div class="en">Unauthenticated Remote Code Execution (RCE) in Migratico Lite &lt;= 2.6.8 versions.</div></div>
       <div>修補建議：建議更新至最新版本或停用該外掛</div>
       
       
@@ -207,7 +211,8 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
       <a href="https://github.com/patriksimek/vm2/security/advisories/GHSA-647f-g98j-qq25" target="_blank">官方補丁 ↗</a>
     </div>
     <div class="detail">
-      <div class="en">vm2 3.11.6 is vulnerable to a sandbox escape leading to remote code execution in the host Node.js process. The fix for GHSA-m283-3h24-438v is incomplete: the bridge gate at lib/bridge.js:1624 identity-checks only the direct call target when deciding whether to rebuild/sanitise a rejected host Promise value. Registering the rejection handler through Function.prototype.call or .apply indirection (e.g., p.then.call(p, undefined, cb)) makes the intercepted target host Function.prototype.call, so the sanitiser never runs and the raw host error reaches sandbox code with its own properties intact. If</div>
+      <div class="lang"><div class="lang-tag">中文提煉</div><div>沙箱逃逸導致 Node.js 遠端執行程式碼。</div></div>
+      <div class="lang"><div class="lang-tag">英文原文</div><div class="en">vm2 3.11.6 is vulnerable to a sandbox escape leading to remote code execution in the host Node.js process. The fix for GHSA-m283-3h24-438v is incomplete: the bridge gate at lib/bridge.js:1624 identity-checks only the direct call target when deciding whether to rebuild/sanitise a rejected host Promise value. Registering the rejection handler through Function.prototype.call or .apply indirection (e.g., p.then.call(p, undefined, cb)) makes the intercepted target host Function.prototype.call, so the sanitiser never runs and the raw host error reaches sandbox code with its own properties intact. If</div></div>
       <div>修補建議：vm2 已停止維護，建議遷移至隔離環境</div>
       
       <div style="margin-top:6px">更多參考：<a href="https://www.vulncheck.com/advisories/vm2-3.11.6-remote-code-execution-via-promise-call-apply" target="_blank">[2]</a> </div>
@@ -229,7 +234,8 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
       <a href="https://github.com/patriksimek/vm2/security/advisories/GHSA-h85j-hv3c-qfgq" target="_blank">官方補丁 ↗</a>
     </div>
     <div class="detail">
-      <div class="en">vm2 versions 3.11.3 through 3.11.6 expose the host process&#39;s real https.globalAgent to sandboxed code when a NodeVM is explicitly configured to allow require(&#39;https&#39;). The builtin loader wraps host modules in a read-only proxy, but method calls such as Agent.prototype.on() are forwarded to the underlying host object, so sandbox code can register a listener for the agent&#39;s &#39;free&#39; event. When an unrelated host HTTPS request releases a pooled connection, the listener receives the live host request options and the host TLSSocket, allowing sandboxed code to read the host&#39;s Authorization header and </div>
+      <div class="lang"><div class="lang-tag">中文提煉</div><div>洩漏主機 HTTPS 憑證與請求內容。</div></div>
+      <div class="lang"><div class="lang-tag">英文原文</div><div class="en">vm2 versions 3.11.3 through 3.11.6 expose the host process&#39;s real https.globalAgent to sandboxed code when a NodeVM is explicitly configured to allow require(&#39;https&#39;). The builtin loader wraps host modules in a read-only proxy, but method calls such as Agent.prototype.on() are forwarded to the underlying host object, so sandbox code can register a listener for the agent&#39;s &#39;free&#39; event. When an unrelated host HTTPS request releases a pooled connection, the listener receives the live host request options and the host TLSSocket, allowing sandboxed code to read the host&#39;s Authorization header and </div></div>
       <div>修補建議：vm2 已停止維護，建議遷移至隔離環境</div>
       
       <div style="margin-top:6px">更多參考：<a href="https://www.vulncheck.com/advisories/vm2-3.11.3-through-3.11.6-https-credential-exposure-via-globalagent" target="_blank">[2]</a> </div>
@@ -251,7 +257,8 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
       <a href="https://github.com/patriksimek/vm2/security/advisories/GHSA-98xx-8mx4-x7cm" target="_blank">官方補丁 ↗</a>
     </div>
     <div class="detail">
-      <div class="en">vm2 versions from 3.11.3 before 3.11.7 expose the host tls module to NodeVM sandbox code, allowing attackers to call tls.setDefaultCACertificates() and replace process-wide certificate authorities. Attackers with access to allowed tls and url builtins can use URLSearchParams to create host-realm arrays and manipulate the TLS trust store, enabling subsequent host HTTPS clients to accept attacker-controlled certificates.</div>
+      <div class="lang"><div class="lang-tag">中文提煉</div><div>竄改 TLS 信任庫導致中間人攻擊。</div></div>
+      <div class="lang"><div class="lang-tag">英文原文</div><div class="en">vm2 versions from 3.11.3 before 3.11.7 expose the host tls module to NodeVM sandbox code, allowing attackers to call tls.setDefaultCACertificates() and replace process-wide certificate authorities. Attackers with access to allowed tls and url builtins can use URLSearchParams to create host-realm arrays and manipulate the TLS trust store, enabling subsequent host HTTPS clients to accept attacker-controlled certificates.</div></div>
       <div>修補建議：升級至 3.11.7 或遷移至其他沙箱</div>
       
       <div style="margin-top:6px">更多參考：<a href="https://www.vulncheck.com/advisories/vm2-3.11.3-before-3.11.7-tls-trust-store-manipulation" target="_blank">[2]</a> <a href="https://github.com/patriksimek/vm2/security/advisories/GHSA-98xx-8mx4-x7cm" target="_blank">[3]</a> </div>
@@ -349,6 +356,18 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
   <div class="sub2">琥珀色 = 當日有在野利用，點擊跳轉存檔</div>
   <div class="cal">
   
+    <a class="day" href="2026-09-11.html" title="2026-09-11・高危47則・在野0則">11</a>
+  
+    <a class="day has w1" href="2026-09-12.html" title="2026-09-12・高危5則・在野1則">12</a>
+  
+    <a class="day" href="2026-09-13.html" title="2026-09-13・高危5則・在野0則">13</a>
+  
+    <a class="day" href="2026-09-14.html" title="2026-09-14・高危5則・在野0則">14</a>
+  
+    <a class="day has w1" href="2026-09-15.html" title="2026-09-15・高危5則・在野1則">15</a>
+  
+    <a class="day" href="2026-09-16.html" title="2026-09-16・高危5則・在野0則">16</a>
+  
     <a class="day has w1" href="2026-09-17.html" title="2026-09-17・高危5則・在野1則">17</a>
   
     <a class="day has w1" href="2026-09-18.html" title="2026-09-18・高危5則・在野1則">18</a>
@@ -380,34 +399,6 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
     <a class="day has w1" href="2026-10-01.html" title="2026-10-01・高危5則・在野1則">10/1</a>
   
     <a class="day has w2" href="2026-10-02.html" title="2026-10-02・高危5則・在野2則">02</a>
-  
-    <a class="day has w1" href="2026-10-03.html" title="2026-10-03・高危5則・在野1則">03</a>
-  
-    <a class="day has w1" href="2026-10-04.html" title="2026-10-04・高危5則・在野1則">04</a>
-  
-    <a class="day has w1" href="2026-10-05.html" title="2026-10-05・高危5則・在野1則">05</a>
-  
-    <a class="day has w1" href="2026-10-06.html" title="2026-10-06・高危5則・在野1則">06</a>
-  
-    <a class="day has w1" href="2026-10-07.html" title="2026-10-07・高危5則・在野1則">07</a>
-  
-    <a class="day has w1" href="2026-10-08.html" title="2026-10-08・高危5則・在野1則">08</a>
-  
-    <a class="day has w1" href="2026-10-09.html" title="2026-10-09・高危5則・在野1則">09</a>
-  
-    <a class="day" href="2026-10-10.html" title="2026-10-10・高危5則・在野0則">10</a>
-  
-    <a class="day" href="2026-10-11.html" title="2026-10-11・高危5則・在野0則">11</a>
-  
-    <a class="day" href="2026-10-12.html" title="2026-10-12・高危5則・在野0則">12</a>
-  
-    <a class="day" href="2026-10-13.html" title="2026-10-13・高危5則・在野0則">13</a>
-  
-    <a class="day has w2" href="2026-10-14.html" title="2026-10-14・高危5則・在野2則">14</a>
-  
-    <a class="day has w2" href="2026-10-15.html" title="2026-10-15・高危5則・在野2則">15</a>
-  
-    <a class="day has w1" href="2026-10-16.html" title="2026-10-16・高危51則・在野1則">16</a>
   
   </div>
   <div class="cal-legend"><span>■ 無在野</span><span style="color:var(--amber)">■ 有在野（顏色越深越多）</span></div>

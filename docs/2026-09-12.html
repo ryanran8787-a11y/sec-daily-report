@@ -76,7 +76,9 @@ h1 .grad{background:linear-gradient(180deg,var(--grad-from),var(--grad-to));-web
 .row.open .chev{transform:rotate(180deg)}
 .detail{display:none;margin-top:12px;padding-top:12px;border-top:1px dashed var(--border);font-size:13px;color:var(--gray-900)}
 .row.open .detail{display:block}
-.detail .en{margin-bottom:8px}
+.detail .en{margin-bottom:0}
+.lang{border:1px solid var(--border);border-radius:var(--radius-sm);padding:10px 12px;margin-bottom:8px;background:var(--bg)}
+.lang-tag{font-size:10px;color:var(--gray-900);letter-spacing:.08em;text-transform:uppercase;margin-bottom:4px}
 .badge{display:inline-flex;align-items:center;font-size:11px;font-weight:500;border-radius:5px;padding:2px 7px;border:1px solid var(--border);background:var(--gray-100);color:var(--gray-900);font-family:"Geist Mono",ui-monospace,SFMono-Regular,Menlo,monospace;white-space:nowrap}
 .badge.crit{background:var(--red);border-color:var(--red);color:#fff}
 .badge.wild{background:transparent;border-color:var(--amber);color:var(--amber)}
@@ -158,7 +160,8 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
       <a href="https://gitlab.com/gitlab-org/gitlab/-/work_items/627748" target="_blank">官方補丁 ↗</a>
     </div>
     <div class="detail">
-      <div class="en">GitLab has remediated an issue in GitLab CE/EE affecting all versions from 18.7 before 19.1.8, 19.2 before 19.2.6, and 19.3 before 19.3.2 that, under certain conditions, an unauthenticated user could have read arbitrary files from the GitLab server due to improper path confinement and missing authentication enforcement in the repository commits API.</div>
+      <div class="lang"><div class="lang-tag">中文提煉</div><div>未經身分驗證讀取伺服器任意檔案</div></div>
+      <div class="lang"><div class="lang-tag">英文原文</div><div class="en">GitLab has remediated an issue in GitLab CE/EE affecting all versions from 18.7 before 19.1.8, 19.2 before 19.2.6, and 19.3 before 19.3.2 that, under certain conditions, an unauthenticated user could have read arbitrary files from the GitLab server due to improper path confinement and missing authentication enforcement in the repository commits API.</div></div>
       <div>修補建議：更新至 19.1.8, 19.2.6, 19.3.2 或更高版本</div>
       
       <div style="margin-top:6px">更多參考：<a href="https://hackerone.com/reports/3909881" target="_blank">[2]</a> </div>
@@ -185,7 +188,8 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
       <a href="https://wpscan.com/vulnerability/aba51906-91dc-4e75-ad44-373fe128deee/" target="_blank">官方補丁 ↗</a>
     </div>
     <div class="detail">
-      <div class="en">The teddy-bear-customize-addon WordPress plugin through 1.0.5 does not properly validate uploaded files, relying on a client-supplied content type and preserving the original filename, allowing unauthenticated attackers to upload arbitrary PHP files and execute code on the server.</div>
+      <div class="lang"><div class="lang-tag">中文提煉</div><div>上傳惡意 PHP 檔案執行遠端代碼</div></div>
+      <div class="lang"><div class="lang-tag">英文原文</div><div class="en">The teddy-bear-customize-addon WordPress plugin through 1.0.5 does not properly validate uploaded files, relying on a client-supplied content type and preserving the original filename, allowing unauthenticated attackers to upload arbitrary PHP files and execute code on the server.</div></div>
       <div>修補建議：停用插件或更新至最新安全版本</div>
       
       
@@ -207,7 +211,8 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
       <a href="https://community.progress.com/s/article/Critical-Security-Bulletin---August-2026---Chef-Automate-Security-Vulnerability" target="_blank">官方補丁 ↗</a>
     </div>
     <div class="detail">
-      <div class="en">A vulnerability in the Chef Automate API gateway and identity validation path may allow an unauthenticated actor to gain elevated access to protected Chef Automate functionality under specific conditions.</div>
+      <div class="lang"><div class="lang-tag">中文提煉</div><div>未經授權獲取受保護功能之存取權限</div></div>
+      <div class="lang"><div class="lang-tag">英文原文</div><div class="en">A vulnerability in the Chef Automate API gateway and identity validation path may allow an unauthenticated actor to gain elevated access to protected Chef Automate functionality under specific conditions.</div></div>
       <div>修補建議：參考官方安全公告並更新 API 閘道組件</div>
       
       
@@ -229,7 +234,8 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
       <a href="https://www.hiddenlayer.com/sai-security-advisory/2026-09-mistral-vibe3" target="_blank">官方補丁 ↗</a>
     </div>
     <div class="detail">
-      <div class="en">An arbitrary code execution vulnerability in Mistral Vibe allows an attacker to bypass command permission checks using ANSI-C quoted arguments. These arguments are not properly inspected, enabling a crafted allowlisted command to execute arbitrary code on the user&#39;s system without approval.</div>
+      <div class="lang"><div class="lang-tag">中文提煉</div><div>利用 ANSI-C 引號繞過權限執行代碼</div></div>
+      <div class="lang"><div class="lang-tag">英文原文</div><div class="en">An arbitrary code execution vulnerability in Mistral Vibe allows an attacker to bypass command permission checks using ANSI-C quoted arguments. These arguments are not properly inspected, enabling a crafted allowlisted command to execute arbitrary code on the user&#39;s system without approval.</div></div>
       <div>修補建議：更新 Mistral Vibe 至最新安全版本</div>
       
       
@@ -251,7 +257,8 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
       <a href="https://www.hiddenlayer.com/sai-security-advisory/2026-09-mistral-vibe4" target="_blank">官方補丁 ↗</a>
     </div>
     <div class="detail">
-      <div class="en">An arbitrary code execution vulnerability in Mistral Vibe allows an attacker to bypass command permission checks using shell constructs it&#39;s parser cannot interpret. Unparsed portions are omitted from inspection, enabling embedded commands to execute on the user&#39;s system without approval.</div>
+      <div class="lang"><div class="lang-tag">中文提煉</div><div>利用 Shell 構造繞過權限執行代碼</div></div>
+      <div class="lang"><div class="lang-tag">英文原文</div><div class="en">An arbitrary code execution vulnerability in Mistral Vibe allows an attacker to bypass command permission checks using shell constructs it&#39;s parser cannot interpret. Unparsed portions are omitted from inspection, enabling embedded commands to execute on the user&#39;s system without approval.</div></div>
       <div>修補建議：更新 Mistral Vibe 至最新安全版本</div>
       
       
@@ -349,6 +356,18 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
   <div class="sub2">琥珀色 = 當日有在野利用，點擊跳轉存檔</div>
   <div class="cal">
   
+    <a class="day" href="2026-09-11.html" title="2026-09-11・高危47則・在野0則">11</a>
+  
+    <a class="day has w1" href="2026-09-12.html" title="2026-09-12・高危5則・在野1則">12</a>
+  
+    <a class="day" href="2026-09-13.html" title="2026-09-13・高危5則・在野0則">13</a>
+  
+    <a class="day" href="2026-09-14.html" title="2026-09-14・高危5則・在野0則">14</a>
+  
+    <a class="day has w1" href="2026-09-15.html" title="2026-09-15・高危5則・在野1則">15</a>
+  
+    <a class="day" href="2026-09-16.html" title="2026-09-16・高危5則・在野0則">16</a>
+  
     <a class="day has w1" href="2026-09-17.html" title="2026-09-17・高危5則・在野1則">17</a>
   
     <a class="day has w1" href="2026-09-18.html" title="2026-09-18・高危5則・在野1則">18</a>
@@ -380,34 +399,6 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
     <a class="day has w1" href="2026-10-01.html" title="2026-10-01・高危5則・在野1則">10/1</a>
   
     <a class="day has w2" href="2026-10-02.html" title="2026-10-02・高危5則・在野2則">02</a>
-  
-    <a class="day has w1" href="2026-10-03.html" title="2026-10-03・高危5則・在野1則">03</a>
-  
-    <a class="day has w1" href="2026-10-04.html" title="2026-10-04・高危5則・在野1則">04</a>
-  
-    <a class="day has w1" href="2026-10-05.html" title="2026-10-05・高危5則・在野1則">05</a>
-  
-    <a class="day has w1" href="2026-10-06.html" title="2026-10-06・高危5則・在野1則">06</a>
-  
-    <a class="day has w1" href="2026-10-07.html" title="2026-10-07・高危5則・在野1則">07</a>
-  
-    <a class="day has w1" href="2026-10-08.html" title="2026-10-08・高危5則・在野1則">08</a>
-  
-    <a class="day has w1" href="2026-10-09.html" title="2026-10-09・高危5則・在野1則">09</a>
-  
-    <a class="day" href="2026-10-10.html" title="2026-10-10・高危5則・在野0則">10</a>
-  
-    <a class="day" href="2026-10-11.html" title="2026-10-11・高危5則・在野0則">11</a>
-  
-    <a class="day" href="2026-10-12.html" title="2026-10-12・高危5則・在野0則">12</a>
-  
-    <a class="day" href="2026-10-13.html" title="2026-10-13・高危5則・在野0則">13</a>
-  
-    <a class="day has w2" href="2026-10-14.html" title="2026-10-14・高危5則・在野2則">14</a>
-  
-    <a class="day has w2" href="2026-10-15.html" title="2026-10-15・高危5則・在野2則">15</a>
-  
-    <a class="day has w1" href="2026-10-16.html" title="2026-10-16・高危51則・在野1則">16</a>
   
   </div>
   <div class="cal-legend"><span>■ 無在野</span><span style="color:var(--amber)">■ 有在野（顏色越深越多）</span></div>
