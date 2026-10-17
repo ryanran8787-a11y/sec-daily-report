@@ -76,7 +76,9 @@ h1 .grad{background:linear-gradient(180deg,var(--grad-from),var(--grad-to));-web
 .row.open .chev{transform:rotate(180deg)}
 .detail{display:none;margin-top:12px;padding-top:12px;border-top:1px dashed var(--border);font-size:13px;color:var(--gray-900)}
 .row.open .detail{display:block}
-.detail .en{margin-bottom:8px}
+.detail .en{margin-bottom:0}
+.lang{border:1px solid var(--border);border-radius:var(--radius-sm);padding:10px 12px;margin-bottom:8px;background:var(--bg)}
+.lang-tag{font-size:10px;color:var(--gray-900);letter-spacing:.08em;text-transform:uppercase;margin-bottom:4px}
 .badge{display:inline-flex;align-items:center;font-size:11px;font-weight:500;border-radius:5px;padding:2px 7px;border:1px solid var(--border);background:var(--gray-100);color:var(--gray-900);font-family:"Geist Mono",ui-monospace,SFMono-Regular,Menlo,monospace;white-space:nowrap}
 .badge.crit{background:var(--red);border-color:var(--red);color:#fff}
 .badge.wild{background:transparent;border-color:var(--amber);color:var(--amber)}
@@ -158,9 +160,10 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
       <a href="https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-sdwan-webauth-xr8beuuU?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Catalyst%20SD-WAN%20Manager%20API%20Authentication%20Bypass%20Vulnerability%26vs_k=1" target="_blank">官方補丁 ↗</a>
     </div>
     <div class="detail">
-      <div class="en">Cisco Catalyst SD-WAN Manager API Authentication Bypass Vulnerability
+      <div class="lang"><div class="lang-tag">中文提煉</div><div>URI 編碼處理不當導致 API 身份驗證繞過，可獲管理員權限。</div></div>
+      <div class="lang"><div class="lang-tag">英文原文</div><div class="en">Cisco Catalyst SD-WAN Manager API Authentication Bypass Vulnerability
 &lt;p&gt;A vulnerability in the API session-based authentication management of Cisco Catalyst SD-WAN Manager could allow an unauthenticated, remote attacker to access an affected system with privileges of the admin user.&lt;/p&gt;
-&lt;p class=&#34;p1&#34;&gt;This vulnerability is due to improper handling of URI encoding in an HTTP request, which allows the request to bypass an authentication rule that is intended to restrict access to a specific API endpoint. An attacker could exploit this vulnerability by sending a crafted HTTP request to the API of</div>
+&lt;p class=&#34;p1&#34;&gt;This vulnerability is due to improper handling of URI encoding in an HTTP request, which allows the request to bypass an authentication rule that is intended to restrict access to a specific API endpoint. An attacker could exploit this vulnerability by sending a crafted HTTP request to the API of</div></div>
       <div>修補建議：更新至官方發布的修復版本。</div>
       
       
@@ -187,7 +190,8 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
       <a href="https://vuldb.com/cve/CVE-2026-105134" target="_blank">官方補丁 ↗</a>
     </div>
     <div class="detail">
-      <div class="en">A flaw has been found in Ahsay AhsayCBS up to 10.3.2. This vulnerability affects unknown code of the file /rps/api/json/UpdateReceivers.do of the component Replication Receiver. Executing a manipulation of the argument random can lead to os command injection. It is possible to launch the attack remotely. The exploit has been published and may be used. Upgrading to version 10.3.4 is able to resolve this issue. Upgrading the affected component is advised.</div>
+      <div class="lang"><div class="lang-tag">中文提煉</div><div>Replication Receiver 組件參數處理不當，導致遠端指令注入。</div></div>
+      <div class="lang"><div class="lang-tag">英文原文</div><div class="en">A flaw has been found in Ahsay AhsayCBS up to 10.3.2. This vulnerability affects unknown code of the file /rps/api/json/UpdateReceivers.do of the component Replication Receiver. Executing a manipulation of the argument random can lead to os command injection. It is possible to launch the attack remotely. The exploit has been published and may be used. Upgrading to version 10.3.4 is able to resolve this issue. Upgrading the affected component is advised.</div></div>
       <div>修補建議：升級至 10.3.4 或更高版本。</div>
       
       <div style="margin-top:6px">更多參考：<a href="https://vuldb.com/submit/942743" target="_blank">[2]</a> <a href="https://vuldb.com/vuln/413351" target="_blank">[3]</a> <a href="https://vuldb.com/vuln/413351/cti" target="_blank">[4]</a> <a href="https://www.ahsay.com/en/support/help-centre/release-notes/cbs/v10.3.4" target="_blank">[5]</a> </div>
@@ -209,10 +213,11 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
       <a href="https://github.com/advisories/GHSA-33jq-p8c2-q3q4" target="_blank">官方補丁 ↗</a>
     </div>
     <div class="detail">
-      <div class="en">SiYuan: Unauthenticated SQL injection in searchDocs via unescaped keyword (publish mode): cross-notebook read/write with statement stacking
+      <div class="lang"><div class="lang-tag">中文提煉</div><div>searchDocs 端點未過濾關鍵字，導致未授權 SQL 注入。</div></div>
+      <div class="lang"><div class="lang-tag">英文原文</div><div class="en">SiYuan: Unauthenticated SQL injection in searchDocs via unescaped keyword (publish mode): cross-notebook read/write with statement stacking
 ### Summary
 
-The `/api/filetree/searchDocs` endpoint concatenates the caller-supplied search keyword directly into a SQL statement with no escaping and no parameter binding. The endpoint is gated by `CheckAuth` only reachable by the publish RoleReader token, and by the anonymous account when `Publish.Auth.Enable` is `false`. The resulting statement runs on a read-write SQLite handle through a driver that executes stacked (`;`-separated) statements, against</div>
+The `/api/filetree/searchDocs` endpoint concatenates the caller-supplied search keyword directly into a SQL statement with no escaping and no parameter binding. The endpoint is gated by `CheckAuth` only reachable by the publish RoleReader token, and by the anonymous account when `Publish.Auth.Enable` is `false`. The resulting statement runs on a read-write SQLite handle through a driver that executes stacked (`;`-separated) statements, against</div></div>
       <div>修補建議：建議更新至最新版本並限制 API 存取。</div>
       
       
@@ -234,10 +239,11 @@ The `/api/filetree/searchDocs` endpoint concatenates the caller-supplied search 
       <a href="https://github.com/advisories/GHSA-647f-g98j-qq25" target="_blank">官方補丁 ↗</a>
     </div>
     <div class="detail">
-      <div class="en">vm2: GHSA-m283-3h24-438v fix bypass leads to host RCE via call/apply indirection
+      <div class="lang"><div class="lang-tag">中文提煉</div><div>繞過先前修復補丁，透過 Promise 處理實現沙箱逃逸 RCE。</div></div>
+      <div class="lang"><div class="lang-tag">英文原文</div><div class="en">vm2: GHSA-m283-3h24-438v fix bypass leads to host RCE via call/apply indirection
 ## Summary
 
-Untrusted JavaScript run by vm2 can escape the sandbox and execute arbitrary commands in the host Node.js process when an embedder-exposed host Promise rejects. This is an incomplete fix for GHSA-m283-3h24-438v: the advisory&#39;s capability-bearing rejection rebuild runs only through this direct Promise-handler path, so call/apply indirection bypasses the protection it introduced. The bridge sanitises host rejection values before sandbox callbacks run, but the gate at `lib/bridge.js:1624` identity-checks </div>
+Untrusted JavaScript run by vm2 can escape the sandbox and execute arbitrary commands in the host Node.js process when an embedder-exposed host Promise rejects. This is an incomplete fix for GHSA-m283-3h24-438v: the advisory&#39;s capability-bearing rejection rebuild runs only through this direct Promise-handler path, so call/apply indirection bypasses the protection it introduced. The bridge sanitises host rejection values before sandbox callbacks run, but the gate at `lib/bridge.js:1624` identity-checks </div></div>
       <div>修補建議：vm2 已停止維護，建議遷移至更安全的替代方案。</div>
       
       
@@ -259,7 +265,8 @@ Untrusted JavaScript run by vm2 can escape the sandbox and execute arbitrary com
       <a href="https://gist.github.com/DReazer/7ad46df9da73d0cf414276e4195b2183" target="_blank">官方補丁 ↗</a>
     </div>
     <div class="detail">
-      <div class="en">A vulnerability has been found in InternLM MindSearch 0.1.0. This issue affects the function ExecutionAction.run of the file mindsearch/agent/graph.py of the component Planner Agent. The manipulation of the argument inputs leads to code injection. The attack can be initiated remotely. The exploit has been disclosed to the public and may be used. The vendor was contacted early about this disclosure but did not respond in any way.</div>
+      <div class="lang"><div class="lang-tag">中文提煉</div><div>Planner Agent 組件輸入處理不當，導致遠端代碼注入。</div></div>
+      <div class="lang"><div class="lang-tag">英文原文</div><div class="en">A vulnerability has been found in InternLM MindSearch 0.1.0. This issue affects the function ExecutionAction.run of the file mindsearch/agent/graph.py of the component Planner Agent. The manipulation of the argument inputs leads to code injection. The attack can be initiated remotely. The exploit has been disclosed to the public and may be used. The vendor was contacted early about this disclosure but did not respond in any way.</div></div>
       <div>修補建議：官方尚未回應，建議暫停使用受影響組件或手動修補。</div>
       
       <div style="margin-top:6px">更多參考：<a href="https://vuldb.com/cve/CVE-2026-105135" target="_blank">[2]</a> <a href="https://vuldb.com/submit/943315" target="_blank">[3]</a> <a href="https://vuldb.com/vuln/413352" target="_blank">[4]</a> <a href="https://vuldb.com/vuln/413352/cti" target="_blank">[5]</a> </div>
@@ -275,6 +282,8 @@ Untrusted JavaScript run by vm2 can escape the sandbox and execute arbitrary com
 <div class="hist">
   <h3>Archive / 歷史存檔</h3>
   <div class="hist-grid">
+    
+    <a class="hcard" href="2026-10-17.html"><div class="d">2026-10-17</div><div class="c">5 則・gemini</div></a>
     
     <a class="hcard" href="2026-10-16.html"><div class="d">2026-10-16</div><div class="c">5 則・gemini</div></a>
     
@@ -357,8 +366,6 @@ Untrusted JavaScript run by vm2 can escape the sandbox and execute arbitrary com
   <div class="sub2">琥珀色 = 當日有在野利用，點擊跳轉存檔</div>
   <div class="cal">
   
-    <a class="day has w1" href="2026-09-17.html" title="2026-09-17・高危5則・在野1則">17</a>
-  
     <a class="day has w1" href="2026-09-18.html" title="2026-09-18・高危5則・在野1則">18</a>
   
     <a class="day" href="2026-09-19.html" title="2026-09-19・高危5則・在野0則">19</a>
@@ -415,7 +422,9 @@ Untrusted JavaScript run by vm2 can escape the sandbox and execute arbitrary com
   
     <a class="day has w2" href="2026-10-15.html" title="2026-10-15・高危5則・在野2則">15</a>
   
-    <a class="day has w1" href="2026-10-16.html" title="2026-10-16・高危51則・在野1則">16</a>
+    <a class="day has w1" href="2026-10-16.html" title="2026-10-16・高危5則・在野1則">16</a>
+  
+    <a class="day has w1" href="2026-10-17.html" title="2026-10-17・高危55則・在野1則">17</a>
   
   </div>
   <div class="cal-legend"><span>■ 無在野</span><span style="color:var(--amber)">■ 有在野（顏色越深越多）</span></div>

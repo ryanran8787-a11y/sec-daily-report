@@ -76,7 +76,9 @@ h1 .grad{background:linear-gradient(180deg,var(--grad-from),var(--grad-to));-web
 .row.open .chev{transform:rotate(180deg)}
 .detail{display:none;margin-top:12px;padding-top:12px;border-top:1px dashed var(--border);font-size:13px;color:var(--gray-900)}
 .row.open .detail{display:block}
-.detail .en{margin-bottom:8px}
+.detail .en{margin-bottom:0}
+.lang{border:1px solid var(--border);border-radius:var(--radius-sm);padding:10px 12px;margin-bottom:8px;background:var(--bg)}
+.lang-tag{font-size:10px;color:var(--gray-900);letter-spacing:.08em;text-transform:uppercase;margin-bottom:4px}
 .badge{display:inline-flex;align-items:center;font-size:11px;font-weight:500;border-radius:5px;padding:2px 7px;border:1px solid var(--border);background:var(--gray-100);color:var(--gray-900);font-family:"Geist Mono",ui-monospace,SFMono-Regular,Menlo,monospace;white-space:nowrap}
 .badge.crit{background:var(--red);border-color:var(--red);color:#fff}
 .badge.wild{background:transparent;border-color:var(--amber);color:var(--amber)}
@@ -158,9 +160,10 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
       <a href="https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-sdwan-webauth-xr8beuuU?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Catalyst%20SD-WAN%20Manager%20API%20Authentication%20Bypass%20Vulnerability%26vs_k=1" target="_blank">官方補丁 ↗</a>
     </div>
     <div class="detail">
-      <div class="en">Cisco Catalyst SD-WAN Manager API Authentication Bypass Vulnerability
+      <div class="lang"><div class="lang-tag">中文提煉</div><div>URI 編碼處理不當導致 API 身份驗證繞過，可獲管理員權限。</div></div>
+      <div class="lang"><div class="lang-tag">英文原文</div><div class="en">Cisco Catalyst SD-WAN Manager API Authentication Bypass Vulnerability
 &lt;p&gt;A vulnerability in the API session-based authentication management of Cisco Catalyst SD-WAN Manager could allow an unauthenticated, remote attacker to access an affected system with privileges of the admin user.&lt;/p&gt;
-&lt;p class=&#34;p1&#34;&gt;This vulnerability is due to improper handling of URI encoding in an HTTP request, which allows the request to bypass an authentication rule that is intended to restrict access to a specific API endpoint. An attacker could exploit this vulnerability by sending a crafted HTTP request to the API of</div>
+&lt;p class=&#34;p1&#34;&gt;This vulnerability is due to improper handling of URI encoding in an HTTP request, which allows the request to bypass an authentication rule that is intended to restrict access to a specific API endpoint. An attacker could exploit this vulnerability by sending a crafted HTTP request to the API of</div></div>
       <div>修補建議：升級至官方發布的修復版本。</div>
       
       
@@ -187,10 +190,11 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
       <a href="https://github.com/advisories/GHSA-pq68-rvw4-xp4r" target="_blank">官方補丁 ↗</a>
     </div>
     <div class="detail">
-      <div class="en">vm2 contains a sandbox escape vulnerability
+      <div class="lang"><div class="lang-tag">中文提煉</div><div>黑名單遺漏 child_process 導致沙箱逃逸並執行任意指令。</div></div>
+      <div class="lang"><div class="lang-tag">英文原文</div><div class="en">vm2 contains a sandbox escape vulnerability
 vm2 NodeVM versions before 3.12.1 contain a sandbox escape vulnerability where the DANGEROUS_BUILTINS denylist omits child_process despite blocking other host-spawning modules. Attackers can require child_process and execute arbitrary commands on the host system when NodeVM is configured with builtin:[&#39;*&#39;] or explicit child_process allowance.
 
-This fork hardens `NodeVM` with a `DANGEROUS_BUILTINS` denylist that blocks host‑code‑reaching core modules **even when the sandbox requests `builtin:[&#39;*&#39;]` or names them explicitly** — the list contains `modul</div>
+This fork hardens `NodeVM` with a `DANGEROUS_BUILTINS` denylist that blocks host‑code‑reaching core modules **even when the sandbox requests `builtin:[&#39;*&#39;]` or names them explicitly** — the list contains `modul</div></div>
       <div>修補建議：升級至 3.12.1 或更新版本。</div>
       
       
@@ -212,7 +216,8 @@ This fork hardens `NodeVM` with a `DANGEROUS_BUILTINS` denylist that blocks host
       <a href="https://github.com/advisories/GHSA-r488-j9vj-wx3q" target="_blank">官方補丁 ↗</a>
     </div>
     <div class="detail">
-      <div class="en">Payload Form Builder has an RCE issue
+      <div class="lang"><div class="lang-tag">中文提煉</div><div>惡意提交表單可觸發遠端程式碼執行漏洞。</div></div>
+      <div class="lang"><div class="lang-tag">英文原文</div><div class="en">Payload Form Builder has an RCE issue
 ## Impact
 
 A vulnerability in `@payloadcms/plugin-form-builder` in versions &lt; 3.90.0 allow submissions which could be crafted to execute remote code on the server.
@@ -223,7 +228,7 @@ A vulnerability in `@payloadcms/plugin-form-builder` in versions &lt; 3.90.0 all
 
 ## Patches
 
-Users should upgrade Payload packages to `&gt;= 3.90.0` or `&gt;= 4.0.0-canary.34`.</div>
+Users should upgrade Payload packages to `&gt;= 3.90.0` or `&gt;= 4.0.0-canary.34`.</div></div>
       <div>修補建議：升級至 3.90.0 或 4.0.0-canary.34 以上。</div>
       
       
@@ -245,7 +250,8 @@ Users should upgrade Payload packages to `&gt;= 3.90.0` or `&gt;= 4.0.0-canary.3
       <a href="https://psirt.global.sonicwall.com/vuln-detail/SNWLID-2026-0017" target="_blank">官方補丁 ↗</a>
     </div>
     <div class="detail">
-      <div class="en">A Pre-authentication SSRF vulnerability exists in the SMA1000 Appliance Work Place interface due to an unintended alternate access path. By abusing this path, a remote unauthenticated attacker could potentially exploit this vulnerability to direct the appliance to issue requests on their behalf and reach internal functionality and perform unauthorized operations.</div>
+      <div class="lang"><div class="lang-tag">中文提煉</div><div>存取路徑漏洞允許未授權攻擊者發起 SSRF 請求。</div></div>
+      <div class="lang"><div class="lang-tag">英文原文</div><div class="en">A Pre-authentication SSRF vulnerability exists in the SMA1000 Appliance Work Place interface due to an unintended alternate access path. By abusing this path, a remote unauthenticated attacker could potentially exploit this vulnerability to direct the appliance to issue requests on their behalf and reach internal functionality and perform unauthorized operations.</div></div>
       <div>修補建議：參考官方公告並更新韌體。</div>
       
       
@@ -267,7 +273,8 @@ Users should upgrade Payload packages to `&gt;= 3.90.0` or `&gt;= 4.0.0-canary.3
       <a href="http://download.fanvil.com/Firmware/Release/X7A/" target="_blank">官方補丁 ↗</a>
     </div>
     <div class="detail">
-      <div class="en">The management portal&#39;s diagnostic ping tool of Fanvil x7a firmware version 2.6.0.1182 does not handle user supplied input securely. The lack of secure user input handling allows any unauthenticated attacker to inject commands and run code in the underlying Android operating system.</div>
+      <div class="lang"><div class="lang-tag">中文提煉</div><div>診斷工具未過濾輸入，導致未授權遠端執行指令。</div></div>
+      <div class="lang"><div class="lang-tag">英文原文</div><div class="en">The management portal&#39;s diagnostic ping tool of Fanvil x7a firmware version 2.6.0.1182 does not handle user supplied input securely. The lack of secure user input handling allows any unauthenticated attacker to inject commands and run code in the underlying Android operating system.</div></div>
       <div>修補建議：升級至最新韌體版本。</div>
       
       <div style="margin-top:6px">更多參考：<a href="https://www.darkpoint.ca/blog/2026/02/27/Fanvil-x7a-PA2S-Vulnerability-Disclosure" target="_blank">[2]</a> <a href="https://www.fanvil.com/products/p1/x/20210921/5043.html" target="_blank">[3]</a> <a href="https://www.darkpoint.ca/blog/2026/02/27/Fanvil-x7a-PA2S-Vulnerability-Disclosure" target="_blank">[4]</a> </div>
@@ -283,6 +290,8 @@ Users should upgrade Payload packages to `&gt;= 3.90.0` or `&gt;= 4.0.0-canary.3
 <div class="hist">
   <h3>Archive / 歷史存檔</h3>
   <div class="hist-grid">
+    
+    <a class="hcard" href="2026-10-17.html"><div class="d">2026-10-17</div><div class="c">5 則・gemini</div></a>
     
     <a class="hcard" href="2026-10-16.html"><div class="d">2026-10-16</div><div class="c">5 則・gemini</div></a>
     
@@ -365,8 +374,6 @@ Users should upgrade Payload packages to `&gt;= 3.90.0` or `&gt;= 4.0.0-canary.3
   <div class="sub2">琥珀色 = 當日有在野利用，點擊跳轉存檔</div>
   <div class="cal">
   
-    <a class="day has w1" href="2026-09-17.html" title="2026-09-17・高危5則・在野1則">17</a>
-  
     <a class="day has w1" href="2026-09-18.html" title="2026-09-18・高危5則・在野1則">18</a>
   
     <a class="day" href="2026-09-19.html" title="2026-09-19・高危5則・在野0則">19</a>
@@ -423,7 +430,9 @@ Users should upgrade Payload packages to `&gt;= 3.90.0` or `&gt;= 4.0.0-canary.3
   
     <a class="day has w2" href="2026-10-15.html" title="2026-10-15・高危5則・在野2則">15</a>
   
-    <a class="day has w1" href="2026-10-16.html" title="2026-10-16・高危51則・在野1則">16</a>
+    <a class="day has w1" href="2026-10-16.html" title="2026-10-16・高危5則・在野1則">16</a>
+  
+    <a class="day has w1" href="2026-10-17.html" title="2026-10-17・高危55則・在野1則">17</a>
   
   </div>
   <div class="cal-legend"><span>■ 無在野</span><span style="color:var(--amber)">■ 有在野（顏色越深越多）</span></div>

@@ -76,7 +76,9 @@ h1 .grad{background:linear-gradient(180deg,var(--grad-from),var(--grad-to));-web
 .row.open .chev{transform:rotate(180deg)}
 .detail{display:none;margin-top:12px;padding-top:12px;border-top:1px dashed var(--border);font-size:13px;color:var(--gray-900)}
 .row.open .detail{display:block}
-.detail .en{margin-bottom:8px}
+.detail .en{margin-bottom:0}
+.lang{border:1px solid var(--border);border-radius:var(--radius-sm);padding:10px 12px;margin-bottom:8px;background:var(--bg)}
+.lang-tag{font-size:10px;color:var(--gray-900);letter-spacing:.08em;text-transform:uppercase;margin-bottom:4px}
 .badge{display:inline-flex;align-items:center;font-size:11px;font-weight:500;border-radius:5px;padding:2px 7px;border:1px solid var(--border);background:var(--gray-100);color:var(--gray-900);font-family:"Geist Mono",ui-monospace,SFMono-Regular,Menlo,monospace;white-space:nowrap}
 .badge.crit{background:var(--red);border-color:var(--red);color:#fff}
 .badge.wild{background:transparent;border-color:var(--amber);color:var(--amber)}
@@ -158,9 +160,10 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
       <a href="https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-sdwan-webauth-xr8beuuU?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Catalyst%20SD-WAN%20Manager%20API%20Authentication%20Bypass%20Vulnerability%26vs_k=1" target="_blank">官方補丁 ↗</a>
     </div>
     <div class="detail">
-      <div class="en">Cisco Catalyst SD-WAN Manager API Authentication Bypass Vulnerability
+      <div class="lang"><div class="lang-tag">中文提煉</div><div>API 認證繞過可讓攻擊者取得管理員權限。</div></div>
+      <div class="lang"><div class="lang-tag">英文原文</div><div class="en">Cisco Catalyst SD-WAN Manager API Authentication Bypass Vulnerability
 &lt;p&gt;A vulnerability in the API session-based authentication management of Cisco Catalyst SD-WAN Manager could allow an unauthenticated, remote attacker to access an affected system with privileges of the admin user.&lt;/p&gt;
-&lt;p class=&#34;p1&#34;&gt;This vulnerability is due to improper handling of URI encoding in an HTTP request, which allows the request to bypass an authentication rule that is intended to restrict access to a specific API endpoint. An attacker could exploit this vulnerability by sending a crafted HTTP request to the API of</div>
+&lt;p class=&#34;p1&#34;&gt;This vulnerability is due to improper handling of URI encoding in an HTTP request, which allows the request to bypass an authentication rule that is intended to restrict access to a specific API endpoint. An attacker could exploit this vulnerability by sending a crafted HTTP request to the API of</div></div>
       <div>修補建議：更新至官方發布的最新版本。</div>
       
       
@@ -187,10 +190,11 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
       <a href="https://github.com/advisories/GHSA-33jq-p8c2-q3q4" target="_blank">官方補丁 ↗</a>
     </div>
     <div class="detail">
-      <div class="en">SiYuan: Unauthenticated SQL injection in searchDocs via unescaped keyword (publish mode): cross-notebook read/write with statement stacking
+      <div class="lang"><div class="lang-tag">中文提煉</div><div>未經授權 SQL 注入可讀寫所有筆記本內容。</div></div>
+      <div class="lang"><div class="lang-tag">英文原文</div><div class="en">SiYuan: Unauthenticated SQL injection in searchDocs via unescaped keyword (publish mode): cross-notebook read/write with statement stacking
 ### Summary
 
-The `/api/filetree/searchDocs` endpoint concatenates the caller-supplied search keyword directly into a SQL statement with no escaping and no parameter binding. The endpoint is gated by `CheckAuth` only reachable by the publish RoleReader token, and by the anonymous account when `Publish.Auth.Enable` is `false`. The resulting statement runs on a read-write SQLite handle through a driver that executes stacked (`;`-separated) statements, against</div>
+The `/api/filetree/searchDocs` endpoint concatenates the caller-supplied search keyword directly into a SQL statement with no escaping and no parameter binding. The endpoint is gated by `CheckAuth` only reachable by the publish RoleReader token, and by the anonymous account when `Publish.Auth.Enable` is `false`. The resulting statement runs on a read-write SQLite handle through a driver that executes stacked (`;`-separated) statements, against</div></div>
       <div>修補建議：升級至最新版本並啟用認證功能。</div>
       
       
@@ -212,10 +216,11 @@ The `/api/filetree/searchDocs` endpoint concatenates the caller-supplied search 
       <a href="https://github.com/advisories/GHSA-647f-g98j-qq25" target="_blank">官方補丁 ↗</a>
     </div>
     <div class="detail">
-      <div class="en">vm2: GHSA-m283-3h24-438v fix bypass leads to host RCE via call/apply indirection
+      <div class="lang"><div class="lang-tag">中文提煉</div><div>繞過修補程序導致主機執行任意指令。</div></div>
+      <div class="lang"><div class="lang-tag">英文原文</div><div class="en">vm2: GHSA-m283-3h24-438v fix bypass leads to host RCE via call/apply indirection
 ## Summary
 
-Untrusted JavaScript run by vm2 can escape the sandbox and execute arbitrary commands in the host Node.js process when an embedder-exposed host Promise rejects. This is an incomplete fix for GHSA-m283-3h24-438v: the advisory&#39;s capability-bearing rejection rebuild runs only through this direct Promise-handler path, so call/apply indirection bypasses the protection it introduced. The bridge sanitises host rejection values before sandbox callbacks run, but the gate at `lib/bridge.js:1624` identity-checks </div>
+Untrusted JavaScript run by vm2 can escape the sandbox and execute arbitrary commands in the host Node.js process when an embedder-exposed host Promise rejects. This is an incomplete fix for GHSA-m283-3h24-438v: the advisory&#39;s capability-bearing rejection rebuild runs only through this direct Promise-handler path, so call/apply indirection bypasses the protection it introduced. The bridge sanitises host rejection values before sandbox callbacks run, but the gate at `lib/bridge.js:1624` identity-checks </div></div>
       <div>修補建議：建議停止使用 vm2 或更新至修復版本。</div>
       
       
@@ -237,14 +242,15 @@ Untrusted JavaScript run by vm2 can escape the sandbox and execute arbitrary com
       <a href="https://github.com/advisories/GHSA-h85j-hv3c-qfgq" target="_blank">官方補丁 ↗</a>
     </div>
     <div class="detail">
-      <div class="en">vm2 exposes host HTTPS credentials and TLS traffic through globalAgent
+      <div class="lang"><div class="lang-tag">中文提煉</div><div>暴露主機 HTTPS 憑證與 TLS 流量內容。</div></div>
+      <div class="lang"><div class="lang-tag">英文原文</div><div class="en">vm2 exposes host HTTPS credentials and TLS traffic through globalAgent
 Summary
 
 vm2 3.11.6 exposes the host process&#39;s real `https.globalAgent` when a `NodeVM` is explicitly allowed to require `https`. The module is wrapped as read-only, but calls to methods on the shared agent still mutate the host object. Sandbox code can register a `free` listener and receive host request options and the host TLS socket whenever an unrelated host HTTPS request releases a pooled connection.
 
 In a contained test, sandbox code allowed only the `https` builtin:
 
-- read the host request&#39;s bearer token from the ag</div>
+- read the host request&#39;s bearer token from the ag</div></div>
       <div>修補建議：建議遷移至更安全的沙箱環境。</div>
       
       
@@ -266,12 +272,13 @@ In a contained test, sandbox code allowed only the `https` builtin:
       <a href="https://github.com/advisories/GHSA-98xx-8mx4-x7cm" target="_blank">官方補丁 ↗</a>
     </div>
     <div class="detail">
-      <div class="en">vm2 NodeVM can replace the host process TLS trust store
+      <div class="lang"><div class="lang-tag">中文提煉</div><div>沙箱代碼可替換主機 TLS 憑證授權中心。</div></div>
+      <div class="lang"><div class="lang-tag">英文原文</div><div class="en">vm2 NodeVM can replace the host process TLS trust store
 Summary
 
 vm2 3.11.6 exposes the host `tls` module to a `NodeVM` when that builtin is explicitly allowed. Although the module object is wrapped as read-only, its functions still execute against process-wide host state. On Node.js versions that provide `tls.setDefaultCACertificates()`, sandbox code can replace the certificate authorities trusted by subsequent host-realm TLS clients.
 
-The exploit needs only the narrowly allowed `tls` and `url` builtins. It does not require `fs`, `process`, `module`, `child_process`, an external package, or a</div>
+The exploit needs only the narrowly allowed `tls` and `url` builtins. It does not require `fs`, `process`, `module`, `child_process`, an external package, or a</div></div>
       <div>修補建議：建議遷移至維護中的沙箱庫。</div>
       
       
@@ -287,6 +294,8 @@ The exploit needs only the narrowly allowed `tls` and `url` builtins. It does no
 <div class="hist">
   <h3>Archive / 歷史存檔</h3>
   <div class="hist-grid">
+    
+    <a class="hcard" href="2026-10-17.html"><div class="d">2026-10-17</div><div class="c">5 則・gemini</div></a>
     
     <a class="hcard" href="2026-10-16.html"><div class="d">2026-10-16</div><div class="c">5 則・gemini</div></a>
     
@@ -369,8 +378,6 @@ The exploit needs only the narrowly allowed `tls` and `url` builtins. It does no
   <div class="sub2">琥珀色 = 當日有在野利用，點擊跳轉存檔</div>
   <div class="cal">
   
-    <a class="day has w1" href="2026-09-17.html" title="2026-09-17・高危5則・在野1則">17</a>
-  
     <a class="day has w1" href="2026-09-18.html" title="2026-09-18・高危5則・在野1則">18</a>
   
     <a class="day" href="2026-09-19.html" title="2026-09-19・高危5則・在野0則">19</a>
@@ -427,7 +434,9 @@ The exploit needs only the narrowly allowed `tls` and `url` builtins. It does no
   
     <a class="day has w2" href="2026-10-15.html" title="2026-10-15・高危5則・在野2則">15</a>
   
-    <a class="day has w1" href="2026-10-16.html" title="2026-10-16・高危51則・在野1則">16</a>
+    <a class="day has w1" href="2026-10-16.html" title="2026-10-16・高危5則・在野1則">16</a>
+  
+    <a class="day has w1" href="2026-10-17.html" title="2026-10-17・高危55則・在野1則">17</a>
   
   </div>
   <div class="cal-legend"><span>■ 無在野</span><span style="color:var(--amber)">■ 有在野（顏色越深越多）</span></div>

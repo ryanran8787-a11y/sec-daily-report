@@ -76,7 +76,9 @@ h1 .grad{background:linear-gradient(180deg,var(--grad-from),var(--grad-to));-web
 .row.open .chev{transform:rotate(180deg)}
 .detail{display:none;margin-top:12px;padding-top:12px;border-top:1px dashed var(--border);font-size:13px;color:var(--gray-900)}
 .row.open .detail{display:block}
-.detail .en{margin-bottom:8px}
+.detail .en{margin-bottom:0}
+.lang{border:1px solid var(--border);border-radius:var(--radius-sm);padding:10px 12px;margin-bottom:8px;background:var(--bg)}
+.lang-tag{font-size:10px;color:var(--gray-900);letter-spacing:.08em;text-transform:uppercase;margin-bottom:4px}
 .badge{display:inline-flex;align-items:center;font-size:11px;font-weight:500;border-radius:5px;padding:2px 7px;border:1px solid var(--border);background:var(--gray-100);color:var(--gray-900);font-family:"Geist Mono",ui-monospace,SFMono-Regular,Menlo,monospace;white-space:nowrap}
 .badge.crit{background:var(--red);border-color:var(--red);color:#fff}
 .badge.wild{background:transparent;border-color:var(--amber);color:var(--amber)}
@@ -159,7 +161,8 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
       <a href="https://github.com/wudipjq/my_vuln/blob/main/Linksys3/vuln_66/66.md" target="_blank">官方補丁 ↗</a>
     </div>
     <div class="detail">
-      <div class="en">A vulnerability was determined in Linksys E1700 1.0.0.4.003. This vulnerability affects the function ssid1MACFilter of the file /goform/ssid1MACFilter of the component Mac Filter. This manipulation of the argument newap_text_%d causes stack-based buffer overflow. The attack may be initiated remotely. The exploit has been publicly disclosed and may be utilized. The vendor was contacted early about this disclosure but did not respond in any way.</div>
+      <div class="lang"><div class="lang-tag">中文提煉</div><div>Mac Filter 組件緩衝區溢位，可遠端攻擊。</div></div>
+      <div class="lang"><div class="lang-tag">英文原文</div><div class="en">A vulnerability was determined in Linksys E1700 1.0.0.4.003. This vulnerability affects the function ssid1MACFilter of the file /goform/ssid1MACFilter of the component Mac Filter. This manipulation of the argument newap_text_%d causes stack-based buffer overflow. The attack may be initiated remotely. The exploit has been publicly disclosed and may be utilized. The vendor was contacted early about this disclosure but did not respond in any way.</div></div>
       <div>修補建議：廠商未回應，建議限制存取或更換設備。</div>
       
       <div style="margin-top:6px">更多參考：<a href="https://vuldb.com/cve/CVE-2026-108892" target="_blank">[2]</a> <a href="https://vuldb.com/submit/973111" target="_blank">[3]</a> <a href="https://vuldb.com/vuln/416684" target="_blank">[4]</a> <a href="https://vuldb.com/vuln/416684/cti" target="_blank">[5]</a> </div>
@@ -181,7 +184,8 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
       <a href="https://github.com/draw-ctf/report/blob/main/NR268/2026.09.14-netcore-nr268-boa-auth-fail-open.md" target="_blank">官方補丁 ↗</a>
     </div>
     <div class="detail">
-      <div class="en">A vulnerability was determined in Netcore NR268 1.7.121109. Affected is the function user_ok of the component CGI Execution. This manipulation causes improper authentication. The attack can be initiated remotely. The exploit has been publicly disclosed and may be utilized. The vendor was contacted early about this disclosure but did not respond in any way.</div>
+      <div class="lang"><div class="lang-tag">中文提煉</div><div>CGI 執行組件驗證不當，可遠端繞過驗證。</div></div>
+      <div class="lang"><div class="lang-tag">英文原文</div><div class="en">A vulnerability was determined in Netcore NR268 1.7.121109. Affected is the function user_ok of the component CGI Execution. This manipulation causes improper authentication. The attack can be initiated remotely. The exploit has been publicly disclosed and may be utilized. The vendor was contacted early about this disclosure but did not respond in any way.</div></div>
       <div>修補建議：廠商未回應，建議加強網路邊界防護。</div>
       
       <div style="margin-top:6px">更多參考：<a href="https://vuldb.com/cve/CVE-2026-108907" target="_blank">[2]</a> <a href="https://vuldb.com/submit/977173" target="_blank">[3]</a> <a href="https://vuldb.com/vuln/416702" target="_blank">[4]</a> <a href="https://vuldb.com/vuln/416702/cti" target="_blank">[5]</a> </div>
@@ -203,7 +207,8 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
       <a href="https://github.com/fizz-is-on-the-way/Iot_vuls/tree/main/BR-6208AC/RCE_formAutoFWupgrade" target="_blank">官方補丁 ↗</a>
     </div>
     <div class="detail">
-      <div class="en">A vulnerability was determined in Edimax BR-6208AC 1.32. This issue affects some unknown processing of the file /goform/formAutoFWupgrade. Executing a manipulation of the argument tftpsIP can lead to command injection. The attack may be performed from remote. The exploit has been publicly disclosed and may be utilized. The vendor was contacted early about this disclosure but did not respond in any way. This vulnerability only affects products that are no longer supported by the maintainer.</div>
+      <div class="lang"><div class="lang-tag">中文提煉</div><div>韌體更新組件指令注入，可遠端執行指令。</div></div>
+      <div class="lang"><div class="lang-tag">英文原文</div><div class="en">A vulnerability was determined in Edimax BR-6208AC 1.32. This issue affects some unknown processing of the file /goform/formAutoFWupgrade. Executing a manipulation of the argument tftpsIP can lead to command injection. The attack may be performed from remote. The exploit has been publicly disclosed and may be utilized. The vendor was contacted early about this disclosure but did not respond in any way. This vulnerability only affects products that are no longer supported by the maintainer.</div></div>
       <div>修補建議：產品已停止支援，建議更換受支援設備。</div>
       
       <div style="margin-top:6px">更多參考：<a href="https://vuldb.com/cve/CVE-2026-108917" target="_blank">[2]</a> <a href="https://vuldb.com/submit/977199" target="_blank">[3]</a> <a href="https://vuldb.com/vuln/416729" target="_blank">[4]</a> <a href="https://vuldb.com/vuln/416729/cti" target="_blank">[5]</a> </div>
@@ -225,7 +230,8 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
       <a href="https://github.com/fizz-is-on-the-way/Iot_vuls/tree/main/BR-6208AC/RCE_formWlanMP" target="_blank">官方補丁 ↗</a>
     </div>
     <div class="detail">
-      <div class="en">A vulnerability was identified in Edimax BR-6208AC 1.32. Impacted is an unknown function of the file /goform/formWlanMP. The manipulation of the argument readE2P leads to command injection. It is possible to initiate the attack remotely. The exploit is publicly available and might be used. The vendor was contacted early about this disclosure but did not respond in any way. This vulnerability only affects products that are no longer supported by the maintainer.</div>
+      <div class="lang"><div class="lang-tag">中文提煉</div><div>無線管理組件指令注入，可遠端執行指令。</div></div>
+      <div class="lang"><div class="lang-tag">英文原文</div><div class="en">A vulnerability was identified in Edimax BR-6208AC 1.32. Impacted is an unknown function of the file /goform/formWlanMP. The manipulation of the argument readE2P leads to command injection. It is possible to initiate the attack remotely. The exploit is publicly available and might be used. The vendor was contacted early about this disclosure but did not respond in any way. This vulnerability only affects products that are no longer supported by the maintainer.</div></div>
       <div>修補建議：產品已停止支援，建議更換受支援設備。</div>
       
       <div style="margin-top:6px">更多參考：<a href="https://vuldb.com/cve/CVE-2026-108918" target="_blank">[2]</a> <a href="https://vuldb.com/submit/977200" target="_blank">[3]</a> <a href="https://vuldb.com/vuln/416730" target="_blank">[4]</a> <a href="https://vuldb.com/vuln/416730/cti" target="_blank">[5]</a> </div>
@@ -247,7 +253,8 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
       <a href="https://github.com/SAP/cloud-sdk-python/security/advisories/GHSA-4mv3-jxxm-9cx2" target="_blank">官方補丁 ↗</a>
     </div>
     <div class="detail">
-      <div class="en">The SAP Cloud SDK for Python contains an OAuth2 SSRF vulnerability affecting multi-tenant BTP applications. An attacker who controls the tenant_subdomain parameter can redirect OAuth2 token requests to an attacker-controlled server, causing client credentials to be exfiltrated.</div>
+      <div class="lang"><div class="lang-tag">中文提煉</div><div>OAuth2 請求可被重導向，導致憑證外洩。</div></div>
+      <div class="lang"><div class="lang-tag">英文原文</div><div class="en">The SAP Cloud SDK for Python contains an OAuth2 SSRF vulnerability affecting multi-tenant BTP applications. An attacker who controls the tenant_subdomain parameter can redirect OAuth2 token requests to an attacker-controlled server, causing client credentials to be exfiltrated.</div></div>
       <div>修補建議：請參考 SAP 安全更新公告進行修補。</div>
       
       <div style="margin-top:6px">更多參考：<a href="https://url.sap/sapsecuritypatchday" target="_blank">[2]</a> </div>
@@ -263,6 +270,8 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
 <div class="hist">
   <h3>Archive / 歷史存檔</h3>
   <div class="hist-grid">
+    
+    <a class="hcard" href="2026-10-17.html"><div class="d">2026-10-17</div><div class="c">5 則・gemini</div></a>
     
     <a class="hcard" href="2026-10-16.html"><div class="d">2026-10-16</div><div class="c">5 則・gemini</div></a>
     
@@ -345,8 +354,6 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
   <div class="sub2">琥珀色 = 當日有在野利用，點擊跳轉存檔</div>
   <div class="cal">
   
-    <a class="day has w1" href="2026-09-17.html" title="2026-09-17・高危5則・在野1則">17</a>
-  
     <a class="day has w1" href="2026-09-18.html" title="2026-09-18・高危5則・在野1則">18</a>
   
     <a class="day" href="2026-09-19.html" title="2026-09-19・高危5則・在野0則">19</a>
@@ -403,7 +410,9 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
   
     <a class="day has w2" href="2026-10-15.html" title="2026-10-15・高危5則・在野2則">15</a>
   
-    <a class="day has w1" href="2026-10-16.html" title="2026-10-16・高危51則・在野1則">16</a>
+    <a class="day has w1" href="2026-10-16.html" title="2026-10-16・高危5則・在野1則">16</a>
+  
+    <a class="day has w1" href="2026-10-17.html" title="2026-10-17・高危55則・在野1則">17</a>
   
   </div>
   <div class="cal-legend"><span>■ 無在野</span><span style="color:var(--amber)">■ 有在野（顏色越深越多）</span></div>

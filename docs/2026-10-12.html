@@ -76,7 +76,9 @@ h1 .grad{background:linear-gradient(180deg,var(--grad-from),var(--grad-to));-web
 .row.open .chev{transform:rotate(180deg)}
 .detail{display:none;margin-top:12px;padding-top:12px;border-top:1px dashed var(--border);font-size:13px;color:var(--gray-900)}
 .row.open .detail{display:block}
-.detail .en{margin-bottom:8px}
+.detail .en{margin-bottom:0}
+.lang{border:1px solid var(--border);border-radius:var(--radius-sm);padding:10px 12px;margin-bottom:8px;background:var(--bg)}
+.lang-tag{font-size:10px;color:var(--gray-900);letter-spacing:.08em;text-transform:uppercase;margin-bottom:4px}
 .badge{display:inline-flex;align-items:center;font-size:11px;font-weight:500;border-radius:5px;padding:2px 7px;border:1px solid var(--border);background:var(--gray-100);color:var(--gray-900);font-family:"Geist Mono",ui-monospace,SFMono-Regular,Menlo,monospace;white-space:nowrap}
 .badge.crit{background:var(--red);border-color:var(--red);color:#fff}
 .badge.wild{background:transparent;border-color:var(--amber);color:var(--amber)}
@@ -159,7 +161,8 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
       <a href="https://github.com/danish1162/CVE-2026-2035703-x300/security/advisories/GHSA-qcpp-vfr2-v242" target="_blank">官方補丁 ↗</a>
     </div>
     <div class="detail">
-      <div class="en">A vulnerability was found in TOZED X300 up to 6.01.3. This vulnerability affects the function process_ping of the component IPPingDiagnostics Handler. The manipulation of the argument Host results in os command injection. The attack can be launched remotely. The vendor was contacted early about this disclosure but did not respond in any way.</div>
+      <div class="lang"><div class="lang-tag">中文提煉</div><div>IPPing 組件存在指令注入，允許遠端執行指令。</div></div>
+      <div class="lang"><div class="lang-tag">英文原文</div><div class="en">A vulnerability was found in TOZED X300 up to 6.01.3. This vulnerability affects the function process_ping of the component IPPingDiagnostics Handler. The manipulation of the argument Host results in os command injection. The attack can be launched remotely. The vendor was contacted early about this disclosure but did not respond in any way.</div></div>
       <div>修補建議：廠商未回應，建議限制網路存取或更換設備。</div>
       
       <div style="margin-top:6px">更多參考：<a href="https://vuldb.com/cve/CVE-2026-108576" target="_blank">[2]</a> <a href="https://vuldb.com/submit/956290" target="_blank">[3]</a> <a href="https://vuldb.com/vuln/416233" target="_blank">[4]</a> <a href="https://vuldb.com/vuln/416233/cti" target="_blank">[5]</a> </div>
@@ -181,7 +184,8 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
       <a href="https://github.com/SECWG/CVE/issues/10" target="_blank">官方補丁 ↗</a>
     </div>
     <div class="detail">
-      <div class="en">A flaw has been found in OpenSpug Spug up to 3.4.0/4.0.1. This impacts an unknown function of the file /exec/transfer of the component File Transfer. Executing a manipulation can lead to os command injection. The attack may be launched remotely. The exploit has been published and may be used. The vendor was contacted early about this disclosure but did not respond in any way.</div>
+      <div class="lang"><div class="lang-tag">中文提煉</div><div>檔案傳輸功能存在指令注入，可導致遠端執行。</div></div>
+      <div class="lang"><div class="lang-tag">英文原文</div><div class="en">A flaw has been found in OpenSpug Spug up to 3.4.0/4.0.1. This impacts an unknown function of the file /exec/transfer of the component File Transfer. Executing a manipulation can lead to os command injection. The attack may be launched remotely. The exploit has been published and may be used. The vendor was contacted early about this disclosure but did not respond in any way.</div></div>
       <div>修補建議：廠商未回應，建議暫停使用相關功能並加強過濾。</div>
       
       <div style="margin-top:6px">更多參考：<a href="https://vuldb.com/cve/CVE-2026-108540" target="_blank">[2]</a> <a href="https://vuldb.com/submit/948328" target="_blank">[3]</a> <a href="https://vuldb.com/vuln/416195" target="_blank">[4]</a> <a href="https://vuldb.com/vuln/416195/cti" target="_blank">[5]</a> </div>
@@ -203,7 +207,8 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
       <a href="https://github.com/advisories/GHSA-9mp3-24cc-77mg" target="_blank">官方補丁 ↗</a>
     </div>
     <div class="detail">
-      <div class="en">PraisonAI: AICoder Arbitrary File Write and Command Execution via LLM Tool Calls
+      <div class="lang"><div class="lang-tag">中文提煉</div><div>LLM 工具調用缺乏驗證，可寫入檔案並執行指令。</div></div>
+      <div class="lang"><div class="lang-tag">英文原文</div><div class="en">PraisonAI: AICoder Arbitrary File Write and Command Execution via LLM Tool Calls
 ### Summary
 The `AICoder` UI component exposes `write_to_file` and `execute_command` tools to the LLM with no path validation and no command sanitization. An attacker can achieve arbitrary file write to any location on the filesystem (including `/root/.ssh/authorized_keys`, `/etc/crontab`) and arbitrary command execution through prompt injection in the chat interface. Docker containers run as root, maximizing impact.
 
@@ -211,7 +216,7 @@ The `AICoder` UI component exposes `write_to_file` and `execute_command` tools t
 
 #### Path Traversal in write_to_file
 
-`src/praisonai/praisonai/ui/components/aicoder</div>
+`src/praisonai/praisonai/ui/components/aicoder</div></div>
       <div>修補建議：升級至最新版本並對 LLM 工具調用實施路徑驗證。</div>
       
       
@@ -233,10 +238,11 @@ The `AICoder` UI component exposes `write_to_file` and `execute_command` tools t
       <a href="https://github.com/advisories/GHSA-ww5h-9m49-7xx4" target="_blank">官方補丁 ↗</a>
     </div>
     <div class="detail">
-      <div class="en">fast-jwt: Incomplete patch of CVE-2026-34950: Non-whitespace key-prefix re-enables RSA→HS256 algorithm confusion
+      <div class="lang"><div class="lang-tag">中文提煉</div><div>補丁不完全導致演算法混淆，攻擊者可偽造 JWT。</div></div>
+      <div class="lang"><div class="lang-tag">英文原文</div><div class="en">fast-jwt: Incomplete patch of CVE-2026-34950: Non-whitespace key-prefix re-enables RSA→HS256 algorithm confusion
 ### Summary
 
-The fix for CVE-2026-34950 (CVSS 9.1, released in v6.2.0) is **incomplete**. It adds `key.trim()` to the PEM-detection path in `src/crypto.js`, but `String.prototype.trim()` only strips characters classified as whitespace by the ECMAScript specification. The subsequent `^`-anchored regex (`/^-----BEGIN(?: (RSA))? PUBLIC KEY-----/`) still requires the PEM header at position 0 — so **any non-whitespace leading byte** (control chars, zero-width unicode, `#` comments, HTTP-</div>
+The fix for CVE-2026-34950 (CVSS 9.1, released in v6.2.0) is **incomplete**. It adds `key.trim()` to the PEM-detection path in `src/crypto.js`, but `String.prototype.trim()` only strips characters classified as whitespace by the ECMAScript specification. The subsequent `^`-anchored regex (`/^-----BEGIN(?: (RSA))? PUBLIC KEY-----/`) still requires the PEM header at position 0 — so **any non-whitespace leading byte** (control chars, zero-width unicode, `#` comments, HTTP-</div></div>
       <div>修補建議：升級至修復演算法混淆漏洞的最新版本。</div>
       
       
@@ -258,7 +264,8 @@ The fix for CVE-2026-34950 (CVSS 9.1, released in v6.2.0) is **incomplete**. It 
       <a href="https://wpscan.com/vulnerability/0be8a03e-d854-48db-bdc0-1beead3d7b91/" target="_blank">官方補丁 ↗</a>
     </div>
     <div class="detail">
-      <div class="en">The Anton Extensions WordPress plugin through 1.2.2 does not perform any capability check, nonce verification, or file-type validation before writing attacker-supplied content to an attacker-chosen path, allowing unauthenticated attackers to upload arbitrary PHP files and achieve remote code execution.</div>
+      <div class="lang"><div class="lang-tag">中文提煉</div><div>未經授權可上傳 PHP 檔案，導致遠端執行指令。</div></div>
+      <div class="lang"><div class="lang-tag">英文原文</div><div class="en">The Anton Extensions WordPress plugin through 1.2.2 does not perform any capability check, nonce verification, or file-type validation before writing attacker-supplied content to an attacker-chosen path, allowing unauthenticated attackers to upload arbitrary PHP files and achieve remote code execution.</div></div>
       <div>修補建議：停用或移除該外掛，或更新至官方修復版本。</div>
       
       
@@ -274,6 +281,8 @@ The fix for CVE-2026-34950 (CVSS 9.1, released in v6.2.0) is **incomplete**. It 
 <div class="hist">
   <h3>Archive / 歷史存檔</h3>
   <div class="hist-grid">
+    
+    <a class="hcard" href="2026-10-17.html"><div class="d">2026-10-17</div><div class="c">5 則・gemini</div></a>
     
     <a class="hcard" href="2026-10-16.html"><div class="d">2026-10-16</div><div class="c">5 則・gemini</div></a>
     
@@ -356,8 +365,6 @@ The fix for CVE-2026-34950 (CVSS 9.1, released in v6.2.0) is **incomplete**. It 
   <div class="sub2">琥珀色 = 當日有在野利用，點擊跳轉存檔</div>
   <div class="cal">
   
-    <a class="day has w1" href="2026-09-17.html" title="2026-09-17・高危5則・在野1則">17</a>
-  
     <a class="day has w1" href="2026-09-18.html" title="2026-09-18・高危5則・在野1則">18</a>
   
     <a class="day" href="2026-09-19.html" title="2026-09-19・高危5則・在野0則">19</a>
@@ -414,7 +421,9 @@ The fix for CVE-2026-34950 (CVSS 9.1, released in v6.2.0) is **incomplete**. It 
   
     <a class="day has w2" href="2026-10-15.html" title="2026-10-15・高危5則・在野2則">15</a>
   
-    <a class="day has w1" href="2026-10-16.html" title="2026-10-16・高危51則・在野1則">16</a>
+    <a class="day has w1" href="2026-10-16.html" title="2026-10-16・高危5則・在野1則">16</a>
+  
+    <a class="day has w1" href="2026-10-17.html" title="2026-10-17・高危55則・在野1則">17</a>
   
   </div>
   <div class="cal-legend"><span>■ 無在野</span><span style="color:var(--amber)">■ 有在野（顏色越深越多）</span></div>

@@ -1,4 +1,14 @@
 {
+  "CVE-2026-102764": {
+    "vendor": "BeyondTrust",
+    "product": "Remote Support",
+    "dateAdded": "2026-10-16"
+  },
+  "CVE-2025-61624": {
+    "vendor": "Fortinet",
+    "product": "Multiple Products",
+    "dateAdded": "2026-10-16"
+  },
   "CVE-2026-21589": {
     "vendor": "Atlassian",
     "product": "Multiple Products",

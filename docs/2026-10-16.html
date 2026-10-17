@@ -76,7 +76,9 @@ h1 .grad{background:linear-gradient(180deg,var(--grad-from),var(--grad-to));-web
 .row.open .chev{transform:rotate(180deg)}
 .detail{display:none;margin-top:12px;padding-top:12px;border-top:1px dashed var(--border);font-size:13px;color:var(--gray-900)}
 .row.open .detail{display:block}
-.detail .en{margin-bottom:8px}
+.detail .en{margin-bottom:0}
+.lang{border:1px solid var(--border);border-radius:var(--radius-sm);padding:10px 12px;margin-bottom:8px;background:var(--bg)}
+.lang-tag{font-size:10px;color:var(--gray-900);letter-spacing:.08em;text-transform:uppercase;margin-bottom:4px}
 .badge{display:inline-flex;align-items:center;font-size:11px;font-weight:500;border-radius:5px;padding:2px 7px;border:1px solid var(--border);background:var(--gray-100);color:var(--gray-900);font-family:"Geist Mono",ui-monospace,SFMono-Regular,Menlo,monospace;white-space:nowrap}
 .badge.crit{background:var(--red);border-color:var(--red);color:#fff}
 .badge.wild{background:transparent;border-color:var(--amber);color:var(--amber)}
@@ -115,7 +117,7 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
 <div class="wrap">
 <div class="hero">
   <div class="eyebrow">NVD + KEV + EPSS + OSV + GitHub + Cisco ・ 每天 08:00（台北）自動更新</div>
-  <h1><span class="grad">今日高危漏洞</span></h1>
+  <h1><span class="grad">存檔回顧 2026-10-16</span></h1>
   <p class="lede">僅收錄 CVSS ≥ 9.0、在野利用或 EPSS 利用預警項目。點擊任一條目展開完整描述與修補建議。</p>
   <div class="brief"><span>AI 總評</span>今日共 5 則高危漏洞，以 RCE 為主，應優先關注已遭利用的 Cisco SEG 檔案寫入漏洞。</div>
 </div>
@@ -158,9 +160,10 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
       <a href="https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-esa-afw-zqYJkjxp?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Security%20Gateway%20Arbitrary%20File%20Write%20Vulnerability%26vs_k=1" target="_blank">官方補丁 ↗</a>
     </div>
     <div class="detail">
-      <div class="en">Cisco Secure Email Gateway Arbitrary File Write Vulnerability
+      <div class="lang"><div class="lang-tag">中文提煉</div><div>AMP功能處理附件不當，遠端攻擊者可寫檔並獲root權限。</div></div>
+      <div class="lang"><div class="lang-tag">英文原文</div><div class="en">Cisco Secure Email Gateway Arbitrary File Write Vulnerability
 &lt;p&gt;A vulnerability in the Advanced Malware Protection (AMP) feature of Cisco Secure Email Gateway could allow an unauthenticated, remote attacker to write arbitrary files on the underlying operating system.&lt;/p&gt;
-&lt;p&gt;This vulnerability is due to improper handling of email attachments when the file reputation service is enabled. An attacker could exploit this vulnerability by sending an email that contains a crafted attachment through an affected device. A successful exploit could allow the attacker to write arbitrary files and execute </div>
+&lt;p&gt;This vulnerability is due to improper handling of email attachments when the file reputation service is enabled. An attacker could exploit this vulnerability by sending an email that contains a crafted attachment through an affected device. A successful exploit could allow the attacker to write arbitrary files and execute </div></div>
       <div>修補建議：升級至官方發布的最新軟體版本。</div>
       
       
@@ -187,9 +190,10 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
       <a href="https://github.com/advisories/GHSA-2cvf-wqm6-wr9g" target="_blank">官方補丁 ↗</a>
     </div>
     <div class="detail">
-      <div class="en">Podman: The `podman run` command can be instructed to disable almost all sandboxing by image annotation
+      <div class="lang"><div class="lang-tag">中文提煉</div><div>容器檢查點功能可繞過沙箱，獲取容器完全控制權。</div></div>
+      <div class="lang"><div class="lang-tag">英文原文</div><div class="en">Podman: The `podman run` command can be instructed to disable almost all sandboxing by image annotation
 ### Impact
-Podman v4.4.0 added a feature where container checkpoints (from the `podman container checkpoint` command) could be distributed via OCI registry, and pulled from that registry and run via the `podman run` command. This allowed easy transfer of checkpoints between systems. However, checkpoints allow complete control of how the container is created - including full control of the container sandbox. When `podman run` detects a checkpoint, it will silently ignore all user input regard</div>
+Podman v4.4.0 added a feature where container checkpoints (from the `podman container checkpoint` command) could be distributed via OCI registry, and pulled from that registry and run via the `podman run` command. This allowed easy transfer of checkpoints between systems. However, checkpoints allow complete control of how the container is created - including full control of the container sandbox. When `podman run` detects a checkpoint, it will silently ignore all user input regard</div></div>
       <div>修補建議：請參考 GitHub 安全公告並更新 Podman 版本。</div>
       
       
@@ -211,7 +215,8 @@ Podman v4.4.0 added a feature where container checkpoints (from the `podman cont
       <a href="https://dl.wavlink.com/firmware/RD/WN530BE2_WAVLINK-WO-2026-09-24-841a51c6d5_tclinux.bin" target="_blank">官方補丁 ↗</a>
     </div>
     <div class="detail">
-      <div class="en">A vulnerability has been found in Wavlink WL-WN530BE2-A up to M30BE2_V250604. The affected element is the function sub_12580 of the file api.cgi of the component Login Processing. The manipulation of the argument REMOTE_ADDR leads to os command injection. It is possible to initiate the attack remotely. The exploit has been disclosed to the public and may be used. Upgrading to version 2026-09-24-841a51c6d5_tclinux.bin is sufficient to fix this issue. You should upgrade the affected component. The vendor confirms: &#34;We confirm the finding, and it has already been addressed. In the current firmwar</div>
+      <div class="lang"><div class="lang-tag">中文提煉</div><div>api.cgi處理參數不當，遠端攻擊者可注入指令執行。</div></div>
+      <div class="lang"><div class="lang-tag">英文原文</div><div class="en">A vulnerability has been found in Wavlink WL-WN530BE2-A up to M30BE2_V250604. The affected element is the function sub_12580 of the file api.cgi of the component Login Processing. The manipulation of the argument REMOTE_ADDR leads to os command injection. It is possible to initiate the attack remotely. The exploit has been disclosed to the public and may be used. Upgrading to version 2026-09-24-841a51c6d5_tclinux.bin is sufficient to fix this issue. You should upgrade the affected component. The vendor confirms: &#34;We confirm the finding, and it has already been addressed. In the current firmwar</div></div>
       <div>修補建議：升級至 2026-09-24-841a51c6d5_tclinux.bin 韌體。</div>
       
       <div style="margin-top:6px">更多參考：<a href="https://github.com/F-yyjy/cve/blob/main/WN530BE2-A_api-cgi.md" target="_blank">[2]</a> <a href="https://vuldb.com/cve/CVE-2026-110957" target="_blank">[3]</a> <a href="https://vuldb.com/submit/920217" target="_blank">[4]</a> <a href="https://vuldb.com/vuln/420570" target="_blank">[5]</a> </div>
@@ -233,7 +238,8 @@ Podman v4.4.0 added a feature where container checkpoints (from the `podman cont
       <a href="https://dl.wavlink.com/firmware/RD/WN530BE2_WAVLINK-WO-2026-09-24-841a51c6d5_tclinux.bin" target="_blank">官方補丁 ↗</a>
     </div>
     <div class="detail">
-      <div class="en">A vulnerability was found in Wavlink WN530HG4B M30HG4B_V260724. The impacted element is an unknown function of the file api.cgi. The manipulation results in heap-based buffer overflow. It is possible to launch the attack remotely. The exploit has been made public and could be used. Upgrading to version 2026-09-24-841a51c6d5_tclinux.bin is sufficient to resolve this issue. The affected component should be upgraded. The vendor confirms: &#34;We confirm the finding, and it has already been addressed. In the current firmware the api=info&amp;client=app handler no longer builds a shell command: the login s</div>
+      <div class="lang"><div class="lang-tag">中文提煉</div><div>api.cgi存在堆疊溢位漏洞，遠端攻擊者可發動攻擊。</div></div>
+      <div class="lang"><div class="lang-tag">英文原文</div><div class="en">A vulnerability was found in Wavlink WN530HG4B M30HG4B_V260724. The impacted element is an unknown function of the file api.cgi. The manipulation results in heap-based buffer overflow. It is possible to launch the attack remotely. The exploit has been made public and could be used. Upgrading to version 2026-09-24-841a51c6d5_tclinux.bin is sufficient to resolve this issue. The affected component should be upgraded. The vendor confirms: &#34;We confirm the finding, and it has already been addressed. In the current firmware the api=info&amp;client=app handler no longer builds a shell command: the login s</div></div>
       <div>修補建議：升級至 2026-09-24-841a51c6d5_tclinux.bin 韌體。</div>
       
       <div style="margin-top:6px">更多參考：<a href="https://drive.google.com/file/d/12OOh8g9YDCbD-Q4cc52J6TH9KuOoD44A/view?usp=drive_link" target="_blank">[2]</a> <a href="https://vuldb.com/cve/CVE-2026-110958" target="_blank">[3]</a> <a href="https://vuldb.com/submit/933388" target="_blank">[4]</a> <a href="https://vuldb.com/vuln/420571" target="_blank">[5]</a> </div>
@@ -255,11 +261,12 @@ Podman v4.4.0 added a feature where container checkpoints (from the `podman cont
       <a href="https://download.nutanix.com/alerts/Security_Advisory_0058.pdf" target="_blank">官方補丁 ↗</a>
     </div>
     <div class="detail">
-      <div class="en">An unauthenticated remote attacker can bypass authentication and gain full access to administrative API endpoints in Nutanix Prism Element by including a crafted internal management HTTP header. The vulnerability is caused by a misconfiguration in the application&#39;s authentication filters.
+      <div class="lang"><div class="lang-tag">中文提煉</div><div>偽造標頭可繞過認證，獲取管理權限並執行指令。</div></div>
+      <div class="lang"><div class="lang-tag">英文原文</div><div class="en">An unauthenticated remote attacker can bypass authentication and gain full access to administrative API endpoints in Nutanix Prism Element by including a crafted internal management HTTP header. The vulnerability is caused by a misconfiguration in the application&#39;s authentication filters.
 
 
 
-Consequently, the server responds with a Set-Cookie header containing a valid JSESSIONID. This session cookie decodes to a JSON Web Token (JWT) granting maximum cluster administrative privileges. Successful exploitation allows the attacker to execute root-level commands on all Controller VMs (CVMs) in the </div>
+Consequently, the server responds with a Set-Cookie header containing a valid JSESSIONID. This session cookie decodes to a JSON Web Token (JWT) granting maximum cluster administrative privileges. Successful exploitation allows the attacker to execute root-level commands on all Controller VMs (CVMs) in the </div></div>
       <div>修補建議：請參考 Nutanix 安全公告 0058 進行修補。</div>
       
       <div style="margin-top:6px">更多參考：<a href="https://portal.nutanix.com/page/documents/list?type=software&amp;filterKey=software&amp;filterVal=AOS" target="_blank">[2]</a> <a href="https://www.nutanix.com/support" target="_blank">[3]</a> </div>
@@ -275,6 +282,8 @@ Consequently, the server responds with a Set-Cookie header containing a valid JS
 <div class="hist">
   <h3>Archive / 歷史存檔</h3>
   <div class="hist-grid">
+    
+    <a class="hcard" href="2026-10-17.html"><div class="d">2026-10-17</div><div class="c">5 則・gemini</div></a>
     
     <a class="hcard" href="2026-10-16.html"><div class="d">2026-10-16</div><div class="c">5 則・gemini</div></a>
     
@@ -357,8 +366,6 @@ Consequently, the server responds with a Set-Cookie header containing a valid JS
   <div class="sub2">琥珀色 = 當日有在野利用，點擊跳轉存檔</div>
   <div class="cal">
   
-    <a class="day has w1" href="2026-09-17.html" title="2026-09-17・高危5則・在野1則">17</a>
-  
     <a class="day has w1" href="2026-09-18.html" title="2026-09-18・高危5則・在野1則">18</a>
   
     <a class="day" href="2026-09-19.html" title="2026-09-19・高危5則・在野0則">19</a>
@@ -415,7 +422,9 @@ Consequently, the server responds with a Set-Cookie header containing a valid JS
   
     <a class="day has w2" href="2026-10-15.html" title="2026-10-15・高危5則・在野2則">15</a>
   
-    <a class="day has w1" href="2026-10-16.html" title="2026-10-16・高危51則・在野1則">16</a>
+    <a class="day has w1" href="2026-10-16.html" title="2026-10-16・高危5則・在野1則">16</a>
+  
+    <a class="day has w1" href="2026-10-17.html" title="2026-10-17・高危55則・在野1則">17</a>
   
   </div>
   <div class="cal-legend"><span>■ 無在野</span><span style="color:var(--amber)">■ 有在野（顏色越深越多）</span></div>

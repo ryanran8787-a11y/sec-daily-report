@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>網安每日報 2026-10-16</title>
+<title>網安每日報 2026-10-17</title>
 <style>
 /* Geist 設計語言（灰階層次、細邊框、小圓角），logo 與配色為原創 */
 :root{
@@ -111,7 +111,7 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
 <div class="nav"><div class="nav-inner">
   <svg class="logo" viewBox="0 0 24 24"><path d="M12 1.8 3.5 5v6.1c0 5.1 3.6 9.6 8.5 10.9 4.9-1.3 8.5-5.8 8.5-10.9V5L12 1.8Zm0 2.4 6.5 2.6v4.3c0 4-2.7 7.6-6.5 8.7-3.8-1.1-6.5-4.7-6.5-8.7V6.8L12 4.2Zm-1.4 9.1 4-4 1.4 1.4-5.4 5.4-2.6-2.6 1.4-1.4 1.2 1.2Z"/></svg>
   <div class="brand">SecDaily <span>/ 網安每日報</span></div>
-  <div class="nav-right"><span class="dot"></span>2026-10-16・gemini<a class="rss-link" href="feed.xml" title="RSS 訂閱">RSS</a><button class="theme-btn" onclick="toggleTheme()" title="切換淺色/深色">◐</button></div>
+  <div class="nav-right"><span class="dot"></span>2026-10-17・gemini<a class="rss-link" href="feed.xml" title="RSS 訂閱">RSS</a><button class="theme-btn" onclick="toggleTheme()" title="切換淺色/深色">◐</button></div>
 </div></div>
 
 <div class="wrap">
@@ -119,7 +119,7 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
   <div class="eyebrow">NVD + KEV + EPSS + OSV + GitHub + Cisco ・ 每天 08:00（台北）自動更新</div>
   <h1><span class="grad">今日高危漏洞</span></h1>
   <p class="lede">僅收錄 CVSS ≥ 9.0、在野利用或 EPSS 利用預警項目。點擊任一條目展開完整描述與修補建議。</p>
-  <div class="brief"><span>AI 總評</span>今日共 5 則高危漏洞，以 RCE 為主，應優先關注已遭利用的 Cisco SEG 檔案寫入漏洞。</div>
+  <div class="brief"><span>AI 總評</span>今日共 5 則高危漏洞，以 RCE 為主；應優先關注已遭野外開採的 Cisco SEG 任意檔案寫入漏洞。</div>
 </div>
 
 <div class="stats">
@@ -147,30 +147,7 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
 
   <div class="row" data-wild="1" onclick="if(event.target.tagName!=='A')this.classList.toggle('open')">
     <div class="row-head">
-      <h2>Fortinet 檔案寫入在野利用</h2>
-      <span class="badge crit">CVSS 9.8</span>
-      <span class="badge wild">● 在野利用</span>
-      
-      <span class="badge">其他高危</span>
-      
-      <span class="chev">▾</span>
-    </div>
-    <div class="row-sum">未授權攻擊者可透過惡意請求寫入任意檔案。</div>
-    <div class="row-foot"><span>CVE-2026-104286</span><span>Fortinet FortiMail 8.0.0至8.0.1、7.6.0至7.6.6、7.4.0至7.4.8、7.2.0至7.2.9</span>
-      <a href="https://fortiguard.fortinet.com/psirt/FG-IR-26-175" target="_blank">官方補丁 ↗</a>
-    </div>
-    <div class="detail">
-      <div class="lang"><div class="lang-tag">中文提煉</div><div>未授權攻擊者可透過惡意請求寫入任意檔案。</div></div>
-      <div class="lang"><div class="lang-tag">英文原文</div><div class="en">An improper limitation of a pathname to a restricted directory (&#39;path traversal&#39;) vulnerability in Fortinet FortiMail 8.0.0 through 8.0.1, FortiMail 7.6.0 through 7.6.6, FortiMail 7.4.0 through 7.4.8, FortiMail 7.2.0 through 7.2.9 may allow an unauthenticated attacker to write arbitrary files on the underlying system via crafted HTTP or HTTPS requests.</div></div>
-      <div>修補建議：升級至安全版本</div>
-      
-      <div style="margin-top:6px">更多參考：<a href="https://www.cisa.gov/known-exploited-vulnerabilities-catalog?field_cve=CVE-2026-104286" target="_blank">[2]</a> </div>
-    </div>
-  </div>
-
-  <div class="row" data-wild="1" onclick="if(event.target.tagName!=='A')this.classList.toggle('open')">
-    <div class="row-head">
-      <h2>Cisco SD-WAN 認證繞過在野利用</h2>
+      <h2>Cisco SEG 任意檔案寫入</h2>
       
       <span class="badge wild">● 在野利用</span>
       <span class="badge epss">via cisco</span>
@@ -178,16 +155,16 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
       <span class="badge epss">EPSS 0.02</span>
       <span class="chev">▾</span>
     </div>
-    <div class="row-sum">AMP功能處理附件不當，遠端攻擊者可寫檔並獲root權限。</div>
+    <div class="row-sum">遠端攻擊者可寫入任意檔案並以 root 權限執行指令。</div>
     <div class="row-foot"><span>CVE-2026-76519</span><span>Cisco Secure Email Gateway</span>
-      <a href="https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-esa-afw-zqYJkjxp?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Security%20Gateway%20Arbitrary%20File%20Write%20Vulnerability%26vs_k=1" target="_blank">官方補丁 ↗</a>
+      <a href="https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-esa-afw-zqYJkjxp?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Secure%20Email%20Gateway%20Arbitrary%20File%20Write%20Vulnerability%26vs_k=1" target="_blank">官方補丁 ↗</a>
     </div>
     <div class="detail">
-      <div class="lang"><div class="lang-tag">中文提煉</div><div>攻擊者可繞過 API 認證並取得管理員權限。</div></div>
-      <div class="lang"><div class="lang-tag">英文原文</div><div class="en">Cisco Catalyst SD-WAN Manager API Authentication Bypass Vulnerability
-&lt;p&gt;A vulnerability in the API session-based authentication management of Cisco Catalyst SD-WAN Manager could allow an unauthenticated, remote attacker to access an affected system with privileges of the admin user.&lt;/p&gt;
-&lt;p class=&#34;p1&#34;&gt;This vulnerability is due to improper handling of URI encoding in an HTTP request, which allows the request to bypass an authentication rule that is intended to restrict access to a specific API endpoint. An attacker could exploit this vulnerability by sending a crafted HTTP request to the API of</div></div>
-      <div>修補建議：套用官方安全更新</div>
+      <div class="lang"><div class="lang-tag">中文提煉</div><div>遠端攻擊者可寫入任意檔案並以 root 權限執行指令。</div></div>
+      <div class="lang"><div class="lang-tag">英文原文</div><div class="en">Cisco Secure Email Gateway Arbitrary File Write Vulnerability
+&lt;p&gt;A vulnerability in the Advanced Malware Protection (AMP) feature of Cisco Secure Email Gateway could allow an unauthenticated, remote attacker to write arbitrary files on the underlying operating system.&lt;/p&gt;
+&lt;p&gt;This vulnerability is due to improper handling of email attachments when the file reputation service is enabled. An attacker could exploit this vulnerability by sending an email that contains a crafted attachment through an affected device. A successful exploit could allow the attacker to write arbitrary files and execute </div></div>
+      <div>修補建議：更新至官方發布的修復版本。</div>
       
       
     </div>
@@ -200,7 +177,30 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
 
   <div class="row" data-wild="0" onclick="if(event.target.tagName!=='A')this.classList.toggle('open')">
     <div class="row-head">
-      <h2>Podman 沙箱逃逸漏洞</h2>
+      <h2>WordPress The Grid RCE</h2>
+      <span class="badge crit">CVSS 10.0</span>
+      
+      
+      <span class="badge">RCE</span>
+      <span class="badge epss">EPSS 0.01</span>
+      <span class="chev">▾</span>
+    </div>
+    <div class="row-sum">插件存在指令注入漏洞，允許遠端執行任意程式碼。</div>
+    <div class="row-foot"><span>CVE-2026-94169</span><span>The Grid (WordPress plugin) 2.8.1 及更早版本</span>
+      <a href="https://patchstack.com/database/wordpress/plugin/the-grid/vulnerability/wordpress-the-grid-plugin-2-8-1-remote-code-execution-rce-vulnerability?_s_id=cve" target="_blank">官方補丁 ↗</a>
+    </div>
+    <div class="detail">
+      <div class="lang"><div class="lang-tag">中文提煉</div><div>插件存在指令注入漏洞，允許遠端執行任意程式碼。</div></div>
+      <div class="lang"><div class="lang-tag">英文原文</div><div class="en">Improper Control of Generation of Code (&#39;Code Injection&#39;) vulnerability in Theme-one The Grid the-grid allows Command Injection.This issue affects The Grid: from n/a through 2.8.1.</div></div>
+      <div>修補建議：升級至最新版本。</div>
+      
+      
+    </div>
+  </div>
+
+  <div class="row" data-wild="0" onclick="if(event.target.tagName!=='A')this.classList.toggle('open')">
+    <div class="row-head">
+      <h2>Podman 容器沙箱逃逸</h2>
       <span class="badge crit">CVSS 10.0</span>
       
       <span class="badge epss">via github</span>
@@ -208,14 +208,16 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
       <span class="badge epss">EPSS 0.01</span>
       <span class="chev">▾</span>
     </div>
-    <div class="row-sum">容器檢查點功能可繞過沙箱，獲取容器完全控制權。</div>
-    <div class="row-foot"><span>CVE-2026-94603</span><span>Podman v4.4.0 及之後</span>
+    <div class="row-sum">攻擊者可透過映像檔註解繞過容器沙箱限制。</div>
+    <div class="row-foot"><span>CVE-2026-94603</span><span>Podman v4.4.0 及之後版本</span>
       <a href="https://github.com/advisories/GHSA-2cvf-wqm6-wr9g" target="_blank">官方補丁 ↗</a>
     </div>
     <div class="detail">
-      <div class="lang"><div class="lang-tag">中文提煉</div><div>攻擊者可透過路徑遍歷讀取機器人配置參數。</div></div>
-      <div class="lang"><div class="lang-tag">英文原文</div><div class="en">Unvalidated pathnames in the web interface in Teledyne FLIR Aware2 versions through 6.9.0.2 (PackBot) and 1.7.9 (FirstLook) allows remote unauthenticated attackers to read configuration and security parameters on Teledyne FLIR PackBot and FirstLook robots running this software via path traversal.</div></div>
-      <div>修補建議：升級 Aware2 至安全版本</div>
+      <div class="lang"><div class="lang-tag">中文提煉</div><div>攻擊者可透過映像檔註解繞過容器沙箱限制。</div></div>
+      <div class="lang"><div class="lang-tag">英文原文</div><div class="en">Podman: The `podman run` command can be instructed to disable almost all sandboxing by image annotation
+### Impact
+Podman v4.4.0 added a feature where container checkpoints (from the `podman container checkpoint` command) could be distributed via OCI registry, and pulled from that registry and run via the `podman run` command. This allowed easy transfer of checkpoints between systems. However, checkpoints allow complete control of how the container is created - including full control of the container sandbox. When `podman run` detects a checkpoint, it will silently ignore all user input regard</div></div>
+      <div>修補建議：參考官方安全公告進行更新。</div>
       
       
     </div>
@@ -223,95 +225,52 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
 
   <div class="row" data-wild="0" onclick="if(event.target.tagName!=='A')this.classList.toggle('open')">
     <div class="row-head">
-      <h2>Fortra BoKS 密碼預測漏洞</h2>
-      <span class="badge crit">CVSS 9.9</span>
-      
-      
-      <span class="badge">其他高危</span>
-      
-      <span class="chev">▾</span>
-    </div>
-    <div class="row-sum">可預測的偽隨機序列導致服務帳號密碼可被破解。</div>
-    <div class="row-foot"><span>CVE-2026-79901</span><span>Fortra BoKS</span>
-      <a href="https://www.fortra.com/security/advisories/product-security/fi-2026-012" target="_blank">官方補丁 ↗</a>
-    </div>
-    <div class="detail">
-      <div class="lang"><div class="lang-tag">中文提煉</div><div>可預測的偽隨機序列導致服務帳號密碼可被破解。</div></div>
-      <div class="lang"><div class="lang-tag">英文原文</div><div class="en">In deployments using BoKS keytab management, affected versions of boks_keytabmd generate Active Directory service-account passwords from a predictable pseudo-random sequence seeded with the current Unix timestamp. An attacker who knows the service principal and can estimate the password-change time can reproduce a limited candidate set and verify candidates offline.</div></div>
-      <div>修補建議：套用官方修補程式</div>
-      
-      
-    </div>
-  </div>
-
-  <div class="row" data-wild="0" onclick="if(event.target.tagName!=='A')this.classList.toggle('open')">
-    <div class="row-head">
-      <h2>Foreman 沙箱繞過 RCE 漏洞</h2>
-      <span class="badge crit">CVSS 9.9</span>
+      <h2>DeepSeek Harness RCE</h2>
+      <span class="badge crit">CVSS 10.0</span>
       
       
       <span class="badge">RCE</span>
       
       <span class="chev">▾</span>
     </div>
-    <div class="row-sum">api.cgi處理參數不當，遠端攻擊者可注入指令執行。</div>
-    <div class="row-foot"><span>CVE-2026-110957</span><span>Wavlink WL-WN530BE2-A M30BE2_V250604 及更早</span>
-      <a href="https://dl.wavlink.com/firmware/RD/WN530BE2_WAVLINK-WO-2026-09-24-841a51c6d5_tclinux.bin" target="_blank">官方補丁 ↗</a>
+    <div class="row-sum">搜尋路徑不可信，開啟惡意檔案可導致執行任意程式碼。</div>
+    <div class="row-foot"><span>CVE-2026-95182</span><span>DeepSeek Harness (dsh) commit c291e796</span>
+      <a href="https://gist.github.com/lkloliver/46a88c7d619e487327a1122c20ff8e32" target="_blank">官方補丁 ↗</a>
     </div>
     <div class="detail">
-      <div class="lang"><div class="lang-tag">中文提煉</div><div>低權限用戶可繞過沙箱在伺服器執行任意指令。</div></div>
-      <div class="lang"><div class="lang-tag">英文原文</div><div class="en">A flaw was found in Foreman. An authenticated attacker with low-level permissions can achieve remote code execution (RCE) by bypassing the safemode sandbox within the templating engine. Due to improper handling of delegated methods, an attacker can append unauthorized functions to the allowed execution list, enabling them to run arbitrary commands on the hosting server.</div></div>
-      <div>修補建議：更新 Foreman 及其模板引擎</div>
+      <div class="lang"><div class="lang-tag">中文提煉</div><div>搜尋路徑不可信，開啟惡意檔案可導致執行任意程式碼。</div></div>
+      <div class="lang"><div class="lang-tag">英文原文</div><div class="en">An untrusted search path in DeepSeek Harness (dsh) commit c291e796 allows attackers to execute arbitrary code via supplying and opening crafted executable files in place of legitimate content.</div></div>
+      <div>修補建議：更新至修復後的 commit 版本。</div>
       
-      <div style="margin-top:6px">更多參考：<a href="https://github.com/F-yyjy/cve/blob/main/WN530BE2-A_api-cgi.md" target="_blank">[2]</a> <a href="https://vuldb.com/cve/CVE-2026-110957" target="_blank">[3]</a> <a href="https://vuldb.com/submit/920217" target="_blank">[4]</a> <a href="https://vuldb.com/vuln/420570" target="_blank">[5]</a> </div>
+      <div style="margin-top:6px">更多參考：<a href="https://gist.github.com/lkloliver/46a88c7d619e487327a1122c20ff8e32" target="_blank">[2]</a> <a href="https://github.com/lkloliver/poc/tree/main/CVE-2026-95182" target="_blank">[3]</a> </div>
     </div>
   </div>
 
   <div class="row" data-wild="0" onclick="if(event.target.tagName!=='A')this.classList.toggle('open')">
     <div class="row-head">
-      <h2>Wavlink 路由器堆疊溢位</h2>
-      <span class="badge crit">CVSS 10.0</span>
+      <h2>Argo CD 權限限制繞過</h2>
+      <span class="badge crit">CVSS 9.9</span>
       
-      
-      <span class="badge">其他高危</span>
-      
+      <span class="badge epss">via github</span>
+      <span class="badge">權限提升</span>
+      <span class="badge epss">EPSS 0.01</span>
       <span class="chev">▾</span>
     </div>
-    <div class="row-sum">api.cgi存在堆疊溢位漏洞，遠端攻擊者可發動攻擊。</div>
-    <div class="row-foot"><span>CVE-2026-110958</span><span>Wavlink WN530HG4B M30HG4B_V260724</span>
-      <a href="https://dl.wavlink.com/firmware/RD/WN530BE2_WAVLINK-WO-2026-09-24-841a51c6d5_tclinux.bin" target="_blank">官方補丁 ↗</a>
+    <div class="row-sum">資源鉤子可繞過 AppProject 限制，存取未授權資源。</div>
+    <div class="row-foot"><span>CVE-2026-77459</span><span>Argo CD v2.10.0 及之後版本</span>
+      <a href="https://github.com/advisories/GHSA-fmxq-cgp8-87wp" target="_blank">官方補丁 ↗</a>
     </div>
     <div class="detail">
-      <div class="en">A vulnerability was found in Wavlink WN530HG4B M30HG4B_V260724. The impacted element is an unknown function of the file api.cgi. The manipulation results in heap-based buffer overflow. It is possible to launch the attack remotely. The exploit has been made public and could be used. Upgrading to version 2026-09-24-841a51c6d5_tclinux.bin is sufficient to resolve this issue. The affected component should be upgraded. The vendor confirms: &#34;We confirm the finding, and it has already been addressed. In the current firmware the api=info&amp;client=app handler no longer builds a shell command: the login s</div>
-      <div>修補建議：升級至 2026-09-24-841a51c6d5_tclinux.bin 韌體。</div>
-      
-      <div style="margin-top:6px">更多參考：<a href="https://drive.google.com/file/d/12OOh8g9YDCbD-Q4cc52J6TH9KuOoD44A/view?usp=drive_link" target="_blank">[2]</a> <a href="https://vuldb.com/cve/CVE-2026-110958" target="_blank">[3]</a> <a href="https://vuldb.com/submit/933388" target="_blank">[4]</a> <a href="https://vuldb.com/vuln/420571" target="_blank">[5]</a> </div>
-    </div>
-  </div>
+      <div class="lang"><div class="lang-tag">中文提煉</div><div>資源鉤子可繞過 AppProject 限制，存取未授權資源。</div></div>
+      <div class="lang"><div class="lang-tag">英文原文</div><div class="en">Argo CD: AppProject destination-namespace and resource restrictions bypassed by PreDelete/PostDelete resource hooks
+### Impact
 
-  <div class="row" data-wild="0" onclick="if(event.target.tagName!=='A')this.classList.toggle('open')">
-    <div class="row-head">
-      <h2>Nutanix Prism 認證繞過</h2>
-      <span class="badge crit">CVSS 10.0</span>
-      
-      
-      <span class="badge">接管</span>
-      
-      <span class="chev">▾</span>
-    </div>
-    <div class="row-sum">偽造標頭可繞過認證，獲取管理權限並執行指令。</div>
-    <div class="row-foot"><span>CVE-2026-84731</span><span>Nutanix Prism Element</span>
-      <a href="https://download.nutanix.com/alerts/Security_Advisory_0058.pdf" target="_blank">官方補丁 ↗</a>
-    </div>
-    <div class="detail">
-      <div class="en">An unauthenticated remote attacker can bypass authentication and gain full access to administrative API endpoints in Nutanix Prism Element by including a crafted internal management HTTP header. The vulnerability is caused by a misconfiguration in the application&#39;s authentication filters.
+Argo CD checks an Application&#39;s AppProject before it creates resources during a sync. That check covers destination namespaces and servers, cluster-scoped resource allow and deny lists, and namespaced resource allow and deny lists, including resource names. PreDelete and PostDelete hooks skip it. When the Application is deleted, Argo CD creates those hooks with the application-controller&#39;s credentials on the destination cluster.
 
-
-
-Consequently, the server responds with a Set-Cookie header containing a valid JSESSIONID. This session cookie decodes to a JSON Web Token (JWT) granting maximum cluster administrative privileges. Successful exploitation allows the attacker to execute root-level commands on all Controller VMs (CVMs) in the </div>
-      <div>修補建議：請參考 Nutanix 安全公告 0058 進行修補。</div>
+All versions from v2.10.0 onward are a</div></div>
+      <div>修補建議：升級至 v2.10.x 或更高修復版本。</div>
       
-      <div style="margin-top:6px">更多參考：<a href="https://portal.nutanix.com/page/documents/list?type=software&amp;filterKey=software&amp;filterVal=AOS" target="_blank">[2]</a> <a href="https://www.nutanix.com/support" target="_blank">[3]</a> </div>
+      
     </div>
   </div>
 
@@ -324,6 +283,8 @@ Consequently, the server responds with a Set-Cookie header containing a valid JS
 <div class="hist">
   <h3>Archive / 歷史存檔</h3>
   <div class="hist-grid">
+    
+    <a class="hcard" href="2026-10-17.html"><div class="d">2026-10-17</div><div class="c">5 則・gemini</div></a>
     
     <a class="hcard" href="2026-10-16.html"><div class="d">2026-10-16</div><div class="c">5 則・gemini</div></a>
     
@@ -406,20 +367,6 @@ Consequently, the server responds with a Set-Cookie header containing a valid JS
   <div class="sub2">琥珀色 = 當日有在野利用，點擊跳轉存檔</div>
   <div class="cal">
   
-    <a class="day" href="2026-09-11.html" title="2026-09-11・高危47則・在野0則">11</a>
-  
-    <a class="day has w1" href="2026-09-12.html" title="2026-09-12・高危5則・在野1則">12</a>
-  
-    <a class="day" href="2026-09-13.html" title="2026-09-13・高危5則・在野0則">13</a>
-  
-    <a class="day" href="2026-09-14.html" title="2026-09-14・高危5則・在野0則">14</a>
-  
-    <a class="day has w1" href="2026-09-15.html" title="2026-09-15・高危5則・在野1則">15</a>
-  
-    <a class="day" href="2026-09-16.html" title="2026-09-16・高危5則・在野0則">16</a>
-  
-    <a class="day has w1" href="2026-09-17.html" title="2026-09-17・高危5則・在野1則">17</a>
-  
     <a class="day has w1" href="2026-09-18.html" title="2026-09-18・高危5則・在野1則">18</a>
   
     <a class="day" href="2026-09-19.html" title="2026-09-19・高危5則・在野0則">19</a>
@@ -449,6 +396,36 @@ Consequently, the server responds with a Set-Cookie header containing a valid JS
     <a class="day has w1" href="2026-10-01.html" title="2026-10-01・高危5則・在野1則">10/1</a>
   
     <a class="day has w2" href="2026-10-02.html" title="2026-10-02・高危5則・在野2則">02</a>
+  
+    <a class="day has w1" href="2026-10-03.html" title="2026-10-03・高危5則・在野1則">03</a>
+  
+    <a class="day has w1" href="2026-10-04.html" title="2026-10-04・高危5則・在野1則">04</a>
+  
+    <a class="day has w1" href="2026-10-05.html" title="2026-10-05・高危5則・在野1則">05</a>
+  
+    <a class="day has w1" href="2026-10-06.html" title="2026-10-06・高危5則・在野1則">06</a>
+  
+    <a class="day has w1" href="2026-10-07.html" title="2026-10-07・高危5則・在野1則">07</a>
+  
+    <a class="day has w1" href="2026-10-08.html" title="2026-10-08・高危5則・在野1則">08</a>
+  
+    <a class="day has w1" href="2026-10-09.html" title="2026-10-09・高危5則・在野1則">09</a>
+  
+    <a class="day" href="2026-10-10.html" title="2026-10-10・高危5則・在野0則">10</a>
+  
+    <a class="day" href="2026-10-11.html" title="2026-10-11・高危5則・在野0則">11</a>
+  
+    <a class="day" href="2026-10-12.html" title="2026-10-12・高危5則・在野0則">12</a>
+  
+    <a class="day" href="2026-10-13.html" title="2026-10-13・高危5則・在野0則">13</a>
+  
+    <a class="day has w2" href="2026-10-14.html" title="2026-10-14・高危5則・在野2則">14</a>
+  
+    <a class="day has w2" href="2026-10-15.html" title="2026-10-15・高危5則・在野2則">15</a>
+  
+    <a class="day has w1" href="2026-10-16.html" title="2026-10-16・高危5則・在野1則">16</a>
+  
+    <a class="day has w1" href="2026-10-17.html" title="2026-10-17・高危55則・在野1則">17</a>
   
   </div>
   <div class="cal-legend"><span>■ 無在野</span><span style="color:var(--amber)">■ 有在野（顏色越深越多）</span></div>

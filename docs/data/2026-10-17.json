@@ -1,0 +1,116 @@
+{
+  "date": "2026-10-17",
+  "generated_at": "2026-10-17T03:55:56.548229+00:00",
+  "engine": "gemini",
+  "count": 5,
+  "brief_zh": "今日共 5 則高危漏洞，以 RCE 為主；應優先關注已遭野外開採的 Cisco SEG 任意檔案寫入漏洞。",
+  "items": [
+    {
+      "cve": "CVE-2026-76519",
+      "title_zh": "Cisco SEG 任意檔案寫入",
+      "cvss": null,
+      "type": "RCE",
+      "in_wild": true,
+      "summary_zh": "遠端攻擊者可寫入任意檔案並以 root 權限執行指令。",
+      "affected": "Cisco Secure Email Gateway",
+      "affected_versions": "",
+      "fix_hint": "更新至官方發布的修復版本。",
+      "patch_url": "https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-esa-afw-zqYJkjxp?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Secure%20Email%20Gateway%20Arbitrary%20File%20Write%20Vulnerability%26vs_k=1",
+      "epss_warn": false,
+      "epss": 0.01573,
+      "refs": [
+        "https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-esa-afw-zqYJkjxp?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Secure%20Email%20Gateway%20Arbitrary%20File%20Write%20Vulnerability%26vs_k=1"
+      ],
+      "desc_en": "Cisco Secure Email Gateway Arbitrary File Write Vulnerability\n<p>A vulnerability in the Advanced Malware Protection (AMP) feature of Cisco Secure Email Gateway could allow an unauthenticated, remote attacker to write arbitrary files on the underlying operating system.</p>\n<p>This vulnerability is due to improper handling of email attachments when the file reputation service is enabled. An attacker could exploit this vulnerability by sending an email that contains a crafted attachment through an affected device. A successful exploit could allow the attacker to write arbitrary files and execute ",
+      "source": "cisco",
+      "osv_packages": [],
+      "osv_fixed": []
+    },
+    {
+      "cve": "CVE-2026-94169",
+      "title_zh": "WordPress The Grid RCE",
+      "cvss": 10.0,
+      "type": "RCE",
+      "in_wild": false,
+      "summary_zh": "插件存在指令注入漏洞，允許遠端執行任意程式碼。",
+      "affected": "The Grid (WordPress plugin)",
+      "affected_versions": "2.8.1 及更早版本",
+      "fix_hint": "升級至最新版本。",
+      "patch_url": "https://patchstack.com/database/wordpress/plugin/the-grid/vulnerability/wordpress-the-grid-plugin-2-8-1-remote-code-execution-rce-vulnerability?_s_id=cve",
+      "epss_warn": false,
+      "epss": 0.00985,
+      "refs": [
+        "https://patchstack.com/database/wordpress/plugin/the-grid/vulnerability/wordpress-the-grid-plugin-2-8-1-remote-code-execution-rce-vulnerability?_s_id=cve"
+      ],
+      "desc_en": "Improper Control of Generation of Code ('Code Injection') vulnerability in Theme-one The Grid the-grid allows Command Injection.This issue affects The Grid: from n/a through 2.8.1.",
+      "source": "nvd",
+      "osv_packages": [],
+      "osv_fixed": []
+    },
+    {
+      "cve": "CVE-2026-94603",
+      "title_zh": "Podman 容器沙箱逃逸",
+      "cvss": 10.0,
+      "type": "逃逸",
+      "in_wild": false,
+      "summary_zh": "攻擊者可透過映像檔註解繞過容器沙箱限制。",
+      "affected": "Podman",
+      "affected_versions": "v4.4.0 及之後版本",
+      "fix_hint": "參考官方安全公告進行更新。",
+      "patch_url": "https://github.com/advisories/GHSA-2cvf-wqm6-wr9g",
+      "epss_warn": false,
+      "epss": 0.00918,
+      "refs": [
+        "https://github.com/advisories/GHSA-2cvf-wqm6-wr9g"
+      ],
+      "desc_en": "Podman: The `podman run` command can be instructed to disable almost all sandboxing by image annotation\n### Impact\nPodman v4.4.0 added a feature where container checkpoints (from the `podman container checkpoint` command) could be distributed via OCI registry, and pulled from that registry and run via the `podman run` command. This allowed easy transfer of checkpoints between systems. However, checkpoints allow complete control of how the container is created - including full control of the container sandbox. When `podman run` detects a checkpoint, it will silently ignore all user input regard",
+      "source": "github",
+      "osv_packages": [],
+      "osv_fixed": []
+    },
+    {
+      "cve": "CVE-2026-95182",
+      "title_zh": "DeepSeek Harness RCE",
+      "cvss": 10.0,
+      "type": "RCE",
+      "in_wild": false,
+      "summary_zh": "搜尋路徑不可信，開啟惡意檔案可導致執行任意程式碼。",
+      "affected": "DeepSeek Harness (dsh)",
+      "affected_versions": "commit c291e796",
+      "fix_hint": "更新至修復後的 commit 版本。",
+      "patch_url": "https://gist.github.com/lkloliver/46a88c7d619e487327a1122c20ff8e32",
+      "epss_warn": false,
+      "epss": null,
+      "refs": [
+        "http://deepseek.com",
+        "https://gist.github.com/lkloliver/46a88c7d619e487327a1122c20ff8e32",
+        "https://github.com/lkloliver/poc/tree/main/CVE-2026-95182"
+      ],
+      "desc_en": "An untrusted search path in DeepSeek Harness (dsh) commit c291e796 allows attackers to execute arbitrary code via supplying and opening crafted executable files in place of legitimate content.",
+      "source": "nvd",
+      "osv_packages": [],
+      "osv_fixed": []
+    },
+    {
+      "cve": "CVE-2026-77459",
+      "title_zh": "Argo CD 權限限制繞過",
+      "cvss": 9.9,
+      "type": "權限提升",
+      "in_wild": false,
+      "summary_zh": "資源鉤子可繞過 AppProject 限制，存取未授權資源。",
+      "affected": "Argo CD",
+      "affected_versions": "v2.10.0 及之後版本",
+      "fix_hint": "升級至 v2.10.x 或更高修復版本。",
+      "patch_url": "https://github.com/advisories/GHSA-fmxq-cgp8-87wp",
+      "epss_warn": false,
+      "epss": 0.0072,
+      "refs": [
+        "https://github.com/advisories/GHSA-fmxq-cgp8-87wp"
+      ],
+      "desc_en": "Argo CD: AppProject destination-namespace and resource restrictions bypassed by PreDelete/PostDelete resource hooks\n### Impact\n\nArgo CD checks an Application's AppProject before it creates resources during a sync. That check covers destination namespaces and servers, cluster-scoped resource allow and deny lists, and namespaced resource allow and deny lists, including resource names. PreDelete and PostDelete hooks skip it. When the Application is deleted, Argo CD creates those hooks with the application-controller's credentials on the destination cluster.\n\nAll versions from v2.10.0 onward are a",
+      "source": "github",
+      "osv_packages": [],
+      "osv_fixed": []
+    }
+  ]
+}

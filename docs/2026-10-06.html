@@ -76,7 +76,9 @@ h1 .grad{background:linear-gradient(180deg,var(--grad-from),var(--grad-to));-web
 .row.open .chev{transform:rotate(180deg)}
 .detail{display:none;margin-top:12px;padding-top:12px;border-top:1px dashed var(--border);font-size:13px;color:var(--gray-900)}
 .row.open .detail{display:block}
-.detail .en{margin-bottom:8px}
+.detail .en{margin-bottom:0}
+.lang{border:1px solid var(--border);border-radius:var(--radius-sm);padding:10px 12px;margin-bottom:8px;background:var(--bg)}
+.lang-tag{font-size:10px;color:var(--gray-900);letter-spacing:.08em;text-transform:uppercase;margin-bottom:4px}
 .badge{display:inline-flex;align-items:center;font-size:11px;font-weight:500;border-radius:5px;padding:2px 7px;border:1px solid var(--border);background:var(--gray-100);color:var(--gray-900);font-family:"Geist Mono",ui-monospace,SFMono-Regular,Menlo,monospace;white-space:nowrap}
 .badge.crit{background:var(--red);border-color:var(--red);color:#fff}
 .badge.wild{background:transparent;border-color:var(--amber);color:var(--amber)}
@@ -158,9 +160,10 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
       <a href="https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-sdwan-webauth-xr8beuuU?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Catalyst%20SD-WAN%20Manager%20API%20Authentication%20Bypass%20Vulnerability%26vs_k=1" target="_blank">官方補丁 ↗</a>
     </div>
     <div class="detail">
-      <div class="en">Cisco Catalyst SD-WAN Manager API Authentication Bypass Vulnerability
+      <div class="lang"><div class="lang-tag">中文提煉</div><div>攻擊者可繞過 API 認證，以管理員權限存取系統。</div></div>
+      <div class="lang"><div class="lang-tag">英文原文</div><div class="en">Cisco Catalyst SD-WAN Manager API Authentication Bypass Vulnerability
 &lt;p&gt;A vulnerability in the API session-based authentication management of Cisco Catalyst SD-WAN Manager could allow an unauthenticated, remote attacker to access an affected system with privileges of the admin user.&lt;/p&gt;
-&lt;p class=&#34;p1&#34;&gt;This vulnerability is due to improper handling of URI encoding in an HTTP request, which allows the request to bypass an authentication rule that is intended to restrict access to a specific API endpoint. An attacker could exploit this vulnerability by sending a crafted HTTP request to the API of</div>
+&lt;p class=&#34;p1&#34;&gt;This vulnerability is due to improper handling of URI encoding in an HTTP request, which allows the request to bypass an authentication rule that is intended to restrict access to a specific API endpoint. An attacker could exploit this vulnerability by sending a crafted HTTP request to the API of</div></div>
       <div>修補建議：升級至官方發布的安全版本。</div>
       
       
@@ -187,7 +190,8 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
       <a href="https://gist.github.com/H3rmesk1t/b68352b011bc2825adc85cf336c25dfb" target="_blank">官方補丁 ↗</a>
     </div>
     <div class="detail">
-      <div class="en">A security vulnerability has been detected in Totolink A3002MU 1.0.0-B20230403.1455. This affects an unknown function of the file /boafrm/formIpQoS of the component QoS Rule Handler. The manipulation of the argument addQos/comment/entry_name leads to stack-based buffer overflow. Remote exploitation of the attack is possible. The exploit has been disclosed publicly and may be used.</div>
+      <div class="lang"><div class="lang-tag">中文提煉</div><div>QoS 處理器緩衝區溢位，允許遠端執行任意程式碼。</div></div>
+      <div class="lang"><div class="lang-tag">英文原文</div><div class="en">A security vulnerability has been detected in Totolink A3002MU 1.0.0-B20230403.1455. This affects an unknown function of the file /boafrm/formIpQoS of the component QoS Rule Handler. The manipulation of the argument addQos/comment/entry_name leads to stack-based buffer overflow. Remote exploitation of the attack is possible. The exploit has been disclosed publicly and may be used.</div></div>
       <div>修補建議：建議更新韌體或停用相關服務。</div>
       
       <div style="margin-top:6px">更多參考：<a href="https://vuldb.com/cve/CVE-2026-105285" target="_blank">[2]</a> <a href="https://vuldb.com/submit/977224" target="_blank">[3]</a> <a href="https://vuldb.com/vuln/413466" target="_blank">[4]</a> <a href="https://vuldb.com/vuln/413466/cti" target="_blank">[5]</a> </div>
@@ -209,13 +213,14 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
       <a href="https://github.com/advisories/GHSA-j3hm-6rg5-mchv" target="_blank">官方補丁 ↗</a>
     </div>
     <div class="detail">
-      <div class="en">vm2: NodeVM `require.external` without an explicit `require.root` grants unrestricted host filesystem access and full RCE
+      <div class="lang"><div class="lang-tag">中文提煉</div><div>外部載入設定缺陷導致沙箱逃逸並執行任意程式碼。</div></div>
+      <div class="lang"><div class="lang-tag">英文原文</div><div class="en">vm2: NodeVM `require.external` without an explicit `require.root` grants unrestricted host filesystem access and full RCE
 ## Summary
 
 `NodeVM`&#39;s `require.external` option lets sandboxed code `require()` local files and npm packages. When `require.external` is enabled and `require.root` is **not explicitly set to a path that excludes `node_modules`**, two defaults combine to fully defeat the sandbox:
 
 - `require.root` defaults to **unrestricted** — &#34;if omitted every path is allowed.&#34;
-- `require.context` defaults to **`&#34;host&#34;`** — files loaded this way run through the **real Node.js `require()`*</div>
+- `require.context` defaults to **`&#34;host&#34;`** — files loaded this way run through the **real Node.js `require()`*</div></div>
       <div>修補建議：由於 vm2 已停止維護，建議遷移至其他安全沙箱。</div>
       
       
@@ -237,7 +242,8 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
       <a href="https://gist.github.com/H3rmesk1t/ac6e91a8fba51002be085755c8bf7d43" target="_blank">官方補丁 ↗</a>
     </div>
     <div class="detail">
-      <div class="en">A weakness has been identified in Totolink A3002MU 1.0.0-B20230403.1455. The impacted element is the function sub_40FCFC of the file /bin/boa of the component Authentication Check. Executing a manipulation can lead to improper authorization. The attack may be launched remotely. The exploit has been made available to the public and could be used for attacks.</div>
+      <div class="lang"><div class="lang-tag">中文提煉</div><div>認證檢查機制缺陷，允許遠端攻擊者繞過授權。</div></div>
+      <div class="lang"><div class="lang-tag">英文原文</div><div class="en">A weakness has been identified in Totolink A3002MU 1.0.0-B20230403.1455. The impacted element is the function sub_40FCFC of the file /bin/boa of the component Authentication Check. Executing a manipulation can lead to improper authorization. The attack may be launched remotely. The exploit has been made available to the public and could be used for attacks.</div></div>
       <div>修補建議：建議更新韌體或限制管理介面存取。</div>
       
       <div style="margin-top:6px">更多參考：<a href="https://vuldb.com/cve/CVE-2026-105284" target="_blank">[2]</a> <a href="https://vuldb.com/submit/977217" target="_blank">[3]</a> <a href="https://vuldb.com/vuln/413465" target="_blank">[4]</a> <a href="https://vuldb.com/vuln/413465/cti" target="_blank">[5]</a> </div>
@@ -259,7 +265,8 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
       <a href="https://github.com/advisories/GHSA-88hf-g992-jg85" target="_blank">官方補丁 ↗</a>
     </div>
     <div class="detail">
-      <div class="en">vm2: Sandbox Escape (NodeVM)
+      <div class="lang"><div class="lang-tag">中文提煉</div><div>利用原型鏈獲取主機對象，實現沙箱逃逸。</div></div>
+      <div class="lang"><div class="lang-tag">英文原文</div><div class="en">vm2: Sandbox Escape (NodeVM)
 ## Summary
 
 It being possible to obtain the host `__proto__` getter/setter, has been used in many reports:
@@ -273,7 +280,7 @@ Yet it was never patched...
 
 ---
 
-This can, still, be used to escape the sandbox, one example (I&#39;m sure there&#39;s other ways as well), is via `console._stdo</div>
+This can, still, be used to escape the sandbox, one example (I&#39;m sure there&#39;s other ways as well), is via `console._stdo</div></div>
       <div>修補建議：由於 vm2 已停止維護，建議遷移至其他安全沙箱。</div>
       
       
@@ -289,6 +296,8 @@ This can, still, be used to escape the sandbox, one example (I&#39;m sure there&
 <div class="hist">
   <h3>Archive / 歷史存檔</h3>
   <div class="hist-grid">
+    
+    <a class="hcard" href="2026-10-17.html"><div class="d">2026-10-17</div><div class="c">5 則・gemini</div></a>
     
     <a class="hcard" href="2026-10-16.html"><div class="d">2026-10-16</div><div class="c">5 則・gemini</div></a>
     
@@ -371,8 +380,6 @@ This can, still, be used to escape the sandbox, one example (I&#39;m sure there&
   <div class="sub2">琥珀色 = 當日有在野利用，點擊跳轉存檔</div>
   <div class="cal">
   
-    <a class="day has w1" href="2026-09-17.html" title="2026-09-17・高危5則・在野1則">17</a>
-  
     <a class="day has w1" href="2026-09-18.html" title="2026-09-18・高危5則・在野1則">18</a>
   
     <a class="day" href="2026-09-19.html" title="2026-09-19・高危5則・在野0則">19</a>
@@ -429,7 +436,9 @@ This can, still, be used to escape the sandbox, one example (I&#39;m sure there&
   
     <a class="day has w2" href="2026-10-15.html" title="2026-10-15・高危5則・在野2則">15</a>
   
-    <a class="day has w1" href="2026-10-16.html" title="2026-10-16・高危51則・在野1則">16</a>
+    <a class="day has w1" href="2026-10-16.html" title="2026-10-16・高危5則・在野1則">16</a>
+  
+    <a class="day has w1" href="2026-10-17.html" title="2026-10-17・高危55則・在野1則">17</a>
   
   </div>
   <div class="cal-legend"><span>■ 無在野</span><span style="color:var(--amber)">■ 有在野（顏色越深越多）</span></div>

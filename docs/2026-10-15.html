@@ -76,7 +76,9 @@ h1 .grad{background:linear-gradient(180deg,var(--grad-from),var(--grad-to));-web
 .row.open .chev{transform:rotate(180deg)}
 .detail{display:none;margin-top:12px;padding-top:12px;border-top:1px dashed var(--border);font-size:13px;color:var(--gray-900)}
 .row.open .detail{display:block}
-.detail .en{margin-bottom:8px}
+.detail .en{margin-bottom:0}
+.lang{border:1px solid var(--border);border-radius:var(--radius-sm);padding:10px 12px;margin-bottom:8px;background:var(--bg)}
+.lang-tag{font-size:10px;color:var(--gray-900);letter-spacing:.08em;text-transform:uppercase;margin-bottom:4px}
 .badge{display:inline-flex;align-items:center;font-size:11px;font-weight:500;border-radius:5px;padding:2px 7px;border:1px solid var(--border);background:var(--gray-100);color:var(--gray-900);font-family:"Geist Mono",ui-monospace,SFMono-Regular,Menlo,monospace;white-space:nowrap}
 .badge.crit{background:var(--red);border-color:var(--red);color:#fff}
 .badge.wild{background:transparent;border-color:var(--amber);color:var(--amber)}
@@ -158,9 +160,10 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
       <a href="https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-esa-afw-zqYJkjxp" target="_blank">官方補丁 ↗</a>
     </div>
     <div class="detail">
-      <div class="en">A vulnerability in the Advanced Malware Protection (AMP) feature of Cisco Secure Email Gateway could allow an unauthenticated, remote attacker to write arbitrary files on the underlying operating system.
+      <div class="lang"><div class="lang-tag">中文提煉</div><div>攻擊者可透過惡意附件寫入檔案並取得 root 權限。</div></div>
+      <div class="lang"><div class="lang-tag">英文原文</div><div class="en">A vulnerability in the Advanced Malware Protection (AMP) feature of Cisco Secure Email Gateway could allow an unauthenticated, remote attacker to write arbitrary files on the underlying operating system.
 
-This vulnerability is due to improper handling of email attachments when the file reputation service is enabled. An attacker could exploit this vulnerability by sending an email that contains a crafted attachment through an affected device. A successful exploit could allow the attacker to write arbitrary files and execute commands with&amp;nbsp;root privileges on the underlying operating system</div>
+This vulnerability is due to improper handling of email attachments when the file reputation service is enabled. An attacker could exploit this vulnerability by sending an email that contains a crafted attachment through an affected device. A successful exploit could allow the attacker to write arbitrary files and execute commands with&amp;nbsp;root privileges on the underlying operating system</div></div>
       <div>修補建議：參考官方安全公告更新系統。</div>
       
       <div style="margin-top:6px">更多參考：<a href="https://www.cisa.gov/known-exploited-vulnerabilities-catalog?field_cve=CVE-2026-76519" target="_blank">[2]</a> </div>
@@ -182,7 +185,8 @@ This vulnerability is due to improper handling of email attachments when the fil
       <a href="https://security.paloaltonetworks.com/CVE-2026-0322" target="_blank">官方補丁 ↗</a>
     </div>
     <div class="detail">
-      <div class="en">A remote code execution (RCE) vulnerability in the management interface of Palo Alto Networks PAN-OS® software enables an authenticated attacker with network access to execute arbitrary code with root privileges on the firewall.
+      <div class="lang"><div class="lang-tag">中文提煉</div><div>驗證後的攻擊者可透過管理介面執行任意程式碼。</div></div>
+      <div class="lang"><div class="lang-tag">英文原文</div><div class="en">A remote code execution (RCE) vulnerability in the management interface of Palo Alto Networks PAN-OS® software enables an authenticated attacker with network access to execute arbitrary code with root privileges on the firewall.
 
 
 
@@ -190,7 +194,7 @@ The security risk posed by this issue is minimized by restricting access to the 
 
 
 
-This issue is applicable to </div>
+This issue is applicable to </div></div>
       <div>修補建議：限制管理介面存取並更新至安全版本。</div>
       
       <div style="margin-top:6px">更多參考：<a href="https://www.cisa.gov/known-exploited-vulnerabilities-catalog?field_cve=CVE-2026-0322" target="_blank">[2]</a> </div>
@@ -217,7 +221,8 @@ This issue is applicable to </div>
       <a href="https://wpscan.com/vulnerability/bcd5538b-0ad4-4311-b3b6-3fb89d4caa76/" target="_blank">官方補丁 ↗</a>
     </div>
     <div class="detail">
-      <div class="en">The File Upload to Order WordPress plugin before 1.1.4 does not validate or confine a file path taken from attacker-controlled session data before deleting the file, and the action that performs the deletion is reachable by unauthenticated users, allowing them to delete arbitrary files on the server, including files whose removal leads to full site compromise.</div>
+      <div class="lang"><div class="lang-tag">中文提煉</div><div>未經授權使用者可刪除伺服器檔案，導致網站接管。</div></div>
+      <div class="lang"><div class="lang-tag">英文原文</div><div class="en">The File Upload to Order WordPress plugin before 1.1.4 does not validate or confine a file path taken from attacker-controlled session data before deleting the file, and the action that performs the deletion is reachable by unauthenticated users, allowing them to delete arbitrary files on the server, including files whose removal leads to full site compromise.</div></div>
       <div>修補建議：升級至 1.1.4 或更新版本。</div>
       
       
@@ -239,7 +244,8 @@ This issue is applicable to </div>
       <a href="https://github.com/e107inc/e107/commit/120bd4bdbe18c8690c60a007ad6716e52e6ee965" target="_blank">官方補丁 ↗</a>
     </div>
     <div class="detail">
-      <div class="en">e107 is a content management system (CMS). Prior to 2.3.7, the bundled alt_auth plugin&#39;s otherdb and e107db authentication backends interpolate the submitted login username directly into SQL in e107_plugins/alt_auth/otherdb_auth.php and e107_plugins/alt_auth/e107db_auth.php. The login() methods execute those strings with PDO::query() before effective sanitization, so an unauthenticated user can inject SQL when alt_auth is installed and either backend is configured with a live external database connection. The injection can expose or modify data available to the configured database account, and</div>
+      <div class="lang"><div class="lang-tag">中文提煉</div><div>攻擊者可透過登入介面注入 SQL 指令並修改資料。</div></div>
+      <div class="lang"><div class="lang-tag">英文原文</div><div class="en">e107 is a content management system (CMS). Prior to 2.3.7, the bundled alt_auth plugin&#39;s otherdb and e107db authentication backends interpolate the submitted login username directly into SQL in e107_plugins/alt_auth/otherdb_auth.php and e107_plugins/alt_auth/e107db_auth.php. The login() methods execute those strings with PDO::query() before effective sanitization, so an unauthenticated user can inject SQL when alt_auth is installed and either backend is configured with a live external database connection. The injection can expose or modify data available to the configured database account, and</div></div>
       <div>修補建議：升級至 2.3.7 版本。</div>
       
       <div style="margin-top:6px">更多參考：<a href="https://github.com/e107inc/e107/releases/tag/v2.3.7" target="_blank">[2]</a> <a href="https://github.com/e107inc/e107/security/advisories/GHSA-5f75-c25x-59wx" target="_blank">[3]</a> </div>
@@ -261,7 +267,8 @@ This issue is applicable to </div>
       <a href="https://github.com/Walnut1337/Command-Injection-DIR-868L/blob/main/ADVISORY.md" target="_blank">官方補丁 ↗</a>
     </div>
     <div class="detail">
-      <div class="en">A vulnerability was determined in D-Link DIR-868L 2.01b05. This impacts the function system of the file /htdocs/cgibin of the component HNAP CGI Handler. Executing a manipulation of the argument SOAPACTION can lead to os command injection. The attack may be launched remotely. The exploit has been publicly disclosed and may be utilized.</div>
+      <div class="lang"><div class="lang-tag">中文提煉</div><div>遠端攻擊者可透過 SOAPACTION 參數執行指令。</div></div>
+      <div class="lang"><div class="lang-tag">英文原文</div><div class="en">A vulnerability was determined in D-Link DIR-868L 2.01b05. This impacts the function system of the file /htdocs/cgibin of the component HNAP CGI Handler. Executing a manipulation of the argument SOAPACTION can lead to os command injection. The attack may be launched remotely. The exploit has been publicly disclosed and may be utilized.</div></div>
       <div>修補建議：檢查韌體更新或更換受影響設備。</div>
       
       <div style="margin-top:6px">更多參考：<a href="https://github.com/Walnut1337/Command-Injection-DIR-868L/tree/main/poc" target="_blank">[2]</a> <a href="https://vuldb.com/cve/CVE-2026-110536" target="_blank">[3]</a> <a href="https://vuldb.com/submit/1003692" target="_blank">[4]</a> <a href="https://vuldb.com/submit/1003693" target="_blank">[5]</a> </div>
@@ -277,6 +284,8 @@ This issue is applicable to </div>
 <div class="hist">
   <h3>Archive / 歷史存檔</h3>
   <div class="hist-grid">
+    
+    <a class="hcard" href="2026-10-17.html"><div class="d">2026-10-17</div><div class="c">5 則・gemini</div></a>
     
     <a class="hcard" href="2026-10-16.html"><div class="d">2026-10-16</div><div class="c">5 則・gemini</div></a>
     
@@ -359,8 +368,6 @@ This issue is applicable to </div>
   <div class="sub2">琥珀色 = 當日有在野利用，點擊跳轉存檔</div>
   <div class="cal">
   
-    <a class="day has w1" href="2026-09-17.html" title="2026-09-17・高危5則・在野1則">17</a>
-  
     <a class="day has w1" href="2026-09-18.html" title="2026-09-18・高危5則・在野1則">18</a>
   
     <a class="day" href="2026-09-19.html" title="2026-09-19・高危5則・在野0則">19</a>
@@ -417,7 +424,9 @@ This issue is applicable to </div>
   
     <a class="day has w2" href="2026-10-15.html" title="2026-10-15・高危5則・在野2則">15</a>
   
-    <a class="day has w1" href="2026-10-16.html" title="2026-10-16・高危51則・在野1則">16</a>
+    <a class="day has w1" href="2026-10-16.html" title="2026-10-16・高危5則・在野1則">16</a>
+  
+    <a class="day has w1" href="2026-10-17.html" title="2026-10-17・高危55則・在野1則">17</a>
   
   </div>
   <div class="cal-legend"><span>■ 無在野</span><span style="color:var(--amber)">■ 有在野（顏色越深越多）</span></div>

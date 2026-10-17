@@ -76,7 +76,9 @@ h1 .grad{background:linear-gradient(180deg,var(--grad-from),var(--grad-to));-web
 .row.open .chev{transform:rotate(180deg)}
 .detail{display:none;margin-top:12px;padding-top:12px;border-top:1px dashed var(--border);font-size:13px;color:var(--gray-900)}
 .row.open .detail{display:block}
-.detail .en{margin-bottom:8px}
+.detail .en{margin-bottom:0}
+.lang{border:1px solid var(--border);border-radius:var(--radius-sm);padding:10px 12px;margin-bottom:8px;background:var(--bg)}
+.lang-tag{font-size:10px;color:var(--gray-900);letter-spacing:.08em;text-transform:uppercase;margin-bottom:4px}
 .badge{display:inline-flex;align-items:center;font-size:11px;font-weight:500;border-radius:5px;padding:2px 7px;border:1px solid var(--border);background:var(--gray-100);color:var(--gray-900);font-family:"Geist Mono",ui-monospace,SFMono-Regular,Menlo,monospace;white-space:nowrap}
 .badge.crit{background:var(--red);border-color:var(--red);color:#fff}
 .badge.wild{background:transparent;border-color:var(--amber);color:var(--amber)}
@@ -159,7 +161,8 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
       <a href="https://patchstack.com/database/wordpress/plugin/sitevault-backup-restore-migration/vulnerability/wordpress-sitevault-backup-restore-migration-cloning-plugin-1-5-18-remote-code-execution-rce-vulnerability?_s_id=cve" target="_blank">官方補丁 ↗</a>
     </div>
     <div class="detail">
-      <div class="en">Unauthenticated Remote Code Execution (RCE) in SiteVault – Backup, Restore, Migration &amp;amp; Cloning &lt;= 1.5.19 versions.</div>
+      <div class="lang"><div class="lang-tag">中文提煉</div><div>未經授權的遠端程式碼執行漏洞，影響備份遷移插件。</div></div>
+      <div class="lang"><div class="lang-tag">英文原文</div><div class="en">Unauthenticated Remote Code Execution (RCE) in SiteVault – Backup, Restore, Migration &amp;amp; Cloning &lt;= 1.5.19 versions.</div></div>
       <div>修補建議：更新至最新版本或 1.5.20 以上版本。</div>
       
       
@@ -181,7 +184,8 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
       <a href="https://github.com/advisories/GHSA-9mp3-24cc-77mg" target="_blank">官方補丁 ↗</a>
     </div>
     <div class="detail">
-      <div class="en">PraisonAI: AICoder Arbitrary File Write and Command Execution via LLM Tool Calls
+      <div class="lang"><div class="lang-tag">中文提煉</div><div>透過 LLM 工具調用實現任意檔案寫入與指令執行。</div></div>
+      <div class="lang"><div class="lang-tag">英文原文</div><div class="en">PraisonAI: AICoder Arbitrary File Write and Command Execution via LLM Tool Calls
 ### Summary
 The `AICoder` UI component exposes `write_to_file` and `execute_command` tools to the LLM with no path validation and no command sanitization. An attacker can achieve arbitrary file write to any location on the filesystem (including `/root/.ssh/authorized_keys`, `/etc/crontab`) and arbitrary command execution through prompt injection in the chat interface. Docker containers run as root, maximizing impact.
 
@@ -189,7 +193,7 @@ The `AICoder` UI component exposes `write_to_file` and `execute_command` tools t
 
 #### Path Traversal in write_to_file
 
-`src/praisonai/praisonai/ui/components/aicoder</div>
+`src/praisonai/praisonai/ui/components/aicoder</div></div>
       <div>修補建議：實施路徑驗證並對 LLM 執行的指令進行過濾。</div>
       
       
@@ -211,7 +215,8 @@ The `AICoder` UI component exposes `write_to_file` and `execute_command` tools t
       <a href="https://patchstack.com/database/wordpress/plugin/codebard-help-desk/vulnerability/wordpress-codebard-help-desk-plugin-1-1-2-arbitrary-file-upload-vulnerability?_s_id=cve" target="_blank">官方補丁 ↗</a>
     </div>
     <div class="detail">
-      <div class="en">Subscriber Arbitrary File Upload in CodeBard Help Desk &lt;= 1.1.2 versions.</div>
+      <div class="lang"><div class="lang-tag">中文提煉</div><div>訂閱者權限可上傳任意檔案，導致遠端程式碼執行。</div></div>
+      <div class="lang"><div class="lang-tag">英文原文</div><div class="en">Subscriber Arbitrary File Upload in CodeBard Help Desk &lt;= 1.1.2 versions.</div></div>
       <div>修補建議：更新至最新版本以修復任意檔案上傳漏洞。</div>
       
       
@@ -233,7 +238,8 @@ The `AICoder` UI component exposes `write_to_file` and `execute_command` tools t
       <a href="https://patchstack.com/database/wordpress/plugin/creatorlms/vulnerability/wordpress-creator-lms-plugin-1-2-21-arbitrary-file-upload-vulnerability?_s_id=cve" target="_blank">官方補丁 ↗</a>
     </div>
     <div class="detail">
-      <div class="en">Contributor Arbitrary File Upload in Creator LMS &lt;= 1.2.21 versions.</div>
+      <div class="lang"><div class="lang-tag">中文提煉</div><div>投稿者權限可上傳任意檔案，導致遠端程式碼執行。</div></div>
+      <div class="lang"><div class="lang-tag">英文原文</div><div class="en">Contributor Arbitrary File Upload in Creator LMS &lt;= 1.2.21 versions.</div></div>
       <div>修補建議：更新至最新版本以修復檔案上傳權限檢查。</div>
       
       
@@ -255,7 +261,8 @@ The `AICoder` UI component exposes `write_to_file` and `execute_command` tools t
       <a href="https://plugins.trac.wordpress.org/browser/expivi/tags/2.16.2/classes/pdf/class-pdf.php#L34" target="_blank">官方補丁 ↗</a>
     </div>
     <div class="detail">
-      <div class="en">The 3D Product configurator for WooCommerce plugin for WordPress is vulnerable to Remote Code Execution in all versions up to, and including, 2.16.2 via the &#39;xpv_image&#39; parameter parameter. This is due to missing authentication and nonce checks on the wp_loaded handler combined with no sanitization of the xpv_image POST parameter before it is echoed unescaped into a Dompdf-rendered HTML template with PHP execution enabled. This makes it possible for unauthenticated attackers to execute code on the server. The only nonce and authentication check in the handler is entirely enclosed in a block co</div>
+      <div class="lang"><div class="lang-tag">中文提煉</div><div>未經授權者可透過 xpv_image 參數執行遠端程式碼。</div></div>
+      <div class="lang"><div class="lang-tag">英文原文</div><div class="en">The 3D Product configurator for WooCommerce plugin for WordPress is vulnerable to Remote Code Execution in all versions up to, and including, 2.16.2 via the &#39;xpv_image&#39; parameter parameter. This is due to missing authentication and nonce checks on the wp_loaded handler combined with no sanitization of the xpv_image POST parameter before it is echoed unescaped into a Dompdf-rendered HTML template with PHP execution enabled. This makes it possible for unauthenticated attackers to execute code on the server. The only nonce and authentication check in the handler is entirely enclosed in a block co</div></div>
       <div>修補建議：更新至 2.16.3 或更高版本。</div>
       
       <div style="margin-top:6px">更多參考：<a href="https://plugins.trac.wordpress.org/browser/expivi/tags/2.16.2/classes/woocommerce/class-expivi-cart-manager.php#L212" target="_blank">[2]</a> <a href="https://plugins.trac.wordpress.org/browser/expivi/tags/2.16.2/classes/woocommerce/class-expivi-cart-manager.php#L238" target="_blank">[3]</a> <a href="https://plugins.trac.wordpress.org/browser/expivi/tags/2.16.2/classes/woocommerce/class-expivi-cart-manager.php#L598" target="_blank">[4]</a> <a href="https://plugins.trac.wordpress.org/browser/expivi/tags/2.16.2/classes/woocommerce/class-expivi-cart-manager.php#L95" target="_blank">[5]</a> </div>
@@ -271,6 +278,8 @@ The `AICoder` UI component exposes `write_to_file` and `execute_command` tools t
 <div class="hist">
   <h3>Archive / 歷史存檔</h3>
   <div class="hist-grid">
+    
+    <a class="hcard" href="2026-10-17.html"><div class="d">2026-10-17</div><div class="c">5 則・gemini</div></a>
     
     <a class="hcard" href="2026-10-16.html"><div class="d">2026-10-16</div><div class="c">5 則・gemini</div></a>
     
@@ -353,8 +362,6 @@ The `AICoder` UI component exposes `write_to_file` and `execute_command` tools t
   <div class="sub2">琥珀色 = 當日有在野利用，點擊跳轉存檔</div>
   <div class="cal">
   
-    <a class="day has w1" href="2026-09-17.html" title="2026-09-17・高危5則・在野1則">17</a>
-  
     <a class="day has w1" href="2026-09-18.html" title="2026-09-18・高危5則・在野1則">18</a>
   
     <a class="day" href="2026-09-19.html" title="2026-09-19・高危5則・在野0則">19</a>
@@ -411,7 +418,9 @@ The `AICoder` UI component exposes `write_to_file` and `execute_command` tools t
   
     <a class="day has w2" href="2026-10-15.html" title="2026-10-15・高危5則・在野2則">15</a>
   
-    <a class="day has w1" href="2026-10-16.html" title="2026-10-16・高危51則・在野1則">16</a>
+    <a class="day has w1" href="2026-10-16.html" title="2026-10-16・高危5則・在野1則">16</a>
+  
+    <a class="day has w1" href="2026-10-17.html" title="2026-10-17・高危55則・在野1則">17</a>
   
   </div>
   <div class="cal-legend"><span>■ 無在野</span><span style="color:var(--amber)">■ 有在野（顏色越深越多）</span></div>
