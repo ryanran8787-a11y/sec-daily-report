@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>網安每日報 2026-10-18</title>
+<style>
+/* Geist 設計語言（灰階層次、細邊框、小圓角），logo 與配色為原創 */
+:root{
+  color-scheme:dark;
+  --bg:#000; --bg-2:#0a0a0a; --gray-100:#1a1a1a; --gray-200:#222;
+  --border:#2e2e2e; --border-hover:#444; --gray-900:#8f8f8f; --gray-1000:#ededed;
+  --blue:#0070f3; --red:#e5484d; --amber:#f5a524; --green:#17c964;
+  --radius:8px; --radius-sm:6px;
+  --nav-bg:rgba(0,0,0,.8); --grad-from:#fff; --grad-to:#888; --logo:#fff;
+}
+[data-theme="light"]{
+  color-scheme:light;
+  --bg:#fafafa; --bg-2:#fff; --gray-100:#f0f0f0; --gray-200:#e8e8e8;
+  --border:#e5e5e5; --border-hover:#ccc; --gray-900:#666; --gray-1000:#171717;
+  --blue:#0066e6; --red:#d92d20; --amber:#b54708; --green:#12805c;
+  --nav-bg:rgba(250,250,250,.8); --grad-from:#000; --grad-to:#666; --logo:#000;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--gray-1000);
+  font-family:"Geist Sans","Inter",-apple-system,"Noto Sans TC","Microsoft JhengHei",sans-serif;
+  font-size:14px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:var(--blue);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1024px;margin:0 auto;padding:0 24px 80px}
+.nav{position:sticky;top:0;z-index:10;background:var(--nav-bg);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+.nav-inner{max-width:1024px;margin:0 auto;padding:12px 24px;display:flex;align-items:center;gap:12px}
+.logo{width:22px;height:22px;flex:none;fill:var(--logo)}
+.theme-btn{background:none;border:1px solid var(--border);border-radius:var(--radius-sm);color:var(--gray-900);width:30px;height:30px;font-size:14px;cursor:pointer;line-height:1}
+.theme-btn:hover{border-color:var(--border-hover);color:var(--gray-1000)}
+.rss-link{font-size:11px;border:1px solid var(--border);border-radius:5px;padding:2px 7px;color:var(--gray-900);font-family:"Geist Mono",ui-monospace,monospace}
+.rss-link:hover{color:var(--amber);border-color:var(--amber);text-decoration:none}
+.brand{font-weight:600;font-size:14px;letter-spacing:-.01em}
+.brand span{color:var(--gray-900);font-weight:400}
+.nav-right{margin-left:auto;display:flex;align-items:center;gap:8px;color:var(--gray-900);font-size:12px}
+.dot{width:6px;height:6px;border-radius:50%;background:var(--green);display:inline-block}
+.hero{padding:56px 0 8px}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:12px;color:var(--gray-900);border:1px solid var(--border);border-radius:999px;padding:4px 12px;margin-bottom:20px}
+h1{margin:0;font-size:40px;font-weight:700;letter-spacing:-.04em;line-height:1.1}
+h1 .grad{background:linear-gradient(180deg,var(--grad-from),var(--grad-to));-webkit-background-clip:text;background-clip:text;color:transparent}
+.lede{margin:12px 0 0;color:var(--gray-900);font-size:15px;max-width:640px}
+.brief{margin:20px 0 0;border:1px solid var(--border);border-left:3px solid var(--amber);border-radius:var(--radius-sm);background:var(--bg-2);padding:12px 16px;font-size:13px;color:var(--gray-1000)}
+.brief span{color:var(--gray-900);font-size:11px;display:block;margin-bottom:2px;letter-spacing:.06em}
+.bucket{margin:28px 0 0}
+.bucket>h3{font-size:13px;font-weight:600;margin:0 0 10px;display:flex;align-items:center;gap:8px}
+.bucket>h3 .cnt{font-size:11px;color:var(--gray-900);font-weight:400}
+.stats{display:flex;gap:0;margin:28px 0;border:1px solid var(--border);border-radius:var(--radius);overflow:hidden}
+.stat{flex:1;padding:16px 20px;background:var(--bg-2)}
+.stat+.stat{border-left:1px solid var(--border)}
+.stat .n{font-size:24px;font-weight:700;letter-spacing:-.02em}
+.stat .n.red{color:var(--red)}
+.stat .n.amber{color:var(--amber)}
+.stat .n.green{color:var(--green)}
+.stat .l{font-size:12px;color:var(--gray-900);margin-top:2px}
+.toolbar{display:flex;gap:8px;align-items:center;margin:20px 0;flex-wrap:wrap}
+.search{flex:1;min-width:200px;background:var(--bg-2);border:1px solid var(--border);border-radius:var(--radius-sm);color:var(--gray-1000);padding:8px 12px;font-size:13px;outline:none}
+.search:focus{border-color:var(--blue)}
+.btn{background:var(--gray-100);border:1px solid var(--border);border-radius:var(--radius-sm);color:var(--gray-1000);padding:8px 14px;font-size:13px;cursor:pointer}
+.btn:hover{background:var(--gray-200);border-color:var(--border-hover)}
+.btn.active{background:#ededed;color:#000;border-color:#ededed}
+.list{border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;background:var(--bg-2)}
+.row{padding:18px 20px;cursor:pointer;transition:background .12s}
+.row:hover{background:var(--gray-100)}
+.row+.row{border-top:1px solid var(--border)}
+.row-head{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.row-head h2{margin:0;font-size:15px;font-weight:600;letter-spacing:-.01em;flex:1;min-width:200px}
+.row-sum{color:var(--gray-900);font-size:13px;margin-top:6px}
+.row-foot{display:flex;gap:12px;align-items:center;margin-top:10px;font-size:12px;color:var(--gray-900)}
+.row-foot a{font-size:12px}
+.chev{color:var(--gray-900);font-size:12px;transition:transform .15s;flex:none}
+.row.open .chev{transform:rotate(180deg)}
+.detail{display:none;margin-top:12px;padding-top:12px;border-top:1px dashed var(--border);font-size:13px;color:var(--gray-900)}
+.row.open .detail{display:block}
+.detail .en{margin-bottom:0}
+.lang{border:1px solid var(--border);border-radius:var(--radius-sm);padding:10px 12px;margin-bottom:8px;background:var(--bg)}
+.lang-tag{font-size:10px;color:var(--gray-900);letter-spacing:.08em;text-transform:uppercase;margin-bottom:4px}
+.badge{display:inline-flex;align-items:center;font-size:11px;font-weight:500;border-radius:5px;padding:2px 7px;border:1px solid var(--border);background:var(--gray-100);color:var(--gray-900);font-family:"Geist Mono",ui-monospace,SFMono-Regular,Menlo,monospace;white-space:nowrap}
+.badge.crit{background:var(--red);border-color:var(--red);color:#fff}
+.badge.wild{background:transparent;border-color:var(--amber);color:var(--amber)}
+.badge.epss{background:transparent}
+.hist{margin-top:48px}
+.trend{margin-top:48px;border:1px solid var(--border);border-radius:var(--radius);background:var(--bg-2);padding:16px 20px}
+.trend h3{font-size:13px;font-weight:600;color:var(--gray-900);text-transform:uppercase;letter-spacing:.08em;margin:0 0 4px}
+.trend .sub2{font-size:12px;color:var(--gray-900);margin-bottom:12px}
+.cal{display:flex;gap:5px;flex-wrap:wrap}
+.day{width:26px;height:26px;border-radius:6px;background:var(--gray-100);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:10px;color:var(--gray-900);font-family:"Geist Mono",ui-monospace,monospace;text-decoration:none}
+.day:hover{border-color:var(--border-hover)}
+.day.has{color:#fff;font-weight:700}
+.day.w1{background:rgba(245,165,36,.25);border-color:var(--amber);color:var(--amber)}
+.day.w2{background:rgba(245,165,36,.5);border-color:var(--amber);color:#000}
+.day.w3{background:var(--amber);border-color:var(--amber);color:#000}
+.cal-legend{display:flex;gap:12px;margin-top:10px;font-size:11px;color:var(--gray-900)}
+.hist h3{font-size:13px;font-weight:600;color:var(--gray-900);text-transform:uppercase;letter-spacing:.08em;margin:0 0 12px}
+.hist-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px}
+.hcard{border:1px solid var(--border);border-radius:var(--radius-sm);padding:12px 14px;background:var(--bg-2);color:var(--gray-1000)}
+.hcard:hover{border-color:var(--border-hover);text-decoration:none}
+.hcard .d{font-size:13px;font-weight:600;font-family:"Geist Mono",ui-monospace,monospace}
+.hcard .c{font-size:12px;color:var(--gray-900)}
+footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color:var(--gray-900);font-size:12px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.empty{border:1px dashed var(--border);border-radius:var(--radius);padding:48px;text-align:center;color:var(--gray-900);margin-top:20px}
+@media(max-width:640px){h1{font-size:30px}.stats{flex-direction:column}.stat+.stat{border-left:none;border-top:1px solid var(--border)}}
+</style>
+</head>
+<body>
+<script>try{if((localStorage.getItem('secdaily-theme')||(matchMedia('(prefers-color-scheme: light)').matches?'light':'dark'))==='light')document.documentElement.dataset.theme='light';}catch(e){}</script>
+<div class="nav"><div class="nav-inner">
+  <svg class="logo" viewBox="0 0 24 24"><path d="M12 1.8 3.5 5v6.1c0 5.1 3.6 9.6 8.5 10.9 4.9-1.3 8.5-5.8 8.5-10.9V5L12 1.8Zm0 2.4 6.5 2.6v4.3c0 4-2.7 7.6-6.5 8.7-3.8-1.1-6.5-4.7-6.5-8.7V6.8L12 4.2Zm-1.4 9.1 4-4 1.4 1.4-5.4 5.4-2.6-2.6 1.4-1.4 1.2 1.2Z"/></svg>
+  <div class="brand">SecDaily <span>/ 網安每日報</span></div>
+  <div class="nav-right"><span class="dot"></span>2026-10-18・gemini<a class="rss-link" href="feed.xml" title="RSS 訂閱">RSS</a><button class="theme-btn" onclick="toggleTheme()" title="切換淺色/深色">◐</button></div>
+</div></div>
+
+<div class="wrap">
+<div class="hero">
+  <div class="eyebrow">NVD + KEV + EPSS + OSV + GitHub + Cisco ・ 每天 08:00（台北）自動更新</div>
+  <h1><span class="grad">今日高危漏洞</span></h1>
+  <p class="lede">僅收錄 CVSS ≥ 9.0、在野利用或 EPSS 利用預警項目。點擊任一條目展開完整描述與修補建議。</p>
+  <div class="brief"><span>AI 總評</span>今日共 5 項高危漏洞，涵蓋權限提升與注入等類型，其中 Cisco Secure Email 任意檔案寫入漏洞已遭野外利用，建議優先修補。</div>
+</div>
+
+<div class="stats">
+  <div class="stat"><div class="n red">5</div><div class="l">高危項目</div></div>
+  <div class="stat"><div class="n amber">1</div><div class="l">在野利用</div></div>
+  <div class="stat"><div class="n amber">0</div><div class="l">利用預警 EPSS≥0.7</div></div>
+  <div class="stat"><div class="n green">4</div><div class="l">CVSS ≥ 9.5</div></div>
+</div>
+
+<div class="toolbar">
+  <input class="search" id="q" placeholder="搜尋 CVE / 廠商 / 類型…" oninput="filterCards()">
+  <button class="btn" id="wildBtn" onclick="toggleWild(this)">只看在野利用</button>
+</div>
+
+
+
+
+
+
+
+
+<div id="grid">
+<div class="bucket"><h3>● 在野利用 <span class="cnt">1 則・優先處理</span></h3>
+<div class="list">
+
+  <div class="row" data-wild="1" onclick="if(event.target.tagName!=='A')this.classList.toggle('open')">
+    <div class="row-head">
+      <h2>Cisco Secure Email 任意檔案寫入</h2>
+      
+      <span class="badge wild">● 在野利用</span>
+      <span class="badge epss">via cisco</span>
+      <span class="badge">其他高危</span>
+      <span class="badge epss">EPSS 0.02</span>
+      <span class="chev">▾</span>
+    </div>
+    <div class="row-sum">Cisco Secure Email Gateway 處理郵件附件不當，導致遠端攻擊者可寫入檔案並以 root 權限執行指令。</div>
+    <div class="row-foot"><span>CVE-2026-76519</span><span>Cisco Secure Email Gateway</span>
+      <a href="https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-esa-afw-zqYJkjxp?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Secure%20Email%20Gateway%20Arbitrary%20File%20Write%20Vulnerability%26vs_k=1" target="_blank">官方補丁 ↗</a>
+    </div>
+    <div class="detail">
+      <div class="lang"><div class="lang-tag">中文提煉</div><div>Cisco Secure Email Gateway 處理郵件附件不當，導致遠端攻擊者可寫入檔案並以 root 權限執行指令。</div></div>
+      <div class="lang"><div class="lang-tag">英文原文</div><div class="en">Cisco Secure Email Gateway Arbitrary File Write Vulnerability
+&lt;p&gt;A vulnerability in the Advanced Malware Protection (AMP) feature of Cisco Secure Email Gateway could allow an unauthenticated, remote attacker to write arbitrary files on the underlying operating system.&lt;/p&gt;
+&lt;p&gt;This vulnerability is due to improper handling of email attachments when the file reputation service is enabled. An attacker could exploit this vulnerability by sending an email that contains a crafted attachment through an affected device. A successful exploit could allow the attacker to write arbitrary files and execute </div></div>
+      <div>修補建議：請更新至 Cisco 官方發布的軟體版本。</div>
+      
+      
+    </div>
+  </div>
+
+</div>
+</div>
+<div class="bucket"><h3>▲ 高危關注 <span class="cnt">4 則・EPSS 預警或 CVSS ≥ 9.5</span></h3>
+<div class="list">
+
+  <div class="row" data-wild="0" onclick="if(event.target.tagName!=='A')this.classList.toggle('open')">
+    <div class="row-head">
+      <h2>Podman 容器沙箱繞過</h2>
+      <span class="badge crit">CVSS 10.0</span>
+      
+      <span class="badge epss">via github</span>
+      <span class="badge">其他高危</span>
+      <span class="badge epss">EPSS 0.01</span>
+      <span class="chev">▾</span>
+    </div>
+    <div class="row-sum">Podman 執行容器檢查點時會忽略使用者安全設定，導致沙箱機制失效。</div>
+    <div class="row-foot"><span>CVE-2026-94603</span><span>Podman v4.4.0 及之後版本</span>
+      <a href="https://github.com/advisories/GHSA-2cvf-wqm6-wr9g" target="_blank">官方補丁 ↗</a>
+    </div>
+    <div class="detail">
+      <div class="lang"><div class="lang-tag">中文提煉</div><div>Podman 執行容器檢查點時會忽略使用者安全設定，導致沙箱機制失效。</div></div>
+      <div class="lang"><div class="lang-tag">英文原文</div><div class="en">Podman: The `podman run` command can be instructed to disable almost all sandboxing by image annotation
+### Impact
+Podman v4.4.0 added a feature where container checkpoints (from the `podman container checkpoint` command) could be distributed via OCI registry, and pulled from that registry and run via the `podman run` command. This allowed easy transfer of checkpoints between systems. However, checkpoints allow complete control of how the container is created - including full control of the container sandbox. When `podman run` detects a checkpoint, it will silently ignore all user input regard</div></div>
+      <div>修補建議：請參閱官方公告進行更新。</div>
+      
+      
+    </div>
+  </div>
+
+  <div class="row" data-wild="0" onclick="if(event.target.tagName!=='A')this.classList.toggle('open')">
+    <div class="row-head">
+      <h2>Argo CD 資源限制繞過</h2>
+      <span class="badge crit">CVSS 9.9</span>
+      
+      <span class="badge epss">via github</span>
+      <span class="badge">未授權存取</span>
+      <span class="badge epss">EPSS 0.01</span>
+      <span class="chev">▾</span>
+    </div>
+    <div class="row-sum">Argo CD 的 PreDelete/PostDelete 鉤子未正確檢查權限，導致資源限制被繞過。</div>
+    <div class="row-foot"><span>CVE-2026-77459</span><span>Argo CD v2.10.0 及之後版本</span>
+      <a href="https://github.com/advisories/GHSA-fmxq-cgp8-87wp" target="_blank">官方補丁 ↗</a>
+    </div>
+    <div class="detail">
+      <div class="lang"><div class="lang-tag">中文提煉</div><div>Argo CD 的 PreDelete/PostDelete 鉤子未正確檢查權限，導致資源限制被繞過。</div></div>
+      <div class="lang"><div class="lang-tag">英文原文</div><div class="en">Argo CD: AppProject destination-namespace and resource restrictions bypassed by PreDelete/PostDelete resource hooks
+### Impact
+
+Argo CD checks an Application&#39;s AppProject before it creates resources during a sync. That check covers destination namespaces and servers, cluster-scoped resource allow and deny lists, and namespaced resource allow and deny lists, including resource names. PreDelete and PostDelete hooks skip it. When the Application is deleted, Argo CD creates those hooks with the application-controller&#39;s credentials on the destination cluster.
+
+All versions from v2.10.0 onward are a</div></div>
+      <div>修補建議：請升級至修復版本。</div>
+      
+      
+    </div>
+  </div>
+
+  <div class="row" data-wild="0" onclick="if(event.target.tagName!=='A')this.classList.toggle('open')">
+    <div class="row-head">
+      <h2>KEDA 權限提升</h2>
+      <span class="badge crit">CVSS 9.9</span>
+      
+      <span class="badge epss">via github</span>
+      <span class="badge">權限提升</span>
+      <span class="badge epss">EPSS 0.01</span>
+      <span class="chev">▾</span>
+    </div>
+    <div class="row-sum">KEDA 處理 TriggerAuthentication 不當，導致命名空間管理員可提升至叢集管理員權限。</div>
+    <div class="row-foot"><span>CVE-2026-77524</span><span>KEDA</span>
+      <a href="https://github.com/advisories/GHSA-637c-6jxx-4rwm" target="_blank">官方補丁 ↗</a>
+    </div>
+    <div class="detail">
+      <div class="lang"><div class="lang-tag">中文提煉</div><div>KEDA 處理 TriggerAuthentication 不當，導致命名空間管理員可提升至叢集管理員權限。</div></div>
+      <div class="lang"><div class="lang-tag">英文原文</div><div class="en">KEDA: Privilege escalation from namespace admin to cluster admin via KEDA TriggerAuthentication
+## Summary
+
+A namespace admin who creates a `TriggerAuthentication` and a `ScaledObject` in their own namespace can make the KEDA operator send its own ServiceAccount token to a tenant-controlled URL. That token holds `[&#34;*&#34;]/[&#34;*&#34;] get` cluster-wide, so it reads every Secret in every namespace, plus `batch/jobs` and `horizontalpodautoscalers` create/delete cluster-wide, `*/scale` update on any workload, `validatingwebhookconfigurations` update (rewrite or disable cluster admission), and `apiservices`</div></div>
+      <div>修補建議：請參閱官方公告進行更新。</div>
+      
+      
+    </div>
+  </div>
+
+  <div class="row" data-wild="0" onclick="if(event.target.tagName!=='A')this.classList.toggle('open')">
+    <div class="row-head">
+      <h2>Vitess vttablet 反射型 XSS</h2>
+      <span class="badge crit">CVSS 9.8</span>
+      
+      <span class="badge epss">via github</span>
+      <span class="badge">XSS</span>
+      <span class="badge epss">EPSS 0.01</span>
+      <span class="chev">▾</span>
+    </div>
+    <div class="row-sum">Vitess vttablet 未對輸入進行 HTML 跳脫，導致反射型 XSS 攻擊。</div>
+    <div class="row-foot"><span>CVE-2026-104252</span><span>Vitess vttablet</span>
+      <a href="https://github.com/advisories/GHSA-v75v-6fpf-gvw8" target="_blank">官方補丁 ↗</a>
+    </div>
+    <div class="detail">
+      <div class="lang"><div class="lang-tag">中文提煉</div><div>Vitess vttablet 未對輸入進行 HTML 跳脫，導致反射型 XSS 攻擊。</div></div>
+      <div class="lang"><div class="lang-tag">英文原文</div><div class="en">Vitess vttablet /twopcz reflected XSS
+From: xylove21
+To: security@vitess.io
+Subject: [Security Report] Vitess vttablet /twopcz reflected XSS
+Date: Tue, 24 Jun 2026 14:30:00 +0800
+
+## Summary
+
+The `twopczHandler` in
+`go/vt/vttablet/tabletserver/twopcz.go` (line 185) reflects the `Action`
+and `dtid` form values directly into the HTML response body via
+`fmt.Fprintln(w, msg)` — **without HTML escaping**. The response is served
+as `text/html; charset=utf-8`, and Vitess&#39;s default `acl` policy is
+**allow-all**, so the endpoint is reachable by anyone who can hit the
+vttablet&#39;s HTTP port (default `1599</div></div>
+      <div>修補建議：請參閱官方公告進行更新。</div>
+      
+      
+    </div>
+  </div>
+
+</div>
+</div>
+
+</div>
+
+
+<div class="hist">
+  <h3>Archive / 歷史存檔</h3>
+  <div class="hist-grid">
+    
+    <a class="hcard" href="2026-10-18.html"><div class="d">2026-10-18</div><div class="c">5 則・gemini</div></a>
+    
+    <a class="hcard" href="2026-10-17.html"><div class="d">2026-10-17</div><div class="c">5 則・gemini</div></a>
+    
+    <a class="hcard" href="2026-10-16.html"><div class="d">2026-10-16</div><div class="c">5 則・gemini</div></a>
+    
+    <a class="hcard" href="2026-10-15.html"><div class="d">2026-10-15</div><div class="c">5 則・gemini</div></a>
+    
+    <a class="hcard" href="2026-10-14.html"><div class="d">2026-10-14</div><div class="c">5 則・gemini</div></a>
+    
+    <a class="hcard" href="2026-10-13.html"><div class="d">2026-10-13</div><div class="c">5 則・gemini</div></a>
+    
+    <a class="hcard" href="2026-10-12.html"><div class="d">2026-10-12</div><div class="c">5 則・gemini</div></a>
+    
+    <a class="hcard" href="2026-10-11.html"><div class="d">2026-10-11</div><div class="c">5 則・gemini</div></a>
+    
+    <a class="hcard" href="2026-10-10.html"><div class="d">2026-10-10</div><div class="c">5 則・gemini</div></a>
+    
+    <a class="hcard" href="2026-10-09.html"><div class="d">2026-10-09</div><div class="c">5 則・gemini</div></a>
+    
+    <a class="hcard" href="2026-10-08.html"><div class="d">2026-10-08</div><div class="c">5 則・gemini</div></a>
+    
+    <a class="hcard" href="2026-10-07.html"><div class="d">2026-10-07</div><div class="c">5 則・gemini</div></a>
+    
+    <a class="hcard" href="2026-10-06.html"><div class="d">2026-10-06</div><div class="c">5 則・gemini</div></a>
+    
+    <a class="hcard" href="2026-10-05.html"><div class="d">2026-10-05</div><div class="c">5 則・gemini</div></a>
+    
+    <a class="hcard" href="2026-10-04.html"><div class="d">2026-10-04</div><div class="c">5 則・gemini</div></a>
+    
+    <a class="hcard" href="2026-10-03.html"><div class="d">2026-10-03</div><div class="c">5 則・gemini</div></a>
+    
+    <a class="hcard" href="2026-10-02.html"><div class="d">2026-10-02</div><div class="c">5 則・gemini</div></a>
+    
+    <a class="hcard" href="2026-10-01.html"><div class="d">2026-10-01</div><div class="c">5 則・gemini</div></a>
+    
+    <a class="hcard" href="2026-09-30.html"><div class="d">2026-09-30</div><div class="c">5 則・gemini</div></a>
+    
+    <a class="hcard" href="2026-09-29.html"><div class="d">2026-09-29</div><div class="c">5 則・gemini</div></a>
+    
+    <a class="hcard" href="2026-09-28.html"><div class="d">2026-09-28</div><div class="c">5 則・gemini</div></a>
+    
+    <a class="hcard" href="2026-09-27.html"><div class="d">2026-09-27</div><div class="c">5 則・gemini</div></a>
+    
+    <a class="hcard" href="2026-09-26.html"><div class="d">2026-09-26</div><div class="c">5 則・gemini</div></a>
+    
+    <a class="hcard" href="2026-09-25.html"><div class="d">2026-09-25</div><div class="c">5 則・gemini</div></a>
+    
+    <a class="hcard" href="2026-09-24.html"><div class="d">2026-09-24</div><div class="c">5 則・gemini</div></a>
+    
+    <a class="hcard" href="2026-09-23.html"><div class="d">2026-09-23</div><div class="c">5 則・gemini</div></a>
+    
+    <a class="hcard" href="2026-09-22.html"><div class="d">2026-09-22</div><div class="c">5 則・gemini</div></a>
+    
+    <a class="hcard" href="2026-09-21.html"><div class="d">2026-09-21</div><div class="c">5 則・gemini</div></a>
+    
+    <a class="hcard" href="2026-09-20.html"><div class="d">2026-09-20</div><div class="c">5 則・gemini</div></a>
+    
+    <a class="hcard" href="2026-09-19.html"><div class="d">2026-09-19</div><div class="c">5 則・gemini</div></a>
+    
+    <a class="hcard" href="2026-09-18.html"><div class="d">2026-09-18</div><div class="c">5 則・gemini</div></a>
+    
+    <a class="hcard" href="2026-09-17.html"><div class="d">2026-09-17</div><div class="c">5 則・gemini</div></a>
+    
+    <a class="hcard" href="2026-09-16.html"><div class="d">2026-09-16</div><div class="c">5 則・gemini</div></a>
+    
+    <a class="hcard" href="2026-09-15.html"><div class="d">2026-09-15</div><div class="c">5 則・gemini</div></a>
+    
+    <a class="hcard" href="2026-09-14.html"><div class="d">2026-09-14</div><div class="c">5 則・gemini</div></a>
+    
+    <a class="hcard" href="2026-09-13.html"><div class="d">2026-09-13</div><div class="c">5 則・gemini</div></a>
+    
+    <a class="hcard" href="2026-09-12.html"><div class="d">2026-09-12</div><div class="c">5 則・gemini</div></a>
+    
+    <a class="hcard" href="2026-09-11.html"><div class="d">2026-09-11</div><div class="c">5 則・fallback</div></a>
+    
+  </div>
+</div>
+
+
+<div class="trend">
+  <h3>Exposure / 近30日在野日曆</h3>
+  <div class="sub2">琥珀色 = 當日有在野利用，點擊跳轉存檔</div>
+  <div class="cal">
+  
+    <a class="day" href="2026-09-19.html" title="2026-09-19・高危5則・在野0則">19</a>
+  
+    <a class="day" href="2026-09-20.html" title="2026-09-20・高危5則・在野0則">20</a>
+  
+    <a class="day" href="2026-09-21.html" title="2026-09-21・高危5則・在野0則">21</a>
+  
+    <a class="day" href="2026-09-22.html" title="2026-09-22・高危5則・在野0則">22</a>
+  
+    <a class="day has w3" href="2026-09-23.html" title="2026-09-23・高危5則・在野3則">23</a>
+  
+    <a class="day" href="2026-09-24.html" title="2026-09-24・高危5則・在野0則">24</a>
+  
+    <a class="day" href="2026-09-25.html" title="2026-09-25・高危5則・在野0則">25</a>
+  
+    <a class="day" href="2026-09-26.html" title="2026-09-26・高危5則・在野0則">26</a>
+  
+    <a class="day" href="2026-09-27.html" title="2026-09-27・高危5則・在野0則">27</a>
+  
+    <a class="day has w2" href="2026-09-28.html" title="2026-09-28・高危5則・在野2則">28</a>
+  
+    <a class="day" href="2026-09-29.html" title="2026-09-29・高危5則・在野0則">29</a>
+  
+    <a class="day" href="2026-09-30.html" title="2026-09-30・高危5則・在野0則">30</a>
+  
+    <a class="day has w1" href="2026-10-01.html" title="2026-10-01・高危5則・在野1則">10/1</a>
+  
+    <a class="day has w2" href="2026-10-02.html" title="2026-10-02・高危5則・在野2則">02</a>
+  
+    <a class="day has w1" href="2026-10-03.html" title="2026-10-03・高危5則・在野1則">03</a>
+  
+    <a class="day has w1" href="2026-10-04.html" title="2026-10-04・高危5則・在野1則">04</a>
+  
+    <a class="day has w1" href="2026-10-05.html" title="2026-10-05・高危5則・在野1則">05</a>
+  
+    <a class="day has w1" href="2026-10-06.html" title="2026-10-06・高危5則・在野1則">06</a>
+  
+    <a class="day has w1" href="2026-10-07.html" title="2026-10-07・高危5則・在野1則">07</a>
+  
+    <a class="day has w1" href="2026-10-08.html" title="2026-10-08・高危5則・在野1則">08</a>
+  
+    <a class="day has w1" href="2026-10-09.html" title="2026-10-09・高危5則・在野1則">09</a>
+  
+    <a class="day" href="2026-10-10.html" title="2026-10-10・高危5則・在野0則">10</a>
+  
+    <a class="day" href="2026-10-11.html" title="2026-10-11・高危5則・在野0則">11</a>
+  
+    <a class="day" href="2026-10-12.html" title="2026-10-12・高危5則・在野0則">12</a>
+  
+    <a class="day" href="2026-10-13.html" title="2026-10-13・高危5則・在野0則">13</a>
+  
+    <a class="day has w2" href="2026-10-14.html" title="2026-10-14・高危5則・在野2則">14</a>
+  
+    <a class="day has w2" href="2026-10-15.html" title="2026-10-15・高危5則・在野2則">15</a>
+  
+    <a class="day has w1" href="2026-10-16.html" title="2026-10-16・高危5則・在野1則">16</a>
+  
+    <a class="day has w1" href="2026-10-17.html" title="2026-10-17・高危5則・在野1則">17</a>
+  
+    <a class="day has w1" href="2026-10-18.html" title="2026-10-18・高危11則・在野1則">18</a>
+  
+  </div>
+  <div class="cal-legend"><span>■ 無在野</span><span style="color:var(--amber)">■ 有在野（顏色越深越多）</span></div>
+</div>
+
+
+<footer><span>資料：NVD / CISA KEV / FIRST EPSS ・ AI 提煉僅供參考，請以官方 Advisory 為準</span><span>由 GitHub Actions 每日自動產生</span></footer>
+</div>
+<script>
+try{if((localStorage.getItem('secdaily-theme')||(matchMedia('(prefers-color-scheme: light)').matches?'light':'dark'))==='light')document.documentElement.dataset.theme='light';}catch(e){}
+function toggleTheme(){const d=document.documentElement;const next=d.dataset.theme==='light'?'dark':'light';if(next==='light')d.dataset.theme='light';else delete d.dataset.theme;try{localStorage.setItem('secdaily-theme',next);}catch(e){}}
+let wildOnly=false;
+function toggleWild(b){wildOnly=!wildOnly;b.classList.toggle('active',wildOnly);filterCards();}
+function filterCards(){
+  const q=(document.getElementById('q').value||'').toLowerCase();
+  document.querySelectorAll('#grid .row').forEach(c=>{
+    const t=c.innerText.toLowerCase();
+    const okQ=!q||t.includes(q);
+    const okW=!wildOnly||c.dataset.wild==='1';
+    c.style.display=(okQ&&okW)?'':'none';
+  });
+  document.querySelectorAll('#grid .bucket').forEach(b=>{
+    const any=[...b.querySelectorAll('.row')].some(r=>r.style.display!=='none');
+    b.style.display=any?'':'none';
+  });
+}
+</script>
+</body>
+</html>

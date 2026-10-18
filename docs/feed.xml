@@ -4,7 +4,14 @@
 <link>https://ryanran8787-a11y.github.io/sec-daily-report/</link>
 <description>CVSS&gt;=9.0 或在野利用的高危漏洞日報</description>
 <language>zh-tw</language>
-<lastBuildDate>Sat, 17 Oct 2026 03:55:56 GMT</lastBuildDate>
+<lastBuildDate>Sun, 18 Oct 2026 04:00:43 GMT</lastBuildDate>
+<item>
+<title>2026-10-18 高危 5 則</title>
+<link>https://ryanran8787-a11y.github.io/sec-daily-report/2026-10-18.html</link>
+<guid>https://ryanran8787-a11y.github.io/sec-daily-report/2026-10-18.html</guid>
+<pubDate>Sun, 18 Oct 2026 04:00:43 GMT</pubDate>
+<description><![CDATA[<ul><li>Cisco Secure Email 任意檔案寫入 (CVSS None)</li><li>Podman 容器沙箱繞過 (CVSS 10.0)</li><li>Argo CD 資源限制繞過 (CVSS 9.9)</li><li>KEDA 權限提升 (CVSS 9.9)</li><li>Vitess vttablet 反射型 XSS (CVSS 9.8)</li></ul>]]></description>
+</item>
 <item>
 <title>2026-10-17 高危 5 則</title>
 <link>https://ryanran8787-a11y.github.io/sec-daily-report/2026-10-17.html</link>
@@ -207,12 +214,5 @@
 <guid>https://ryanran8787-a11y.github.io/sec-daily-report/2026-09-19.html</guid>
 <pubDate>Sat, 19 Sep 2026 03:39:47 GMT</pubDate>
 <description><![CDATA[<ul><li>vm2 沙箱逃逸漏洞 (CVSS 10.0)</li><li>vm2 沙箱逃逸漏洞 (CVSS 10.0)</li><li>vm2 沙箱逃逸漏洞 (CVSS 10.0)</li><li>IBM Licensing CSRF 漏洞 (CVSS 10.0)</li><li>IBM MQ 堆疊緩衝區溢位 (CVSS 10.0)</li></ul>]]></description>
-</item>
-<item>
-<title>2026-09-18 高危 5 則</title>
-<link>https://ryanran8787-a11y.github.io/sec-daily-report/2026-09-18.html</link>
-<guid>https://ryanran8787-a11y.github.io/sec-daily-report/2026-09-18.html</guid>
-<pubDate>Fri, 18 Sep 2026 03:43:28 GMT</pubDate>
-<description><![CDATA[<ul><li>Acronis 插件權限提升 (CVSS 7.8)</li><li>Migratico Lite RCE (CVSS 10.0)</li><li>vm2 沙箱逃逸 RCE (CVSS 10.0)</li><li>vm2 憑證洩漏漏洞 (CVSS 10.0)</li><li>vm2 TLS 信任庫竄改 (CVSS 10.0)</li></ul>]]></description>
 </item>
 </channel></rss>
