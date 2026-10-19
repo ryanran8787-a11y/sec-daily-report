@@ -1,0 +1,114 @@
+{
+  "date": "2026-10-19",
+  "generated_at": "2026-10-19T04:11:21.257503+00:00",
+  "engine": "gemini",
+  "count": 5,
+  "brief_zh": "今日共有 5 則高危漏洞，涵蓋 RCE 與沙箱逃逸，應優先關注已遭在野利用的 Cisco SEG RCE 漏洞。",
+  "items": [
+    {
+      "cve": "CVE-2026-76519",
+      "title_zh": "Cisco SEG RCE 在野利用",
+      "cvss": null,
+      "type": "RCE",
+      "in_wild": true,
+      "summary_zh": "遠端攻擊者可寫入檔案並以 root 權限執行指令。",
+      "affected": "Cisco Secure Email Gateway",
+      "affected_versions": "",
+      "fix_hint": "更新至 Cisco 發布的最新軟體版本。",
+      "patch_url": "https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-esa-afw-zqYJkjxp?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Secure%20Email%20Gateway%20Arbitrary%20File%20Write%20Vulnerability%26vs_k=1",
+      "epss_warn": false,
+      "epss": 0.01573,
+      "refs": [
+        "https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-esa-afw-zqYJkjxp?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Secure%20Email%20Gateway%20Arbitrary%20File%20Write%20Vulnerability%26vs_k=1"
+      ],
+      "desc_en": "Cisco Secure Email Gateway Arbitrary File Write Vulnerability\n<p>A vulnerability in the Advanced Malware Protection (AMP) feature of Cisco Secure Email Gateway could allow an unauthenticated, remote attacker to write arbitrary files on the underlying operating system.</p>\n<p>This vulnerability is due to improper handling of email attachments when the file reputation service is enabled. An attacker could exploit this vulnerability by sending an email that contains a crafted attachment through an affected device. A successful exploit could allow the attacker to write arbitrary files and execute ",
+      "source": "cisco",
+      "osv_packages": [],
+      "osv_fixed": []
+    },
+    {
+      "cve": "CVE-2026-94603",
+      "title_zh": "Podman 沙箱逃逸漏洞",
+      "cvss": 10.0,
+      "type": "逃逸",
+      "in_wild": false,
+      "summary_zh": "惡意映像檔可繞過沙箱限制並取得系統完整控制權。",
+      "affected": "Podman",
+      "affected_versions": "v4.4.0 及更高版本",
+      "fix_hint": "升級 Podman 至修復版本。",
+      "patch_url": "https://github.com/advisories/GHSA-2cvf-wqm6-wr9g",
+      "epss_warn": false,
+      "epss": 0.00918,
+      "refs": [
+        "https://github.com/advisories/GHSA-2cvf-wqm6-wr9g"
+      ],
+      "desc_en": "Podman: The `podman run` command can be instructed to disable almost all sandboxing by image annotation\n### Impact\nPodman v4.4.0 added a feature where container checkpoints (from the `podman container checkpoint` command) could be distributed via OCI registry, and pulled from that registry and run via the `podman run` command. This allowed easy transfer of checkpoints between systems. However, checkpoints allow complete control of how the container is created - including full control of the container sandbox. When `podman run` detects a checkpoint, it will silently ignore all user input regard",
+      "source": "github",
+      "osv_packages": [],
+      "osv_fixed": []
+    },
+    {
+      "cve": "CVE-2026-77459",
+      "title_zh": "Argo CD 資源限制繞過",
+      "cvss": 9.9,
+      "type": "未授權存取",
+      "in_wild": false,
+      "summary_zh": "攻擊者可利用資源掛鉤繞過 AppProject 命名空間限制。",
+      "affected": "Argo CD",
+      "affected_versions": "v2.10.0 及之後版本",
+      "fix_hint": "升級至 v2.10.x 或更高修復版本。",
+      "patch_url": "https://github.com/advisories/GHSA-fmxq-cgp8-87wp",
+      "epss_warn": false,
+      "epss": 0.0072,
+      "refs": [
+        "https://github.com/advisories/GHSA-fmxq-cgp8-87wp"
+      ],
+      "desc_en": "Argo CD: AppProject destination-namespace and resource restrictions bypassed by PreDelete/PostDelete resource hooks\n### Impact\n\nArgo CD checks an Application's AppProject before it creates resources during a sync. That check covers destination namespaces and servers, cluster-scoped resource allow and deny lists, and namespaced resource allow and deny lists, including resource names. PreDelete and PostDelete hooks skip it. When the Application is deleted, Argo CD creates those hooks with the application-controller's credentials on the destination cluster.\n\nAll versions from v2.10.0 onward are a",
+      "source": "github",
+      "osv_packages": [],
+      "osv_fixed": []
+    },
+    {
+      "cve": "CVE-2026-77524",
+      "title_zh": "KEDA 叢集權限提升漏洞",
+      "cvss": 9.9,
+      "type": "權限提升",
+      "in_wild": false,
+      "summary_zh": "命名空間管理員可藉此獲取叢集管理員權限與機密。",
+      "affected": "KEDA",
+      "affected_versions": "",
+      "fix_hint": "升級 KEDA 並限制 TriggerAuthentication 權限。",
+      "patch_url": "https://github.com/advisories/GHSA-637c-6jxx-4rwm",
+      "epss_warn": false,
+      "epss": 0.00635,
+      "refs": [
+        "https://github.com/advisories/GHSA-637c-6jxx-4rwm"
+      ],
+      "desc_en": "KEDA: Privilege escalation from namespace admin to cluster admin via KEDA TriggerAuthentication\n## Summary\n\nA namespace admin who creates a `TriggerAuthentication` and a `ScaledObject` in their own namespace can make the KEDA operator send its own ServiceAccount token to a tenant-controlled URL. That token holds `[\"*\"]/[\"*\"] get` cluster-wide, so it reads every Secret in every namespace, plus `batch/jobs` and `horizontalpodautoscalers` create/delete cluster-wide, `*/scale` update on any workload, `validatingwebhookconfigurations` update (rewrite or disable cluster admission), and `apiservices`",
+      "source": "github",
+      "osv_packages": [],
+      "osv_fixed": []
+    },
+    {
+      "cve": "CVE-2026-104252",
+      "title_zh": "Vitess vttablet XSS 漏洞",
+      "cvss": 9.8,
+      "type": "XSS",
+      "in_wild": false,
+      "summary_zh": "攻擊者可透過未過濾的參數執行反射型 XSS 攻擊。",
+      "affected": "Vitess vttablet",
+      "affected_versions": "",
+      "fix_hint": "升級 Vitess 或對 vttablet HTTP 埠實施存取控制。",
+      "patch_url": "https://github.com/advisories/GHSA-v75v-6fpf-gvw8",
+      "epss_warn": false,
+      "epss": 0.00885,
+      "refs": [
+        "https://github.com/advisories/GHSA-v75v-6fpf-gvw8"
+      ],
+      "desc_en": "Vitess vttablet /twopcz reflected XSS\nFrom: xylove21\nTo: security@vitess.io\nSubject: [Security Report] Vitess vttablet /twopcz reflected XSS\nDate: Tue, 24 Jun 2026 14:30:00 +0800\n\n## Summary\n\nThe `twopczHandler` in\n`go/vt/vttablet/tabletserver/twopcz.go` (line 185) reflects the `Action`\nand `dtid` form values directly into the HTML response body via\n`fmt.Fprintln(w, msg)` — **without HTML escaping**. The response is served\nas `text/html; charset=utf-8`, and Vitess's default `acl` policy is\n**allow-all**, so the endpoint is reachable by anyone who can hit the\nvttablet's HTTP port (default `1599",
+      "source": "github",
+      "osv_packages": [],
+      "osv_fixed": []
+    }
+  ]
+}

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>網安每日報 2026-10-18</title>
+<title>網安每日報 2026-10-19</title>
 <style>
 /* Geist 設計語言（灰階層次、細邊框、小圓角），logo 與配色為原創 */
 :root{
@@ -111,7 +111,7 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
 <div class="nav"><div class="nav-inner">
   <svg class="logo" viewBox="0 0 24 24"><path d="M12 1.8 3.5 5v6.1c0 5.1 3.6 9.6 8.5 10.9 4.9-1.3 8.5-5.8 8.5-10.9V5L12 1.8Zm0 2.4 6.5 2.6v4.3c0 4-2.7 7.6-6.5 8.7-3.8-1.1-6.5-4.7-6.5-8.7V6.8L12 4.2Zm-1.4 9.1 4-4 1.4 1.4-5.4 5.4-2.6-2.6 1.4-1.4 1.2 1.2Z"/></svg>
   <div class="brand">SecDaily <span>/ 網安每日報</span></div>
-  <div class="nav-right"><span class="dot"></span>2026-10-18・gemini<a class="rss-link" href="feed.xml" title="RSS 訂閱">RSS</a><button class="theme-btn" onclick="toggleTheme()" title="切換淺色/深色">◐</button></div>
+  <div class="nav-right"><span class="dot"></span>2026-10-19・gemini<a class="rss-link" href="feed.xml" title="RSS 訂閱">RSS</a><button class="theme-btn" onclick="toggleTheme()" title="切換淺色/深色">◐</button></div>
 </div></div>
 
 <div class="wrap">
@@ -119,7 +119,7 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
   <div class="eyebrow">NVD + KEV + EPSS + OSV + GitHub + Cisco ・ 每天 08:00（台北）自動更新</div>
   <h1><span class="grad">今日高危漏洞</span></h1>
   <p class="lede">僅收錄 CVSS ≥ 9.0、在野利用或 EPSS 利用預警項目。點擊任一條目展開完整描述與修補建議。</p>
-  <div class="brief"><span>AI 總評</span>今日共 5 項高危漏洞，涵蓋權限提升與注入等類型，其中 Cisco Secure Email 任意檔案寫入漏洞已遭野外利用，建議優先修補。</div>
+  <div class="brief"><span>AI 總評</span>今日共有 5 則高危漏洞，涵蓋 RCE 與沙箱逃逸，應優先關注已遭在野利用的 Cisco SEG RCE 漏洞。</div>
 </div>
 
 <div class="stats">
@@ -147,24 +147,24 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
 
   <div class="row" data-wild="1" onclick="if(event.target.tagName!=='A')this.classList.toggle('open')">
     <div class="row-head">
-      <h2>Cisco Secure Email 任意檔案寫入</h2>
+      <h2>Cisco SEG RCE 在野利用</h2>
       
       <span class="badge wild">● 在野利用</span>
       <span class="badge epss">via cisco</span>
-      <span class="badge">其他高危</span>
+      <span class="badge">RCE</span>
       <span class="badge epss">EPSS 0.02</span>
       <span class="chev">▾</span>
     </div>
-    <div class="row-sum">Cisco Secure Email Gateway 處理郵件附件不當，導致遠端攻擊者可寫入檔案並以 root 權限執行指令。</div>
+    <div class="row-sum">遠端攻擊者可寫入檔案並以 root 權限執行指令。</div>
     <div class="row-foot"><span>CVE-2026-76519</span><span>Cisco Secure Email Gateway</span>
       <a href="https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-esa-afw-zqYJkjxp?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Secure%20Email%20Gateway%20Arbitrary%20File%20Write%20Vulnerability%26vs_k=1" target="_blank">官方補丁 ↗</a>
     </div>
     <div class="detail">
-      <div class="lang"><div class="lang-tag">中文提煉</div><div>Cisco Secure Email Gateway 處理郵件附件不當，導致遠端攻擊者可寫入檔案並以 root 權限執行指令。</div></div>
+      <div class="lang"><div class="lang-tag">中文提煉</div><div>遠端攻擊者可寫入檔案並以 root 權限執行指令。</div></div>
       <div class="lang"><div class="lang-tag">英文原文</div><div class="en">Cisco Secure Email Gateway Arbitrary File Write Vulnerability
 &lt;p&gt;A vulnerability in the Advanced Malware Protection (AMP) feature of Cisco Secure Email Gateway could allow an unauthenticated, remote attacker to write arbitrary files on the underlying operating system.&lt;/p&gt;
 &lt;p&gt;This vulnerability is due to improper handling of email attachments when the file reputation service is enabled. An attacker could exploit this vulnerability by sending an email that contains a crafted attachment through an affected device. A successful exploit could allow the attacker to write arbitrary files and execute </div></div>
-      <div>修補建議：請更新至 Cisco 官方發布的軟體版本。</div>
+      <div>修補建議：更新至 Cisco 發布的最新軟體版本。</div>
       
       
     </div>
@@ -177,24 +177,24 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
 
   <div class="row" data-wild="0" onclick="if(event.target.tagName!=='A')this.classList.toggle('open')">
     <div class="row-head">
-      <h2>Podman 容器沙箱繞過</h2>
+      <h2>Podman 沙箱逃逸漏洞</h2>
       <span class="badge crit">CVSS 10.0</span>
       
       <span class="badge epss">via github</span>
-      <span class="badge">其他高危</span>
+      <span class="badge">逃逸</span>
       <span class="badge epss">EPSS 0.01</span>
       <span class="chev">▾</span>
     </div>
-    <div class="row-sum">Podman 執行容器檢查點時會忽略使用者安全設定，導致沙箱機制失效。</div>
-    <div class="row-foot"><span>CVE-2026-94603</span><span>Podman v4.4.0 及之後版本</span>
+    <div class="row-sum">惡意映像檔可繞過沙箱限制並取得系統完整控制權。</div>
+    <div class="row-foot"><span>CVE-2026-94603</span><span>Podman v4.4.0 及更高版本</span>
       <a href="https://github.com/advisories/GHSA-2cvf-wqm6-wr9g" target="_blank">官方補丁 ↗</a>
     </div>
     <div class="detail">
-      <div class="lang"><div class="lang-tag">中文提煉</div><div>Podman 執行容器檢查點時會忽略使用者安全設定，導致沙箱機制失效。</div></div>
+      <div class="lang"><div class="lang-tag">中文提煉</div><div>惡意映像檔可繞過沙箱限制並取得系統完整控制權。</div></div>
       <div class="lang"><div class="lang-tag">英文原文</div><div class="en">Podman: The `podman run` command can be instructed to disable almost all sandboxing by image annotation
 ### Impact
 Podman v4.4.0 added a feature where container checkpoints (from the `podman container checkpoint` command) could be distributed via OCI registry, and pulled from that registry and run via the `podman run` command. This allowed easy transfer of checkpoints between systems. However, checkpoints allow complete control of how the container is created - including full control of the container sandbox. When `podman run` detects a checkpoint, it will silently ignore all user input regard</div></div>
-      <div>修補建議：請參閱官方公告進行更新。</div>
+      <div>修補建議：升級 Podman 至修復版本。</div>
       
       
     </div>
@@ -210,19 +210,19 @@ Podman v4.4.0 added a feature where container checkpoints (from the `podman cont
       <span class="badge epss">EPSS 0.01</span>
       <span class="chev">▾</span>
     </div>
-    <div class="row-sum">Argo CD 的 PreDelete/PostDelete 鉤子未正確檢查權限，導致資源限制被繞過。</div>
+    <div class="row-sum">攻擊者可利用資源掛鉤繞過 AppProject 命名空間限制。</div>
     <div class="row-foot"><span>CVE-2026-77459</span><span>Argo CD v2.10.0 及之後版本</span>
       <a href="https://github.com/advisories/GHSA-fmxq-cgp8-87wp" target="_blank">官方補丁 ↗</a>
     </div>
     <div class="detail">
-      <div class="lang"><div class="lang-tag">中文提煉</div><div>Argo CD 的 PreDelete/PostDelete 鉤子未正確檢查權限，導致資源限制被繞過。</div></div>
+      <div class="lang"><div class="lang-tag">中文提煉</div><div>攻擊者可利用資源掛鉤繞過 AppProject 命名空間限制。</div></div>
       <div class="lang"><div class="lang-tag">英文原文</div><div class="en">Argo CD: AppProject destination-namespace and resource restrictions bypassed by PreDelete/PostDelete resource hooks
 ### Impact
 
 Argo CD checks an Application&#39;s AppProject before it creates resources during a sync. That check covers destination namespaces and servers, cluster-scoped resource allow and deny lists, and namespaced resource allow and deny lists, including resource names. PreDelete and PostDelete hooks skip it. When the Application is deleted, Argo CD creates those hooks with the application-controller&#39;s credentials on the destination cluster.
 
 All versions from v2.10.0 onward are a</div></div>
-      <div>修補建議：請升級至修復版本。</div>
+      <div>修補建議：升級至 v2.10.x 或更高修復版本。</div>
       
       
     </div>
@@ -230,7 +230,7 @@ All versions from v2.10.0 onward are a</div></div>
 
   <div class="row" data-wild="0" onclick="if(event.target.tagName!=='A')this.classList.toggle('open')">
     <div class="row-head">
-      <h2>KEDA 權限提升</h2>
+      <h2>KEDA 叢集權限提升漏洞</h2>
       <span class="badge crit">CVSS 9.9</span>
       
       <span class="badge epss">via github</span>
@@ -238,17 +238,17 @@ All versions from v2.10.0 onward are a</div></div>
       <span class="badge epss">EPSS 0.01</span>
       <span class="chev">▾</span>
     </div>
-    <div class="row-sum">KEDA 處理 TriggerAuthentication 不當，導致命名空間管理員可提升至叢集管理員權限。</div>
+    <div class="row-sum">命名空間管理員可藉此獲取叢集管理員權限與機密。</div>
     <div class="row-foot"><span>CVE-2026-77524</span><span>KEDA</span>
       <a href="https://github.com/advisories/GHSA-637c-6jxx-4rwm" target="_blank">官方補丁 ↗</a>
     </div>
     <div class="detail">
-      <div class="lang"><div class="lang-tag">中文提煉</div><div>KEDA 處理 TriggerAuthentication 不當，導致命名空間管理員可提升至叢集管理員權限。</div></div>
+      <div class="lang"><div class="lang-tag">中文提煉</div><div>命名空間管理員可藉此獲取叢集管理員權限與機密。</div></div>
       <div class="lang"><div class="lang-tag">英文原文</div><div class="en">KEDA: Privilege escalation from namespace admin to cluster admin via KEDA TriggerAuthentication
 ## Summary
 
 A namespace admin who creates a `TriggerAuthentication` and a `ScaledObject` in their own namespace can make the KEDA operator send its own ServiceAccount token to a tenant-controlled URL. That token holds `[&#34;*&#34;]/[&#34;*&#34;] get` cluster-wide, so it reads every Secret in every namespace, plus `batch/jobs` and `horizontalpodautoscalers` create/delete cluster-wide, `*/scale` update on any workload, `validatingwebhookconfigurations` update (rewrite or disable cluster admission), and `apiservices`</div></div>
-      <div>修補建議：請參閱官方公告進行更新。</div>
+      <div>修補建議：升級 KEDA 並限制 TriggerAuthentication 權限。</div>
       
       
     </div>
@@ -256,7 +256,7 @@ A namespace admin who creates a `TriggerAuthentication` and a `ScaledObject` in 
 
   <div class="row" data-wild="0" onclick="if(event.target.tagName!=='A')this.classList.toggle('open')">
     <div class="row-head">
-      <h2>Vitess vttablet 反射型 XSS</h2>
+      <h2>Vitess vttablet XSS 漏洞</h2>
       <span class="badge crit">CVSS 9.8</span>
       
       <span class="badge epss">via github</span>
@@ -264,12 +264,12 @@ A namespace admin who creates a `TriggerAuthentication` and a `ScaledObject` in 
       <span class="badge epss">EPSS 0.01</span>
       <span class="chev">▾</span>
     </div>
-    <div class="row-sum">Vitess vttablet 未對輸入進行 HTML 跳脫，導致反射型 XSS 攻擊。</div>
+    <div class="row-sum">攻擊者可透過未過濾的參數執行反射型 XSS 攻擊。</div>
     <div class="row-foot"><span>CVE-2026-104252</span><span>Vitess vttablet</span>
       <a href="https://github.com/advisories/GHSA-v75v-6fpf-gvw8" target="_blank">官方補丁 ↗</a>
     </div>
     <div class="detail">
-      <div class="lang"><div class="lang-tag">中文提煉</div><div>Vitess vttablet 未對輸入進行 HTML 跳脫，導致反射型 XSS 攻擊。</div></div>
+      <div class="lang"><div class="lang-tag">中文提煉</div><div>攻擊者可透過未過濾的參數執行反射型 XSS 攻擊。</div></div>
       <div class="lang"><div class="lang-tag">英文原文</div><div class="en">Vitess vttablet /twopcz reflected XSS
 From: xylove21
 To: security@vitess.io
@@ -285,7 +285,7 @@ and `dtid` form values directly into the HTML response body via
 as `text/html; charset=utf-8`, and Vitess&#39;s default `acl` policy is
 **allow-all**, so the endpoint is reachable by anyone who can hit the
 vttablet&#39;s HTTP port (default `1599</div></div>
-      <div>修補建議：請參閱官方公告進行更新。</div>
+      <div>修補建議：升級 Vitess 或對 vttablet HTTP 埠實施存取控制。</div>
       
       
     </div>
@@ -300,6 +300,8 @@ vttablet&#39;s HTTP port (default `1599</div></div>
 <div class="hist">
   <h3>Archive / 歷史存檔</h3>
   <div class="hist-grid">
+    
+    <a class="hcard" href="2026-10-19.html"><div class="d">2026-10-19</div><div class="c">5 則・gemini</div></a>
     
     <a class="hcard" href="2026-10-18.html"><div class="d">2026-10-18</div><div class="c">5 則・gemini</div></a>
     
@@ -386,8 +388,6 @@ vttablet&#39;s HTTP port (default `1599</div></div>
   <div class="sub2">琥珀色 = 當日有在野利用，點擊跳轉存檔</div>
   <div class="cal">
   
-    <a class="day" href="2026-09-19.html" title="2026-09-19・高危5則・在野0則">19</a>
-  
     <a class="day" href="2026-09-20.html" title="2026-09-20・高危5則・在野0則">20</a>
   
     <a class="day" href="2026-09-21.html" title="2026-09-21・高危5則・在野0則">21</a>
@@ -444,7 +444,9 @@ vttablet&#39;s HTTP port (default `1599</div></div>
   
     <a class="day has w1" href="2026-10-17.html" title="2026-10-17・高危5則・在野1則">17</a>
   
-    <a class="day has w1" href="2026-10-18.html" title="2026-10-18・高危11則・在野1則">18</a>
+    <a class="day has w1" href="2026-10-18.html" title="2026-10-18・高危5則・在野1則">18</a>
+  
+    <a class="day has w1" href="2026-10-19.html" title="2026-10-19・高危17則・在野1則">19</a>
   
   </div>
   <div class="cal-legend"><span>■ 無在野</span><span style="color:var(--amber)">■ 有在野（顏色越深越多）</span></div>
