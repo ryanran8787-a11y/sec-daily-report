@@ -4,7 +4,14 @@
 <link>https://ryanran8787-a11y.github.io/sec-daily-report/</link>
 <description>CVSS&gt;=9.0 或在野利用的高危漏洞日報</description>
 <language>zh-tw</language>
-<lastBuildDate>Tue, 20 Oct 2026 04:23:16 GMT</lastBuildDate>
+<lastBuildDate>Wed, 21 Oct 2026 04:18:57 GMT</lastBuildDate>
+<item>
+<title>2026-10-21 高危 5 則</title>
+<link>https://ryanran8787-a11y.github.io/sec-daily-report/2026-10-21.html</link>
+<guid>https://ryanran8787-a11y.github.io/sec-daily-report/2026-10-21.html</guid>
+<pubDate>Wed, 21 Oct 2026 04:18:57 GMT</pubDate>
+<description><![CDATA[<ul><li>Cisco SEG 任意檔案寫入 RCE (CVSS None)</li><li>Podman 容器沙箱逃逸 (CVSS 10.0)</li><li>Mercury 未授權 RCE (CVSS 10.0)</li><li>Oracle EBS Workflow 接管 (CVSS 10.0)</li><li>IBM DataStage 任意寫入 (CVSS 10.0)</li></ul>]]></description>
+</item>
 <item>
 <title>2026-10-20 高危 5 則</title>
 <link>https://ryanran8787-a11y.github.io/sec-daily-report/2026-10-20.html</link>
@@ -207,12 +214,5 @@
 <guid>https://ryanran8787-a11y.github.io/sec-daily-report/2026-09-22.html</guid>
 <pubDate>Tue, 22 Sep 2026 03:50:05 GMT</pubDate>
 <description><![CDATA[<ul><li>MaxKB AI 助手 RCE (CVSS 10.0)</li><li>Gigatech 設備未授權存取 (CVSS 10.0)</li><li>Ajenti 管理面板權限提升 (CVSS 9.9)</li><li>WP 插件任意檔案上傳 RCE (CVSS 9.8)</li><li>Apache MINA 反序列化 RCE (CVSS 9.8)</li></ul>]]></description>
-</item>
-<item>
-<title>2026-09-21 高危 5 則</title>
-<link>https://ryanran8787-a11y.github.io/sec-daily-report/2026-09-21.html</link>
-<guid>https://ryanran8787-a11y.github.io/sec-daily-report/2026-09-21.html</guid>
-<pubDate>Mon, 21 Sep 2026 03:53:03 GMT</pubDate>
-<description><![CDATA[<ul><li>Comfast 管理介面溢位 (CVSS 10.0)</li><li>D-Link 路由器溢位漏洞 (CVSS 10.0)</li><li>Netcore 診斷端點 RCE (CVSS 10.0)</li><li>Netcore 網路診斷 RCE (CVSS 9.9)</li><li>Netcore IP 配置 RCE (CVSS 9.9)</li></ul>]]></description>
 </item>
 </channel></rss>

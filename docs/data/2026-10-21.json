@@ -1,0 +1,114 @@
+{
+  "date": "2026-10-21",
+  "generated_at": "2026-10-21T04:18:57.527438+00:00",
+  "engine": "gemini",
+  "count": 5,
+  "brief_zh": "今日 5 則高危漏洞以 RCE 為主，應優先關注已遭利用的 Cisco SEG 任意檔案寫入漏洞。",
+  "items": [
+    {
+      "cve": "CVE-2026-76519",
+      "title_zh": "Cisco SEG 任意檔案寫入 RCE",
+      "cvss": null,
+      "type": "RCE",
+      "in_wild": true,
+      "summary_zh": "郵件附件處理不當導致 Root 權限指令執行，已在野利用。",
+      "affected": "Cisco Secure Email Gateway",
+      "affected_versions": "",
+      "fix_hint": "更新至官方發布的最新軟體版本。",
+      "patch_url": "https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-esa-afw-zqYJkjxp?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Security%20Email%20Gateway%20Arbitrary%20File%20Write%20Vulnerability%26vs_k=1",
+      "epss_warn": false,
+      "epss": 0.01573,
+      "refs": [
+        "https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-esa-afw-zqYJkjxp?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Secure%20Email%20Gateway%20Arbitrary%20File%20Write%20Vulnerability%26vs_k=1"
+      ],
+      "desc_en": "Cisco Secure Email Gateway Arbitrary File Write Vulnerability\n<p>A vulnerability in the Advanced Malware Protection (AMP) feature of Cisco Secure Email Gateway could allow an unauthenticated, remote attacker to write arbitrary files on the underlying operating system.</p>\n<p>This vulnerability is due to improper handling of email attachments when the file reputation service is enabled. An attacker could exploit this vulnerability by sending an email that contains a crafted attachment through an affected device. A successful exploit could allow the attacker to write arbitrary files and execute ",
+      "source": "cisco",
+      "osv_packages": [],
+      "osv_fixed": []
+    },
+    {
+      "cve": "CVE-2026-94603",
+      "title_zh": "Podman 容器沙箱逃逸",
+      "cvss": 10.0,
+      "type": "逃逸",
+      "in_wild": false,
+      "summary_zh": "檢查點機制缺陷可繞過沙箱限制並取得主機完整控制權。",
+      "affected": "Podman",
+      "affected_versions": "v4.4.0 及之後版本",
+      "fix_hint": "參考 GitHub 安全公告並更新 Podman 版本。",
+      "patch_url": "https://github.com/advisories/GHSA-2cvf-wqm6-wr9g",
+      "epss_warn": false,
+      "epss": 0.00918,
+      "refs": [
+        "https://github.com/advisories/GHSA-2cvf-wqm6-wr9g"
+      ],
+      "desc_en": "Podman: The `podman run` command can be instructed to disable almost all sandboxing by image annotation\n### Impact\nPodman v4.4.0 added a feature where container checkpoints (from the `podman container checkpoint` command) could be distributed via OCI registry, and pulled from that registry and run via the `podman run` command. This allowed easy transfer of checkpoints between systems. However, checkpoints allow complete control of how the container is created - including full control of the container sandbox. When `podman run` detects a checkpoint, it will silently ignore all user input regard",
+      "source": "github",
+      "osv_packages": [],
+      "osv_fixed": []
+    },
+    {
+      "cve": "CVE-2026-111057",
+      "title_zh": "Mercury 未授權 RCE",
+      "cvss": 10.0,
+      "type": "RCE",
+      "in_wild": false,
+      "summary_zh": "代碼缺失逗號導致 API 存取控制失效，可執行系統指令。",
+      "affected": "Mercury",
+      "affected_versions": "",
+      "fix_hint": "修正 mercury_app/block_handler.py 中的列表定義。",
+      "patch_url": "https://github.com/advisories/GHSA-f8c7-rwf9-fmgm",
+      "epss_warn": false,
+      "epss": 0.00443,
+      "refs": [
+        "https://github.com/advisories/GHSA-f8c7-rwf9-fmgm"
+      ],
+      "desc_en": "Mercury: Unauthenticated Remote Code Execution in /api/terminals - access control bypass\n### Summary\nA missing comma in `mercury_app/block_handler.py`'s `BLOCKED_PATTERNS` list causes the blocklist to fail to cover the `/api/terminals` endpoint. As a result, any unauthenticated attacker can spawn a full, interactive OS-level shell on the host running Mercury.\n\n### Details\nThe blocklist in `mercury_app/block_handler.py` is defined as:\n```\nBLOCKED_PATTERNS = [\n    # JupyterLab UI + API\n    r\"/lab(?!/(?:extensions/|api/settings(?:/|$)|api/translations(?:/|$)))(?:/.*)?\"\n    r\"/api/terminals(?:/.*)",
+      "source": "github",
+      "osv_packages": [],
+      "osv_fixed": []
+    },
+    {
+      "cve": "CVE-2026-101809",
+      "title_zh": "Oracle EBS Workflow 接管",
+      "cvss": 10.0,
+      "type": "接管",
+      "in_wild": false,
+      "summary_zh": "遠端攻擊者可透過 HTTP 請求接管工作流組件並影響其他產品。",
+      "affected": "Oracle E-Business Suite Workflow",
+      "affected_versions": "12.2.3-12.2.15",
+      "fix_hint": "套用 Oracle 2026 年 10 月季度安全更新 (CPU)。",
+      "patch_url": "https://www.oracle.com/security-alerts/cpuoct2026.html",
+      "epss_warn": false,
+      "epss": null,
+      "refs": [
+        "https://www.oracle.com/security-alerts/cpuoct2026.html"
+      ],
+      "desc_en": "Vulnerability in the Workflow product of Oracle E-Business Suite (component: Workflow Notification Mailer).  Supported versions that are affected are 12.2.3-12.2.15. Easily exploitable vulnerability allows unauthenticated attacker with network access via HTTP to compromise Workflow.  While the vulnerability is in Workflow, attacks may significantly impact additional products (scope change).  Successful attacks of this vulnerability can result in takeover of Workflow. CVSS 3.1 Base Score 10.0 (Confidentiality, Integrity and Availability impacts).  CVSS Vector: (CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/",
+      "source": "nvd",
+      "osv_packages": [],
+      "osv_fixed": []
+    },
+    {
+      "cve": "CVE-2026-81212",
+      "title_zh": "IBM DataStage 任意寫入",
+      "cvss": 10.0,
+      "type": "其他高危",
+      "in_wild": false,
+      "summary_zh": "未授權寫入 Redis 可破壞憑證加密邊界並污染租戶參數。",
+      "affected": "IBM DataStage on Cloud Pak for Data",
+      "affected_versions": "5.4.0.0",
+      "fix_hint": "參考 IBM 官方安全公告進行修補。",
+      "patch_url": "https://www.ibm.com/support/pages/node/7289603",
+      "epss_warn": false,
+      "epss": null,
+      "refs": [
+        "https://www.ibm.com/support/pages/node/7289603"
+      ],
+      "desc_en": "IBM DataStage on Cloud Pak for Data 5.4.0.0 allows an unauthenticated user to perform an arbitrary write into shared Redis under any tenant's key. This collapses the platform's credential-encryption boundary and lets an anonymous caller poison any tenant's cached flow parameters.",
+      "source": "nvd",
+      "osv_packages": [],
+      "osv_fixed": []
+    }
+  ]
+}
