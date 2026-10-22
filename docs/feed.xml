@@ -4,7 +4,14 @@
 <link>https://ryanran8787-a11y.github.io/sec-daily-report/</link>
 <description>CVSS&gt;=9.0 或在野利用的高危漏洞日報</description>
 <language>zh-tw</language>
-<lastBuildDate>Wed, 21 Oct 2026 04:18:57 GMT</lastBuildDate>
+<lastBuildDate>Thu, 22 Oct 2026 04:13:14 GMT</lastBuildDate>
+<item>
+<title>2026-10-22 高危 5 則</title>
+<link>https://ryanran8787-a11y.github.io/sec-daily-report/2026-10-22.html</link>
+<guid>https://ryanran8787-a11y.github.io/sec-daily-report/2026-10-22.html</guid>
+<pubDate>Thu, 22 Oct 2026 04:13:14 GMT</pubDate>
+<description><![CDATA[<ul><li>WP Mailster RCE 漏洞 (CVSS 10.0)</li><li>Pulsar Manager 未授權存取 (CVSS 10.0)</li><li>Traffic Server RCE 漏洞 (CVSS 10.0)</li><li>Traffic Server 憑證偽造 (CVSS 10.0)</li><li>Traffic Server 會話重用 (CVSS 10.0)</li></ul>]]></description>
+</item>
 <item>
 <title>2026-10-21 高危 5 則</title>
 <link>https://ryanran8787-a11y.github.io/sec-daily-report/2026-10-21.html</link>
@@ -207,12 +214,5 @@
 <guid>https://ryanran8787-a11y.github.io/sec-daily-report/2026-09-23.html</guid>
 <pubDate>Wed, 23 Sep 2026 03:48:49 GMT</pubDate>
 <description><![CDATA[<ul><li>VeloCloud VCO 權限接管 (CVSS 10.0)</li><li>Check Point 管理伺服器 RCE (CVSS 9.8)</li><li>F5 BIG-IP APM 遠端代碼執行 (CVSS 9.8)</li><li>Lantronix 設備驗證繞過 RCE (CVSS 10.0)</li><li>Adobe Campaign Classic RCE (CVSS 10.0)</li></ul>]]></description>
-</item>
-<item>
-<title>2026-09-22 高危 5 則</title>
-<link>https://ryanran8787-a11y.github.io/sec-daily-report/2026-09-22.html</link>
-<guid>https://ryanran8787-a11y.github.io/sec-daily-report/2026-09-22.html</guid>
-<pubDate>Tue, 22 Sep 2026 03:50:05 GMT</pubDate>
-<description><![CDATA[<ul><li>MaxKB AI 助手 RCE (CVSS 10.0)</li><li>Gigatech 設備未授權存取 (CVSS 10.0)</li><li>Ajenti 管理面板權限提升 (CVSS 9.9)</li><li>WP 插件任意檔案上傳 RCE (CVSS 9.8)</li><li>Apache MINA 反序列化 RCE (CVSS 9.8)</li></ul>]]></description>
 </item>
 </channel></rss>
