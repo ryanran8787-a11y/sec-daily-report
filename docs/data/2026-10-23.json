@@ -1,0 +1,114 @@
+{
+  "date": "2026-10-23",
+  "generated_at": "2026-10-23T04:19:22.597095+00:00",
+  "engine": "gemini",
+  "count": 5,
+  "brief_zh": "今日新增 5 則高危漏洞，主攻 RCE 與身份繞過，其中 YOOtheme Pro 未授權 RCE 影響最鉅，建議優先修補。",
+  "items": [
+    {
+      "cve": "CVE-2026-102785",
+      "title_zh": "YOOtheme Pro 未授權 RCE",
+      "cvss": 10.0,
+      "type": "RCE",
+      "in_wild": false,
+      "summary_zh": "圖像處理簽名校驗不全，攻擊者可寫入惡意 PHP 執行代碼。",
+      "affected": "YOOtheme Pro",
+      "affected_versions": "5.0.0-5.0.52",
+      "fix_hint": "升級至最新版本。",
+      "patch_url": "https://www.yootheme.com/",
+      "epss_warn": false,
+      "epss": null,
+      "refs": [
+        "https://www.yootheme.com/"
+      ],
+      "desc_en": "Joomla Extension - yootheme.com - Unauthenticated remote code execution in YOOtheme Pro 5.0.0-5.0.52 - YOOtheme Pro’s publicly accessible image transformation handler incompletely binds normalized image operations and the output destination to its request signature. An unauthenticated remote attacker can reuse a signature disclosed in a legitimate public image URL, inject additional image operations, traverse out of the intended cache directory, and write an attacker-controlled PNG/PHP polyglot to an executable public media directory.",
+      "source": "nvd",
+      "osv_packages": [],
+      "osv_fixed": []
+    },
+    {
+      "cve": "CVE-2026-79844",
+      "title_zh": "HPE 產品身份繞過漏洞",
+      "cvss": 10.0,
+      "type": "接管",
+      "in_wild": false,
+      "summary_zh": "官方未提供詳細描述，但涉及高風險身份繞過或帳號接管。",
+      "affected": "HPE",
+      "affected_versions": "",
+      "fix_hint": "參考官方安全公告進行更新。",
+      "patch_url": "https://support.hpe.com/hpesc/public/docDisplay?docId=hpesbnw05162en_us&docLocale=en_US",
+      "epss_warn": false,
+      "epss": null,
+      "refs": [
+        "https://support.hpe.com/hpesc/public/docDisplay?docId=hpesbnw05162en_us&docLocale=en_US"
+      ],
+      "desc_en": "No description provided",
+      "source": "nvd",
+      "osv_packages": [],
+      "osv_fixed": []
+    },
+    {
+      "cve": "CVE-2026-79846",
+      "title_zh": "HPE 產品嚴重安全漏洞",
+      "cvss": 10.0,
+      "type": "其他高危",
+      "in_wild": false,
+      "summary_zh": "官方未提供詳細描述，CVSS 評分為最高風險級別。",
+      "affected": "HPE",
+      "affected_versions": "",
+      "fix_hint": "參考官方安全公告進行更新。",
+      "patch_url": "https://support.hpe.com/hpesc/public/docDisplay?docId=hpesbnw05162en_us&docLocale=en_US",
+      "epss_warn": false,
+      "epss": null,
+      "refs": [
+        "https://support.hpe.com/hpesc/public/docDisplay?docId=hpesbnw05162en_us&docLocale=en_US"
+      ],
+      "desc_en": "No description provided",
+      "source": "nvd",
+      "osv_packages": [],
+      "osv_fixed": []
+    },
+    {
+      "cve": "CVE-2026-79847",
+      "title_zh": "HPE 產品遠端代碼執行",
+      "cvss": 10.0,
+      "type": "RCE",
+      "in_wild": false,
+      "summary_zh": "官方未提供詳細描述，涉及高風險遠端代碼執行漏洞。",
+      "affected": "HPE",
+      "affected_versions": "",
+      "fix_hint": "參考官方安全公告進行更新。",
+      "patch_url": "https://support.hpe.com/hpesc/public/docDisplay?docId=hpesbnw05162en_us&docLocale=en_US",
+      "epss_warn": false,
+      "epss": null,
+      "refs": [
+        "https://support.hpe.com/hpesc/public/docDisplay?docId=hpesbnw05162en_us&docLocale=en_US"
+      ],
+      "desc_en": "No description provided",
+      "source": "nvd",
+      "osv_packages": [],
+      "osv_fixed": []
+    },
+    {
+      "cve": "CVE-2026-79848",
+      "title_zh": "HPE 產品 SQL 注入漏洞",
+      "cvss": 10.0,
+      "type": "SQL注入",
+      "in_wild": false,
+      "summary_zh": "官方未提供詳細描述，涉及高風險 SQL 注入漏洞。",
+      "affected": "HPE",
+      "affected_versions": "",
+      "fix_hint": "參考官方安全公告進行更新。",
+      "patch_url": "https://support.hpe.com/hpesc/public/docDisplay?docId=hpesbnw05162en_us&docLocale=en_US",
+      "epss_warn": false,
+      "epss": null,
+      "refs": [
+        "https://support.hpe.com/hpesc/public/docDisplay?docId=hpesbnw05162en_us&docLocale=en_US"
+      ],
+      "desc_en": "No description provided",
+      "source": "nvd",
+      "osv_packages": [],
+      "osv_fixed": []
+    }
+  ]
+}

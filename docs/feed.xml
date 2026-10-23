@@ -4,7 +4,14 @@
 <link>https://ryanran8787-a11y.github.io/sec-daily-report/</link>
 <description>CVSS&gt;=9.0 或在野利用的高危漏洞日報</description>
 <language>zh-tw</language>
-<lastBuildDate>Thu, 22 Oct 2026 04:13:14 GMT</lastBuildDate>
+<lastBuildDate>Fri, 23 Oct 2026 04:19:22 GMT</lastBuildDate>
+<item>
+<title>2026-10-23 高危 5 則</title>
+<link>https://ryanran8787-a11y.github.io/sec-daily-report/2026-10-23.html</link>
+<guid>https://ryanran8787-a11y.github.io/sec-daily-report/2026-10-23.html</guid>
+<pubDate>Fri, 23 Oct 2026 04:19:22 GMT</pubDate>
+<description><![CDATA[<ul><li>YOOtheme Pro 未授權 RCE (CVSS 10.0)</li><li>HPE 產品身份繞過漏洞 (CVSS 10.0)</li><li>HPE 產品嚴重安全漏洞 (CVSS 10.0)</li><li>HPE 產品遠端代碼執行 (CVSS 10.0)</li><li>HPE 產品 SQL 注入漏洞 (CVSS 10.0)</li></ul>]]></description>
+</item>
 <item>
 <title>2026-10-22 高危 5 則</title>
 <link>https://ryanran8787-a11y.github.io/sec-daily-report/2026-10-22.html</link>
@@ -207,12 +214,5 @@
 <guid>https://ryanran8787-a11y.github.io/sec-daily-report/2026-09-24.html</guid>
 <pubDate>Thu, 24 Sep 2026 03:40:30 GMT</pubDate>
 <description><![CDATA[<ul><li>SunEditor XSS 漏洞 (CVSS 10.0)</li><li>ManageEngine 資訊洩漏 (CVSS 10.0)</li><li>D-Link DIR-825 RCE 漏洞 (CVSS 10.0)</li><li>ManageEngine RCE 漏洞 (CVSS 9.9)</li><li>OpenC3 COSMOS RCE 漏洞 (CVSS 9.9)</li></ul>]]></description>
-</item>
-<item>
-<title>2026-09-23 高危 5 則</title>
-<link>https://ryanran8787-a11y.github.io/sec-daily-report/2026-09-23.html</link>
-<guid>https://ryanran8787-a11y.github.io/sec-daily-report/2026-09-23.html</guid>
-<pubDate>Wed, 23 Sep 2026 03:48:49 GMT</pubDate>
-<description><![CDATA[<ul><li>VeloCloud VCO 權限接管 (CVSS 10.0)</li><li>Check Point 管理伺服器 RCE (CVSS 9.8)</li><li>F5 BIG-IP APM 遠端代碼執行 (CVSS 9.8)</li><li>Lantronix 設備驗證繞過 RCE (CVSS 10.0)</li><li>Adobe Campaign Classic RCE (CVSS 10.0)</li></ul>]]></description>
 </item>
 </channel></rss>
