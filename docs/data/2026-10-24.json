@@ -1,0 +1,126 @@
+{
+  "date": "2026-10-24",
+  "generated_at": "2026-10-24T04:08:50.131194+00:00",
+  "engine": "gemini",
+  "count": 5,
+  "brief_zh": "今日新增 5 則漏洞，涵蓋 RCE 與沙箱逃逸等類型，應優先關注 Conda 基礎設施 RCE 漏洞。",
+  "items": [
+    {
+      "cve": "CVE-2026-77366",
+      "title_zh": "Obsidian-tc 越權接管",
+      "cvss": 9.9,
+      "type": "接管",
+      "in_wild": false,
+      "summary_zh": "驗證權杖未檢查 ID，可跨租戶讀寫刪除儲存庫。",
+      "affected": "obsidian-tc",
+      "affected_versions": "1.3.1 之前",
+      "fix_hint": "升級至 1.3.1 或更高版本。",
+      "patch_url": "https://github.com/advisories/GHSA-84c9-qqpq-2pq5",
+      "epss_warn": false,
+      "epss": 0.00308,
+      "refs": [
+        "https://github.com/advisories/GHSA-84c9-qqpq-2pq5"
+      ],
+      "desc_en": "obsidian-tc tokens can access arbitrary configured vaults\n### Impact\nTool dispatch did not check the caller-supplied `input.vault` against the caller's bound vault (`ctx.vaultId`); the folder ACL was a single global instance and the JWT carried no vault claim. As a result, **any valid token could read, write, or delete any configured vault** by passing `input.vault`, defeating multi-tenant isolation across ~90 tool sites. (`resources/read` was the only surface that already guarded this.)\n\n### Patches\nFixed in **1.3.1** (the fix was developed on the `v1.3.0` tag, which never published to npm; 1",
+      "source": "github",
+      "osv_packages": [],
+      "osv_fixed": []
+    },
+    {
+      "cve": "CVE-2026-53942",
+      "title_zh": "Conda 基礎設施 RCE",
+      "cvss": 9.9,
+      "type": "RCE",
+      "in_wild": false,
+      "summary_zh": "GitHub Actions 模板注入，可執行任意代碼。",
+      "affected": "conda/infrastructure",
+      "affected_versions": "commit 9c0f238 之前",
+      "fix_hint": "更新至最新 commit 或套用安全補丁。",
+      "patch_url": "https://github.com/conda/infrastructure/security/advisories/GHSA-pf87-fcg3-wjfh",
+      "epss_warn": false,
+      "epss": null,
+      "refs": [
+        "https://github.com/conda/infrastructure/commit/9c0f23857282ff5cf7a6b3ad6bf0dd6f9974be55",
+        "https://github.com/conda/infrastructure/security/advisories/GHSA-pf87-fcg3-wjfh"
+      ],
+      "desc_en": "Conda Organization Infrastructure is a centralized location for infrastructure codes. Prior to commit 9c0f238, a GitHub Actions Pwn Request vulnerability appears to remain present in conda/conda. The affected workflow is .github/workflows/update.yml. It is triggered by issue_comment events containing @conda-bot render or @conda-bot recreate. For the render path, the workflow obtains the pull request head repository and branch from the PR API, checks out that PR-controlled repository/ref using secrets.SYNC_TOKEN, and then runs conda/actions/template-files@7f6830b1428a9bd47f0b068892c77eae9520703",
+      "source": "nvd",
+      "osv_packages": [],
+      "osv_fixed": []
+    },
+    {
+      "cve": "CVE-2026-115889",
+      "title_zh": "Wasmtime 沙箱逃逸",
+      "cvss": 9.9,
+      "type": "逃逸",
+      "in_wild": false,
+      "summary_zh": "編譯器溢出導致類型混淆，可逃逸 Wasm 沙箱。",
+      "affected": "Wasmtime",
+      "affected_versions": "36.0.19 之前及 43.0.0 之前",
+      "fix_hint": "升級至 36.0.19 或 43.0.0 版本。",
+      "patch_url": "https://github.com/bytecodealliance/wasmtime/commit/ba8f7d70caa1825b7f64fa75cd9d03f4a438dae0",
+      "epss_warn": false,
+      "epss": null,
+      "refs": [
+        "https://github.com/bytecodealliance/wasmtime/commit/ba8f7d70caa1825b7f64fa75cd9d03f4a438dae0",
+        "https://github.com/bytecodealliance/wasmtime/commit/f517bd6e890c7c1291ab9fe05d8cc0c9f11e56aa",
+        "https://github.com/bytecodealliance/wasmtime/pull/12613",
+        "https://github.com/bytecodealliance/wasmtime/pull/14818",
+        "https://github.com/bytecodealliance/wasmtime/releases/tag/v36.0.19"
+      ],
+      "desc_en": "Wasmtime is a runtime for WebAssembly. Prior to 36.0.19 and 43.0.0, the Cranelift compiler backend bit-packs SSA value indices in a way that can silently overflow in release builds when compiling a sufficiently large or specially crafted Wasm function with many SSA values. The overflow can make Cranelift reference incorrect IR values, causing arbitrary miscompilation, type confusion, and other attacker-controlled effects that may escape the Wasm sandbox on any architecture using the default Cranelift backend. This issue is fixed in versions 36.0.19 and 43.0.0.",
+      "source": "nvd",
+      "osv_packages": [],
+      "osv_fixed": []
+    },
+    {
+      "cve": "CVE-2026-115893",
+      "title_zh": "Wasmtime AArch64 逃逸",
+      "cvss": 9.9,
+      "type": "逃逸",
+      "in_wild": false,
+      "summary_zh": "AArch64 分支跳轉錯誤，導致可逃逸沙箱。",
+      "affected": "Wasmtime (aarch64)",
+      "affected_versions": "36.0.19, 48.0.7, 49.0.4 之前",
+      "fix_hint": "升級至 36.0.19, 48.0.7 或 49.0.4。",
+      "patch_url": "https://github.com/bytecodealliance/wasmtime/commit/222ff3a65dab9aa7011f8c246937751a0bac5abd",
+      "epss_warn": false,
+      "epss": null,
+      "refs": [
+        "https://github.com/bytecodealliance/wasmtime/commit/222ff3a65dab9aa7011f8c246937751a0bac5abd",
+        "https://github.com/bytecodealliance/wasmtime/commit/994549891c8a706cb4f2809f9d17b9f67b31e618",
+        "https://github.com/bytecodealliance/wasmtime/commit/e61df1b454be9313d61a5f8de07722a421139bbe",
+        "https://github.com/bytecodealliance/wasmtime/commit/f517bd6e890c7c1291ab9fe05d8cc0c9f11e56aa",
+        "https://github.com/bytecodealliance/wasmtime/pull/14818"
+      ],
+      "desc_en": "Wasmtime is a runtime for WebAssembly. Prior to 36.0.19, 48.0.7, and 49.0.4, the Cranelift compiler backend on aarch64 can compile a Wasm br_table instruction with more than approximately 256,000 targets so that it has an incorrect conditional branch target. The branch can then jump to arbitrary other code at a user-controlled offset, allowing a user-controlled Wasm module to escape the sandbox on aarch64 engines using the default Cranelift backend. This issue is fixed in versions 36.0.19, 48.0.7, and 49.0.4.",
+      "source": "nvd",
+      "osv_packages": [],
+      "osv_fixed": []
+    },
+    {
+      "cve": "CVE-2026-115931",
+      "title_zh": "Postiz 資訊洩漏漏洞",
+      "cvss": 9.9,
+      "type": "資訊洩漏",
+      "in_wild": false,
+      "summary_zh": "未限制後端函數調用，可讀取伺服器敏感檔案。",
+      "affected": "Postiz",
+      "affected_versions": "",
+      "fix_hint": "限制後端函數存取權限並更新系統。",
+      "patch_url": "https://gadvisory.org/advisories/PSA-2026-JNXM56",
+      "epss_warn": false,
+      "epss": null,
+      "refs": [
+        "https://gadvisory.org/advisories/PSA-2026-JNXM56",
+        "https://github.com/gitroomhq/postiz-app",
+        "https://github.com/gitroomhq/postiz-app/commit/9383f5be4d310c346e33a3748a9a7ded64c96fed",
+        "https://github.com/gitroomhq/postiz-app/releases/tag/v2.25.1"
+      ],
+      "desc_en": "Postiz lets a signed-in user ask the backend to run a function on one of their connected channels. The backend did not restrict which functions can be requested, so a user could call internal helper functions that were never meant to be reachable from the web interface.\n\nOne of those helpers reads a file from the server's disk. A user who connects a channel whose stored token is a file path can have the backend return the contents of any file it can read, including its environment, which holds the secret used to sign login sessions, the database address and the credentials of connected service",
+      "source": "nvd",
+      "osv_packages": [],
+      "osv_fixed": []
+    }
+  ]
+}

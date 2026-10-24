@@ -1,4 +1,14 @@
 {
+  "CVE-2026-114625": {
+    "vendor": "Arista",
+    "product": "VeloCloud Orchestrator",
+    "dateAdded": "2026-10-23"
+  },
+  "CVE-2026-110447": {
+    "vendor": "Collabora",
+    "product": "Collabora Online – Built-in CODE Server",
+    "dateAdded": "2026-10-23"
+  },
   "CVE-2026-106931": {
     "vendor": "EG Secure Solutions",
     "product": "SiteGuard Server Edition",
