@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>網安每日報 2026-10-24</title>
+<title>網安每日報 2026-10-25</title>
 <style>
 /* Geist 設計語言（灰階層次、細邊框、小圓角），logo 與配色為原創 */
 :root{
@@ -111,7 +111,7 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
 <div class="nav"><div class="nav-inner">
   <svg class="logo" viewBox="0 0 24 24"><path d="M12 1.8 3.5 5v6.1c0 5.1 3.6 9.6 8.5 10.9 4.9-1.3 8.5-5.8 8.5-10.9V5L12 1.8Zm0 2.4 6.5 2.6v4.3c0 4-2.7 7.6-6.5 8.7-3.8-1.1-6.5-4.7-6.5-8.7V6.8L12 4.2Zm-1.4 9.1 4-4 1.4 1.4-5.4 5.4-2.6-2.6 1.4-1.4 1.2 1.2Z"/></svg>
   <div class="brand">SecDaily <span>/ 網安每日報</span></div>
-  <div class="nav-right"><span class="dot"></span>2026-10-24・gemini<a class="rss-link" href="feed.xml" title="RSS 訂閱">RSS</a><button class="theme-btn" onclick="toggleTheme()" title="切換淺色/深色">◐</button></div>
+  <div class="nav-right"><span class="dot"></span>2026-10-25・gemini<a class="rss-link" href="feed.xml" title="RSS 訂閱">RSS</a><button class="theme-btn" onclick="toggleTheme()" title="切換淺色/深色">◐</button></div>
 </div></div>
 
 <div class="wrap">
@@ -119,7 +119,7 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
   <div class="eyebrow">NVD + KEV + EPSS + OSV + GitHub + Cisco ・ 每天 08:00（台北）自動更新</div>
   <h1><span class="grad">今日高危漏洞</span></h1>
   <p class="lede">僅收錄 CVSS ≥ 9.0、在野利用或 EPSS 利用預警項目。點擊任一條目展開完整描述與修補建議。</p>
-  <div class="brief"><span>AI 總評</span>今日新增 5 則漏洞，涵蓋 RCE 與沙箱逃逸等類型，應優先關注 Conda 基礎設施 RCE 漏洞。</div>
+  <div class="brief"><span>AI 總評</span>今日共 5 則高危漏洞，涵蓋 RCE 與帳號接管，應優先關注 Unitree Go2 機器狗遠端代碼執行威脅。</div>
 </div>
 
 <div class="stats">
@@ -148,7 +148,58 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
 
   <div class="row" data-wild="0" onclick="if(event.target.tagName!=='A')this.classList.toggle('open')">
     <div class="row-head">
-      <h2>Obsidian-tc 越權接管</h2>
+      <h2>Unitree Go2 遠端 RCE</h2>
+      <span class="badge crit">CVSS 10.0</span>
+      
+      
+      <span class="badge">RCE</span>
+      
+      <span class="chev">▾</span>
+    </div>
+    <div class="row-sum">機器人組件指令注入，遠端攻擊者可執行任意指令。</div>
+    <div class="row-foot"><span>CVE-2026-115995</span><span>Unitree Robotics Unitree Go2 1.1.11.4 之前</span>
+      <a href="https://unitree-firmware.oss-cn-hangzhou.aliyuncs.com/firmware/release/package_1.1.11.5_GO2_Edu_Max_Pro_X_1761128358872.upk" target="_blank">官方補丁 ↗</a>
+    </div>
+    <div class="detail">
+      <div class="lang"><div class="lang-tag">中文提煉</div><div>機器人組件指令注入，遠端攻擊者可執行任意指令。</div></div>
+      <div class="lang"><div class="lang-tag">英文原文</div><div class="en">A security vulnerability has been detected in Unitree Robotics Unitree Go2 up to 1.1.11.4. The impacted element is the function set_volume of the file gpt_thread.py of the component chat_go. Such manipulation of the argument Value leads to os command injection. The attack can be launched remotely. Upgrading to version 1.1.11.5 is sufficient to resolve this issue. You should upgrade the affected component. The vendor confirmed early: &#34;Submission 990502 corresponds to our internal ticket #474 (Go2 chat_go set_volume OS command injection, CWE-78).&#34;</div></div>
+      <div>修補建議：升級至 1.1.11.5 或更高版本</div>
+      
+      <div style="margin-top:6px">更多參考：<a href="https://vuldb.com/cve/CVE-2026-115995" target="_blank">[2]</a> <a href="https://vuldb.com/submit/990502" target="_blank">[3]</a> <a href="https://vuldb.com/vuln/426093" target="_blank">[4]</a> <a href="https://vuldb.com/vuln/426093/cti" target="_blank">[5]</a> </div>
+    </div>
+  </div>
+
+  <div class="row" data-wild="0" onclick="if(event.target.tagName!=='A')this.classList.toggle('open')">
+    <div class="row-head">
+      <h2>Wasmtime 沙箱逃逸漏洞</h2>
+      <span class="badge crit">CVSS 9.9</span>
+      
+      <span class="badge epss">via github</span>
+      <span class="badge">逃逸</span>
+      <span class="badge epss">EPSS 0.01</span>
+      <span class="chev">▾</span>
+    </div>
+    <div class="row-sum">編譯器溢位導致類型混淆，攻擊者可逃逸沙箱環境。</div>
+    <div class="row-foot"><span>CVE-2026-115889</span><span>Wasmtime v43 之前</span>
+      <a href="https://github.com/advisories/GHSA-897f-g5gm-fmxm" target="_blank">官方補丁 ↗</a>
+    </div>
+    <div class="detail">
+      <div class="lang"><div class="lang-tag">中文提煉</div><div>編譯器溢位導致類型混淆，攻擊者可逃逸沙箱環境。</div></div>
+      <div class="lang"><div class="lang-tag">英文原文</div><div class="en">Wasmtime: Bit-packing in Cranelift compiler causes silent overflow and miscompilation
+## Summary
+
+In Wasmtime prior to v43, the Cranelift compiler backend bit-packs its SSA value indices in a way that can result in silent overflow in release builds, and result in incorrect value references in the IR resulting in arbitrary miscompilation. A very large Wasm function body, or one that is specially crafted to use many SSA values, can use this to force type-confusion or other arbitrary side-effects and escape the sandbox.
+
+Cranelift was changed in Wasmtime v43 to use a full `u32` index, with checks</div></div>
+      <div>修補建議：升級至 v43 或更高版本</div>
+      
+      
+    </div>
+  </div>
+
+  <div class="row" data-wild="0" onclick="if(event.target.tagName!=='A')this.classList.toggle('open')">
+    <div class="row-head">
+      <h2>obsidian-tc 跨租戶接管</h2>
       <span class="badge crit">CVSS 9.9</span>
       
       <span class="badge epss">via github</span>
@@ -156,19 +207,19 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
       <span class="badge epss">EPSS 0.00</span>
       <span class="chev">▾</span>
     </div>
-    <div class="row-sum">驗證權杖未檢查 ID，可跨租戶讀寫刪除儲存庫。</div>
+    <div class="row-sum">權限檢查缺失，攻擊者可讀寫或刪除任意儲存庫。</div>
     <div class="row-foot"><span>CVE-2026-77366</span><span>obsidian-tc 1.3.1 之前</span>
       <a href="https://github.com/advisories/GHSA-84c9-qqpq-2pq5" target="_blank">官方補丁 ↗</a>
     </div>
     <div class="detail">
-      <div class="lang"><div class="lang-tag">中文提煉</div><div>驗證權杖未檢查 ID，可跨租戶讀寫刪除儲存庫。</div></div>
+      <div class="lang"><div class="lang-tag">中文提煉</div><div>權限檢查缺失，攻擊者可讀寫或刪除任意儲存庫。</div></div>
       <div class="lang"><div class="lang-tag">英文原文</div><div class="en">obsidian-tc tokens can access arbitrary configured vaults
 ### Impact
 Tool dispatch did not check the caller-supplied `input.vault` against the caller&#39;s bound vault (`ctx.vaultId`); the folder ACL was a single global instance and the JWT carried no vault claim. As a result, **any valid token could read, write, or delete any configured vault** by passing `input.vault`, defeating multi-tenant isolation across ~90 tool sites. (`resources/read` was the only surface that already guarded this.)
 
 ### Patches
 Fixed in **1.3.1** (the fix was developed on the `v1.3.0` tag, which never published to npm; 1</div></div>
-      <div>修補建議：升級至 1.3.1 或更高版本。</div>
+      <div>修補建議：升級至 1.3.1 或更高版本</div>
       
       
     </div>
@@ -176,95 +227,49 @@ Fixed in **1.3.1** (the fix was developed on the `v1.3.0` tag, which never publi
 
   <div class="row" data-wild="0" onclick="if(event.target.tagName!=='A')this.classList.toggle('open')">
     <div class="row-head">
-      <h2>Conda 基礎設施 RCE</h2>
+      <h2>Postiz 帳號接管漏洞</h2>
       <span class="badge crit">CVSS 9.9</span>
       
       
-      <span class="badge">RCE</span>
+      <span class="badge">接管</span>
       
       <span class="chev">▾</span>
     </div>
-    <div class="row-sum">GitHub Actions 模板注入，可執行任意代碼。</div>
-    <div class="row-foot"><span>CVE-2026-53942</span><span>conda/infrastructure commit 9c0f238 之前</span>
-      <a href="https://github.com/conda/infrastructure/security/advisories/GHSA-pf87-fcg3-wjfh" target="_blank">官方補丁 ↗</a>
+    <div class="row-sum">憑證簽署機制缺陷，攻擊者可偽造 Token 接管帳號。</div>
+    <div class="row-foot"><span>CVE-2026-115933</span><span>Postiz</span>
+      <a href="https://gadvisory.org/advisories/PSA-2026-YT2HMH" target="_blank">官方補丁 ↗</a>
     </div>
     <div class="detail">
-      <div class="lang"><div class="lang-tag">中文提煉</div><div>GitHub Actions 模板注入，可執行任意代碼。</div></div>
-      <div class="lang"><div class="lang-tag">英文原文</div><div class="en">Conda Organization Infrastructure is a centralized location for infrastructure codes. Prior to commit 9c0f238, a GitHub Actions Pwn Request vulnerability appears to remain present in conda/conda. The affected workflow is .github/workflows/update.yml. It is triggered by issue_comment events containing @conda-bot render or @conda-bot recreate. For the render path, the workflow obtains the pull request head repository and branch from the PR API, checks out that PR-controlled repository/ref using secrets.SYNC_TOKEN, and then runs conda/actions/template-files@7f6830b1428a9bd47f0b068892c77eae9520703</div></div>
-      <div>修補建議：更新至最新 commit 或套用安全補丁。</div>
+      <div class="lang"><div class="lang-tag">中文提煉</div><div>憑證簽署機制缺陷，攻擊者可偽造 Token 接管帳號。</div></div>
+      <div class="lang"><div class="lang-tag">英文原文</div><div class="en">Postiz signs its session, invitation and password reset tokens with one shared secret and without any marker of what a token is for. A route that refreshes the credentials of a browser-extension channel signed data taken from the request itself and stored the result where the requesting user can read it back. A user could therefore obtain a validly signed token containing any claims they choose, which the application accepts as a session, as an organization invitation with a chosen role, as a password reset or as an enterprise provisioning token.
+
+A second, narrower route that creates team inv</div></div>
+      <div>修補建議：升級至最新版本並更新密鑰</div>
       
-      <div style="margin-top:6px">更多參考：<a href="https://github.com/conda/infrastructure/security/advisories/GHSA-pf87-fcg3-wjfh" target="_blank">[2]</a> </div>
+      <div style="margin-top:6px">更多參考：<a href="https://github.com/gitroomhq/postiz-app" target="_blank">[2]</a> <a href="https://github.com/gitroomhq/postiz-app/commit/a5affe62c74e39c1e7ac960d50d8418b807d532c" target="_blank">[3]</a> <a href="https://github.com/gitroomhq/postiz-app/releases/tag/v2.25.3" target="_blank">[4]</a> </div>
     </div>
   </div>
 
   <div class="row" data-wild="0" onclick="if(event.target.tagName!=='A')this.classList.toggle('open')">
     <div class="row-head">
-      <h2>Wasmtime 沙箱逃逸</h2>
-      <span class="badge crit">CVSS 9.9</span>
+      <h2>Prime Mover 反序列化 RCE</h2>
+      <span class="badge crit">CVSS 9.8</span>
       
       
-      <span class="badge">逃逸</span>
-      
+      <span class="badge">反序列化RCE</span>
+      <span class="badge epss">EPSS 0.01</span>
       <span class="chev">▾</span>
     </div>
-    <div class="row-sum">編譯器溢出導致類型混淆，可逃逸 Wasm 沙箱。</div>
-    <div class="row-foot"><span>CVE-2026-115889</span><span>Wasmtime 36.0.19 之前及 43.0.0 之前</span>
-      <a href="https://github.com/bytecodealliance/wasmtime/commit/ba8f7d70caa1825b7f64fa75cd9d03f4a438dae0" target="_blank">官方補丁 ↗</a>
+    <div class="row-sum">反序列化不安全輸入，攻擊者可遠端執行程式碼。</div>
+    <div class="row-foot"><span>CVE-2026-115806</span><span>Prime Mover – Backup and Migration 插件 2.2.1 及更早</span>
+      <a href="https://plugins.trac.wordpress.org/browser/prime-mover/tags/2.2.1/utilities/PrimeMoverSearchReplace.php#L1281" target="_blank">官方補丁 ↗</a>
     </div>
     <div class="detail">
-      <div class="lang"><div class="lang-tag">中文提煉</div><div>編譯器溢出導致類型混淆，可逃逸 Wasm 沙箱。</div></div>
-      <div class="lang"><div class="lang-tag">英文原文</div><div class="en">Wasmtime is a runtime for WebAssembly. Prior to 36.0.19 and 43.0.0, the Cranelift compiler backend bit-packs SSA value indices in a way that can silently overflow in release builds when compiling a sufficiently large or specially crafted Wasm function with many SSA values. The overflow can make Cranelift reference incorrect IR values, causing arbitrary miscompilation, type confusion, and other attacker-controlled effects that may escape the Wasm sandbox on any architecture using the default Cranelift backend. This issue is fixed in versions 36.0.19 and 43.0.0.</div></div>
-      <div>修補建議：升級至 36.0.19 或 43.0.0 版本。</div>
+      <div class="lang"><div class="lang-tag">中文提煉</div><div>反序列化不安全輸入，攻擊者可遠端執行程式碼。</div></div>
+      <div class="lang"><div class="lang-tag">英文原文</div><div class="en">The Prime Mover – Backup and Migration plugin for WordPress is vulnerable to PHP Object Injection in all versions up to, and including, 2.2.1 via deserialization of untrusted input in the migration search-and-replace routine (recursiveUnserializeReplace()). An unauthenticated attacker can store a crafted, base64-encoded serialized object in wp_comments.comment_content through the standard comment-submission endpoint (wp-comments-post.php). When an administrator subsequently performs a routine Prime Mover export or restore, the plugin base64-decodes that stored value and passes it to unserializ</div></div>
+      <div>修補建議：升級至 2.2.1 之後的修復版本</div>
       
-      <div style="margin-top:6px">更多參考：<a href="https://github.com/bytecodealliance/wasmtime/commit/f517bd6e890c7c1291ab9fe05d8cc0c9f11e56aa" target="_blank">[2]</a> <a href="https://github.com/bytecodealliance/wasmtime/pull/12613" target="_blank">[3]</a> <a href="https://github.com/bytecodealliance/wasmtime/pull/14818" target="_blank">[4]</a> <a href="https://github.com/bytecodealliance/wasmtime/releases/tag/v36.0.19" target="_blank">[5]</a> </div>
-    </div>
-  </div>
-
-  <div class="row" data-wild="0" onclick="if(event.target.tagName!=='A')this.classList.toggle('open')">
-    <div class="row-head">
-      <h2>Wasmtime AArch64 逃逸</h2>
-      <span class="badge crit">CVSS 9.9</span>
-      
-      
-      <span class="badge">逃逸</span>
-      
-      <span class="chev">▾</span>
-    </div>
-    <div class="row-sum">AArch64 分支跳轉錯誤，導致可逃逸沙箱。</div>
-    <div class="row-foot"><span>CVE-2026-115893</span><span>Wasmtime (aarch64) 36.0.19, 48.0.7, 49.0.4 之前</span>
-      <a href="https://github.com/bytecodealliance/wasmtime/commit/222ff3a65dab9aa7011f8c246937751a0bac5abd" target="_blank">官方補丁 ↗</a>
-    </div>
-    <div class="detail">
-      <div class="lang"><div class="lang-tag">中文提煉</div><div>AArch64 分支跳轉錯誤，導致可逃逸沙箱。</div></div>
-      <div class="lang"><div class="lang-tag">英文原文</div><div class="en">Wasmtime is a runtime for WebAssembly. Prior to 36.0.19, 48.0.7, and 49.0.4, the Cranelift compiler backend on aarch64 can compile a Wasm br_table instruction with more than approximately 256,000 targets so that it has an incorrect conditional branch target. The branch can then jump to arbitrary other code at a user-controlled offset, allowing a user-controlled Wasm module to escape the sandbox on aarch64 engines using the default Cranelift backend. This issue is fixed in versions 36.0.19, 48.0.7, and 49.0.4.</div></div>
-      <div>修補建議：升級至 36.0.19, 48.0.7 或 49.0.4。</div>
-      
-      <div style="margin-top:6px">更多參考：<a href="https://github.com/bytecodealliance/wasmtime/commit/994549891c8a706cb4f2809f9d17b9f67b31e618" target="_blank">[2]</a> <a href="https://github.com/bytecodealliance/wasmtime/commit/e61df1b454be9313d61a5f8de07722a421139bbe" target="_blank">[3]</a> <a href="https://github.com/bytecodealliance/wasmtime/commit/f517bd6e890c7c1291ab9fe05d8cc0c9f11e56aa" target="_blank">[4]</a> <a href="https://github.com/bytecodealliance/wasmtime/pull/14818" target="_blank">[5]</a> </div>
-    </div>
-  </div>
-
-  <div class="row" data-wild="0" onclick="if(event.target.tagName!=='A')this.classList.toggle('open')">
-    <div class="row-head">
-      <h2>Postiz 資訊洩漏漏洞</h2>
-      <span class="badge crit">CVSS 9.9</span>
-      
-      
-      <span class="badge">資訊洩漏</span>
-      
-      <span class="chev">▾</span>
-    </div>
-    <div class="row-sum">未限制後端函數調用，可讀取伺服器敏感檔案。</div>
-    <div class="row-foot"><span>CVE-2026-115931</span><span>Postiz</span>
-      <a href="https://gadvisory.org/advisories/PSA-2026-JNXM56" target="_blank">官方補丁 ↗</a>
-    </div>
-    <div class="detail">
-      <div class="lang"><div class="lang-tag">中文提煉</div><div>未限制後端函數調用，可讀取伺服器敏感檔案。</div></div>
-      <div class="lang"><div class="lang-tag">英文原文</div><div class="en">Postiz lets a signed-in user ask the backend to run a function on one of their connected channels. The backend did not restrict which functions can be requested, so a user could call internal helper functions that were never meant to be reachable from the web interface.
-
-One of those helpers reads a file from the server&#39;s disk. A user who connects a channel whose stored token is a file path can have the backend return the contents of any file it can read, including its environment, which holds the secret used to sign login sessions, the database address and the credentials of connected service</div></div>
-      <div>修補建議：限制後端函數存取權限並更新系統。</div>
-      
-      <div style="margin-top:6px">更多參考：<a href="https://github.com/gitroomhq/postiz-app" target="_blank">[2]</a> <a href="https://github.com/gitroomhq/postiz-app/commit/9383f5be4d310c346e33a3748a9a7ded64c96fed" target="_blank">[3]</a> <a href="https://github.com/gitroomhq/postiz-app/releases/tag/v2.25.1" target="_blank">[4]</a> </div>
+      <div style="margin-top:6px">更多參考：<a href="https://plugins.trac.wordpress.org/browser/prime-mover/tags/2.2.1/utilities/PrimeMoverSearchReplace.php#L391" target="_blank">[2]</a> <a href="https://plugins.trac.wordpress.org/browser/prime-mover/tags/2.2.1/utilities/PrimeMoverSearchReplace.php#L422" target="_blank">[3]</a> <a href="https://plugins.trac.wordpress.org/browser/prime-mover/tags/2.2.1/utilities/PrimeMoverSearchReplace.php#L899" target="_blank">[4]</a> <a href="https://plugins.trac.wordpress.org/browser/prime-mover/tags/2.2.1/vendor/freemius/includes/managers/class-fs-clone-manager.php#L1636" target="_blank">[5]</a> </div>
     </div>
   </div>
 
@@ -277,6 +282,8 @@ One of those helpers reads a file from the server&#39;s disk. A user who connect
 <div class="hist">
   <h3>Archive / 歷史存檔</h3>
   <div class="hist-grid">
+    
+    <a class="hcard" href="2026-10-25.html"><div class="d">2026-10-25</div><div class="c">5 則・gemini</div></a>
     
     <a class="hcard" href="2026-10-24.html"><div class="d">2026-10-24</div><div class="c">5 則・gemini</div></a>
     
@@ -375,8 +382,6 @@ One of those helpers reads a file from the server&#39;s disk. A user who connect
   <div class="sub2">琥珀色 = 當日有在野利用，點擊跳轉存檔</div>
   <div class="cal">
   
-    <a class="day" href="2026-09-25.html" title="2026-09-25・高危5則・在野0則">25</a>
-  
     <a class="day" href="2026-09-26.html" title="2026-09-26・高危5則・在野0則">26</a>
   
     <a class="day" href="2026-09-27.html" title="2026-09-27・高危5則・在野0則">27</a>
@@ -433,7 +438,9 @@ One of those helpers reads a file from the server&#39;s disk. A user who connect
   
     <a class="day" href="2026-10-23.html" title="2026-10-23・高危5則・在野0則">23</a>
   
-    <a class="day" href="2026-10-24.html" title="2026-10-24・高危38則・在野0則">24</a>
+    <a class="day" href="2026-10-24.html" title="2026-10-24・高危5則・在野0則">24</a>
+  
+    <a class="day" href="2026-10-25.html" title="2026-10-25・高危15則・在野0則">25</a>
   
   </div>
   <div class="cal-legend"><span>■ 無在野</span><span style="color:var(--amber)">■ 有在野（顏色越深越多）</span></div>

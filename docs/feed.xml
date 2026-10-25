@@ -4,7 +4,14 @@
 <link>https://ryanran8787-a11y.github.io/sec-daily-report/</link>
 <description>CVSS&gt;=9.0 或在野利用的高危漏洞日報</description>
 <language>zh-tw</language>
-<lastBuildDate>Sat, 24 Oct 2026 04:08:50 GMT</lastBuildDate>
+<lastBuildDate>Sun, 25 Oct 2026 04:09:52 GMT</lastBuildDate>
+<item>
+<title>2026-10-25 高危 5 則</title>
+<link>https://ryanran8787-a11y.github.io/sec-daily-report/2026-10-25.html</link>
+<guid>https://ryanran8787-a11y.github.io/sec-daily-report/2026-10-25.html</guid>
+<pubDate>Sun, 25 Oct 2026 04:09:52 GMT</pubDate>
+<description><![CDATA[<ul><li>Unitree Go2 遠端 RCE (CVSS 10.0)</li><li>Wasmtime 沙箱逃逸漏洞 (CVSS 9.9)</li><li>obsidian-tc 跨租戶接管 (CVSS 9.9)</li><li>Postiz 帳號接管漏洞 (CVSS 9.9)</li><li>Prime Mover 反序列化 RCE (CVSS 9.8)</li></ul>]]></description>
+</item>
 <item>
 <title>2026-10-24 高危 5 則</title>
 <link>https://ryanran8787-a11y.github.io/sec-daily-report/2026-10-24.html</link>
@@ -207,12 +214,5 @@
 <guid>https://ryanran8787-a11y.github.io/sec-daily-report/2026-09-26.html</guid>
 <pubDate>Sat, 26 Sep 2026 04:01:38 GMT</pubDate>
 <description><![CDATA[<ul><li>Mediawiki 擴充 RCE (CVSS 10.0)</li><li>WP Automation 外掛權限提升 (CVSS 9.8)</li><li>Apache Qpid 會話固定漏洞 (CVSS 9.8)</li><li>Linux 核心 RDMA 漏洞 (CVSS 9.8)</li><li>Zimbra 協作平台 RCE (CVSS 9.8)</li></ul>]]></description>
-</item>
-<item>
-<title>2026-09-25 高危 5 則</title>
-<link>https://ryanran8787-a11y.github.io/sec-daily-report/2026-09-25.html</link>
-<guid>https://ryanran8787-a11y.github.io/sec-daily-report/2026-09-25.html</guid>
-<pubDate>Fri, 25 Sep 2026 03:56:42 GMT</pubDate>
-<description><![CDATA[<ul><li>HFS2 模板注入 RCE (CVSS 10.0)</li><li>HFS2 未授權檔案存取 (CVSS 10.0)</li><li>Decepticon LLM 提示注入 (CVSS 10.0)</li><li>Velociraptor 權限提升 (CVSS 9.9)</li><li>Dokploy 指令注入 RCE (CVSS 9.9)</li></ul>]]></description>
 </item>
 </channel></rss>
