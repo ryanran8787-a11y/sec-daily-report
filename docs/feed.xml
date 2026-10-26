@@ -4,7 +4,14 @@
 <link>https://ryanran8787-a11y.github.io/sec-daily-report/</link>
 <description>CVSS&gt;=9.0 或在野利用的高危漏洞日報</description>
 <language>zh-tw</language>
-<lastBuildDate>Sun, 25 Oct 2026 04:09:52 GMT</lastBuildDate>
+<lastBuildDate>Mon, 26 Oct 2026 04:13:49 GMT</lastBuildDate>
+<item>
+<title>2026-10-26 高危 5 則</title>
+<link>https://ryanran8787-a11y.github.io/sec-daily-report/2026-10-26.html</link>
+<guid>https://ryanran8787-a11y.github.io/sec-daily-report/2026-10-26.html</guid>
+<pubDate>Mon, 26 Oct 2026 04:13:48 GMT</pubDate>
+<description><![CDATA[<ul><li>Cisco PHP RCE 漏洞 (CVSS None)</li><li>Wasmtime 沙箱逃逸漏洞 (CVSS 9.9)</li><li>obsidian-tc 跨儲存庫存取 (CVSS 9.9)</li><li>obsidian-tc 未授權存取 (CVSS 9.6)</li><li>Snipe-IT 身份驗證繞過 (CVSS 9.2)</li></ul>]]></description>
+</item>
 <item>
 <title>2026-10-25 高危 5 則</title>
 <link>https://ryanran8787-a11y.github.io/sec-daily-report/2026-10-25.html</link>
@@ -207,12 +214,5 @@
 <guid>https://ryanran8787-a11y.github.io/sec-daily-report/2026-09-27.html</guid>
 <pubDate>Sun, 27 Sep 2026 04:14:07 GMT</pubDate>
 <description><![CDATA[<ul><li>Joomla UP 插件 RCE (CVSS 10.0)</li><li>Kyverno 權限提升漏洞 (CVSS 9.9)</li><li>Froxlor 權限提升漏洞 (CVSS 9.9)</li><li>Froxlor 配置注入漏洞 (CVSS 9.9)</li><li>D-Link DIR-895L RCE (CVSS 9.9)</li></ul>]]></description>
-</item>
-<item>
-<title>2026-09-26 高危 5 則</title>
-<link>https://ryanran8787-a11y.github.io/sec-daily-report/2026-09-26.html</link>
-<guid>https://ryanran8787-a11y.github.io/sec-daily-report/2026-09-26.html</guid>
-<pubDate>Sat, 26 Sep 2026 04:01:38 GMT</pubDate>
-<description><![CDATA[<ul><li>Mediawiki 擴充 RCE (CVSS 10.0)</li><li>WP Automation 外掛權限提升 (CVSS 9.8)</li><li>Apache Qpid 會話固定漏洞 (CVSS 9.8)</li><li>Linux 核心 RDMA 漏洞 (CVSS 9.8)</li><li>Zimbra 協作平台 RCE (CVSS 9.8)</li></ul>]]></description>
 </item>
 </channel></rss>
