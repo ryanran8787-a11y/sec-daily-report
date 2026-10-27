@@ -1,0 +1,124 @@
+{
+  "date": "2026-10-27",
+  "generated_at": "2026-10-27T04:33:48.274292+00:00",
+  "engine": "gemini",
+  "count": 5,
+  "brief_zh": "今日新增 5 則高危漏洞，涵蓋 RCE 與沙箱逃逸，應優先關注已遭在野利用的 Cisco PHP RCE。",
+  "items": [
+    {
+      "cve": "CVE-2026-109618",
+      "title_zh": "Cisco PHP RCE 在野利用",
+      "cvss": null,
+      "type": "RCE",
+      "in_wild": true,
+      "summary_zh": "PHP 記憶體損壞導致 RCE，影響多款思科產品。",
+      "affected": "Cisco Products / PHP",
+      "affected_versions": "",
+      "fix_hint": "更新至 2026 年 10 月發布的安全版本。",
+      "patch_url": "https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-php-october26-Jj384Daq?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Vulnerabilities%20in%20PHP%20Affecting%20Cisco%20Products:%20October%202026%26vs_k=1",
+      "epss_warn": false,
+      "epss": 0.99981,
+      "refs": [
+        "https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-php-october26-Jj384Daq?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Vulnerabilities%20in%20PHP%20Affecting%20Cisco%20Products:%20October%202026%26vs_k=1"
+      ],
+      "desc_en": "Vulnerabilities in PHP Affecting Cisco Products: October 2026\n<p>On October 21, the PHP Foundation announced the availability of a Critical PHP Security release addressing two critical vulnerabilities:&nbsp;</p>\n<ul>\n<li>CVE-2026-109618 - RCE via OOM corruption</li>\n<li>CVE-2026-109619 - RCE via stale global state</li>\n</ul>\n<p>For information about these vulnerabilities, see the advisories <a href=\"https://github.com/php/php-src/security/advisories/GHSA-w8hw-w9fx-j79w\" target=\"_blank\" rel=\"noopener\">GHSA-w8hw-w9fx-j79w</a> and <a href=\"https://github.com/php/php-src/security/advisories/GHSA-6",
+      "source": "cisco",
+      "osv_packages": [],
+      "osv_fixed": []
+    },
+    {
+      "cve": "CVE-2026-115905",
+      "title_zh": "Rust zip 庫路徑覆寫漏洞",
+      "cvss": 10.0,
+      "type": "其他高危",
+      "in_wild": false,
+      "summary_zh": "ZIP 元數據不一致導致任意檔案路徑覆寫。",
+      "affected": "Rust zip library",
+      "affected_versions": "9.0.4 及更早",
+      "fix_hint": "升級至 9.0.5 版本。",
+      "patch_url": "https://github.com/zip-rs/zip2/releases/tag/v9.0.5",
+      "epss_warn": false,
+      "epss": null,
+      "refs": [
+        "https://github.com/zip-rs/zip2/commit/8068ab480ccf8daa7411424e365fcdbe6d09443e",
+        "https://github.com/zip-rs/zip2/releases/tag/v9.0.5",
+        "https://github.com/zip-rs/zip2/security/advisories/GHSA-m665-v7pm-7grj"
+      ],
+      "desc_en": "zip is a zip library for Rust that supports reading and writing simple ZIP files. Through 9.0.4, ZipArchive treats Central Directory File Header filenames as authoritative while ZipStreamReader extracts using Local File Header filenames without reconciling the duplicate metadata in src/read/stream.rs. A crafted archive can therefore appear benign to a component that inspects the central directory but cause a streaming extractor to write a different attacker-selected path and content, potentially overwriting files used by a downstream service. This issue is fixed in version 9.0.5.",
+      "source": "nvd",
+      "osv_packages": [],
+      "osv_fixed": []
+    },
+    {
+      "cve": "CVE-2026-116508",
+      "title_zh": "TOTOLINK 路由器溢位漏洞",
+      "cvss": 10.0,
+      "type": "其他高危",
+      "in_wild": false,
+      "summary_zh": "infostat.cgi 處理參數不當導致緩衝區溢位。",
+      "affected": "TOTOLINK A950RG",
+      "affected_versions": "4.1.2cu.5268_B20221104",
+      "fix_hint": "聯繫廠商獲取補丁或更新韌體。",
+      "patch_url": "https://gist.github.com/H3rmesk1t/ad72def4ccc232757d4cbabf45da72cb",
+      "epss_warn": false,
+      "epss": null,
+      "refs": [
+        "https://gist.github.com/H3rmesk1t/ad72def4ccc232757d4cbabf45da72cb",
+        "https://vuldb.com/cve/CVE-2026-116508",
+        "https://vuldb.com/submit/1022557",
+        "https://vuldb.com/vuln/426406",
+        "https://vuldb.com/vuln/426406/cti"
+      ],
+      "desc_en": "A security flaw has been discovered in TOTOLINK A950RG 4.1.2cu.5268_B20221104. Affected by this issue is the function sub_402340 of the file infostat.cgi of the component Device-Information CGI. Performing a manipulation of the argument CONTENT_LENGTH results in stack-based buffer overflow. Remote exploitation of the attack is possible. The exploit has been released to the public and may be used for attacks.",
+      "source": "nvd",
+      "osv_packages": [],
+      "osv_fixed": []
+    },
+    {
+      "cve": "CVE-2026-115889",
+      "title_zh": "Wasmtime 沙箱逃逸漏洞",
+      "cvss": 9.9,
+      "type": "逃逸",
+      "in_wild": false,
+      "summary_zh": "編譯器位元打包溢位導致類型混淆與沙箱逃逸。",
+      "affected": "Wasmtime (Cranelift backend)",
+      "affected_versions": "v43 之前",
+      "fix_hint": "升級至 Wasmtime v43 或更高版本。",
+      "patch_url": "https://github.com/advisories/GHSA-897f-g5gm-fmxm",
+      "epss_warn": false,
+      "epss": 0.00454,
+      "refs": [
+        "https://github.com/advisories/GHSA-897f-g5gm-fmxm"
+      ],
+      "desc_en": "Wasmtime: Bit-packing in Cranelift compiler causes silent overflow and miscompilation\n## Summary\n\nIn Wasmtime prior to v43, the Cranelift compiler backend bit-packs its SSA value indices in a way that can result in silent overflow in release builds, and result in incorrect value references in the IR resulting in arbitrary miscompilation. A very large Wasm function body, or one that is specially crafted to use many SSA values, can use this to force type-confusion or other arbitrary side-effects and escape the sandbox.\n\nCranelift was changed in Wasmtime v43 to use a full `u32` index, with checks",
+      "source": "github",
+      "osv_packages": [],
+      "osv_fixed": []
+    },
+    {
+      "cve": "CVE-2026-116231",
+      "title_zh": "蒲公英 X5 Pro 路由器漏洞",
+      "cvss": 9.9,
+      "type": "其他高危",
+      "in_wild": false,
+      "summary_zh": "Ser2net 組件 CRLF 注入導致檔案遭覆寫。",
+      "affected": "Oray Pugongying X5 Pro",
+      "affected_versions": "7.6.1",
+      "fix_hint": "暫無官方補丁，建議限制管理介面存取。",
+      "patch_url": "https://app.notion.com/p/Oray-Pgyer-X5-Pro-Router-7-6-1-A-Serial-Banner-Newline-Lets-ser2net-Overwrite-Existing-Files-3ea797159f158019b687eadcc7d6a85b",
+      "epss_warn": false,
+      "epss": 0.00436,
+      "refs": [
+        "https://app.notion.com/p/Oray-Pgyer-X5-Pro-Router-7-6-1-A-Serial-Banner-Newline-Lets-ser2net-Overwrite-Existing-Files-3ea797159f158019b687eadcc7d6a85b",
+        "https://vuldb.com/cve/CVE-2026-116231",
+        "https://vuldb.com/submit/1005078",
+        "https://vuldb.com/vuln/426280",
+        "https://vuldb.com/vuln/426280/cti"
+      ],
+      "desc_en": "A security flaw has been discovered in Oray Pugongying X5 Pro 7.6.1. The impacted element is an unknown function of the component Ser2net. Performing a manipulation of the argument regmsg results in crlf injection. It is possible to initiate the attack remotely. The exploit has been released to the public and may be used for attacks. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "source": "nvd",
+      "osv_packages": [],
+      "osv_fixed": []
+    }
+  ]
+}

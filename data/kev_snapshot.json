@@ -1,4 +1,14 @@
 {
+  "CVE-2026-109618": {
+    "vendor": "PHP Group",
+    "product": "PHP",
+    "dateAdded": "2026-10-26"
+  },
+  "CVE-2026-109619": {
+    "vendor": "PHP Group",
+    "product": "PHP",
+    "dateAdded": "2026-10-26"
+  },
   "CVE-2026-114625": {
     "vendor": "Arista",
     "product": "VeloCloud Orchestrator",

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>網安每日報 2026-10-26</title>
+<title>網安每日報 2026-10-27</title>
 <style>
 /* Geist 設計語言（灰階層次、細邊框、小圓角），logo 與配色為原創 */
 :root{
@@ -111,7 +111,7 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
 <div class="nav"><div class="nav-inner">
   <svg class="logo" viewBox="0 0 24 24"><path d="M12 1.8 3.5 5v6.1c0 5.1 3.6 9.6 8.5 10.9 4.9-1.3 8.5-5.8 8.5-10.9V5L12 1.8Zm0 2.4 6.5 2.6v4.3c0 4-2.7 7.6-6.5 8.7-3.8-1.1-6.5-4.7-6.5-8.7V6.8L12 4.2Zm-1.4 9.1 4-4 1.4 1.4-5.4 5.4-2.6-2.6 1.4-1.4 1.2 1.2Z"/></svg>
   <div class="brand">SecDaily <span>/ 網安每日報</span></div>
-  <div class="nav-right"><span class="dot"></span>2026-10-26・gemini<a class="rss-link" href="feed.xml" title="RSS 訂閱">RSS</a><button class="theme-btn" onclick="toggleTheme()" title="切換淺色/深色">◐</button></div>
+  <div class="nav-right"><span class="dot"></span>2026-10-27・gemini<a class="rss-link" href="feed.xml" title="RSS 訂閱">RSS</a><button class="theme-btn" onclick="toggleTheme()" title="切換淺色/深色">◐</button></div>
 </div></div>
 
 <div class="wrap">
@@ -119,14 +119,14 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
   <div class="eyebrow">NVD + KEV + EPSS + OSV + GitHub + Cisco ・ 每天 08:00（台北）自動更新</div>
   <h1><span class="grad">今日高危漏洞</span></h1>
   <p class="lede">僅收錄 CVSS ≥ 9.0、在野利用或 EPSS 利用預警項目。點擊任一條目展開完整描述與修補建議。</p>
-  <div class="brief"><span>AI 總評</span>今日共 5 則高危漏洞，涵蓋 RCE 與帳號接管，應優先關注 Cisco PHP RCE 漏洞。</div>
+  <div class="brief"><span>AI 總評</span>今日新增 5 則高危漏洞，涵蓋 RCE 與沙箱逃逸，應優先關注已遭在野利用的 Cisco PHP RCE。</div>
 </div>
 
 <div class="stats">
   <div class="stat"><div class="n red">5</div><div class="l">高危項目</div></div>
-  <div class="stat"><div class="n amber">0</div><div class="l">在野利用</div></div>
-  <div class="stat"><div class="n amber">1</div><div class="l">利用預警 EPSS≥0.7</div></div>
-  <div class="stat"><div class="n green">3</div><div class="l">CVSS ≥ 9.5</div></div>
+  <div class="stat"><div class="n amber">1</div><div class="l">在野利用</div></div>
+  <div class="stat"><div class="n amber">0</div><div class="l">利用預警 EPSS≥0.7</div></div>
+  <div class="stat"><div class="n green">4</div><div class="l">CVSS ≥ 9.5</div></div>
 </div>
 
 <div class="toolbar">
@@ -142,26 +142,25 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
 
 
 <div id="grid">
-
-<div class="bucket"><h3>▲ 高危關注 <span class="cnt">4 則・EPSS 預警或 CVSS ≥ 9.5</span></h3>
+<div class="bucket"><h3>● 在野利用 <span class="cnt">1 則・優先處理</span></h3>
 <div class="list">
 
-  <div class="row" data-wild="0" onclick="if(event.target.tagName!=='A')this.classList.toggle('open')">
+  <div class="row" data-wild="1" onclick="if(event.target.tagName!=='A')this.classList.toggle('open')">
     <div class="row-head">
-      <h2>Cisco PHP RCE 漏洞</h2>
+      <h2>Cisco PHP RCE 在野利用</h2>
       
-      <span class="badge wild">▲ 利用預警</span>
+      <span class="badge wild">● 在野利用</span>
       <span class="badge epss">via cisco</span>
       <span class="badge">RCE</span>
       <span class="badge epss">EPSS 1.00</span>
       <span class="chev">▾</span>
     </div>
-    <div class="row-sum">PHP 記憶體損壞導致遠端代碼執行，影響多款思科產品。</div>
-    <div class="row-foot"><span>CVE-2026-109618</span><span>Cisco Products</span>
+    <div class="row-sum">PHP 記憶體損壞導致 RCE，影響多款思科產品。</div>
+    <div class="row-foot"><span>CVE-2026-109618</span><span>Cisco Products / PHP</span>
       <a href="https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-php-october26-Jj384Daq?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Vulnerabilities%20in%20PHP%20Affecting%20Cisco%20Products:%20October%202026%26vs_k=1" target="_blank">官方補丁 ↗</a>
     </div>
     <div class="detail">
-      <div class="lang"><div class="lang-tag">中文提煉</div><div>PHP 記憶體損壞導致遠端代碼執行，影響多款思科產品。</div></div>
+      <div class="lang"><div class="lang-tag">中文提煉</div><div>PHP 記憶體損壞導致 RCE，影響多款思科產品。</div></div>
       <div class="lang"><div class="lang-tag">英文原文</div><div class="en">Vulnerabilities in PHP Affecting Cisco Products: October 2026
 &lt;p&gt;On October 21, the PHP Foundation announced the availability of a Critical PHP Security release addressing two critical vulnerabilities:&amp;nbsp;&lt;/p&gt;
 &lt;ul&gt;
@@ -169,9 +168,60 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
 &lt;li&gt;CVE-2026-109619 - RCE via stale global state&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;For information about these vulnerabilities, see the advisories &lt;a href=&#34;https://github.com/php/php-src/security/advisories/GHSA-w8hw-w9fx-j79w&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;GHSA-w8hw-w9fx-j79w&lt;/a&gt; and &lt;a href=&#34;https://github.com/php/php-src/security/advisories/GHSA-6</div></div>
-      <div>修補建議：請參考思科官方公告更新受影響產品之 PHP 組件。</div>
+      <div>修補建議：更新至 2026 年 10 月發布的安全版本。</div>
       
       
+    </div>
+  </div>
+
+</div>
+</div>
+<div class="bucket"><h3>▲ 高危關注 <span class="cnt">4 則・EPSS 預警或 CVSS ≥ 9.5</span></h3>
+<div class="list">
+
+  <div class="row" data-wild="0" onclick="if(event.target.tagName!=='A')this.classList.toggle('open')">
+    <div class="row-head">
+      <h2>Rust zip 庫路徑覆寫漏洞</h2>
+      <span class="badge crit">CVSS 10.0</span>
+      
+      
+      <span class="badge">其他高危</span>
+      
+      <span class="chev">▾</span>
+    </div>
+    <div class="row-sum">ZIP 元數據不一致導致任意檔案路徑覆寫。</div>
+    <div class="row-foot"><span>CVE-2026-115905</span><span>Rust zip library 9.0.4 及更早</span>
+      <a href="https://github.com/zip-rs/zip2/releases/tag/v9.0.5" target="_blank">官方補丁 ↗</a>
+    </div>
+    <div class="detail">
+      <div class="lang"><div class="lang-tag">中文提煉</div><div>ZIP 元數據不一致導致任意檔案路徑覆寫。</div></div>
+      <div class="lang"><div class="lang-tag">英文原文</div><div class="en">zip is a zip library for Rust that supports reading and writing simple ZIP files. Through 9.0.4, ZipArchive treats Central Directory File Header filenames as authoritative while ZipStreamReader extracts using Local File Header filenames without reconciling the duplicate metadata in src/read/stream.rs. A crafted archive can therefore appear benign to a component that inspects the central directory but cause a streaming extractor to write a different attacker-selected path and content, potentially overwriting files used by a downstream service. This issue is fixed in version 9.0.5.</div></div>
+      <div>修補建議：升級至 9.0.5 版本。</div>
+      
+      <div style="margin-top:6px">更多參考：<a href="https://github.com/zip-rs/zip2/releases/tag/v9.0.5" target="_blank">[2]</a> <a href="https://github.com/zip-rs/zip2/security/advisories/GHSA-m665-v7pm-7grj" target="_blank">[3]</a> </div>
+    </div>
+  </div>
+
+  <div class="row" data-wild="0" onclick="if(event.target.tagName!=='A')this.classList.toggle('open')">
+    <div class="row-head">
+      <h2>TOTOLINK 路由器溢位漏洞</h2>
+      <span class="badge crit">CVSS 10.0</span>
+      
+      
+      <span class="badge">其他高危</span>
+      
+      <span class="chev">▾</span>
+    </div>
+    <div class="row-sum">infostat.cgi 處理參數不當導致緩衝區溢位。</div>
+    <div class="row-foot"><span>CVE-2026-116508</span><span>TOTOLINK A950RG 4.1.2cu.5268_B20221104</span>
+      <a href="https://gist.github.com/H3rmesk1t/ad72def4ccc232757d4cbabf45da72cb" target="_blank">官方補丁 ↗</a>
+    </div>
+    <div class="detail">
+      <div class="lang"><div class="lang-tag">中文提煉</div><div>infostat.cgi 處理參數不當導致緩衝區溢位。</div></div>
+      <div class="lang"><div class="lang-tag">英文原文</div><div class="en">A security flaw has been discovered in TOTOLINK A950RG 4.1.2cu.5268_B20221104. Affected by this issue is the function sub_402340 of the file infostat.cgi of the component Device-Information CGI. Performing a manipulation of the argument CONTENT_LENGTH results in stack-based buffer overflow. Remote exploitation of the attack is possible. The exploit has been released to the public and may be used for attacks.</div></div>
+      <div>修補建議：聯繫廠商獲取補丁或更新韌體。</div>
+      
+      <div style="margin-top:6px">更多參考：<a href="https://vuldb.com/cve/CVE-2026-116508" target="_blank">[2]</a> <a href="https://vuldb.com/submit/1022557" target="_blank">[3]</a> <a href="https://vuldb.com/vuln/426406" target="_blank">[4]</a> <a href="https://vuldb.com/vuln/426406/cti" target="_blank">[5]</a> </div>
     </div>
   </div>
 
@@ -185,12 +235,12 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
       <span class="badge epss">EPSS 0.00</span>
       <span class="chev">▾</span>
     </div>
-    <div class="row-sum">編譯器位元打包溢位導致誤編譯，攻擊者可逃逸沙箱限制。</div>
-    <div class="row-foot"><span>CVE-2026-115889</span><span>Wasmtime v43 之前</span>
+    <div class="row-sum">編譯器位元打包溢位導致類型混淆與沙箱逃逸。</div>
+    <div class="row-foot"><span>CVE-2026-115889</span><span>Wasmtime (Cranelift backend) v43 之前</span>
       <a href="https://github.com/advisories/GHSA-897f-g5gm-fmxm" target="_blank">官方補丁 ↗</a>
     </div>
     <div class="detail">
-      <div class="lang"><div class="lang-tag">中文提煉</div><div>編譯器位元打包溢位導致誤編譯，攻擊者可逃逸沙箱限制。</div></div>
+      <div class="lang"><div class="lang-tag">中文提煉</div><div>編譯器位元打包溢位導致類型混淆與沙箱逃逸。</div></div>
       <div class="lang"><div class="lang-tag">英文原文</div><div class="en">Wasmtime: Bit-packing in Cranelift compiler causes silent overflow and miscompilation
 ## Summary
 
@@ -205,96 +255,38 @@ Cranelift was changed in Wasmtime v43 to use a full `u32` index, with checks</di
 
   <div class="row" data-wild="0" onclick="if(event.target.tagName!=='A')this.classList.toggle('open')">
     <div class="row-head">
-      <h2>obsidian-tc 跨儲存庫存取</h2>
+      <h2>蒲公英 X5 Pro 路由器漏洞</h2>
       <span class="badge crit">CVSS 9.9</span>
       
-      <span class="badge epss">via github</span>
-      <span class="badge">接管</span>
+      
+      <span class="badge">其他高危</span>
       <span class="badge epss">EPSS 0.00</span>
       <span class="chev">▾</span>
     </div>
-    <div class="row-sum">權限檢查缺失導致攻擊者可讀寫或刪除任意配置的儲存庫。</div>
-    <div class="row-foot"><span>CVE-2026-77366</span><span>obsidian-tc 1.3.1 之前</span>
-      <a href="https://github.com/advisories/GHSA-84c9-qqpq-2pq5" target="_blank">官方補丁 ↗</a>
+    <div class="row-sum">Ser2net 組件 CRLF 注入導致檔案遭覆寫。</div>
+    <div class="row-foot"><span>CVE-2026-116231</span><span>Oray Pugongying X5 Pro 7.6.1</span>
+      <a href="https://app.notion.com/p/Oray-Pgyer-X5-Pro-Router-7-6-1-A-Serial-Banner-Newline-Lets-ser2net-Overwrite-Existing-Files-3ea797159f158019b687eadcc7d6a85b" target="_blank">官方補丁 ↗</a>
     </div>
     <div class="detail">
-      <div class="lang"><div class="lang-tag">中文提煉</div><div>權限檢查缺失導致攻擊者可讀寫或刪除任意配置的儲存庫。</div></div>
-      <div class="lang"><div class="lang-tag">英文原文</div><div class="en">obsidian-tc tokens can access arbitrary configured vaults
-### Impact
-Tool dispatch did not check the caller-supplied `input.vault` against the caller&#39;s bound vault (`ctx.vaultId`); the folder ACL was a single global instance and the JWT carried no vault claim. As a result, **any valid token could read, write, or delete any configured vault** by passing `input.vault`, defeating multi-tenant isolation across ~90 tool sites. (`resources/read` was the only surface that already guarded this.)
-
-### Patches
-Fixed in **1.3.1** (the fix was developed on the `v1.3.0` tag, which never published to npm; 1</div></div>
-      <div>修補建議：升級至 obsidian-tc 1.3.1 或更高版本。</div>
+      <div class="lang"><div class="lang-tag">中文提煉</div><div>Ser2net 組件 CRLF 注入導致檔案遭覆寫。</div></div>
+      <div class="lang"><div class="lang-tag">英文原文</div><div class="en">A security flaw has been discovered in Oray Pugongying X5 Pro 7.6.1. The impacted element is an unknown function of the component Ser2net. Performing a manipulation of the argument regmsg results in crlf injection. It is possible to initiate the attack remotely. The exploit has been released to the public and may be used for attacks. The vendor was contacted early about this disclosure but did not respond in any way.</div></div>
+      <div>修補建議：暫無官方補丁，建議限制管理介面存取。</div>
       
-      
-    </div>
-  </div>
-
-  <div class="row" data-wild="0" onclick="if(event.target.tagName!=='A')this.classList.toggle('open')">
-    <div class="row-head">
-      <h2>obsidian-tc 未授權存取</h2>
-      <span class="badge crit">CVSS 9.6</span>
-      
-      <span class="badge epss">via github</span>
-      <span class="badge">未授權存取</span>
-      <span class="badge epss">EPSS 0.00</span>
-      <span class="chev">▾</span>
-    </div>
-    <div class="row-sum">缺少 DNS 重綁定保護，惡意網頁可遠端存取本地儲存庫。</div>
-    <div class="row-foot"><span>CVE-2026-77363</span><span>obsidian-tc 1.3.1 之前</span>
-      <a href="https://github.com/advisories/GHSA-pqh8-4pj7-32xx" target="_blank">官方補丁 ↗</a>
-    </div>
-    <div class="detail">
-      <div class="lang"><div class="lang-tag">中文提煉</div><div>缺少 DNS 重綁定保護，惡意網頁可遠端存取本地儲存庫。</div></div>
-      <div class="lang"><div class="lang-tag">英文原文</div><div class="en">obsidian-tc HTTP transport lacks Origin/DNS-rebinding protection, enabling drive-by vault access on loopback
-### Impact
-The Streamable HTTP transport was constructed without `enableDnsRebindingProtection`/`allowedHosts`/`allowedOrigins` and performed no `Origin`-header validation. With the documented `auth.mode: &#34;none&#34;` loopback default, a **drive-by web page could `POST http://127.0.0.1/mcp`** and receive caller `http-local` with scopes `[&#34;*&#34;]` — full vault read/write — via DNS rebinding / a forged Origin.
-
-### Patches
-Fixed in **1.3.1**. Upgrade to `&gt;= 1.3.1`. The transport now enables DNS-r</div></div>
-      <div>修補建議：升級至 obsidian-tc 1.3.1 或更高版本，並啟用身份驗證。</div>
-      
-      
+      <div style="margin-top:6px">更多參考：<a href="https://vuldb.com/cve/CVE-2026-116231" target="_blank">[2]</a> <a href="https://vuldb.com/submit/1005078" target="_blank">[3]</a> <a href="https://vuldb.com/vuln/426280" target="_blank">[4]</a> <a href="https://vuldb.com/vuln/426280/cti" target="_blank">[5]</a> </div>
     </div>
   </div>
 
 </div>
 </div>
-<div class="bucket"><h3>其他高危 <span class="cnt">1 則</span></h3>
-<div class="list">
 
-  <div class="row" data-wild="0" onclick="if(event.target.tagName!=='A')this.classList.toggle('open')">
-    <div class="row-head">
-      <h2>Snipe-IT 身份驗證繞過</h2>
-      <span class="badge ">CVSS 9.2</span>
-      
-      
-      <span class="badge">接管</span>
-      
-      <span class="chev">▾</span>
-    </div>
-    <div class="row-sum">Google SSO 驗證缺陷，停用用戶可繞過限制登入管理介面。</div>
-    <div class="row-foot"><span>CVE-2026-116199</span><span>Snipe-IT 8.6.3 之前</span>
-      <a href="https://github.com/grokability/snipe-it/security/advisories/GHSA-xf36-wx48-5rqp" target="_blank">官方補丁 ↗</a>
-    </div>
-    <div class="detail">
-      <div class="lang"><div class="lang-tag">中文提煉</div><div>Google SSO 驗證缺陷，停用用戶可繞過限制登入管理介面。</div></div>
-      <div class="lang"><div class="lang-tag">英文原文</div><div class="en">Snipe-IT before 8.6.3 contains an authentication bypass in GoogleAuthController::handleGoogleCallback, which logs in the user whose username matches the Google account email without enforcing the activated flag. Deactivated users with email-shaped usernames and still-live Google identities can sign in via Google SSO and regain sessions at their original permission level, including admin.</div></div>
-      <div>修補建議：升級至 Snipe-IT 8.6.3 或更高版本。</div>
-      
-      <div style="margin-top:6px">更多參考：<a href="https://www.vulncheck.com/advisories/snipe-it-before-8.6.3-authentication-bypass-via-google-sso-callback" target="_blank">[2]</a> </div>
-    </div>
-  </div>
-
-</div>
-</div>
 </div>
 
 
 <div class="hist">
   <h3>Archive / 歷史存檔</h3>
   <div class="hist-grid">
+    
+    <a class="hcard" href="2026-10-27.html"><div class="d">2026-10-27</div><div class="c">5 則・gemini</div></a>
     
     <a class="hcard" href="2026-10-26.html"><div class="d">2026-10-26</div><div class="c">5 則・gemini</div></a>
     
@@ -397,8 +389,6 @@ Fixed in **1.3.1**. Upgrade to `&gt;= 1.3.1`. The transport now enables DNS-r</d
   <div class="sub2">琥珀色 = 當日有在野利用，點擊跳轉存檔</div>
   <div class="cal">
   
-    <a class="day" href="2026-09-27.html" title="2026-09-27・高危5則・在野0則">27</a>
-  
     <a class="day has w2" href="2026-09-28.html" title="2026-09-28・高危5則・在野2則">28</a>
   
     <a class="day" href="2026-09-29.html" title="2026-09-29・高危5則・在野0則">29</a>
@@ -455,7 +445,9 @@ Fixed in **1.3.1**. Upgrade to `&gt;= 1.3.1`. The transport now enables DNS-r</d
   
     <a class="day" href="2026-10-25.html" title="2026-10-25・高危5則・在野0則">25</a>
   
-    <a class="day" href="2026-10-26.html" title="2026-10-26・高危7則・在野0則">26</a>
+    <a class="day" href="2026-10-26.html" title="2026-10-26・高危5則・在野0則">26</a>
+  
+    <a class="day has w1" href="2026-10-27.html" title="2026-10-27・高危31則・在野1則">27</a>
   
   </div>
   <div class="cal-legend"><span>■ 無在野</span><span style="color:var(--amber)">■ 有在野（顏色越深越多）</span></div>

@@ -4,7 +4,14 @@
 <link>https://ryanran8787-a11y.github.io/sec-daily-report/</link>
 <description>CVSS&gt;=9.0 或在野利用的高危漏洞日報</description>
 <language>zh-tw</language>
-<lastBuildDate>Mon, 26 Oct 2026 04:13:49 GMT</lastBuildDate>
+<lastBuildDate>Tue, 27 Oct 2026 04:33:48 GMT</lastBuildDate>
+<item>
+<title>2026-10-27 高危 5 則</title>
+<link>https://ryanran8787-a11y.github.io/sec-daily-report/2026-10-27.html</link>
+<guid>https://ryanran8787-a11y.github.io/sec-daily-report/2026-10-27.html</guid>
+<pubDate>Tue, 27 Oct 2026 04:33:48 GMT</pubDate>
+<description><![CDATA[<ul><li>Cisco PHP RCE 在野利用 (CVSS None)</li><li>Rust zip 庫路徑覆寫漏洞 (CVSS 10.0)</li><li>TOTOLINK 路由器溢位漏洞 (CVSS 10.0)</li><li>Wasmtime 沙箱逃逸漏洞 (CVSS 9.9)</li><li>蒲公英 X5 Pro 路由器漏洞 (CVSS 9.9)</li></ul>]]></description>
+</item>
 <item>
 <title>2026-10-26 高危 5 則</title>
 <link>https://ryanran8787-a11y.github.io/sec-daily-report/2026-10-26.html</link>
@@ -207,12 +214,5 @@
 <guid>https://ryanran8787-a11y.github.io/sec-daily-report/2026-09-28.html</guid>
 <pubDate>Mon, 28 Sep 2026 04:16:06 GMT</pubDate>
 <description><![CDATA[<ul><li>Citrix NetScaler 未授權指令執行 (CVSS 9.5)</li><li>Citrix NetScaler RCE 與 DoS (CVSS 9.5)</li><li>Seetong 設備身份驗證繞過 (CVSS 10.0)</li><li>TOTOLINK 路由器指令注入 (CVSS 9.9)</li><li>hMailServer JScript 注入 (CVSS 9.8)</li></ul>]]></description>
-</item>
-<item>
-<title>2026-09-27 高危 5 則</title>
-<link>https://ryanran8787-a11y.github.io/sec-daily-report/2026-09-27.html</link>
-<guid>https://ryanran8787-a11y.github.io/sec-daily-report/2026-09-27.html</guid>
-<pubDate>Sun, 27 Sep 2026 04:14:07 GMT</pubDate>
-<description><![CDATA[<ul><li>Joomla UP 插件 RCE (CVSS 10.0)</li><li>Kyverno 權限提升漏洞 (CVSS 9.9)</li><li>Froxlor 權限提升漏洞 (CVSS 9.9)</li><li>Froxlor 配置注入漏洞 (CVSS 9.9)</li><li>D-Link DIR-895L RCE (CVSS 9.9)</li></ul>]]></description>
 </item>
 </channel></rss>
