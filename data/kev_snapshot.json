@@ -1,4 +1,14 @@
 {
+  "CVE-2026-48356": {
+    "vendor": "Adobe",
+    "product": "Commerce and Magento",
+    "dateAdded": "2026-10-27"
+  },
+  "CVE-2026-111497": {
+    "vendor": "Google",
+    "product": "Brotli",
+    "dateAdded": "2026-10-27"
+  },
   "CVE-2026-109618": {
     "vendor": "PHP Group",
     "product": "PHP",
