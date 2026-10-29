@@ -1,4 +1,14 @@
 {
+  "CVE-2026-41709": {
+    "vendor": "Broadcom",
+    "product": "VMware ESX",
+    "dateAdded": "2026-10-28"
+  },
+  "CVE-2026-46300": {
+    "vendor": "Linux",
+    "product": "Kernel",
+    "dateAdded": "2026-10-28"
+  },
   "CVE-2026-48356": {
     "vendor": "Adobe",
     "product": "Commerce and Magento",

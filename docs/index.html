@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>網安每日報 2026-10-28</title>
+<title>網安每日報 2026-10-29</title>
 <style>
 /* Geist 設計語言（灰階層次、細邊框、小圓角），logo 與配色為原創 */
 :root{
@@ -111,7 +111,7 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
 <div class="nav"><div class="nav-inner">
   <svg class="logo" viewBox="0 0 24 24"><path d="M12 1.8 3.5 5v6.1c0 5.1 3.6 9.6 8.5 10.9 4.9-1.3 8.5-5.8 8.5-10.9V5L12 1.8Zm0 2.4 6.5 2.6v4.3c0 4-2.7 7.6-6.5 8.7-3.8-1.1-6.5-4.7-6.5-8.7V6.8L12 4.2Zm-1.4 9.1 4-4 1.4 1.4-5.4 5.4-2.6-2.6 1.4-1.4 1.2 1.2Z"/></svg>
   <div class="brand">SecDaily <span>/ 網安每日報</span></div>
-  <div class="nav-right"><span class="dot"></span>2026-10-28・gemini<a class="rss-link" href="feed.xml" title="RSS 訂閱">RSS</a><button class="theme-btn" onclick="toggleTheme()" title="切換淺色/深色">◐</button></div>
+  <div class="nav-right"><span class="dot"></span>2026-10-29・gemini<a class="rss-link" href="feed.xml" title="RSS 訂閱">RSS</a><button class="theme-btn" onclick="toggleTheme()" title="切換淺色/深色">◐</button></div>
 </div></div>
 
 <div class="wrap">
@@ -119,14 +119,14 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
   <div class="eyebrow">NVD + KEV + EPSS + OSV + GitHub + Cisco ・ 每天 08:00（台北）自動更新</div>
   <h1><span class="grad">今日高危漏洞</span></h1>
   <p class="lede">僅收錄 CVSS ≥ 9.0、在野利用或 EPSS 利用預警項目。點擊任一條目展開完整描述與修補建議。</p>
-  <div class="brief"><span>AI 總評</span>今日共 5 則高危漏洞，以 RCE 為主，應優先關注已遭在野利用的 Node.js RCE 漏洞。</div>
+  <div class="brief"><span>AI 總評</span>今日共5項漏洞，以Cisco RCE與接管風險最高，其中Cisco PHP RCE在野利用最需優先修補。</div>
 </div>
 
 <div class="stats">
   <div class="stat"><div class="n red">5</div><div class="l">高危項目</div></div>
-  <div class="stat"><div class="n amber">2</div><div class="l">在野利用</div></div>
+  <div class="stat"><div class="n amber">3</div><div class="l">在野利用</div></div>
   <div class="stat"><div class="n amber">0</div><div class="l">利用預警 EPSS≥0.7</div></div>
-  <div class="stat"><div class="n green">3</div><div class="l">CVSS ≥ 9.5</div></div>
+  <div class="stat"><div class="n green">2</div><div class="l">CVSS ≥ 9.5</div></div>
 </div>
 
 <div class="toolbar">
@@ -142,12 +142,12 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
 
 
 <div id="grid">
-<div class="bucket"><h3>● 在野利用 <span class="cnt">2 則・優先處理</span></h3>
+<div class="bucket"><h3>● 在野利用 <span class="cnt">3 則・優先處理</span></h3>
 <div class="list">
 
   <div class="row" data-wild="1" onclick="if(event.target.tagName!=='A')this.classList.toggle('open')">
     <div class="row-head">
-      <h2>PHP2shell RCE 在野利用</h2>
+      <h2>Cisco PHP RCE 在野利用</h2>
       
       <span class="badge wild">● 在野利用</span>
       <span class="badge epss">via cisco</span>
@@ -155,12 +155,12 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
       <span class="badge epss">EPSS 1.00</span>
       <span class="chev">▾</span>
     </div>
-    <div class="row-sum">PHP 記憶體損壞導致遠端程式碼執行漏洞。</div>
-    <div class="row-foot"><span>CVE-2026-109618</span><span>PHP / Cisco Products</span>
+    <div class="row-sum">PHP 記憶體損毀漏洞，影響 Cisco 產品，遭在野利用。</div>
+    <div class="row-foot"><span>CVE-2026-109618</span><span>Cisco 產品</span>
       <a href="https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-php-october26-Jj384Daq?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Vulnerabilities%20in%20PHP%20Affecting%20Cisco%20Products:%20October%202026%26vs_k=1" target="_blank">官方補丁 ↗</a>
     </div>
     <div class="detail">
-      <div class="lang"><div class="lang-tag">中文提煉</div><div>PHP 記憶體損壞導致遠端程式碼執行漏洞。</div></div>
+      <div class="lang"><div class="lang-tag">中文提煉</div><div>PHP 記憶體損毀漏洞，影響 Cisco 產品，遭在野利用。</div></div>
       <div class="lang"><div class="lang-tag">英文原文</div><div class="en">Vulnerabilities in PHP Affecting Cisco Products: October 2026
 &lt;p&gt;On October 21, the PHP Foundation announced the availability of a Critical PHP Security release addressing two critical vulnerabilities:&amp;nbsp;&lt;/p&gt;
 &lt;ul&gt;
@@ -168,7 +168,7 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
 &lt;li&gt;CVE-2026-109619 - RCE via stale global state&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;For information about these vulnerabilities, see the advisories &lt;a href=&#34;https://github.com/php/php-src/security/advisories/GHSA-w8hw-w9fx-j79w&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;GHSA-w8hw-w9fx-j79w&lt;/a&gt; and &lt;a href=&#34;https://github.com/php/php-src/security/advisories/GHSA-6</div></div>
-      <div>修補建議：更新至最新 PHP 版本或參考 Cisco 公告。</div>
+      <div>修補建議：請參考 Cisco 官方安全公告更新。</div>
       
       
     </div>
@@ -176,24 +176,49 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
 
   <div class="row" data-wild="1" onclick="if(event.target.tagName!=='A')this.classList.toggle('open')">
     <div class="row-head">
-      <h2>Node.js Brotli RCE 在野利用</h2>
+      <h2>Cisco SD-WAN 接管漏洞</h2>
+      
+      <span class="badge wild">● 在野利用</span>
+      <span class="badge epss">via cisco</span>
+      <span class="badge">接管</span>
+      <span class="badge epss">EPSS 0.89</span>
+      <span class="chev">▾</span>
+    </div>
+    <div class="row-sum">SD-WAN 控制器認證繞過漏洞，攻擊者可取得管理權限。</div>
+    <div class="row-foot"><span>CVE-2026-20127</span><span>Cisco Catalyst SD-WAN Controller, Manager, Validator</span>
+      <a href="https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-sdwan-rpa-EHchtZk?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Catalyst%20SD-WAN%20Controller%20Authentication%20Bypass%20Vulnerability%26vs_k=1" target="_blank">官方補丁 ↗</a>
+    </div>
+    <div class="detail">
+      <div class="lang"><div class="lang-tag">中文提煉</div><div>SD-WAN 控制器認證繞過漏洞，攻擊者可取得管理權限。</div></div>
+      <div class="lang"><div class="lang-tag">英文原文</div><div class="en">Cisco Catalyst SD-WAN Controller Authentication Bypass Vulnerability
+&lt;p&gt;A vulnerability in the peering authentication in Cisco Catalyst SD-WAN Controller, formerly SD-WAN vSmart, Cisco Catalyst SD-WAN Manager, formerly SD-WAN vManage, and Cisco Catalyst SD-WAN Validator, formerly SD-WAN vBond, could allow an unauthenticated, remote attacker to bypass authentication and obtain administrative privileges on an affected system.&lt;/p&gt;
+&lt;p&gt;This vulnerability exists because the peering authentication mechanism in an affected system is not working properly. An attacker could exploit this vulnerability by</div></div>
+      <div>修補建議：請參考 Cisco 官方安全公告更新。</div>
+      
+      
+    </div>
+  </div>
+
+  <div class="row" data-wild="1" onclick="if(event.target.tagName!=='A')this.classList.toggle('open')">
+    <div class="row-head">
+      <h2>Cisco Node.js RCE 在野利用</h2>
       
       <span class="badge wild">● 在野利用</span>
       <span class="badge epss">via cisco</span>
       <span class="badge">RCE</span>
-      <span class="badge epss">EPSS 0.55</span>
+      <span class="badge epss">EPSS 0.88</span>
       <span class="chev">▾</span>
     </div>
-    <div class="row-sum">Node.js Brotli 解碼器越界存取導致 RCE。</div>
-    <div class="row-foot"><span>CVE-2026-111497</span><span>Node.js / Cisco Products 22.x, 24.x, 26.x</span>
-      <a href="https://nodejs.org/en/blog/vulnerability/october-2026-security-releases" target="_blank">官方補丁 ↗</a>
+    <div class="row-sum">Node.js Brotli 解碼器漏洞，影響 Cisco 產品。</div>
+    <div class="row-foot"><span>CVE-2026-111497</span><span>Cisco 產品 22.x, 24.x, 26.x</span>
+      <a href="https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-oct2026-node-js-Jj3SQ19u?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Vulnerabilities%20in%20Node.js%20Affecting%20Cisco%20Products:%20October%202026%26vs_k=1" target="_blank">官方補丁 ↗</a>
     </div>
     <div class="detail">
-      <div class="lang"><div class="lang-tag">中文提煉</div><div>Node.js Brotli 解碼器越界存取導致 RCE。</div></div>
-      <div class="lang"><div class="lang-tag">英文原文</div><div class="en">Vulnerabilities in node.js Affecting Cisco Products: October 2026
+      <div class="lang"><div class="lang-tag">中文提煉</div><div>Node.js Brotli 解碼器漏洞，影響 Cisco 產品。</div></div>
+      <div class="lang"><div class="lang-tag">英文原文</div><div class="en">Vulnerabilities in Node.js Affecting Cisco Products: October 2026
 &lt;p&gt;On October 21, 2026, Node.js announced the availability of fixes for multiple vulnerabilities across the following supported release lines: 22.x, 24.x, and 26.x.&amp;nbsp;&lt;/p&gt;
 &lt;p&gt;These vulnerabilities impact critical operations such as the Brotli decoder, DNS resolution, and TLS certificate validation. The vulnerabilities pose risks for remote code execution and traffic interception. For more information, see &lt;a href=&#34;https://nodejs.org/en/blog/vulnerability/october-2026-security-releases&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Node.js S</div></div>
-      <div>修補建議：升級 Node.js 至安全版本。</div>
+      <div>修補建議：請參考 Cisco 官方安全公告更新。</div>
       
       
     </div>
@@ -201,78 +226,52 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
 
 </div>
 </div>
-<div class="bucket"><h3>▲ 高危關注 <span class="cnt">3 則・EPSS 預警或 CVSS ≥ 9.5</span></h3>
+<div class="bucket"><h3>▲ 高危關注 <span class="cnt">2 則・EPSS 預警或 CVSS ≥ 9.5</span></h3>
 <div class="list">
 
   <div class="row" data-wild="0" onclick="if(event.target.tagName!=='A')this.classList.toggle('open')">
     <div class="row-head">
-      <h2>NVIDIA NeMo 身份驗證缺失</h2>
+      <h2>AVideo RCE 漏洞</h2>
       <span class="badge crit">CVSS 10.0</span>
       
       
-      <span class="badge">未授權存取</span>
+      <span class="badge">RCE</span>
       
       <span class="chev">▾</span>
     </div>
-    <div class="row-sum">NVIDIA NeMo 身份驗證缺失導致多種攻擊。</div>
-    <div class="row-foot"><span>CVE-2026-65145</span><span>NVIDIA NeMo Agent Toolkit</span>
-      <a href="https://github.com/NVIDIA/product-security/tree/main/2026/5912" target="_blank">官方補丁 ↗</a>
+    <div class="row-sum">安裝程式端點未正確過濾參數，導致遠端程式碼執行。</div>
+    <div class="row-foot"><span>CVE-2026-61564</span><span>AVideo 8.1.0 之前</span>
+      <a href="https://github.com/WWBN/AVideo-Encoder/releases/tag/v8.1.0" target="_blank">官方補丁 ↗</a>
     </div>
     <div class="detail">
-      <div class="lang"><div class="lang-tag">中文提煉</div><div>NVIDIA NeMo 身份驗證缺失導致多種攻擊。</div></div>
-      <div class="lang"><div class="lang-tag">英文原文</div><div class="en">NVIDIA NeMo Agent Toolkit contains a vulnerability where a attacker could cause a missing authentication issue. This vulnerability might lead to code execution, escalation of privileges, data tampering, denial of service, and information disclosure.</div></div>
-      <div>修補建議：參考 NVIDIA 官方安全建議進行更新。</div>
+      <div class="lang"><div class="lang-tag">中文提煉</div><div>安裝程式端點未正確過濾參數，導致遠端程式碼執行。</div></div>
+      <div class="lang"><div class="lang-tag">英文原文</div><div class="en">AVideo is a video-sharing Platform. Prior to 8.1.0, the unauthenticated installer endpoint `install/checkConfiguration.php` assembles `videos/configuration.php` by interpolating request parameters, including `webSiteRootURL`, into single-quoted PHP string literals without escaping. An attacker can terminate a literal and inject PHP that executes as the web-server user when the generated, directly requestable file is loaded. Exploitation requires `videos/configuration.php` to be absent, as on every fresh deployment or after the file is removed or moved; an existing file blocks this endpoint. Th</div></div>
+      <div>修補建議：升級至 8.1.0 或更新版本。</div>
       
-      <div style="margin-top:6px">更多參考：<a href="https://nvd.nist.gov/vuln/detail/CVE-2026-65145" target="_blank">[2]</a> <a href="https://www.cve.org/CVERecord?id=CVE-2026-65145" target="_blank">[3]</a> </div>
+      <div style="margin-top:6px">更多參考：<a href="https://github.com/WWBN/AVideo-Encoder/releases/tag/v8.1.0" target="_blank">[2]</a> <a href="https://github.com/WWBN/AVideo-Encoder/security/advisories/GHSA-xrj3-cqm8-r992" target="_blank">[3]</a> </div>
     </div>
   </div>
 
   <div class="row" data-wild="0" onclick="if(event.target.tagName!=='A')this.classList.toggle('open')">
     <div class="row-head">
-      <h2>Adobe ACC SQL 注入漏洞</h2>
+      <h2>AVideo 權限提升漏洞</h2>
       <span class="badge crit">CVSS 10.0</span>
       
       
-      <span class="badge">SQL注入</span>
-      
-      <span class="chev">▾</span>
-    </div>
-    <div class="row-sum">Adobe ACC SQL 注入漏洞可導致 RCE。</div>
-    <div class="row-foot"><span>CVE-2026-105781</span><span>Adobe Campaign Classic (ACC)</span>
-      <a href="https://www.adobe.com/trust/security/products/campaign/apsb26-162.html" target="_blank">官方補丁 ↗</a>
-    </div>
-    <div class="detail">
-      <div class="lang"><div class="lang-tag">中文提煉</div><div>Adobe ACC SQL 注入漏洞可導致 RCE。</div></div>
-      <div class="lang"><div class="lang-tag">英文原文</div><div class="en">Adobe Campaign Classic (ACC) is affected by an Improper Neutralization of Special Elements used in an SQL Command (&#39;SQL Injection&#39;) vulnerability that could result in arbitrary code execution in the context of the current user. An attacker could exploit this vulnerability to execute arbitrary SQL commands, potentially gaining elevated access or control over the victim&#39;s account or session. Exploitation of this issue does not require user interaction. Scope is changed.</div></div>
-      <div>修補建議：安裝 Adobe 發佈的 APSB26-162 補丁。</div>
-      
-      
-    </div>
-  </div>
-
-  <div class="row" data-wild="0" onclick="if(event.target.tagName!=='A')this.classList.toggle('open')">
-    <div class="row-head">
-      <h2>LiteLLM 權限提升漏洞</h2>
-      <span class="badge crit">CVSS 9.9</span>
-      
-      <span class="badge epss">via github</span>
       <span class="badge">權限提升</span>
-      <span class="badge epss">EPSS 0.00</span>
+      
       <span class="chev">▾</span>
     </div>
-    <div class="row-sum">LiteLLM 密鑰重用導致權限提升與 RCE。</div>
-    <div class="row-foot"><span>CVE-2026-114612</span><span>LiteLLM 1.91.0 之後</span>
-      <a href="https://github.com/advisories/GHSA-7hp6-4w63-5g45" target="_blank">官方補丁 ↗</a>
+    <div class="row-sum">直播端點未驗證身份，攻擊者可偽造登入狀態。</div>
+    <div class="row-foot"><span>CVE-2026-61567</span><span>AVideo 8.1.0 之前</span>
+      <a href="https://github.com/WWBN/AVideo-Encoder/releases/tag/v8.1.0" target="_blank">官方補丁 ↗</a>
     </div>
     <div class="detail">
-      <div class="lang"><div class="lang-tag">中文提煉</div><div>LiteLLM 密鑰重用導致權限提升與 RCE。</div></div>
-      <div class="lang"><div class="lang-tag">英文原文</div><div class="en">LiteLLM: Privilege Escalation to Proxy Admin via Cross-Domain Reuse of the Salt Key
-### Summary
-
-An authenticated user with `internal_user` privileges can escalate to `proxy_admin` and achieve remote code execution. The proxy uses one encryption key for two purposes: sealing secrets at rest and minting session tokens. An attacker exploits this by requesting a new API key with a crafted metadata field containing a forged admin credential as the &#34;secret&#34; value. The proxy encrypts and returns this payload. When this value is then presented as a bearer token, the proxy decrypts it, trusts the forg</div></div>
-      <div>修補建議：升級 LiteLLM 至修復版本。</div>
+      <div class="lang"><div class="lang-tag">中文提煉</div><div>直播端點未驗證身份，攻擊者可偽造登入狀態。</div></div>
+      <div class="lang"><div class="lang-tag">英文原文</div><div class="en">AVideo is a video-sharing Platform. Prior to 8.1.0, the live-streaming endpoint `view/videosListToLive.php` accepts an attacker-named streamer in `webSiteRootURL`, calls `Login::run` in `objects/Login.php`, and trusts the returned JSON as session state. An unauthenticated remote attacker who can host an HTTP service reachable by the encoder can self-grant `isLogged` and `canStream` without legitimate credentials. The endpoint requires only nonempty `playlists_id` and `APISecret` values; `APISecret` is forwarded rather than checked against a stored secret. This path never calls `Streamer::isURL</div></div>
+      <div>修補建議：升級至 8.1.0 或更新版本。</div>
       
-      
+      <div style="margin-top:6px">更多參考：<a href="https://github.com/WWBN/AVideo-Encoder/releases/tag/v8.1.0" target="_blank">[2]</a> <a href="https://github.com/WWBN/AVideo-Encoder/security/advisories/GHSA-rf63-6vwm-wv8p" target="_blank">[3]</a> </div>
     </div>
   </div>
 
@@ -285,6 +284,8 @@ An authenticated user with `internal_user` privileges can escalate to `proxy_adm
 <div class="hist">
   <h3>Archive / 歷史存檔</h3>
   <div class="hist-grid">
+    
+    <a class="hcard" href="2026-10-29.html"><div class="d">2026-10-29</div><div class="c">5 則・gemini</div></a>
     
     <a class="hcard" href="2026-10-28.html"><div class="d">2026-10-28</div><div class="c">5 則・gemini</div></a>
     
@@ -391,8 +392,6 @@ An authenticated user with `internal_user` privileges can escalate to `proxy_adm
   <div class="sub2">琥珀色 = 當日有在野利用，點擊跳轉存檔</div>
   <div class="cal">
   
-    <a class="day" href="2026-09-29.html" title="2026-09-29・高危5則・在野0則">29</a>
-  
     <a class="day" href="2026-09-30.html" title="2026-09-30・高危5則・在野0則">30</a>
   
     <a class="day has w1" href="2026-10-01.html" title="2026-10-01・高危5則・在野1則">10/1</a>
@@ -449,7 +448,9 @@ An authenticated user with `internal_user` privileges can escalate to `proxy_adm
   
     <a class="day has w1" href="2026-10-27.html" title="2026-10-27・高危5則・在野1則">27</a>
   
-    <a class="day has w2" href="2026-10-28.html" title="2026-10-28・高危66則・在野2則">28</a>
+    <a class="day has w2" href="2026-10-28.html" title="2026-10-28・高危5則・在野2則">28</a>
+  
+    <a class="day has w3" href="2026-10-29.html" title="2026-10-29・高危38則・在野3則">29</a>
   
   </div>
   <div class="cal-legend"><span>■ 無在野</span><span style="color:var(--amber)">■ 有在野（顏色越深越多）</span></div>
