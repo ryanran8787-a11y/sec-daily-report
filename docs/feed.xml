@@ -4,7 +4,14 @@
 <link>https://ryanran8787-a11y.github.io/sec-daily-report/</link>
 <description>CVSS&gt;=9.0 或在野利用的高危漏洞日報</description>
 <language>zh-tw</language>
-<lastBuildDate>Thu, 29 Oct 2026 05:17:46 GMT</lastBuildDate>
+<lastBuildDate>Fri, 30 Oct 2026 05:17:07 GMT</lastBuildDate>
+<item>
+<title>2026-10-30 高危 5 則</title>
+<link>https://ryanran8787-a11y.github.io/sec-daily-report/2026-10-30.html</link>
+<guid>https://ryanran8787-a11y.github.io/sec-daily-report/2026-10-30.html</guid>
+<pubDate>Fri, 30 Oct 2026 05:17:06 GMT</pubDate>
+<description><![CDATA[<ul><li>Cisco PHP RCE 在野利用 (CVSS None)</li><li>Cisco SD-WAN 接管在野利用 (CVSS None)</li><li>Cisco Node.js RCE 在野利用 (CVSS None)</li><li>Cisco 防火牆 DoS 在野利用 (CVSS None)</li><li>WordPress 外掛 RCE (CVSS 10.0)</li></ul>]]></description>
+</item>
 <item>
 <title>2026-10-29 高危 5 則</title>
 <link>https://ryanran8787-a11y.github.io/sec-daily-report/2026-10-29.html</link>
@@ -207,12 +214,5 @@
 <guid>https://ryanran8787-a11y.github.io/sec-daily-report/2026-10-01.html</guid>
 <pubDate>Thu, 01 Oct 2026 04:44:12 GMT</pubDate>
 <description><![CDATA[<ul><li>Cisco SD-WAN 權限繞過 (CVSS 9.8)</li><li>SiteSkite RCE 漏洞 (CVSS 10.0)</li><li>JCTables SQL 注入漏洞 (CVSS 10.0)</li><li>OrdaSoft CCK RCE 漏洞 (CVSS 10.0)</li><li>Kobako 沙箱逃逸漏洞 (CVSS 10.0)</li></ul>]]></description>
-</item>
-<item>
-<title>2026-09-30 高危 5 則</title>
-<link>https://ryanran8787-a11y.github.io/sec-daily-report/2026-09-30.html</link>
-<guid>https://ryanran8787-a11y.github.io/sec-daily-report/2026-09-30.html</guid>
-<pubDate>Wed, 30 Sep 2026 04:33:02 GMT</pubDate>
-<description><![CDATA[<ul><li>Dockhand 容器逃逸漏洞 (CVSS 10.0)</li><li>Viidure 硬編碼憑證漏洞 (CVSS 10.0)</li><li>資料庫匯出未授權存取 (CVSS 10.0)</li><li>GEOVIA GDM 遠端代碼執行 (CVSS 9.9)</li><li>pi-llm-wiki 遠端代碼執行 (CVSS 9.9)</li></ul>]]></description>
 </item>
 </channel></rss>

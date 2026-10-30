@@ -1,0 +1,114 @@
+{
+  "date": "2026-10-30",
+  "generated_at": "2026-10-30T05:17:06.775347+00:00",
+  "engine": "gemini",
+  "count": 5,
+  "brief_zh": "今日共5項漏洞，以Cisco系列在野利用最為嚴重，其中Cisco PHP RCE漏洞威脅最高，請優先修補。",
+  "items": [
+    {
+      "cve": "CVE-2026-109618",
+      "title_zh": "Cisco PHP RCE 在野利用",
+      "cvss": null,
+      "type": "RCE",
+      "in_wild": true,
+      "summary_zh": "PHP 記憶體損毀漏洞，導致 Cisco 產品面臨 RCE 風險。",
+      "affected": "Cisco 產品",
+      "affected_versions": "",
+      "fix_hint": "請參考 Cisco 官方安全公告更新。",
+      "patch_url": "https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-php-october26-Jj384Daq?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Vulnerabilities%20in%20PHP%20Affecting%20Cisco%20Products:%20October%202026%26vs_k=1",
+      "epss_warn": false,
+      "epss": 0.99999,
+      "refs": [
+        "https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-php-october26-Jj384Daq?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Vulnerabilities%20in%20PHP%20Affecting%20Cisco%20Products:%20October%202026%26vs_k=1"
+      ],
+      "desc_en": "Vulnerabilities in PHP Affecting Cisco Products: October 2026\n<p>On October 21, the PHP Foundation announced the availability of a Critical PHP Security release addressing two critical vulnerabilities:&nbsp;</p>\n<ul>\n<li>CVE-2026-109618 - RCE via OOM corruption</li>\n<li>CVE-2026-109619 - RCE via stale global state</li>\n</ul>\n<p>For information about these vulnerabilities, see the advisories <a href=\"https://github.com/php/php-src/security/advisories/GHSA-w8hw-w9fx-j79w\" target=\"_blank\" rel=\"noopener\">GHSA-w8hw-w9fx-j79w</a> and <a href=\"https://github.com/php/php-src/security/advisories/GHSA-6",
+      "source": "cisco",
+      "osv_packages": [],
+      "osv_fixed": []
+    },
+    {
+      "cve": "CVE-2026-20127",
+      "title_zh": "Cisco SD-WAN 接管在野利用",
+      "cvss": null,
+      "type": "接管",
+      "in_wild": true,
+      "summary_zh": "SD-WAN 控制器認證機制缺陷，允許遠端攻擊者繞過認證並取得管理權限。",
+      "affected": "Cisco Catalyst SD-WAN Controller, Manager, Validator",
+      "affected_versions": "",
+      "fix_hint": "請參考 Cisco 官方安全公告更新。",
+      "patch_url": "https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-sdwan-rpa-EHchtZk?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Catalyst%20SD-WAN%20Controller%20Authentication%20Bypass%20Vulnerability%26vs_k=1",
+      "epss_warn": false,
+      "epss": 0.89294,
+      "refs": [
+        "https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-sdwan-rpa-EHchtZk?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Catalyst%20SD-WAN%20Controller%20Authentication%20Bypass%20Vulnerability%26vs_k=1"
+      ],
+      "desc_en": "Cisco Catalyst SD-WAN Controller Authentication Bypass Vulnerability\n<p>A vulnerability in the peering authentication in Cisco Catalyst SD-WAN Controller, formerly SD-WAN vSmart, Cisco Catalyst SD-WAN Manager, formerly SD-WAN vManage, and Cisco Catalyst SD-WAN Validator, formerly SD-WAN vBond, could allow an unauthenticated, remote attacker to bypass authentication and obtain administrative privileges on an affected system.</p>\n<p>This vulnerability exists because the peering authentication mechanism in an affected system is not working properly. An attacker could exploit this vulnerability by",
+      "source": "cisco",
+      "osv_packages": [],
+      "osv_fixed": []
+    },
+    {
+      "cve": "CVE-2026-111497",
+      "title_zh": "Cisco Node.js RCE 在野利用",
+      "cvss": null,
+      "type": "RCE",
+      "in_wild": true,
+      "summary_zh": "Node.js Brotli 解碼器漏洞，影響 Cisco 產品導致 RCE 風險。",
+      "affected": "Cisco 產品",
+      "affected_versions": "22.x, 24.x, 26.x",
+      "fix_hint": "請參考 Cisco 官方安全公告更新。",
+      "patch_url": "https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-oct2026-node-js-Jj3SQ19u?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Vulnerabilities%20in%20Node.js%20Affecting%20Cisco%20Products:%20October%202026%26vs_k=1",
+      "epss_warn": false,
+      "epss": 0.82641,
+      "refs": [
+        "https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-oct2026-node-js-Jj3SQ19u?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Vulnerabilities%20in%20Node.js%20Affecting%20Cisco%20Products:%20October%202026%26vs_k=1"
+      ],
+      "desc_en": "Vulnerabilities in Node.js Affecting Cisco Products: October 2026\n<p>On October 21, 2026, Node.js announced the availability of fixes for multiple vulnerabilities across the following supported release lines: 22.x, 24.x, and 26.x.&nbsp;</p>\n<p>These vulnerabilities impact critical operations such as the Brotli decoder, DNS resolution, and TLS certificate validation. The vulnerabilities pose risks for remote code execution and traffic interception. For more information, see <a href=\"https://nodejs.org/en/blog/vulnerability/october-2026-security-releases\" target=\"_blank\" rel=\"noopener\">Node.js S",
+      "source": "cisco",
+      "osv_packages": [],
+      "osv_fixed": []
+    },
+    {
+      "cve": "CVE-2026-76418",
+      "title_zh": "Cisco 防火牆 DoS 在野利用",
+      "cvss": null,
+      "type": "DoS",
+      "in_wild": true,
+      "summary_zh": "SSL VPN 隧道邏輯錯誤，導致設備重啟並引發拒絕服務攻擊。",
+      "affected": "Cisco Secure Firewall ASA, FTD",
+      "affected_versions": "",
+      "fix_hint": "請參考 Cisco 官方安全公告更新。",
+      "patch_url": "https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-asaftd-tunnel-dos-s6mgkb75?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Secure%20Firewall%20Adaptive%20Security%20Appliance%20and%20Secure%20Firewall%20Threat%20Defense%20Software%20Remote%20Access%20SSL%20VPN%20Tunnel%20Denial%20of%20Service%20Vulnerability%26vs_k=1",
+      "epss_warn": false,
+      "epss": 0.00574,
+      "refs": [
+        "https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-asaftd-tunnel-dos-s6mgkb75?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Secure%20Firewall%20Adaptive%20Security%20Appliance%20and%20Secure%20Firewall%20Threat%20Defense%20Software%20Remote%20Access%20SSL%20VPN%20Tunnel%20Denial%20of%20Service%20Vulnerability%26vs_k=1"
+      ],
+      "desc_en": "Cisco Secure Firewall Adaptive Security Appliance and Secure Firewall Threat Defense Software Remote Access SSL VPN Tunnel Denial of Service Vulnerability\n<p>A vulnerability in the Remote Access SSL VPN service of Cisco Secure Firewall Adaptive Security Appliance (ASA) Software and Cisco Secure Firewall Threat Defense (FTD) Software could allow an unauthenticated, remote attacker to cause the device to reload unexpectedly, resulting in a denial of service (DoS) condition.</p>\n<p>This vulnerability is due to logic errors when secondary authentication is configured on a tunnel group. An attacker",
+      "source": "cisco",
+      "osv_packages": [],
+      "osv_fixed": []
+    },
+    {
+      "cve": "CVE-2026-61991",
+      "title_zh": "WordPress 外掛 RCE",
+      "cvss": 10.0,
+      "type": "RCE",
+      "in_wild": false,
+      "summary_zh": "AjaxLoadMore Cache 外掛存在未授權 RCE 漏洞。",
+      "affected": "AjaxLoadMore Cache",
+      "affected_versions": "3.1.1 及更早",
+      "fix_hint": "更新至最新版本。",
+      "patch_url": "https://patchstack.com/database/wordpress/plugin/ajax-load-more-cache/vulnerability/wordpress-ajaxloadmore-cache-plugin-3-1-1-remote-code-execution-rce-vulnerability?_s_id=cve",
+      "epss_warn": false,
+      "epss": null,
+      "refs": [
+        "https://patchstack.com/database/wordpress/plugin/ajax-load-more-cache/vulnerability/wordpress-ajaxloadmore-cache-plugin-3-1-1-remote-code-execution-rce-vulnerability?_s_id=cve"
+      ],
+      "desc_en": "Unauthenticated Remote Code Execution (RCE) in AjaxLoadMore Cache <= 3.1.1 versions.",
+      "source": "nvd",
+      "osv_packages": [],
+      "osv_fixed": []
+    }
+  ]
+}

@@ -1,4 +1,14 @@
 {
+  "CVE-2026-97229": {
+    "vendor": "GitLab",
+    "product": "Community Edition and Enterprise Edition",
+    "dateAdded": "2026-10-29"
+  },
+  "CVE-2026-76418": {
+    "vendor": "Cisco",
+    "product": "Secure Firewall ASA Software and Cisco Secure FTD Software",
+    "dateAdded": "2026-10-29"
+  },
   "CVE-2026-41709": {
     "vendor": "Broadcom",
     "product": "VMware ESX",
