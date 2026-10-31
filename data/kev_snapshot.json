@@ -1,4 +1,14 @@
 {
+  "CVE-2026-118527": {
+    "vendor": "Ivanti",
+    "product": "Connect Secure",
+    "dateAdded": "2026-10-30"
+  },
+  "CVE-2026-111357": {
+    "vendor": "Ivanti",
+    "product": "Connect Secure",
+    "dateAdded": "2026-10-30"
+  },
   "CVE-2026-97229": {
     "vendor": "GitLab",
     "product": "Community Edition and Enterprise Edition",

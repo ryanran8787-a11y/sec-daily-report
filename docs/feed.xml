@@ -4,7 +4,14 @@
 <link>https://ryanran8787-a11y.github.io/sec-daily-report/</link>
 <description>CVSS&gt;=9.0 或在野利用的高危漏洞日報</description>
 <language>zh-tw</language>
-<lastBuildDate>Fri, 30 Oct 2026 05:17:07 GMT</lastBuildDate>
+<lastBuildDate>Sat, 31 Oct 2026 05:00:17 GMT</lastBuildDate>
+<item>
+<title>2026-10-31 高危 5 則</title>
+<link>https://ryanran8787-a11y.github.io/sec-daily-report/2026-10-31.html</link>
+<guid>https://ryanran8787-a11y.github.io/sec-daily-report/2026-10-31.html</guid>
+<pubDate>Sat, 31 Oct 2026 05:00:17 GMT</pubDate>
+<description><![CDATA[<ul><li>Cisco PHP RCE 漏洞 (CVSS None)</li><li>Cisco SD-WAN 認證繞過 (CVSS None)</li><li>Cisco Node.js RCE 漏洞 (CVSS None)</li><li>Cisco ASA/FTD DoS 漏洞 (CVSS None)</li><li>CoPilot 任意檔案寫入漏洞 (CVSS 10.0)</li></ul>]]></description>
+</item>
 <item>
 <title>2026-10-30 高危 5 則</title>
 <link>https://ryanran8787-a11y.github.io/sec-daily-report/2026-10-30.html</link>
@@ -207,12 +214,5 @@
 <guid>https://ryanran8787-a11y.github.io/sec-daily-report/2026-10-02.html</guid>
 <pubDate>Fri, 02 Oct 2026 12:59:28 GMT</pubDate>
 <description><![CDATA[<ul><li>FortiMail 目錄遍歷漏洞 (CVSS 9.8)</li><li>Cisco SD-WAN 接管漏洞 (CVSS None)</li><li>SiYuan SQL 注入漏洞 (CVSS 10.0)</li><li>vm2 沙箱逃逸 RCE (CVSS 10.0)</li><li>vm2 資訊洩漏漏洞 (CVSS 10.0)</li></ul>]]></description>
-</item>
-<item>
-<title>2026-10-01 高危 5 則</title>
-<link>https://ryanran8787-a11y.github.io/sec-daily-report/2026-10-01.html</link>
-<guid>https://ryanran8787-a11y.github.io/sec-daily-report/2026-10-01.html</guid>
-<pubDate>Thu, 01 Oct 2026 04:44:12 GMT</pubDate>
-<description><![CDATA[<ul><li>Cisco SD-WAN 權限繞過 (CVSS 9.8)</li><li>SiteSkite RCE 漏洞 (CVSS 10.0)</li><li>JCTables SQL 注入漏洞 (CVSS 10.0)</li><li>OrdaSoft CCK RCE 漏洞 (CVSS 10.0)</li><li>Kobako 沙箱逃逸漏洞 (CVSS 10.0)</li></ul>]]></description>
 </item>
 </channel></rss>

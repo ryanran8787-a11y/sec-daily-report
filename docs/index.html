@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>網安每日報 2026-10-30</title>
+<title>網安每日報 2026-10-31</title>
 <style>
 /* Geist 設計語言（灰階層次、細邊框、小圓角），logo 與配色為原創 */
 :root{
@@ -111,7 +111,7 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
 <div class="nav"><div class="nav-inner">
   <svg class="logo" viewBox="0 0 24 24"><path d="M12 1.8 3.5 5v6.1c0 5.1 3.6 9.6 8.5 10.9 4.9-1.3 8.5-5.8 8.5-10.9V5L12 1.8Zm0 2.4 6.5 2.6v4.3c0 4-2.7 7.6-6.5 8.7-3.8-1.1-6.5-4.7-6.5-8.7V6.8L12 4.2Zm-1.4 9.1 4-4 1.4 1.4-5.4 5.4-2.6-2.6 1.4-1.4 1.2 1.2Z"/></svg>
   <div class="brand">SecDaily <span>/ 網安每日報</span></div>
-  <div class="nav-right"><span class="dot"></span>2026-10-30・gemini<a class="rss-link" href="feed.xml" title="RSS 訂閱">RSS</a><button class="theme-btn" onclick="toggleTheme()" title="切換淺色/深色">◐</button></div>
+  <div class="nav-right"><span class="dot"></span>2026-10-31・gemini<a class="rss-link" href="feed.xml" title="RSS 訂閱">RSS</a><button class="theme-btn" onclick="toggleTheme()" title="切換淺色/深色">◐</button></div>
 </div></div>
 
 <div class="wrap">
@@ -119,7 +119,7 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
   <div class="eyebrow">NVD + KEV + EPSS + OSV + GitHub + Cisco ・ 每天 08:00（台北）自動更新</div>
   <h1><span class="grad">今日高危漏洞</span></h1>
   <p class="lede">僅收錄 CVSS ≥ 9.0、在野利用或 EPSS 利用預警項目。點擊任一條目展開完整描述與修補建議。</p>
-  <div class="brief"><span>AI 總評</span>今日共5項漏洞，以Cisco系列在野利用最為嚴重，其中Cisco PHP RCE漏洞威脅最高，請優先修補。</div>
+  <div class="brief"><span>AI 總評</span>今日 5 則高危漏洞以 Cisco RCE 為主，應優先關注已遭利用的 Cisco PHP RCE 漏洞。</div>
 </div>
 
 <div class="stats">
@@ -147,7 +147,7 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
 
   <div class="row" data-wild="1" onclick="if(event.target.tagName!=='A')this.classList.toggle('open')">
     <div class="row-head">
-      <h2>Cisco PHP RCE 在野利用</h2>
+      <h2>Cisco PHP RCE 漏洞</h2>
       
       <span class="badge wild">● 在野利用</span>
       <span class="badge epss">via cisco</span>
@@ -155,12 +155,12 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
       <span class="badge epss">EPSS 1.00</span>
       <span class="chev">▾</span>
     </div>
-    <div class="row-sum">PHP 記憶體損毀漏洞，導致 Cisco 產品面臨 RCE 風險。</div>
-    <div class="row-foot"><span>CVE-2026-109618</span><span>Cisco 產品</span>
+    <div class="row-sum">PHP 記憶體損壞導致遠端程式碼執行漏洞。</div>
+    <div class="row-foot"><span>CVE-2026-109618</span><span>Cisco Products (using PHP)</span>
       <a href="https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-php-october26-Jj384Daq?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Vulnerabilities%20in%20PHP%20Affecting%20Cisco%20Products:%20October%202026%26vs_k=1" target="_blank">官方補丁 ↗</a>
     </div>
     <div class="detail">
-      <div class="lang"><div class="lang-tag">中文提煉</div><div>PHP 記憶體損毀漏洞，導致 Cisco 產品面臨 RCE 風險。</div></div>
+      <div class="lang"><div class="lang-tag">中文提煉</div><div>PHP 記憶體損壞導致遠端程式碼執行漏洞。</div></div>
       <div class="lang"><div class="lang-tag">英文原文</div><div class="en">Vulnerabilities in PHP Affecting Cisco Products: October 2026
 &lt;p&gt;On October 21, the PHP Foundation announced the availability of a Critical PHP Security release addressing two critical vulnerabilities:&amp;nbsp;&lt;/p&gt;
 &lt;ul&gt;
@@ -168,7 +168,7 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
 &lt;li&gt;CVE-2026-109619 - RCE via stale global state&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;For information about these vulnerabilities, see the advisories &lt;a href=&#34;https://github.com/php/php-src/security/advisories/GHSA-w8hw-w9fx-j79w&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;GHSA-w8hw-w9fx-j79w&lt;/a&gt; and &lt;a href=&#34;https://github.com/php/php-src/security/advisories/GHSA-6</div></div>
-      <div>修補建議：請參考 Cisco 官方安全公告更新。</div>
+      <div>修補建議：更新至 PHP 安全修復版本。</div>
       
       
     </div>
@@ -176,7 +176,7 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
 
   <div class="row" data-wild="1" onclick="if(event.target.tagName!=='A')this.classList.toggle('open')">
     <div class="row-head">
-      <h2>Cisco SD-WAN 接管在野利用</h2>
+      <h2>Cisco SD-WAN 認證繞過</h2>
       
       <span class="badge wild">● 在野利用</span>
       <span class="badge epss">via cisco</span>
@@ -184,16 +184,16 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
       <span class="badge epss">EPSS 0.89</span>
       <span class="chev">▾</span>
     </div>
-    <div class="row-sum">SD-WAN 控制器認證機制缺陷，允許遠端攻擊者繞過認證並取得管理權限。</div>
-    <div class="row-foot"><span>CVE-2026-20127</span><span>Cisco Catalyst SD-WAN Controller, Manager, Validator</span>
+    <div class="row-sum">SD-WAN 控制器認證繞過可取得管理權限。</div>
+    <div class="row-foot"><span>CVE-2026-20127</span><span>Cisco Catalyst SD-WAN Controller/Manager/Validator</span>
       <a href="https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-sdwan-rpa-EHchtZk?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Catalyst%20SD-WAN%20Controller%20Authentication%20Bypass%20Vulnerability%26vs_k=1" target="_blank">官方補丁 ↗</a>
     </div>
     <div class="detail">
-      <div class="lang"><div class="lang-tag">中文提煉</div><div>SD-WAN 控制器認證機制缺陷，允許遠端攻擊者繞過認證並取得管理權限。</div></div>
+      <div class="lang"><div class="lang-tag">中文提煉</div><div>SD-WAN 控制器認證繞過可取得管理權限。</div></div>
       <div class="lang"><div class="lang-tag">英文原文</div><div class="en">Cisco Catalyst SD-WAN Controller Authentication Bypass Vulnerability
 &lt;p&gt;A vulnerability in the peering authentication in Cisco Catalyst SD-WAN Controller, formerly SD-WAN vSmart, Cisco Catalyst SD-WAN Manager, formerly SD-WAN vManage, and Cisco Catalyst SD-WAN Validator, formerly SD-WAN vBond, could allow an unauthenticated, remote attacker to bypass authentication and obtain administrative privileges on an affected system.&lt;/p&gt;
 &lt;p&gt;This vulnerability exists because the peering authentication mechanism in an affected system is not working properly. An attacker could exploit this vulnerability by</div></div>
-      <div>修補建議：請參考 Cisco 官方安全公告更新。</div>
+      <div>修補建議：參考 Cisco 安全公告進行更新。</div>
       
       
     </div>
@@ -201,7 +201,7 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
 
   <div class="row" data-wild="1" onclick="if(event.target.tagName!=='A')this.classList.toggle('open')">
     <div class="row-head">
-      <h2>Cisco Node.js RCE 在野利用</h2>
+      <h2>Cisco Node.js RCE 漏洞</h2>
       
       <span class="badge wild">● 在野利用</span>
       <span class="badge epss">via cisco</span>
@@ -209,16 +209,16 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
       <span class="badge epss">EPSS 0.83</span>
       <span class="chev">▾</span>
     </div>
-    <div class="row-sum">Node.js Brotli 解碼器漏洞，影響 Cisco 產品導致 RCE 風險。</div>
-    <div class="row-foot"><span>CVE-2026-111497</span><span>Cisco 產品 22.x, 24.x, 26.x</span>
+    <div class="row-sum">Node.js Brotli 解碼器緩衝區溢位導致 RCE。</div>
+    <div class="row-foot"><span>CVE-2026-111497</span><span>Cisco Products (using Node.js) 22.x, 24.x, 26.x</span>
       <a href="https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-oct2026-node-js-Jj3SQ19u?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Vulnerabilities%20in%20Node.js%20Affecting%20Cisco%20Products:%20October%202026%26vs_k=1" target="_blank">官方補丁 ↗</a>
     </div>
     <div class="detail">
-      <div class="lang"><div class="lang-tag">中文提煉</div><div>Node.js Brotli 解碼器漏洞，影響 Cisco 產品導致 RCE 風險。</div></div>
+      <div class="lang"><div class="lang-tag">中文提煉</div><div>Node.js Brotli 解碼器緩衝區溢位導致 RCE。</div></div>
       <div class="lang"><div class="lang-tag">英文原文</div><div class="en">Vulnerabilities in Node.js Affecting Cisco Products: October 2026
 &lt;p&gt;On October 21, 2026, Node.js announced the availability of fixes for multiple vulnerabilities across the following supported release lines: 22.x, 24.x, and 26.x.&amp;nbsp;&lt;/p&gt;
 &lt;p&gt;These vulnerabilities impact critical operations such as the Brotli decoder, DNS resolution, and TLS certificate validation. The vulnerabilities pose risks for remote code execution and traffic interception. For more information, see &lt;a href=&#34;https://nodejs.org/en/blog/vulnerability/october-2026-security-releases&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Node.js S</div></div>
-      <div>修補建議：請參考 Cisco 官方安全公告更新。</div>
+      <div>修補建議：更新 Node.js 至安全版本。</div>
       
       
     </div>
@@ -226,7 +226,7 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
 
   <div class="row" data-wild="1" onclick="if(event.target.tagName!=='A')this.classList.toggle('open')">
     <div class="row-head">
-      <h2>Cisco 防火牆 DoS 在野利用</h2>
+      <h2>Cisco ASA/FTD DoS 漏洞</h2>
       
       <span class="badge wild">● 在野利用</span>
       <span class="badge epss">via cisco</span>
@@ -234,16 +234,16 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
       <span class="badge epss">EPSS 0.01</span>
       <span class="chev">▾</span>
     </div>
-    <div class="row-sum">SSL VPN 隧道邏輯錯誤，導致設備重啟並引發拒絕服務攻擊。</div>
-    <div class="row-foot"><span>CVE-2026-76418</span><span>Cisco Secure Firewall ASA, FTD</span>
+    <div class="row-sum">SSL VPN 隧道邏輯錯誤導致設備重啟。</div>
+    <div class="row-foot"><span>CVE-2026-76418</span><span>Cisco ASA, Cisco FTD</span>
       <a href="https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-asaftd-tunnel-dos-s6mgkb75?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Secure%20Firewall%20Adaptive%20Security%20Appliance%20and%20Secure%20Firewall%20Threat%20Defense%20Software%20Remote%20Access%20SSL%20VPN%20Tunnel%20Denial%20of%20Service%20Vulnerability%26vs_k=1" target="_blank">官方補丁 ↗</a>
     </div>
     <div class="detail">
-      <div class="lang"><div class="lang-tag">中文提煉</div><div>SSL VPN 隧道邏輯錯誤，導致設備重啟並引發拒絕服務攻擊。</div></div>
+      <div class="lang"><div class="lang-tag">中文提煉</div><div>SSL VPN 隧道邏輯錯誤導致設備重啟。</div></div>
       <div class="lang"><div class="lang-tag">英文原文</div><div class="en">Cisco Secure Firewall Adaptive Security Appliance and Secure Firewall Threat Defense Software Remote Access SSL VPN Tunnel Denial of Service Vulnerability
 &lt;p&gt;A vulnerability in the Remote Access SSL VPN service of Cisco Secure Firewall Adaptive Security Appliance (ASA) Software and Cisco Secure Firewall Threat Defense (FTD) Software could allow an unauthenticated, remote attacker to cause the device to reload unexpectedly, resulting in a denial of service (DoS) condition.&lt;/p&gt;
 &lt;p&gt;This vulnerability is due to logic errors when secondary authentication is configured on a tunnel group. An attacker</div></div>
-      <div>修補建議：請參考 Cisco 官方安全公告更新。</div>
+      <div>修補建議：升級 ASA 或 FTD 軟體版本。</div>
       
       
     </div>
@@ -256,24 +256,24 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
 
   <div class="row" data-wild="0" onclick="if(event.target.tagName!=='A')this.classList.toggle('open')">
     <div class="row-head">
-      <h2>WordPress 外掛 RCE</h2>
+      <h2>CoPilot 任意檔案寫入漏洞</h2>
       <span class="badge crit">CVSS 10.0</span>
       
       
-      <span class="badge">RCE</span>
+      <span class="badge">其他高危</span>
       
       <span class="chev">▾</span>
     </div>
-    <div class="row-sum">AjaxLoadMore Cache 外掛存在未授權 RCE 漏洞。</div>
-    <div class="row-foot"><span>CVE-2026-61991</span><span>AjaxLoadMore Cache 3.1.1 及更早</span>
-      <a href="https://patchstack.com/database/wordpress/plugin/ajax-load-more-cache/vulnerability/wordpress-ajaxloadmore-cache-plugin-3-1-1-remote-code-execution-rce-vulnerability?_s_id=cve" target="_blank">官方補丁 ↗</a>
+    <div class="row-sum">目錄遍歷漏洞導致任意 JSON 檔案寫入。</div>
+    <div class="row-foot"><span>CVE-2026-61738</span><span>SOCFortress CoPilot 0.1.77 之前</span>
+      <a href="https://github.com/socfortress/CoPilot/commit/1881ef8d28bc7f45ffa88d7ba4fcca7302355508" target="_blank">官方補丁 ↗</a>
     </div>
     <div class="detail">
-      <div class="lang"><div class="lang-tag">中文提煉</div><div>AjaxLoadMore Cache 外掛存在未授權 RCE 漏洞。</div></div>
-      <div class="lang"><div class="lang-tag">英文原文</div><div class="en">Unauthenticated Remote Code Execution (RCE) in AjaxLoadMore Cache &lt;= 3.1.1 versions.</div></div>
-      <div>修補建議：更新至最新版本。</div>
+      <div class="lang"><div class="lang-tag">中文提煉</div><div>目錄遍歷漏洞導致任意 JSON 檔案寫入。</div></div>
+      <div class="lang"><div class="lang-tag">英文原文</div><div class="en">SOCFortress CoPilot focuses on providing a single pane of glass for all your security operations needs. Prior to 0.1.77, `POST /api/scoutsuite/generate-gcp-report` in `backend/app/integrations/scoutsuite/routes/scoutsuite.py` admits admin and analyst users and validates the uploaded content as `GCPScoutSuiteJSON`, but passes raw `file.filename` from the multipart header to `save_file_to_directory` in `backend/app/integrations/scoutsuite/services/scoutsuite.py`. The writer combines this filename with `scoutsuite-report` using `os.path.join` without sanitization or a resolved-path containment ch</div></div>
+      <div>修補建議：升級至 CoPilot 0.1.77 或更高版本。</div>
       
-      
+      <div style="margin-top:6px">更多參考：<a href="https://github.com/socfortress/CoPilot/commit/bfa630b65d554670c7462a32ce6fd4e3cbd0254c" target="_blank">[2]</a> <a href="https://github.com/socfortress/CoPilot/pull/940" target="_blank">[3]</a> <a href="https://github.com/socfortress/CoPilot/pull/941" target="_blank">[4]</a> <a href="https://github.com/socfortress/CoPilot/security/advisories/GHSA-q3g8-3cf7-744f" target="_blank">[5]</a> </div>
     </div>
   </div>
 
@@ -286,6 +286,8 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
 <div class="hist">
   <h3>Archive / 歷史存檔</h3>
   <div class="hist-grid">
+    
+    <a class="hcard" href="2026-10-31.html"><div class="d">2026-10-31</div><div class="c">5 則・gemini</div></a>
     
     <a class="hcard" href="2026-10-30.html"><div class="d">2026-10-30</div><div class="c">5 則・gemini</div></a>
     
@@ -396,8 +398,6 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
   <div class="sub2">琥珀色 = 當日有在野利用，點擊跳轉存檔</div>
   <div class="cal">
   
-    <a class="day has w1" href="2026-10-01.html" title="2026-10-01・高危5則・在野1則">10/1</a>
-  
     <a class="day has w2" href="2026-10-02.html" title="2026-10-02・高危5則・在野2則">02</a>
   
     <a class="day has w1" href="2026-10-03.html" title="2026-10-03・高危5則・在野1則">03</a>
@@ -454,7 +454,9 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color
   
     <a class="day has w3" href="2026-10-29.html" title="2026-10-29・高危5則・在野3則">29</a>
   
-    <a class="day has w3" href="2026-10-30.html" title="2026-10-30・高危65則・在野4則">30</a>
+    <a class="day has w3" href="2026-10-30.html" title="2026-10-30・高危5則・在野4則">30</a>
+  
+    <a class="day has w3" href="2026-10-31.html" title="2026-10-31・高危48則・在野4則">31</a>
   
   </div>
   <div class="cal-legend"><span>■ 無在野</span><span style="color:var(--amber)">■ 有在野（顏色越深越多）</span></div>
